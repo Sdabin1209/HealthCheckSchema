@@ -1,0 +1,25 @@
+definition: GeneratorOutput
+nodes:
+  ? ''
+  : title: LoRA-B 출력
+    meaning: 응답 문장.
+    why: 사용자에게 할 말과, 그것이 대체 출력인지를 함께 내야 모델 품질을 따로 센다.
+    case_refs:
+    - J7c
+    - J3
+    evidence_status: requirement_reference
+  /properties/response_text:
+    title: 응답 문장
+    meaning: 사용자에게 할 말.
+    why: 사용자가 듣는 말은 이것 하나다. 프론트가 TTS로 읽는다.
+    case_refs:
+    - J7c
+    - J3
+    evidence_status: requirement_reference
+  /properties/is_fallback:
+    title: 대체 출력
+    meaning: 출력 계약을 지키지 못해 문장 재료를 그대로 읽는 문장을 냈으면 true.
+    why: 모델 품질을 따로 세고, 턴은 실패로 보지 않는다(J7).
+    case_refs:
+    - J7c
+    evidence_status: requirement_reference

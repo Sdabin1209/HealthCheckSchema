@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_info": {
+      "$ref": "../../types/SessionInfo.schema.json"
+    },
+    "answer_records": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRecord.schema.json"
+      }
+    },
+    "skipped": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SkipEntry.schema.json"
+      }
+    },
+    "confirm_stopped": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRef.schema.json"
+      }
+    },
+    "session_status": {
+      "$ref": "../../types/SessionStatus.schema.json"
+    },
+    "pause_history": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/PauseEntry.schema.json"
+      }
+    }
+  },
+  "required": [
+    "session_info",
+    "answer_records",
+    "skipped",
+    "confirm_stopped",
+    "session_status",
+    "pause_history"
+  ],
+  "additionalProperties": false
+}

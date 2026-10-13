@@ -1,0 +1,69 @@
+{
+  "id": "shape-ResponseGeneratorInput",
+  "contract": "ResponseGeneratorInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A1"
+  ],
+  "input": {
+    "directive": {
+      "action": "ASK_NEXT",
+      "targets": [
+        {
+          "question_id": "Q1",
+          "whole_question": true
+        }
+      ],
+      "target_pending_id": null,
+      "awaiting": {
+        "action": "ASK_NEXT",
+        "targets": [
+          {
+            "question_id": "Q1",
+            "whole_question": true
+          }
+        ],
+        "target_pending_id": null,
+        "say_values": []
+      },
+      "say_values": [],
+      "reask_reasons": [],
+      "notices": [],
+      "sentence_materials": {
+        "question_sentences": [
+          {
+            "question_id": "Q1",
+            "sentence": "담배는 피우시나요?"
+          }
+        ],
+        "refusal_explanations": [],
+        "reask_sentences": [],
+        "choices": [
+          {
+            "slot": {
+              "question_id": "Q1",
+              "repeat_key": "",
+              "slot_id": "상태"
+            },
+            "choices": [
+              "현재 피움",
+              "끊음",
+              "안 피움"
+            ]
+          }
+        ],
+        "guide_sentences": [],
+        "fixed_sentences": []
+      }
+    },
+    "utterance": null
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A1",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/generator",
+    "correctness_claim": false
+  }
+}

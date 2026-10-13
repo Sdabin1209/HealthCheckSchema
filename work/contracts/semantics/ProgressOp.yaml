@@ -1,0 +1,48 @@
+definition: ProgressOp
+nodes:
+  ? ''
+  : title: 진행 조작
+    meaning: 진행에 대한 요청의 종류.
+    why: 반복은 직전 말을 다시, 대기는 기다림, 나중에는 미룸, 중단은 확인으로 응답이 서로 달라서 어떤 요청인지 구분해야 한다.
+    case_refs:
+    - D1a
+    - D2
+    - D3a
+    - D4
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 반복
+    meaning: 다시 말해 달라
+    why: 직전 말을 다시 들으려는 요청이다. 새로 묻지 않고 같은 말을 되풀이해야 한다.
+    case_refs:
+    - D1a
+    - D1b
+    - R8
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 대기
+    meaning: 기다려 달라
+    why: 잠깐 기다려 달라는 요청이다. 다음 질문으로 재촉하지 않아야 한다.
+    case_refs:
+    - D2
+    - R2
+    - X5
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 나중에
+    meaning: 이 문항은 나중에
+    why: 지금 문항을 나중에 하겠다는 요청이다. 다른 것을 먼저 묻고 맨 뒤에 다시 묻는다.
+    case_refs:
+    - D3a
+    - D3c
+    - N7a
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 중단
+    meaning: 그만하겠다
+    why: 그만하겠다는 요청이다. 잘못 들었을 수 있어 바로 끝내지 않고 확인한다.
+    case_refs:
+    - D4
+    - R4
+    - S5a
+    evidence_status: requirement_reference

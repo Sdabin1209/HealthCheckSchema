@@ -1,0 +1,205 @@
+definition: Judgment
+nodes:
+  ? ''
+  : title: 판정
+    meaning: 대상 하나에 대해 이번 발화가 뜻하는 것.
+    why: 저장 판단은 정정(새 revision)과 충돌(기존 값 유지)을 구분해야 하므로 판정이 저장보다 먼저 있어야 한다.
+    case_refs:
+    - A2
+    - B2
+    - C3
+    evidence_status: requirement_reference
+  /properties/target:
+    title: 대상
+    meaning: 판정의 대상. 문항 전체 가능.
+    why: 문항 전체 모름·거절이 있다(B7).
+    case_refs:
+    - A2
+    - B1
+    - S3b
+    evidence_status: requirement_reference
+  /properties/status:
+    title: 상태
+    meaning: 공유 어휘 상태. 확인-긍정·부정만으로 확인 대기를 받아들이거나 버리는 판정은 없음.
+    why: '"네"는 새 값을 말한 것이 아니라 상태가 없다. 받아들임·버림은 확인 대기 처리로 나타낸다(C4).'
+    case_refs:
+    - A2
+    - B2
+    - C3
+    evidence_status: requirement_reference
+  /properties/status/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 확인-긍정·부정만으로 확인 대기를 받아들이거나 버리는 판정이다(C4a, G10 둘째 턴). 6절 표가 이 판정을 {대상, 상태 없음, 받아들임·버림}으로 내므로, 없음이 "값에 대한 판정이
+      아님"을 뜻한다.
+    case_refs:
+    - C4a
+    - X6
+    - G10
+    evidence_status: requirement_reference
+  /properties/reasons:
+    title: 사유
+    meaning: 애매·누락일 때 되물을 이유.
+    why: LoRA-B가 무엇을 다시 말해 달라는지 말해야 한다(B2, B3).
+    case_refs:
+    - B2
+    - B3a
+    - B4
+    evidence_status: requirement_reference
+  /properties/value_now:
+    title: 이번 값
+    meaning: 정상·정정·충돌일 때 표준 값.
+    why: 정상·정정이면 저장할 값, 충돌이면 확인 대기에 둘 값이다. 판정에 있어야 저장 판단이 값 규칙을 몰라도 쓴다.
+    case_refs:
+    - A2
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /properties/value_now/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 정상·정정·충돌이 아니어서 저장할 표준 값이 없는 판정이다(B7a 모름, B3a 애매, C4a 확인 응답만). 7절 1이 값을 쓰는 동작을 이 값이 있을 때만 낸다.
+    case_refs:
+    - B7a
+    - B3a
+    - C4a
+    evidence_status: requirement_reference
+  /properties/said_value:
+    title: 이번에 말한 값
+    meaning: 애매일 때 항목의 원문 값. 같은 슬롯의 다른 값 여럿이면 " / "로 잇는다.
+    why: 되물을 때 사용자가 한 말을 그대로 짚는다(B3 "두세 병이라고 하셨는데").
+    case_refs:
+    - B3a
+    - B10
+    - N10
+    evidence_status: requirement_reference
+  /properties/said_value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 애매가 아닌 판정이다(B1 정상, B7a 모름). 8-2절 11이 구체화 요청에만 이 값을 말할 값으로 쓰므로, 없음이면 되물을 때 짚을 원문이 없다.
+    case_refs:
+    - B1
+    - B7a
+    evidence_status: requirement_reference
+  /properties/pending_handling:
+    title: 확인 대기 처리
+    meaning: 이 판정이 그 슬롯 확인 대기에 하는 일.
+    why: 확인 대기를 둘지, 받아들일지, 버릴지를 저장 판단에 알린다.
+    case_refs:
+    - C3
+    - C4a
+    - C4b
+    evidence_status: requirement_reference
+  /properties/pending_handling/oneOf/0:
+    title: 새로 둠
+    meaning: 새 충돌 값을 확인 대기에 둔다(있던 것은 대체)
+    why: 표지 없이 다른 값을 말했으므로 기존 값을 지키고 새 값을 확인 대기에 둔다. 있던 확인 대기는 새 값으로 바뀐다.
+    case_refs:
+    - C3
+    - N6
+    - N13
+    evidence_status: requirement_reference
+  /properties/pending_handling/oneOf/1:
+    title: 받아들임
+    meaning: 확인 대기 값을 현재값으로
+    why: 확인 대기 값이 맞다는 응답이므로 그 값을 현재값으로 올리게 한다.
+    case_refs:
+    - C4a
+    - N3b
+    - S2e
+    evidence_status: requirement_reference
+  /properties/pending_handling/oneOf/2:
+    title: 버림
+    meaning: 확인 대기를 지운다
+    why: 기존 답이 맞다는 응답("아니요", 기존 값을 다시 말함)이거나 정정·모름·거절로 확인이 필요 없어졌으므로 확인 대기를 지우게 한다.
+    case_refs:
+    - C4b
+    - N3a
+    - R9
+    evidence_status: requirement_reference
+  /properties/pending_handling/oneOf/3:
+    title: 없음
+    meaning: 확인 대기에 손대지 않음
+    why: 확인 대기가 없거나 이 판정(애매·누락 등)이 확인 대기를 건드리지 않음을 분명히 해 저장 판단이 손대지 않게 한다.
+    case_refs:
+    - A2
+    - B1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/target_pending_ids:
+    title: 대상 확인 대기 ID
+    meaning: 받아들임·버림일 때 그 확인 대기 ID. 문항 전체 모름·거절이 여럿을 버리면 여럿.
+    why: 받아들이거나 버릴 확인 대기를 ID로 가리켜야, 그 사이 같은 슬롯에 생긴 다른 확인 대기를 잘못 처리하지 않는다.
+    case_refs:
+    - C4a
+    - N17
+    - X2
+    evidence_status: requirement_reference
+  /properties/mismatched_slots:
+    title: 맞지 않는 슬롯
+    meaning: 사유에 "다른 답과 맞지 않음"이 있을 때 상대 슬롯.
+    why: Plan이 상대 값을 말할 값에 담아 두 값을 함께 짚게 한다(B4).
+    case_refs:
+    - B4
+    - S2b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/risk_rule:
+    title: 위험 기준
+    meaning: 이번 값이 있을 때 정규화·검증의 표시를 옮긴다.
+    why: Plan이 즉시 위험이면 멈추고, 저장 판단이 위험 표시를 남긴다(G3, G4).
+    case_refs:
+    - G3
+    - G4
+    evidence_status: requirement_reference
+  /properties/risk_rule/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 이번 값이 없거나 그 값이 위험 기준에 걸리지 않은 판정이다(B1, B7a). 8-1 규칙 1이 즉시 위험 기준이 있을 때만 멈추므로, 없음이 "이 판정으로는 멈추지 않음"이다.
+    case_refs:
+    - B1
+    - B7a
+    evidence_status: requirement_reference
+  /properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 정규화·판정·저장·확인 후보·응답 재료에서 정밀도와 근거가 사라지지 않아야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference
+  /properties/problem_details:
+    title: ''
+    meaning: 판정과 연관된 세부 문제 코드·대상. 생략은 세부 설명 미수집이다.
+    why: 판정 경계를 통과할 때 정형 검사에서 발견한 사유 정보를 잃지 않아야 한다.
+    case_refs:
+    - T9
+    evidence_status: requirement_reference
+  /allOf/0/if/properties/value_metadata:
+    title: 메타데이터 일관성
+    meaning: exact·approximate 메타데이터는 실제 값이 있는 경우에만 허용한다. 미확보 값에는 unspecified만 사용한다.
+    why: 값이 없는데 확정 또는 근사값이 있다고 표현하는 구조적 모순을 거부한다. 입력의 정답이나 정밀도 분류는 판단하지 않는다.
+    case_refs:
+    - T1
+    evidence_status: requirement_reference
+  /allOf/0/if/properties/value_metadata/properties/precision:
+    title: 메타데이터 일관성
+    meaning: exact·approximate 메타데이터는 실제 값이 있는 경우에만 허용한다. 미확보 값에는 unspecified만 사용한다.
+    why: 값이 없는데 확정 또는 근사값이 있다고 표현하는 구조적 모순을 거부한다. 입력의 정답이나 정밀도 분류는 판단하지 않는다.
+    case_refs:
+    - T1
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/value_now:
+    title: 메타데이터 일관성
+    meaning: exact·approximate 메타데이터는 실제 값이 있는 경우에만 허용한다. 미확보 값에는 unspecified만 사용한다.
+    why: 값이 없는데 확정 또는 근사값이 있다고 표현하는 구조적 모순을 거부한다. 입력의 정답이나 정밀도 분류는 판단하지 않는다.
+    case_refs:
+    - T1
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/value_now/not:
+    title: 메타데이터 일관성
+    meaning: exact·approximate 메타데이터는 실제 값이 있는 경우에만 허용한다. 미확보 값에는 unspecified만 사용한다.
+    why: 값이 없는데 확정 또는 근사값이 있다고 표현하는 구조적 모순을 거부한다. 입력의 정답이나 정밀도 분류는 판단하지 않는다.
+    case_refs:
+    - T1
+    evidence_status: requirement_reference

@@ -1,0 +1,119 @@
+{
+  "id": "shape-UtteranceParserInput",
+  "contract": "UtteranceParserInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "utterance": "담배 안 피워요",
+    "last_directive": null,
+    "awaiting_questions": [],
+    "question_names": [
+      {
+        "question_id": "Q1",
+        "name": "흡연",
+        "slots": [
+          "상태"
+        ]
+      },
+      {
+        "question_id": "Q2",
+        "name": "흡연량",
+        "slots": [
+          "개비"
+        ]
+      },
+      {
+        "question_id": "Q3a",
+        "name": "음주 여부",
+        "slots": [
+          "여부"
+        ]
+      },
+      {
+        "question_id": "Q3b",
+        "name": "음주 상세",
+        "slots": [
+          "빈도",
+          "종류",
+          "1회양"
+        ]
+      },
+      {
+        "question_id": "Q4",
+        "name": "폭음",
+        "slots": [
+          "여부"
+        ]
+      },
+      {
+        "question_id": "Q5",
+        "name": "수면",
+        "slots": [
+          "시간"
+        ]
+      },
+      {
+        "question_id": "Q6",
+        "name": "죽고 싶은 생각",
+        "slots": [
+          "여부"
+        ]
+      },
+      {
+        "question_id": "Q7",
+        "name": "혈압",
+        "slots": [
+          "수축기",
+          "이완기"
+        ]
+      },
+      {
+        "question_id": "Q8",
+        "name": "운동",
+        "slots": [
+          "횟수"
+        ]
+      },
+      {
+        "question_id": "Q3c",
+        "name": "주종별 음주량",
+        "slots": [
+          "양"
+        ]
+      }
+    ],
+    "answered_slots": [],
+    "guide_list": [
+      {
+        "guide_id": "설명",
+        "selection_criterion": "질문에 나온 말의 뜻을 물음"
+      },
+      {
+        "guide_id": "목적",
+        "selection_criterion": "이 질문을 왜 하는지 물음"
+      },
+      {
+        "guide_id": "진행",
+        "selection_criterion": "얼마나 남았는지 물음"
+      },
+      {
+        "guide_id": "개인정보",
+        "selection_criterion": "답을 누가 보는지, 어디에 쓰는지 물음"
+      },
+      {
+        "guide_id": "의료판단",
+        "selection_criterion": "자기 답이 건강상 괜찮은지 판단을 물음"
+      }
+    ]
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/parser",
+    "correctness_claim": false
+  }
+}

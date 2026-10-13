@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "proposals/SessionLoadRequest.json",
+  "$ref": "#/$defs/SessionLoadRequest",
+  "$defs": {
+    "SessionId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "SessionLoadRequest": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/SessionId"
+        }
+      },
+      "required": [
+        "session_id"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

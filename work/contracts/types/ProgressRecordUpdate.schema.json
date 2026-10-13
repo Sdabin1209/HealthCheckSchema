@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "last_directive": {
+      "$ref": "Directive.schema.json"
+    },
+    "open_requests": {
+      "$ref": "OpenRequests.schema.json"
+    },
+    "skipped_add": {
+      "type": "array",
+      "items": {
+        "$ref": "SkipEntry.schema.json"
+      }
+    },
+    "skipped_remove": {
+      "type": "array",
+      "items": {
+        "$ref": "QuestionId.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "confirm_stopped_add": {
+      "type": "array",
+      "items": {
+        "$ref": "SlotRef.schema.json"
+      }
+    },
+    "confirm_stopped_remove": {
+      "type": "array",
+      "items": {
+        "$ref": "SlotRef.schema.json"
+      }
+    },
+    "session_status": {
+      "anyOf": [
+        {
+          "$ref": "SessionStatus.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pause_history_add": {
+      "type": "array",
+      "items": {
+        "$ref": "PauseEntry.schema.json"
+      }
+    }
+  },
+  "required": [
+    "last_directive",
+    "open_requests",
+    "skipped_add",
+    "skipped_remove",
+    "confirm_stopped_add",
+    "confirm_stopped_remove",
+    "session_status",
+    "pause_history_add"
+  ],
+  "additionalProperties": false
+}

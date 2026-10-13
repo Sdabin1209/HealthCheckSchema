@@ -1,0 +1,34 @@
+definition: QuestionBank
+nodes:
+  ? ''
+  : title: 문항 정의 저장소
+    meaning: 한 버전의 문항 정의 전체. 운영 중 바뀌지 않는다.
+    why: 진행 중인 세션은 처음 버전으로 끝난다(J1).
+    case_refs:
+    - A1
+    - J1
+    evidence_status: requirement_reference
+  /properties/version:
+    title: 버전
+    meaning: 버전 번호.
+    why: 세션을 만들 때 이 번호로 버전을 고정해, 운영 중 문항이 바뀌어도 진행 중인 세션은 처음 버전으로 끝난다.
+    case_refs:
+    - J1
+    evidence_status: requirement_reference
+  /properties/questions:
+    title: 문항
+    meaning: 문항들. 동일 문항 정의 저장소 안의 question_id는 유일하다.
+    why: 문진할 문항이 적어도 하나 있어야 세션이 시작된다. ID로 문항을 조회할 때 하나의 정의로 결정되어야 한다.
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/session_settings:
+    title: 세션 설정
+    meaning: 설정.
+    why: 위험 표현·상한·고정 문장·안내 목록을 기관이 코드 밖에서 정한다.
+    case_refs:
+    - G2
+    - C8a
+    - E1a
+    evidence_status: requirement_reference

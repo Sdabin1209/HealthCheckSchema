@@ -1,0 +1,137 @@
+definition: DialoguePlannerInput
+nodes:
+  ? ''
+  : title: Plan이 받는 값
+    meaning: 턴 종류, 이번 턴 판정들, 저장 뒤 응답 기록, 진행 기록의 사실, Plan 기록, 문항 정의 전체.
+    why: 다음에 물을 것을 매 턴 사실에서 다시 계산하는 데 필요한 것 전부(원칙 7).
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/turn_kind:
+    title: 턴 종류
+    meaning: LangGraph · 턴 종류.
+    why: 발화 없이도 할 일(첫 질문, 재개, 종료)을 안다.
+    case_refs:
+    - A1
+    - A4a
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /properties/utterance_judgment:
+    title: 발화 판정
+    meaning: 상태 판정 · 발화 판정. 발화 턴에만.
+    why: 요청·확인 응답·위험·알아듣지 못함에 맞는 행동을 고른다.
+    case_refs:
+    - E1a
+    - D1a
+    - F3
+    evidence_status: requirement_reference
+  /properties/utterance_judgment/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 발화 턴이 아니다(A1 세션 시작, G6a 재개, F4 개입 종료). 8-3절이 이 턴들의 행동을 발화 판정 없이 정한다.
+    case_refs:
+    - A1
+    - G6a
+    - F4
+    evidence_status: requirement_reference
+  /properties/judgments:
+    title: 판정
+    meaning: 상태 판정 · 판정. 발화 턴이 아니면 빈 목록.
+    why: 애매·누락·모름·거절이면 되묻고, 즉시 위험 기준이면 멈춘다.
+    case_refs:
+    - B2
+    - B3a
+    - G3
+    evidence_status: requirement_reference
+  /properties/store_summary:
+    title: 저장 결과 요약
+    meaning: 저장 판단 · 저장 결과 요약. 발화 턴에만.
+    why: 정정 받았음·기존 답 유지를 알리고 다시 열린 문항을 다룬다.
+    case_refs:
+    - C1
+    - C2
+    - S6b
+    evidence_status: requirement_reference
+  /properties/store_summary/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 저장 판단이 돌지 않은 턴이다(A1, G6a). 알릴 것의 정정 받았음·기존 답 유지는 이 요약에서만 나오므로(8-2절 10), 없음이면
+      그 알림이 있을 수 없다.
+    case_refs:
+    - A1
+    - G6a
+    evidence_status: requirement_reference
+  /properties/answer_records:
+    title: 응답 기록
+    meaning: 기록 저장소 · 모든 슬롯(저장 결정 반영 뒤).
+    why: 열린 문항과 남은 확인 대기를 계산하고 말할 값을 담는다.
+    case_refs:
+    - A3
+    - B1
+    - H1
+    evidence_status: requirement_reference
+  /properties/last_directive:
+    title: 직전 응답 지시
+    meaning: 기록 저장소 · 진행 기록.직전 응답 지시(턴 시작).
+    why: 반복 요청이면 그대로 다시 내고, 확인 응답이 무엇에 대한 것인지 안다. 다음에 물을 것을 정하는 데는 쓰지 않는다.
+    case_refs:
+    - D1a
+    - C8a
+    - B10
+    evidence_status: requirement_reference
+  /properties/last_directive/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 직전 응답 지시가 없는 첫 턴이다(A1, A2). 8-1 규칙 4가 반복 요청에서 "없으면 지금 물을 것"으로 가는 근거가 이 없음이다.
+    case_refs:
+    - A1
+    - A2
+    evidence_status: requirement_reference
+  /properties/skipped:
+    title: 건너뜀
+    meaning: 기록 저장소 · 진행 기록.건너뜀(턴 시작).
+    why: 건너뛴 문항은 다시 묻지 않으므로 열린 문항 계산에서 뺀다.
+    case_refs:
+    - X7
+    - S3a
+    - N11c
+    evidence_status: requirement_reference
+  /properties/confirm_stopped:
+    title: 확인 중단
+    meaning: 기록 저장소 · 진행 기록.확인 중단(턴 시작).
+    why: 그 확인 대기는 묻지 않는다(C8).
+    case_refs:
+    - C8d
+    - N6
+    evidence_status: requirement_reference
+  /properties/open_requests:
+    title: 열린 요청
+    meaning: 기록 저장소 · 진행 기록.열린 요청(턴 시작).
+    why: 아직 풀리지 않은 고칠 요청·중단 요청·미룸을 묻는다.
+    case_refs:
+    - D5a
+    - C9a
+    - N5a
+    - R20
+    evidence_status: requirement_reference
+  /properties/planner_record:
+    title: Plan 기록
+    meaning: 기록 저장소 · Plan 기록(턴 시작).
+    why: 지난 턴까지 센 횟수가 있어야 질문 상한·확인 상한·물음 상한·수용 시점을 적용한다.
+    case_refs:
+    - F3
+    - C8a
+    - B10
+    - B7b
+    evidence_status: requirement_reference
+  /properties/question_bank:
+    title: 문항 정의
+    meaning: 문항 정의 저장소 · 이 세션 버전 전체.
+    why: 다음 문항(순서·선행 조건), 열린 문항(필수), 상한(정책), 문장 재료, 말할 이름을 모두 문항 정의에서 얻는다.
+    case_refs:
+    - A1
+    - B1
+    - B10
+    evidence_status: requirement_reference

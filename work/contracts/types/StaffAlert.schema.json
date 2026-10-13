@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "$ref": "AlertKind.schema.json"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "StaffAlertReason.schema.json"
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "reasons"
+  ],
+  "additionalProperties": false
+}

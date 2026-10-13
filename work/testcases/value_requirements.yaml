@@ -1,0 +1,502 @@
+version: 1
+requirements:
+- id: value-Action-ASK_NEXT
+  case: A1
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_NEXT
+  value: ASK_NEXT
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-ANSWERED_INTENT
+  case: A2
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: ANSWERED_INTENT
+  value: ANSWERED_INTENT
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-ANSWERED
+  case: A2
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: ANSWERED
+  value: ANSWERED
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-FIRST_WRITE
+  case: A2
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: FIRST_WRITE
+  value: FIRST_WRITE
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-FAREWELL
+  case: A4a
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: FAREWELL
+  value: FAREWELL
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Flow-END
+  case: A4a
+  turn: 1
+  expect_pointer: /Plan/흐름
+  declared_value: END
+  value: END
+  vocabulary: Flow
+  contract: PlannerOutput
+  field_path: flow
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-MISSING
+  case: B2
+  turn: 1
+  expect_pointer: /판정/1/상태
+  declared_value: MISSING
+  value: MISSING
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_MISSING
+  case: B2
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_MISSING
+  value: ASK_MISSING
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-UNCLEAR
+  case: B3a
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: UNCLEAR
+  value: UNCLEAR
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_CLARIFY
+  case: B3a
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_CLARIFY
+  value: ASK_CLARIFY
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-SAYS_UNKNOWN
+  case: B7a
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: SAYS_UNKNOWN
+  value: SAYS_UNKNOWN
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-UNKNOWN
+  case: B7a
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: UNKNOWN
+  value: UNKNOWN
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-RECORD_UNKNOWN
+  case: B7a
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: RECORD_UNKNOWN
+  value: RECORD_UNKNOWN
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_AFTER_UNKNOWN
+  case: B7a
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_AFTER_UNKNOWN
+  value: ASK_AFTER_UNKNOWN
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-SAYS_REFUSAL
+  case: B8a
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: SAYS_REFUSAL
+  value: SAYS_REFUSAL
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-REJECTED
+  case: B8a
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: REJECTED
+  value: REJECTED
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-RECORD_REFUSAL
+  case: B8a
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: RECORD_REFUSAL
+  value: RECORD_REFUSAL
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_AFTER_REFUSAL
+  case: B8a
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_AFTER_REFUSAL
+  value: ASK_AFTER_REFUSAL
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-CORRECTION_MARKED
+  case: C1
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: CORRECTION_MARKED
+  value: CORRECTION_MARKED
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-CORRECTION
+  case: C1
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: CORRECTION
+  value: CORRECTION
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-NEW_REVISION
+  case: C1
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: NEW_REVISION
+  value: NEW_REVISION
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-INVALIDATE
+  case: C2
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: INVALIDATE
+  value: INVALIDATE
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-CONFLICT
+  case: C3
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: CONFLICT
+  value: CONFLICT
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-SET_PENDING
+  case: C3
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: SET_PENDING
+  value: SET_PENDING
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_CONFIRM
+  case: C3
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_CONFIRM
+  value: ASK_CONFIRM
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-CONFIRM_YES
+  case: C4a
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: CONFIRM_YES
+  value: CONFIRM_YES
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-null
+  case: C4a
+  turn: 1
+  expect_pointer: /판정/0/상태
+  declared_value: 없음
+  value: null
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-ACCEPT_PENDING
+  case: C4a
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: ACCEPT_PENDING
+  value: ACCEPT_PENDING
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-CONFIRM_NO
+  case: C4b
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: CONFIRM_NO
+  value: CONFIRM_NO
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-StoreAction-DROP_PENDING
+  case: C4b
+  turn: 1
+  expect_pointer: /저장/0/동작
+  declared_value: DROP_PENDING
+  value: DROP_PENDING
+  vocabulary: StoreAction
+  contract: StoreResult
+  field_path: store_decisions[].action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-UtteranceResult-HAS_ANSWER
+  case: C5
+  turn: 1
+  expect_pointer: /발화판정/결과
+  declared_value: HAS_ANSWER
+  value: HAS_ANSWER
+  vocabulary: UtteranceResult
+  contract: JudgeOutput
+  field_path: utterance_judgment.result
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_CORRECTION_TARGET
+  case: C5
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_CORRECTION_TARGET
+  value: ASK_CORRECTION_TARGET
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_FINISH
+  case: C8d
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_FINISH
+  value: ASK_FINISH
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-PROGRESS_OP
+  case: D1a
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: PROGRESS_OP
+  value: PROGRESS_OP
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-UtteranceResult-REQUEST_ONLY
+  case: D1a
+  turn: 1
+  expect_pointer: /발화판정/결과
+  declared_value: REQUEST_ONLY
+  value: REQUEST_ONLY
+  vocabulary: UtteranceResult
+  contract: JudgeOutput
+  field_path: utterance_judgment.result
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-WAIT_NOTICE
+  case: D2
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: WAIT_NOTICE
+  value: WAIT_NOTICE
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_STOP
+  case: D4
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_STOP
+  value: ASK_STOP
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-GUIDE_REQUEST
+  case: E1a
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: GUIDE_REQUEST
+  value: GUIDE_REQUEST
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-OUT_OF_SCOPE
+  case: E4
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: OUT_OF_SCOPE
+  value: OUT_OF_SCOPE
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-UtteranceResult-OUT_OF_SCOPE_ONLY
+  case: E4
+  turn: 1
+  expect_pointer: /발화판정/결과
+  declared_value: OUT_OF_SCOPE_ONLY
+  value: OUT_OF_SCOPE_ONLY
+  vocabulary: UtteranceResult
+  contract: JudgeOutput
+  field_path: utterance_judgment.result
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-REDIRECT
+  case: E4
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: REDIRECT
+  value: REDIRECT
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-USER_CALLED_STAFF
+  case: F1
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: USER_CALLED_STAFF
+  value: USER_CALLED_STAFF
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-STAFF_NOTICE
+  case: F1
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: STAFF_NOTICE
+  value: STAFF_NOTICE
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-UNRECOGNIZED
+  case: F3
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: UNRECOGNIZED
+  value: UNRECOGNIZED
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-UtteranceResult-UNRECOGNIZED_TURN
+  case: F3
+  turn: 1
+  expect_pointer: /발화판정/결과
+  declared_value: UNRECOGNIZED_TURN
+  value: UNRECOGNIZED_TURN
+  vocabulary: UtteranceResult
+  contract: JudgeOutput
+  field_path: utterance_judgment.result
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-CALL_STAFF
+  case: F3
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: CALL_STAFF
+  value: CALL_STAFF
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Intent-RISK_SIGNAL
+  case: G1
+  turn: 1
+  expect_pointer: /LoRA-A/0/의도
+  declared_value: RISK_SIGNAL
+  value: RISK_SIGNAL
+  vocabulary: Intent
+  contract: ParserOutput
+  field_path: items[].intent
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-RISK_NOTICE
+  case: G1
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: RISK_NOTICE
+  value: RISK_NOTICE
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-Action-ASK_REPEAT
+  case: H5a
+  turn: 1
+  expect_pointer: /Plan/행동
+  declared_value: ASK_REPEAT
+  value: ASK_REPEAT
+  vocabulary: Action
+  contract: PlannerOutput
+  field_path: directive.action
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.
+- id: value-JudgmentStatus-PREREQUISITE_UNMET
+  case: N16
+  turn: 1
+  expect_pointer: /판정/1/상태
+  declared_value: PREREQUISITE_UNMET
+  value: PREREQUISITE_UNMET
+  vocabulary: JudgmentStatus
+  contract: JudgeOutput
+  field_path: judgments[].status
+  why: 요구사항에 등장하는 이 결과값을 담당 경계 필드가 표현할 수 있어야 한다. 어떤 입력에 이 값을 선택하는지는 검사하지 않는다.

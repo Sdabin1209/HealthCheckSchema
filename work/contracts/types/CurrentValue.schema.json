@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "answer": {
+          "$ref": "Value.schema.json"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "const": "UNKNOWN_RECORD"
+    },
+    {
+      "const": "REFUSAL_RECORD"
+    },
+    {
+      "const": "NONE"
+    }
+  ]
+}

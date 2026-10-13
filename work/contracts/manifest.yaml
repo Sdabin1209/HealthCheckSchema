@@ -1,0 +1,336 @@
+version: 1
+definitions:
+  Intent:
+    schema: types/Intent.schema.json
+    semantics: semantics/Intent.yaml
+  Problem:
+    schema: types/Problem.schema.json
+    semantics: semantics/Problem.yaml
+  Reason:
+    schema: types/Reason.schema.json
+    semantics: semantics/Reason.yaml
+  JudgmentStatus:
+    schema: types/JudgmentStatus.schema.json
+    semantics: semantics/JudgmentStatus.yaml
+  UtteranceResult:
+    schema: types/UtteranceResult.schema.json
+    semantics: semantics/UtteranceResult.yaml
+  AskAction:
+    schema: types/AskAction.schema.json
+    semantics: semantics/AskAction.yaml
+  Action:
+    schema: types/Action.schema.json
+    semantics: semantics/Action.yaml
+  StoreAction:
+    schema: types/StoreAction.schema.json
+    semantics: semantics/StoreAction.yaml
+  SkipReason:
+    schema: types/SkipReason.schema.json
+    semantics: semantics/SkipReason.yaml
+  SessionStatus:
+    schema: types/SessionStatus.schema.json
+    semantics: semantics/SessionStatus.yaml
+  TurnKind:
+    schema: types/TurnKind.schema.json
+    semantics: semantics/TurnKind.yaml
+  RiskResponse:
+    schema: types/RiskResponse.schema.json
+    semantics: semantics/RiskResponse.yaml
+  AlertKind:
+    schema: types/AlertKind.schema.json
+    semantics: semantics/AlertKind.yaml
+  PauseKind:
+    schema: types/PauseKind.schema.json
+    semantics: semantics/PauseKind.yaml
+  ProgressOp:
+    schema: types/ProgressOp.schema.json
+    semantics: semantics/ProgressOp.yaml
+  RequestKind:
+    schema: types/RequestKind.schema.json
+    semantics: semantics/RequestKind.yaml
+  FillValue:
+    schema: types/FillValue.schema.json
+    semantics: semantics/FillValue.yaml
+  Flow:
+    schema: types/Flow.schema.json
+    semantics: semantics/Flow.yaml
+  Decision:
+    schema: types/Decision.schema.json
+    semantics: semantics/Decision.yaml
+  InputKind:
+    schema: types/InputKind.schema.json
+    semantics: semantics/InputKind.yaml
+  QuestionId:
+    schema: types/QuestionId.schema.json
+    semantics: semantics/QuestionId.yaml
+  SlotRef:
+    schema: types/SlotRef.schema.json
+    semantics: semantics/SlotRef.yaml
+  WholeQuestion:
+    schema: types/WholeQuestion.schema.json
+    semantics: semantics/WholeQuestion.yaml
+  Target:
+    schema: types/Target.schema.json
+    semantics: semantics/Target.yaml
+  Value:
+    schema: types/Value.schema.json
+    semantics: semantics/Value.yaml
+  PendingId:
+    schema: types/PendingId.schema.json
+    semantics: semantics/PendingId.yaml
+  SessionId:
+    schema: types/SessionId.schema.json
+    semantics: semantics/SessionId.yaml
+  SourceText:
+    schema: types/SourceText.schema.json
+    semantics: semantics/SourceText.yaml
+  Item:
+    schema: types/Item.schema.json
+    semantics: semantics/Item.yaml
+  ParserOutput:
+    schema: components/utterance_parser/output.schema.json
+    semantics: components/utterance_parser/output.fields.yaml
+  ItemCheck:
+    schema: types/ItemCheck.schema.json
+    semantics: semantics/ItemCheck.yaml
+  NormalizerOutput:
+    schema: components/answer_normalizer/output.schema.json
+    semantics: components/answer_normalizer/output.fields.yaml
+  Judgment:
+    schema: types/Judgment.schema.json
+    semantics: semantics/Judgment.yaml
+  Request:
+    schema: types/Request.schema.json
+    semantics: semantics/Request.yaml
+  ValuelessCorrection:
+    schema: types/ValuelessCorrection.schema.json
+    semantics: semantics/ValuelessCorrection.yaml
+  UtteranceJudgment:
+    schema: types/UtteranceJudgment.schema.json
+    semantics: semantics/UtteranceJudgment.yaml
+  JudgeOutput:
+    schema: components/answer_judge/output.schema.json
+    semantics: components/answer_judge/output.fields.yaml
+  StoreDecision:
+    schema: types/StoreDecision.schema.json
+    semantics: semantics/StoreDecision.yaml
+  ChangedSlot:
+    schema: types/ChangedSlot.schema.json
+    semantics: semantics/ChangedSlot.yaml
+  StoreSummary:
+    schema: types/StoreSummary.schema.json
+    semantics: semantics/StoreSummary.yaml
+  StoreResult:
+    schema: components/record_writer/output.schema.json
+    semantics: components/record_writer/output.fields.yaml
+  SayValue:
+    schema: types/SayValue.schema.json
+    semantics: semantics/SayValue.yaml
+  NoticeKind:
+    schema: types/NoticeKind.schema.json
+    semantics: semantics/NoticeKind.yaml
+  Notice:
+    schema: types/Notice.schema.json
+    semantics: semantics/Notice.yaml
+  AskDirective:
+    schema: types/AskDirective.schema.json
+    semantics: semantics/AskDirective.yaml
+  FixedSentenceKey:
+    schema: types/FixedSentenceKey.schema.json
+    semantics: semantics/FixedSentenceKey.yaml
+  SentenceMaterials:
+    schema: types/SentenceMaterials.schema.json
+    semantics: semantics/SentenceMaterials.yaml
+  Directive:
+    schema: types/Directive.schema.json
+    semantics: semantics/Directive.yaml
+  PauseReason:
+    schema: types/PauseReason.schema.json
+    semantics: semantics/PauseReason.yaml
+  StaffAlertReason:
+    schema: types/StaffAlertReason.schema.json
+    semantics: semantics/StaffAlertReason.yaml
+  StaffAlert:
+    schema: types/StaffAlert.schema.json
+    semantics: semantics/StaffAlert.yaml
+  AskSubject:
+    schema: types/AskSubject.schema.json
+    semantics: semantics/AskSubject.yaml
+  OpenRequests:
+    schema: types/OpenRequests.schema.json
+    semantics: semantics/OpenRequests.yaml
+  SkipEntry:
+    schema: types/SkipEntry.schema.json
+    semantics: semantics/SkipEntry.yaml
+  PauseEntry:
+    schema: types/PauseEntry.schema.json
+    semantics: semantics/PauseEntry.yaml
+  ProgressRecordUpdate:
+    schema: types/ProgressRecordUpdate.schema.json
+    semantics: semantics/ProgressRecordUpdate.yaml
+  PlannerRecord:
+    schema: types/PlannerRecord.schema.json
+    semantics: semantics/PlannerRecord.yaml
+  PlannerOutput:
+    schema: components/dialogue_planner/output.schema.json
+    semantics: components/dialogue_planner/output.fields.yaml
+  GeneratorOutput:
+    schema: components/response_generator/output.schema.json
+    semantics: components/response_generator/output.fields.yaml
+  FrontendMessage:
+    schema: components/frontend/output.schema.json
+    semantics: components/frontend/output.fields.yaml
+  TurnFailureSignal:
+    schema: types/TurnFailureSignal.schema.json
+    semantics: semantics/TurnFailureSignal.yaml
+  FrontendInput:
+    schema: components/frontend/input.schema.json
+    semantics: components/frontend/input.fields.yaml
+  InterventionDecision:
+    schema: components/staff_console/output.schema.json
+    semantics: components/staff_console/output.fields.yaml
+  InterventionResult:
+    schema: types/InterventionResult.schema.json
+    semantics: semantics/InterventionResult.yaml
+  StaffConsoleInput:
+    schema: components/staff_console/input.schema.json
+    semantics: components/staff_console/input.fields.yaml
+  UnitDef:
+    schema: types/UnitDef.schema.json
+    semantics: semantics/UnitDef.yaml
+  RiskRule:
+    schema: types/RiskRule.schema.json
+    semantics: semantics/RiskRule.yaml
+  SlotDef:
+    schema: types/SlotDef.schema.json
+    semantics: semantics/SlotDef.yaml
+  Policy:
+    schema: types/Policy.schema.json
+    semantics: semantics/Policy.yaml
+  Prerequisite:
+    schema: types/Prerequisite.schema.json
+    semantics: semantics/Prerequisite.yaml
+  QuestionGuideSentence:
+    schema: types/QuestionGuideSentence.schema.json
+    semantics: semantics/QuestionGuideSentence.yaml
+  QuestionDef:
+    schema: types/QuestionDef.schema.json
+    semantics: semantics/QuestionDef.yaml
+  GuideItem:
+    schema: types/GuideItem.schema.json
+    semantics: semantics/GuideItem.yaml
+  FixedSentence:
+    schema: types/FixedSentence.schema.json
+    semantics: semantics/FixedSentence.yaml
+  SessionSettings:
+    schema: types/SessionSettings.schema.json
+    semantics: semantics/SessionSettings.yaml
+  QuestionBank:
+    schema: components/question_bank/state.schema.json
+    semantics: components/question_bank/state.fields.yaml
+  CurrentValue:
+    schema: types/CurrentValue.schema.json
+    semantics: semantics/CurrentValue.yaml
+  PendingRecord:
+    schema: types/PendingRecord.schema.json
+    semantics: semantics/PendingRecord.yaml
+  SlotRecord:
+    schema: types/SlotRecord.schema.json
+    semantics: semantics/SlotRecord.yaml
+  SessionInfo:
+    schema: types/SessionInfo.schema.json
+    semantics: semantics/SessionInfo.yaml
+  ProgressRecord:
+    schema: types/ProgressRecord.schema.json
+    semantics: semantics/ProgressRecord.yaml
+  FailedStep:
+    schema: types/FailedStep.schema.json
+    semantics: semantics/FailedStep.yaml
+  LogEntry:
+    schema: types/LogEntry.schema.json
+    semantics: semantics/LogEntry.yaml
+  DispatchRecord:
+    schema: types/DispatchRecord.schema.json
+    semantics: semantics/DispatchRecord.yaml
+  SessionStore:
+    schema: components/session_store/state.schema.json
+    semantics: components/session_store/state.fields.yaml
+  UtteranceParserInput:
+    schema: components/utterance_parser/input.schema.json
+    semantics: components/utterance_parser/input.fields.yaml
+  AnswerNormalizerInput:
+    schema: components/answer_normalizer/input.schema.json
+    semantics: components/answer_normalizer/input.fields.yaml
+  AnswerJudgeInput:
+    schema: components/answer_judge/input.schema.json
+    semantics: components/answer_judge/input.fields.yaml
+  RecordWriterInput:
+    schema: components/record_writer/input.schema.json
+    semantics: components/record_writer/input.fields.yaml
+  DialoguePlannerInput:
+    schema: components/dialogue_planner/input.schema.json
+    semantics: components/dialogue_planner/input.fields.yaml
+  ResponseGeneratorInput:
+    schema: components/response_generator/input.schema.json
+    semantics: components/response_generator/input.fields.yaml
+  OrchestratorInput:
+    schema: components/orchestrator/input.schema.json
+    semantics: components/orchestrator/input.fields.yaml
+  DispatchInput:
+    schema: components/result_dispatcher/input.schema.json
+    semantics: components/result_dispatcher/input.fields.yaml
+  OrchestratorOutput:
+    schema: components/orchestrator/output.schema.json
+    semantics: components/orchestrator/output.fields.yaml
+  DispatchOutput:
+    schema: components/result_dispatcher/output.schema.json
+    semantics: components/result_dispatcher/output.fields.yaml
+  TurnTrace:
+    schema: types/TurnTrace.schema.json
+    semantics: semantics/TurnTrace.yaml
+  Precision:
+    schema: types/Precision.schema.json
+    semantics: semantics/Precision.yaml
+  TextSpan:
+    schema: types/TextSpan.schema.json
+    semantics: semantics/TextSpan.yaml
+  Evidence:
+    schema: types/Evidence.schema.json
+    semantics: semantics/Evidence.yaml
+  ValueMetadata:
+    schema: types/ValueMetadata.schema.json
+    semantics: semantics/ValueMetadata.yaml
+  ChoiceDef:
+    schema: types/ChoiceDef.schema.json
+    semantics: semantics/ChoiceDef.yaml
+  CodedValue:
+    schema: types/CodedValue.schema.json
+    semantics: semantics/CodedValue.yaml
+  HistoryEntry:
+    schema: types/HistoryEntry.schema.json
+    semantics: semantics/HistoryEntry.yaml
+  ProblemDetail:
+    schema: types/ProblemDetail.schema.json
+    semantics: semantics/ProblemDetail.yaml
+  RevisionToken:
+    schema: types/RevisionToken.schema.json
+    semantics: semantics/RevisionToken.yaml
+  TurnWriteSet:
+    schema: types/TurnWriteSet.schema.json
+    semantics: semantics/TurnWriteSet.yaml
+  SessionLoadRequest:
+    schema: types/SessionLoadRequest.schema.json
+    semantics: semantics/SessionLoadRequest.yaml
+    status: proposal
+  SessionLoadResult:
+    schema: types/SessionLoadResult.schema.json
+    semantics: semantics/SessionLoadResult.yaml
+    status: proposal
+  SessionCommitRequest:
+    schema: types/SessionCommitRequest.schema.json
+    semantics: semantics/SessionCommitRequest.yaml
+    status: proposal
+  SessionCommitResult:
+    schema: types/SessionCommitResult.schema.json
+    semantics: semantics/SessionCommitResult.yaml
+    status: proposal

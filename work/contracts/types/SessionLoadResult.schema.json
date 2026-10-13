@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "NOT_FOUND",
+        "DB_ERROR"
+      ]
+    },
+    "revision": {
+      "anyOf": [
+        {
+          "$ref": "RevisionToken.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "state": {
+      "anyOf": [
+        {
+          "$ref": "../components/session_store/state.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "session_id",
+    "status",
+    "revision",
+    "state"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "OK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "revision": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "state": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "revision": {
+            "type": "null"
+          },
+          "state": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

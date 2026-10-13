@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "turn_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "start": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "end": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "offset_unit": {
+      "type": "string",
+      "enum": [
+        "unicode_code_point",
+        "utf16_code_unit",
+        "utf8_byte"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "turn_index",
+    "start",
+    "end",
+    "offset_unit",
+    "text"
+  ],
+  "additionalProperties": false
+}

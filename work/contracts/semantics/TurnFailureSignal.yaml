@@ -1,0 +1,75 @@
+definition: TurnFailureSignal
+nodes:
+  ? ''
+  : title: 턴 실패 신호
+    meaning: 처리하기로 한 턴이 실패했을 때.
+    why: 응답이 나가지 못하거나 직원 호출이 실패하면 프론트와 직원이 알고 대처해야 한다(J2, J3).
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 프론트와 직원 화면이 여러 세션을 함께 받으므로, 어느 자리의 턴이 실패해 응답이 오지 않는지 가려야 그 자리에만 대처한다(J2,
+      J3).
+    case_refs:
+    - J2
+    - J4a
+    evidence_status: requirement_reference
+  /properties/write_committed:
+    title: 쓰기 확정
+    meaning: 이번 턴의 쓰기가 확정됐는지.
+    why: 됨이면 기록은 반영됐고 응답만 못 나간 것이다. 다시 말하게 할지 정한다(J2).
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/write_committed/oneOf/0:
+    title: 됨
+    meaning: 기록은 반영됨
+    why: 기록은 반영됐고 응답만 못 나갔으므로 "다시 말씀해 주세요"(반복 요청)로 같은 말을 다시 들을 수 있다.
+    case_refs:
+    - J3
+    evidence_status: requirement_reference
+  /properties/write_committed/oneOf/1:
+    title: 안 됨
+    meaning: 아무것도 반영 안 됨
+    why: 아무것도 반영되지 않았으므로 사용자가 같은 말을 다시 하면 처음처럼 처리된다.
+    case_refs:
+    - J2
+    - J4a
+    evidence_status: requirement_reference
+  /properties/staff_alert:
+    title: 직원 알림
+    meaning: 직원 알림 전달 결과.
+    why: 직원이 오지 않는다는 것을 프론트가 알아야 한다(J3).
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/staff_alert/oneOf/0:
+    title: 없음
+    meaning: 보낼 알림이 없었음
+    why: 보낼 알림이 없었던 실패를 알림 실패와 구분해 프론트가 직원을 따로 부르지 않게 한다.
+    case_refs:
+    - J2
+    - J4a
+    evidence_status: requirement_reference
+  /properties/staff_alert/oneOf/1:
+    title: 전달됨
+    meaning: 보냄
+    why: 응답은 실패했어도 직원은 오고 있다는 것을 프론트가 안다.
+    case_refs:
+    - J8g
+    evidence_status: requirement_reference
+  /properties/staff_alert/oneOf/2:
+    title: 전달 실패
+    meaning: 못 보냄
+    why: 직원 알림이 가지 못했으므로 프론트가 사용자에게 직원을 직접 찾게 하는 등 대처해야 한다.
+    case_refs:
+    - J3
+    evidence_status: requirement_reference

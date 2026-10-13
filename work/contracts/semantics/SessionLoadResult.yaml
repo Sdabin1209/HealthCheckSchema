@@ -1,0 +1,87 @@
+definition: SessionLoadResult
+nodes:
+  ? ''
+  : title: ''
+    meaning: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: &id001
+    - T8
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: ''
+    meaning: 조회 또는 저장 대상 세션 식별자.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/status:
+    title: ''
+    meaning: 이 요청 종류의 처리 결과 코드. 어떤 결과를 반환할지는 저장 담당자의 책임이다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/revision:
+    title: ''
+    meaning: 저장소가 보고한 상태 버전 토큰. 답 이력의 revision ID와 다른 개념이다. 생성 규칙과 단조 증가 여부는 정하지 않는다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/revision/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/state:
+    title: ''
+    meaning: 조회된 전체 세션 상태. 조회 성공 외에는 null이다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/state/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/if/properties/status:
+    title: ''
+    meaning: 이 요청 종류의 처리 결과 코드. 어떤 결과를 반환할지는 저장 담당자의 책임이다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/revision:
+    title: ''
+    meaning: 저장소가 보고한 상태 버전 토큰. 답 이력의 revision ID와 다른 개념이다. 생성 규칙과 단조 증가 여부는 정하지 않는다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/revision/not:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/state:
+    title: ''
+    meaning: 조회된 전체 세션 상태. 조회 성공 외에는 null이다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/then/properties/state/not:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/else/properties/revision:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /allOf/0/else/properties/state:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 세션 조회 성공·부재·실패와 상태 버전을 구별하는 결과 초안이다.
+    case_refs: *id001
+    evidence_status: requirement_reference

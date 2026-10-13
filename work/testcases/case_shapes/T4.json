@@ -1,0 +1,103 @@
+{
+  "version": 1,
+  "case": "T4",
+  "case_sha256": "3db55f98464dcb79a8c59b68f7e0524e830033c3d97b7bdf08dbe3c678db7fc2",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "표시 이름 예시"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "NormalizerOutput",
+      "role": "representation",
+      "data": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": {
+              "code": "DEMO.CHOICE_0",
+              "label": "현재 피움"
+            },
+            "problems": [],
+            "mismatched_slots": [],
+            "vs_current": "NO_CURRENT",
+            "vs_pending": "NO_PENDING",
+            "risk_rule": null,
+            "prerequisite_unmet": false
+          }
+        ],
+        "missing_required_slots": []
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "표시 이름 예시",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "표시 이름 예시",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/정규화",
+      "source_value": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": {
+              "code": "DEMO.CHOICE_0",
+              "label": "현재 피움"
+            },
+            "problems": [],
+            "mismatched_slots": [],
+            "vs_current": "NO_CURRENT",
+            "vs_pending": "NO_PENDING",
+            "risk_rule": null,
+            "prerequisite_unmet": false
+          }
+        ],
+        "missing_required_slots": []
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "NormalizerOutput",
+      "schema_pointer": "",
+      "encoded_value": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": {
+              "code": "DEMO.CHOICE_0",
+              "label": "현재 피움"
+            },
+            "problems": [],
+            "mismatched_slots": [],
+            "vs_current": "NO_CURRENT",
+            "vs_pending": "NO_PENDING",
+            "risk_rule": null,
+            "prerequisite_unmet": false
+          }
+        ],
+        "missing_required_slots": []
+      },
+      "meaning": "표시 이름과 다른 선택지 코드 전달에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}

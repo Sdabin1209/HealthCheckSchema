@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "case": "T7",
+  "case_sha256": "5e5df20c205a4cd750a0e8b98703b47ccf778c4cd940c80fa84ccac072af7b97",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "버전 충돌 예시"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "SessionCommitResult",
+      "role": "representation",
+      "data": {
+        "session_id": "S-TEST",
+        "status": "REVISION_CONFLICT",
+        "write_outcome": "NOT_APPLIED",
+        "revision": 13,
+        "detail": null
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "버전 충돌 예시",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "버전 충돌 예시",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/저장결과",
+      "source_value": {
+        "session_id": "S-TEST",
+        "status": "REVISION_CONFLICT",
+        "write_outcome": "NOT_APPLIED",
+        "revision": 13,
+        "detail": null
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "SessionCommitResult",
+      "schema_pointer": "",
+      "encoded_value": {
+        "session_id": "S-TEST",
+        "status": "REVISION_CONFLICT",
+        "write_outcome": "NOT_APPLIED",
+        "revision": 13,
+        "detail": null
+      },
+      "meaning": "동시 수정 충돌과 값 충돌의 구분에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}

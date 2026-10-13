@@ -1,0 +1,19 @@
+version: 1
+case_files:
+- cases/A.yaml
+- cases/B.yaml
+- cases/C.yaml
+- cases/D.yaml
+- cases/E.yaml
+- cases/F.yaml
+- cases/G.yaml
+- cases/H.yaml
+- cases/I.yaml
+- cases/K.yaml
+- cases/J.yaml
+- cases/X.yaml
+- cases/N.yaml
+- cases/S.yaml
+- cases/R.yaml
+- cases/V.yaml
+- cases/T.yaml

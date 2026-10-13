@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "target": {
+      "$ref": "Target.schema.json"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "$ref": "JudgmentStatus.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "Reason.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "value_now": {
+      "anyOf": [
+        {
+          "$ref": "Value.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "said_value": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pending_handling": {
+      "oneOf": [
+        {
+          "const": "CREATE"
+        },
+        {
+          "const": "ACCEPT"
+        },
+        {
+          "const": "DROP"
+        },
+        {
+          "const": "NONE"
+        }
+      ]
+    },
+    "target_pending_ids": {
+      "type": "array",
+      "items": {
+        "$ref": "PendingId.schema.json"
+      }
+    },
+    "mismatched_slots": {
+      "type": "array",
+      "items": {
+        "$ref": "SlotRef.schema.json"
+      }
+    },
+    "risk_rule": {
+      "anyOf": [
+        {
+          "$ref": "RiskResponse.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    },
+    "problem_details": {
+      "type": "array",
+      "items": {
+        "$ref": "ProblemDetail.schema.json"
+      }
+    }
+  },
+  "required": [
+    "target",
+    "status",
+    "reasons",
+    "value_now",
+    "said_value",
+    "pending_handling",
+    "target_pending_ids",
+    "mismatched_slots",
+    "risk_rule"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "value_metadata"
+        ],
+        "properties": {
+          "value_metadata": {
+            "properties": {
+              "precision": {
+                "enum": [
+                  "exact",
+                  "approximate"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value_now": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

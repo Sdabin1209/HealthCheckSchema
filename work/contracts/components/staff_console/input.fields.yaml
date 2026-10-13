@@ -1,0 +1,88 @@
+definition: StaffConsoleInput
+nodes:
+  ? ''
+  : title: 사람 개입이 받는 값
+    meaning: 직원 알림(세션 식별 포함), 턴 실패 신호, 개입 결정 결과.
+    why: 직원 화면이 보여 줄 알림·실패·결정 결과를 한 모양으로 받아, 화면이 컴포넌트 안쪽을 몰라도 되게 한다.
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/staff_alert:
+    title: 직원 알림
+    meaning: 세션 식별과 함께. 없으면 없음.
+    why: 어느 키오스크로 가야 하는지 알아야 한다.
+    case_refs:
+    - J3
+    - F1
+    - G1
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/0:
+    title: 세션별 직원 알림
+    meaning: 세션과 알림.
+    why: 직원 화면은 여러 키오스크의 알림을 받는다. 어느 세션인지 함께 와야 한다.
+    case_refs:
+    - F1
+    - G1
+    - J3
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/0/properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 직원이 알림을 받고 실제로 걸어가야 하므로, 어느 키오스크로 갈지가 알림에 붙어 있어야 한다(F1, G1).
+    case_refs:
+    - F1
+    - G1
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/0/properties/staff_alert:
+    title: 직원 알림
+    meaning: Plan의 직원 알림.
+    why: 직원이 무엇 때문에 와야 하는지 알고 온다.
+    case_refs:
+    - J3
+    - F1
+    - G1
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 보낼 직원 알림이 없는 턴이다(J2, J8b). 알림 없이 턴 실패 신호만 가는 경우가 있어 세 칸이 따로 비워진다.
+    case_refs:
+    - J2
+    - J8b
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal:
+    title: 턴 실패 신호
+    meaning: 어느 세션이든 턴이 실패하면.
+    why: 위험 신호가 들어온 턴이 실패해도 직원이 볼 수 있게(J2).
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 실패하지 않은 턴의 직원 알림이다(F1 직원을 찾음, G1 위급한 말). 알림은 가지만 실패 신호는 보낼 것이 없다.
+    case_refs:
+    - F1
+    - G1
+    evidence_status: requirement_reference
+  /properties/intervention_result:
+    title: 개입 결정 결과
+    meaning: 보낸 결정의 결과.
+    why: 보낸 결정이 반영됐는지 알아야 직원이 다시 보내거나 직접 대처한다.
+    case_refs:
+    - J4a
+    - J4b
+    - F4
+    evidence_status: requirement_reference
+  /properties/intervention_result/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 직원이 결정을 보내지 않은 턴이다(F1, G1). 개입 결정이 들어온 턴에만 결과가 간다(F4, J4a, J4b).
+    case_refs:
+    - F1
+    - G1
+    evidence_status: requirement_reference

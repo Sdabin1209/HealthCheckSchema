@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "risk_phrases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "confirm_limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "unrecognized_streak_limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "ask_limit": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "fixed_sentences": {
+      "type": "array",
+      "items": {
+        "$ref": "FixedSentence.schema.json"
+      }
+    },
+    "guide_list": {
+      "type": "array",
+      "items": {
+        "$ref": "GuideItem.schema.json"
+      }
+    }
+  },
+  "required": [
+    "risk_phrases",
+    "confirm_limit",
+    "unrecognized_streak_limit",
+    "ask_limit",
+    "fixed_sentences",
+    "guide_list"
+  ],
+  "additionalProperties": false
+}

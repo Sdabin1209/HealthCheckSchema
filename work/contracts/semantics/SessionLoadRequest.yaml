@@ -1,0 +1,15 @@
+definition: SessionLoadRequest
+nodes:
+  ? ''
+  : title: ''
+    meaning: 세션 조회 요청 데이터 계약 초안이다. 실제 함수·전송 프로토콜은 합의하지 않는다.
+    why: 세션 조회 요청 데이터 계약 초안이다. 실제 함수·전송 프로토콜은 합의하지 않는다.
+    case_refs: &id001
+    - T8
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: ''
+    meaning: 조회 또는 저장 대상 세션 식별자.
+    why: 세션 조회 요청 데이터 계약 초안이다. 실제 함수·전송 프로토콜은 합의하지 않는다.
+    case_refs: *id001
+    evidence_status: requirement_reference

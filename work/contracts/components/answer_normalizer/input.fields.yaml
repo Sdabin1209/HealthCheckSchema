@@ -1,0 +1,189 @@
+definition: AnswerNormalizerInput
+nodes:
+  ? ''
+  : title: 정규화·검증이 받는 값
+    meaning: 항목 목록과 관련 문항의 규칙·현재값·확인 대기·기다리는 답.
+    why: 값 규칙을 적용하려면 규칙과 비교할 기존 값이 필요하다.
+    case_refs:
+    - B1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/items:
+    title: 항목 목록
+    meaning: LoRA-A · 항목 목록.
+    why: 표준화하고 검사할 값이 이 항목들에 있다.
+    case_refs:
+    - B1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/related_questions:
+    title: 관련 문항 정의
+    meaning: 문항 정의 저장소 · 항목이 가리킨 문항, 기다리는 답의 대상 슬롯이 속한 문항, 그리고 그것들의 선행 조건이 가리키는 문항의 정의. 정의에 없는 문항은 넣지 않는다(정의에 없는
+      대상 검사에 쓰인다).
+    why: 표준화·범위·네아니요·위험 기준·선행 조건 검사(B3, B4, B9, G3). 기다리는 답의 대상 문항까지 와야 5절 4의 "기다리는 답이 확인 대기 확인이고 그 슬롯의 문항이 선행 불충족
+      조건이면"을 판정할 수 있다(S6c).
+    case_refs:
+    - B3a
+    - S2d
+    - B4
+    evidence_status: requirement_reference
+  /properties/current_values:
+    title: 현재값
+    meaning: 기록 저장소 · 관련 슬롯의 현재값(턴 시작).
+    why: 기존 답과 같은지, 선행 답이 무엇인지, 필수 슬롯이 비었는지(C3, B2).
+    case_refs:
+    - C3
+    - B2
+    - S2d
+    evidence_status: requirement_reference
+  /properties/current_values/items:
+    title: 슬롯 현재값
+    meaning: 슬롯과 현재값.
+    why: 칸마다 현재값이 달라 칸별로 비교해야 한다.
+    case_refs:
+    - C3
+    - B2
+    - X2
+    - S2d
+    evidence_status: requirement_reference
+  /properties/current_values/items/properties/slot:
+    title: 슬롯
+    meaning: 이 current_value와 비교할 이번 턴의 대상 슬롯 식별자.
+    why: 어느 칸의 현재값인지 있어야 같은 칸의 새 값과 비교한다.
+    case_refs:
+    - C3
+    - B2
+    evidence_status: requirement_reference
+  /properties/current_values/items/properties/current_value:
+    title: 현재값
+    meaning: 현재값.
+    why: 같음·다름 비교와 선행 답 판단의 기준.
+    case_refs:
+    - C3
+    - X2
+    - S2d
+    evidence_status: requirement_reference
+  /properties/pendings:
+    title: 확인 대기 값
+    meaning: 기록 저장소 · 관련 슬롯과 기다리는 답 대상 슬롯 중 확인 대기가 있는 것(턴 시작).
+    why: 이번 값이 확인 대기 값과 같은지, "네"가 받아들일 선행 슬롯 값(C4, 정규화 규칙 3).
+    case_refs:
+    - S8b
+    - S6a
+    - C4b
+    evidence_status: requirement_reference
+  /properties/pendings/items:
+    title: 확인 대기 값 항목
+    meaning: ID·슬롯·값.
+    why: 값을 비교하고, 받아들일 확인 대기를 ID로 가리킨다.
+    case_refs:
+    - S8b
+    - S6a
+    - C4b
+    evidence_status: requirement_reference
+  /properties/pendings/items/properties/pending_id:
+    title: 확인 대기 ID
+    meaning: 값 비교·확인 수락의 대상으로 사용되는 현재 확인 대기의 ID.
+    why: 확인-긍정이 받아들일 확인 대기를 기다리는 답의 ID와 맞춰 본다.
+    case_refs:
+    - S8b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/pendings/items/properties/slot:
+    title: 슬롯
+    meaning: 이 확인 대기 값이 속한 문항·반복 행·슬롯의 식별자.
+    why: 어느 칸의 확인 대기 값인지 있어야 같은 칸의 새 값과 비교한다.
+    case_refs:
+    - S8b
+    - S6a
+    - C4b
+    evidence_status: requirement_reference
+  /properties/pendings/items/properties/value:
+    title: 값
+    meaning: 확인 대기 값.
+    why: 이번 값이 확인 대기 값과 같은지(받아들임) 비교하고, "네"면 선행 슬롯 값으로 쓴다.
+    case_refs:
+    - S8b
+    - S6a
+    - C4b
+    evidence_status: requirement_reference
+  /properties/awaiting:
+    title: 기다리는 답
+    meaning: 기록 저장소 · 직전 응답 지시의 기다리는 답 중 행동·대상 목록·대상 확인 대기 ID(턴 시작).
+    why: '"네"가 어느 확인 대기를 받아들이는지 알아야 선행 슬롯 값을 정한다(정규화 규칙 3).'
+    case_refs:
+    - S8b
+    - S6a
+    - S6b
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/0:
+    title: 기다리는 답 요약
+    meaning: 행동·대상·확인 대기 ID.
+    why: 기다리는 답 전체가 아니라 확인 대기를 가리키는 데 필요한 부분만 받아, 응답 지시 모양이 바뀌어도 정규화가 바뀌지 않게 한다.
+    case_refs:
+    - S8b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/0/properties/action:
+    title: 행동
+    meaning: 묻기 행동.
+    why: 확인 대기 확인을 기다릴 때만 "네"가 확인 대기 값을 받아들인다.
+    case_refs:
+    - S8b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/0/properties/targets:
+    title: 대상 목록
+    meaning: 현재 기다리는 응답이 가리키는 슬롯 또는 문항 전체 대상의 목록.
+    why: 확인 대기 확인의 대상 칸이 선행 슬롯이면 "네"로 받아들일 값이 후속 문항의 선행 값이 된다.
+    case_refs:
+    - S8b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/0/properties/target_pending_id:
+    title: 대상 확인 대기 ID
+    meaning: 기다리는 응답이 특정 확인 대기에 대한 것이면 그 ID, 아니면 null.
+    why: '"네"가 받아들일 확인 대기를 ID로 정해야 그 값을 선행 슬롯 값으로 쓸지 정한다.'
+    case_refs:
+    - S8b
+    - S6a
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/0/properties/target_pending_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 기다리는 답이 확인 대기 확인이 아니다(B1 다음 문항 묻기, B2 빠진 슬롯 되묻기). 5절 3이 이 ID가 있을 때만 "네"를 선행 슬롯 값으로 바꾸므로, 없음이 그 길을 막는다.
+    case_refs:
+    - B1
+    - B2
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 기다리는 답 자체가 없는 턴이다(A2 첫 입력이 말, N1c 첫 입력을 알아듣지 못함). 직전 응답 지시가 없으면 건넬 기다리는 답도 없다.
+    case_refs:
+    - A2
+    - N1c
+    evidence_status: requirement_reference
+  /properties/current_values/items/properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 현재 답과 확인 대기 후보를 비교하는 입력에서도 정밀도와 근거를 보존할 수 있어야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference
+  /properties/pendings/items/properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 현재 답과 확인 대기 후보를 비교하는 입력에서도 정밀도와 근거를 보존할 수 있어야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference
+  /properties/turn_index:
+    title: ''
+    meaning: 세션 내 원문 발화의 턴 순번. Framework가 부여하며 0/1 시작 기준은 세션에서 일관되게 적용한다.
+    why: 모델의 원문 위치 근거에 Framework가 부여한 턴 순번을 결합할 수 있어야 한다.
+    case_refs:
+    - T2
+    evidence_status: requirement_reference

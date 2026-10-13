@@ -1,0 +1,31 @@
+{
+  "id": "shape-NormalizerOutput",
+  "contract": "NormalizerOutput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "item_checks": [
+      {
+        "item_no": 0,
+        "standard_value": "안 피움",
+        "problems": [],
+        "mismatched_slots": [],
+        "vs_current": "NO_CURRENT",
+        "vs_pending": "NO_PENDING",
+        "risk_rule": null,
+        "prerequisite_unmet": false
+      }
+    ],
+    "missing_required_slots": []
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/normalizer_output",
+    "correctness_claim": false
+  }
+}

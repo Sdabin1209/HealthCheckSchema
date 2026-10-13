@@ -1,0 +1,108 @@
+definition: Directive
+nodes:
+  ? ''
+  : title: 응답 지시
+    meaning: LoRA-B가 이번에 말할 것 전부.
+    why: 응답 생성에 허용된 행동·대상·값·알림·문장 재료를 한 계약으로 전달해야 한다. 정규화 결과 전체를 넘기면 응답에 포함하지 않기로 한 값까지 노출되므로, Dialogue Planner가
+      선택한 재료만 응답 지시에 담는다.
+    case_refs:
+    - A1
+    - B2
+    - G1
+    - R4
+    evidence_status: requirement_reference
+  /properties/action:
+    title: 행동
+    meaning: 이번 턴의 행동.
+    why: LoRA-B가 무엇을 해야 하는지(묻기, 확인, 안내, 마침)를 하나로 정하고, 다음 턴의 해석도 이것에 따른다.
+    case_refs:
+    - A1
+    - B1
+    - G1
+    - H1
+    evidence_status: requirement_reference
+  /properties/targets:
+    title: 대상 목록
+    meaning: 행동의 대상.
+    why: 무엇에 대해 묻거나 말하는지 있어야 LoRA-B가 맞는 문항을 말하고 다음 턴의 답을 그 대상에 넣는다.
+    case_refs:
+    - A1
+    - B2
+    - C5
+    evidence_status: requirement_reference
+  /properties/target_pending_id:
+    title: 대상 확인 대기 ID
+    meaning: 행동이 확인 대기 확인일 때.
+    why: 확인 대기 확인에서 어느 확인 대기를 묻는지 남겨야 다음 턴의 "네"가 그 확인 대기를 받아들인다.
+    case_refs:
+    - N7c
+    - R7
+    - C3
+    evidence_status: requirement_reference
+  /properties/target_pending_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 행동이 확인 대기 확인이 아니어서 남길 확인 대기가 없다(B1, B2). 다음 턴의 "네"를 이을 확인 대기가 없다는 뜻이고, C4a는 그 반대다.
+    case_refs:
+    - B1
+    - B2
+    evidence_status: requirement_reference
+  /properties/awaiting:
+    title: 기다리는 답
+    meaning: 묻기 행동이면 자기 자신. 다시 말씀 요청·도움 요청·무관 안내·위험 안내·대기 안내·사람 연결 안내는 지금 물을 것. 종료 인사만 없음.
+    why: 묻지 않는 행동 뒤에도 다음 턴의 짧은 답을 해석할 수 있어야 한다(D2 대기 뒤 "일곱 시간이요").
+    case_refs:
+    - G1
+    - F1
+    - F3
+    - J7a
+    - A4b
+    evidence_status: requirement_reference
+  /properties/awaiting/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 흐름이 종료라 다음 턴이 없는 응답 지시다(H2 종료 인사, A4a 이탈 종료, F4 개입 종료). 8-2절 1의 지금 물을 것을 계산할 일이 없다.
+    case_refs:
+    - H2
+    - A4a
+    - F4
+    evidence_status: requirement_reference
+  /properties/say_values:
+    title: 말할 값
+    meaning: 말할 값들.
+    why: LoRA-B는 여기 있는 값만 말한다.
+    case_refs:
+    - B2
+    - C3
+    - B3a
+    - B5
+    evidence_status: requirement_reference
+  /properties/reask_reasons:
+    title: 되물을 이유
+    meaning: 판정 사유. 다시 말씀 요청이면 인식불가.
+    why: LoRA-B가 왜 다시 묻는지(단위, 범위, 모호함 등) 말해야 사용자가 무엇을 고쳐 말할지 안다.
+    case_refs:
+    - B3a
+    - B3b
+    - B4
+    - I1a
+    - J7a
+    evidence_status: requirement_reference
+  /properties/notices:
+    title: 알릴 것
+    meaning: 행동과 함께 알릴 것들.
+    why: 정정 받았음·기존 답 유지·안내·미룸·재개·문진 중단은 행동과 함께 말해야 하는데 행동은 하나라서 따로 담는다.
+    case_refs:
+    - C1
+    - E2
+    - D3a
+    - A4a
+    evidence_status: requirement_reference
+  /properties/sentence_materials:
+    title: 문장 재료
+    meaning: 등록 문장들.
+    why: 검토된 문장을 바탕으로 말하게 하고, LoRA-B가 실패하면 이것을 그대로 읽는다(대체 출력).
+    case_refs:
+    - G1
+    - J7c
+    evidence_status: requirement_reference

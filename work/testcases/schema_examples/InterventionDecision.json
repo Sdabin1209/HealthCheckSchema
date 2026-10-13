@@ -1,0 +1,20 @@
+{
+  "id": "shape-InterventionDecision",
+  "contract": "InterventionDecision",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "F4"
+  ],
+  "input": {
+    "session_id": "S-TEST",
+    "decision": "END"
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "F4",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/intervention_decision",
+    "correctness_claim": false
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Case"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "cases"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "Case": {
+      "type": "object",
+      "properties": {
+        "given": {
+          "type": "object"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "발화": {
+              "type": "string"
+            },
+            "신호": {
+              "type": "string"
+            },
+            "개입": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "oneOf": [
+            {
+              "required": [
+                "발화"
+              ]
+            },
+            {
+              "required": [
+                "신호"
+              ]
+            },
+            {
+              "required": [
+                "개입"
+              ]
+            }
+          ]
+        },
+        "expect": {
+          "type": "object"
+        },
+        "주입": {
+          "type": "object"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Za-z0-9]*$"
+        },
+        "상황": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1
+        },
+        "설명": {
+          "type": "string",
+          "minLength": 1
+        },
+        "왜": {
+          "type": "string",
+          "minLength": 1
+        },
+        "비고": {},
+        "성질": {
+          "type": "string"
+        },
+        "범위": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Step"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "상황",
+        "설명",
+        "왜"
+      ],
+      "additionalProperties": false,
+      "oneOf": [
+        {
+          "required": [
+            "input",
+            "expect"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "steps"
+                ]
+              },
+              {
+                "required": [
+                  "성질"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "steps"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "input"
+                ]
+              },
+              {
+                "required": [
+                  "성질"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "required": [
+            "성질"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "input"
+                ]
+              },
+              {
+                "required": [
+                  "steps"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "Step": {
+      "type": "object",
+      "properties": {
+        "given": {
+          "type": "object"
+        },
+        "input": {
+          "type": "object",
+          "properties": {
+            "발화": {
+              "type": "string"
+            },
+            "신호": {
+              "type": "string"
+            },
+            "개입": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false,
+          "oneOf": [
+            {
+              "required": [
+                "발화"
+              ]
+            },
+            {
+              "required": [
+                "신호"
+              ]
+            },
+            {
+              "required": [
+                "개입"
+              ]
+            }
+          ]
+        },
+        "expect": {
+          "type": "object"
+        },
+        "주입": {
+          "type": "object"
+        }
+      },
+      "required": [
+        "input",
+        "expect"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

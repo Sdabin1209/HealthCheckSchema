@@ -1,0 +1,154 @@
+definition: Notice
+nodes:
+  ? ''
+  : title: 알릴 것
+    meaning: 행동과 함께 알릴 것 하나. 해당하지 않는 칸은 없음.
+    why: 정정을 받은 턴에도 다음 문항을 물어야 하는데 행동은 하나라서, 알릴 것은 행동과 따로 담는다(C1, D3, E1).
+    case_refs:
+    - C1
+    - E2
+    - D3a
+    - C8a
+    evidence_status: requirement_reference
+  /properties/kind:
+    title: 종류
+    meaning: 알릴 것 종류.
+    why: 정정 받았음·기존 답 유지·재개·문진 중단·안내·미룸은 LoRA-B가 하는 말이 서로 다르다.
+    case_refs:
+    - C1
+    - C4b
+    - E1a
+    - G6a
+    evidence_status: requirement_reference
+  /properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 종류가 안내일 때.
+    why: Plan이 문장 재료에서 이 안내의 문장을 찾고 LoRA-B가 그 문장으로 답한다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/0:
+    title: ''
+    meaning: 이번 안내에서 사용할 안내 항목의 등록 식별자.
+    why: 응답 생성기가 안내 문장 재료를 찾는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 안내가 아닌 알릴 것이다(C1 정정 받았음, G6a 재개). 찾아 읽을 안내 문장이 없다.
+    case_refs:
+    - C1
+    - G6a
+    evidence_status: requirement_reference
+  /properties/question_id:
+    title: 문항 ID
+    meaning: 안내(문항별)·미룸·정정 받았음·기존 답 유지일 때 그 문항.
+    why: 알림이 어느 문항에 대한 것인지 있어야 문항별 안내 문장을 고르고 "흡연량은 나중에 여쭐게요"처럼 말한다.
+    case_refs:
+    - E1a
+    - D3a
+    - N7a
+    - S8g
+    evidence_status: requirement_reference
+  /properties/question_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: '문항에 매이지 않는 알릴 것이다: 재개(G6a), 문진 중단(D5a), 문항별이 아닌 안내(E3a 개인정보). 문항별 안내 문장을 고를 일이 없다.'
+    case_refs:
+    - G6a
+    - D5a
+    - E3a
+    evidence_status: requirement_reference
+  /properties/question_name:
+    title: 문항 이름
+    meaning: 그 문항 이름.
+    why: LoRA-B는 문항 정의를 받지 않으므로 알릴 문항의 이름을 함께 받아야 말할 수 있다.
+    case_refs:
+    - J7e
+    evidence_status: requirement_reference
+  /properties/question_name/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 문항 ID가 없는 알릴 것에는 말할 문항 이름도 없다(G6a 재개, E3a 개인정보 안내). 둘이 함께 비어야 LoRA-B가 없는 문항을 지어내 말하지 않는다(J7e와 대비).
+    case_refs:
+    - G6a
+    - E3a
+    evidence_status: requirement_reference
+  /properties/slot:
+    title: 슬롯
+    meaning: 정정 받았음·기존 답 유지일 때 그 슬롯.
+    why: 정정 받았음·기존 답 유지는 칸 단위로 바뀌거나 유지되므로 어느 칸인지 말해야 한다.
+    case_refs:
+    - C1
+    - C4b
+    - C8a
+    - X3
+    evidence_status: requirement_reference
+  /properties/slot/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 칸 단위가 아닌 알릴 것이다(E3a 안내, D3a 미룸, G6a 재개). 정정 받았음·기존 답 유지만 칸 단위라 슬롯을 채운다(C1, C4b).
+    case_refs:
+    - E3a
+    - D3a
+    - G6a
+    evidence_status: requirement_reference
+  /properties/previous_value:
+    title: 이전 값
+    meaning: 정정 받았음일 때 고치기 전 값.
+    why: '"열 개에서 스무 개로 고쳤습니다"(C1).'
+    case_refs:
+    - C1
+    - C2
+    - C4a
+    - R5
+    evidence_status: requirement_reference
+  /properties/previous_value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 정정 받았음이 아닌 알릴 것이다(C4b 기존 답 유지, E3a 안내). 고치기 전 값을 말할 일이 없다.
+    case_refs:
+    - C4b
+    - E3a
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 값
+    meaning: 정정 받았음·기존 답 유지의 값, 또는 안내의 채울 값(남은 문항 수는 단위 "문항"의 단위 값).
+    why: 고친 값·유지한 값·남은 문항 수처럼 알릴 내용을 LoRA-B가 지어내지 않고 이 값으로 말한다.
+    case_refs:
+    - C1
+    - C8a
+    - E2
+    - R11
+    evidence_status: requirement_reference
+  /properties/value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: '말할 값이 없는 알릴 것이다: 재개(G6a), 미룸(D3a), 채울 값이 없는 안내(E3a 개인정보). 채울 값이 있는 안내는 E2의 남은 문항 수뿐이다.'
+    case_refs:
+    - G6a
+    - D3a
+    - E3a
+    evidence_status: requirement_reference
+  /properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 정정 전후 값을 안내할 때 어느 값의 정밀도·근거인지 구별해야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference
+  /properties/previous_value_metadata:
+    title: ''
+    meaning: previous_value에 대응하는 정밀도와 근거. 생략은 미수집이다.
+    why: 정정 전후 값을 안내할 때 어느 값의 정밀도·근거인지 구별해야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference

@@ -1,0 +1,232 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "$ref": "InputKind.schema.json"
+        },
+        "utterance": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "intervention_decision": {
+          "anyOf": [
+            {
+              "$ref": "Decision.schema.json"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "kind",
+        "utterance",
+        "intervention_decision"
+      ],
+      "additionalProperties": false
+    },
+    "handling": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "handled": {
+              "$ref": "TurnKind.schema.json"
+            }
+          },
+          "required": [
+            "handled"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "const": "IGNORED"
+        }
+      ]
+    },
+    "question_bank_version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "turn_result": {
+      "oneOf": [
+        {
+          "const": "COMMITTED"
+        },
+        {
+          "const": "NOT_APPLICABLE"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "failed_steps": {
+              "type": "array",
+              "items": {
+                "$ref": "FailedStep.schema.json"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "failed_steps"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "parser_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/utterance_parser/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "normalizer_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_normalizer/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "judge_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_judge/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_writer_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/record_writer/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "directive": {
+      "anyOf": [
+        {
+          "$ref": "Directive.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow": {
+      "anyOf": [
+        {
+          "$ref": "Flow.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "progress_record_update": {
+      "anyOf": [
+        {
+          "$ref": "ProgressRecordUpdate.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "staff_alert": {
+      "anyOf": [
+        {
+          "$ref": "StaffAlert.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "response_text": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "staff_alert_delivery": {
+      "oneOf": [
+        {
+          "const": "SUCCESS"
+        },
+        {
+          "const": "FAILURE"
+        },
+        {
+          "const": "NOT_APPLICABLE"
+        }
+      ]
+    },
+    "turn_failure_signal": {
+      "anyOf": [
+        {
+          "$ref": "TurnFailureSignal.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intervention_result": {
+      "anyOf": [
+        {
+          "$ref": "InterventionResult.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "input",
+    "handling",
+    "question_bank_version",
+    "turn_result",
+    "parser_output",
+    "normalizer_output",
+    "judge_output",
+    "record_writer_output",
+    "directive",
+    "flow",
+    "progress_record_update",
+    "staff_alert",
+    "response_text",
+    "staff_alert_delivery",
+    "turn_failure_signal",
+    "intervention_result"
+  ],
+  "additionalProperties": false
+}

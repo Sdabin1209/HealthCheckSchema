@@ -1,0 +1,37 @@
+definition: AlertKind
+nodes:
+  ? ''
+  : title: 알림 종류
+    meaning: 직원 알림의 까닭.
+    why: 직원이 왜 와야 하는지 바로 알게 한다.
+    case_refs:
+    - F1
+    - F3
+    - G1
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 위험
+    meaning: 위험 신호나 즉시 위험 기준
+    why: 직원이 가장 먼저 가야 하는 알림이다.
+    case_refs:
+    - G1
+    - G2
+    - G3
+    - J3
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 도움 요청
+    meaning: 알아듣지 못함이 이어짐
+    why: 시스템이 사용자를 알아듣지 못해 사람이 도와야 하는 알림이다.
+    case_refs:
+    - F3
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 사람 요청
+    meaning: 사용자가 직원을 찾음
+    why: 사용자가 직원을 원한 알림이다. 무엇을 원하는지 근거가 함께 간다.
+    case_refs:
+    - F1
+    - F2
+    - X8
+    evidence_status: requirement_reference

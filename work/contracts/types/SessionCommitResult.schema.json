@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "OK",
+        "REVISION_CONFLICT",
+        "DB_ERROR"
+      ]
+    },
+    "write_outcome": {
+      "type": "string",
+      "enum": [
+        "APPLIED",
+        "NOT_APPLIED",
+        "UNKNOWN"
+      ]
+    },
+    "revision": {
+      "anyOf": [
+        {
+          "$ref": "RevisionToken.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "detail": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "session_id",
+    "status",
+    "write_outcome",
+    "revision",
+    "detail"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "OK"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "write_outcome": {
+            "const": "APPLIED"
+          },
+          "revision": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "REVISION_CONFLICT"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "write_outcome": {
+            "const": "NOT_APPLIED"
+          },
+          "revision": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "DB_ERROR"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "write_outcome": {
+            "enum": [
+              "NOT_APPLIED",
+              "UNKNOWN"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

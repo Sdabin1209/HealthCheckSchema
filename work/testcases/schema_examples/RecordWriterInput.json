@@ -1,0 +1,48 @@
+{
+  "id": "shape-RecordWriterInput",
+  "contract": "RecordWriterInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "judgments": [
+      {
+        "target": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "status": "ANSWERED",
+        "reasons": [],
+        "value_now": "안 피움",
+        "said_value": null,
+        "pending_handling": "NONE",
+        "target_pending_ids": [],
+        "mismatched_slots": [],
+        "risk_rule": null
+      }
+    ],
+    "invalidated_questions": [],
+    "question_slots": [],
+    "target_records": [
+      {
+        "slot": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "current_value": "NONE",
+        "pending": null
+      }
+    ]
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/record_writer",
+    "correctness_claim": false
+  }
+}

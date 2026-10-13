@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "question_bank_version": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "session_id",
+    "question_bank_version"
+  ],
+  "additionalProperties": false
+}

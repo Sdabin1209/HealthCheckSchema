@@ -1,0 +1,238 @@
+{
+  "id": "shape-DispatchInput",
+  "contract": "DispatchInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A4a"
+  ],
+  "input": {
+    "session_info": {
+      "session_id": "S-TEST",
+      "question_bank_version": 1
+    },
+    "answer_records": [
+      {
+        "slot": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "current_value": {
+          "answer": "현재 피움"
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q2",
+          "repeat_key": "",
+          "slot_id": "개비"
+        },
+        "current_value": {
+          "answer": {
+            "amount": 10,
+            "unit": "개비"
+          }
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3a",
+          "repeat_key": "",
+          "slot_id": "여부"
+        },
+        "current_value": {
+          "answer": "마심"
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3b",
+          "repeat_key": "",
+          "slot_id": "빈도"
+        },
+        "current_value": {
+          "answer": {
+            "amount": 2,
+            "unit": "주 n회"
+          }
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3b",
+          "repeat_key": "",
+          "slot_id": "종류"
+        },
+        "current_value": {
+          "answer": "소주"
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3b",
+          "repeat_key": "",
+          "slot_id": "1회양"
+        },
+        "current_value": {
+          "answer": {
+            "amount": 1,
+            "unit": "병"
+          }
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q4",
+          "repeat_key": "",
+          "slot_id": "여부"
+        },
+        "current_value": {
+          "answer": "예"
+        },
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q5",
+          "repeat_key": "",
+          "slot_id": "시간"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q6",
+          "repeat_key": "",
+          "slot_id": "여부"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q7",
+          "repeat_key": "",
+          "slot_id": "수축기"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q7",
+          "repeat_key": "",
+          "slot_id": "이완기"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q8",
+          "repeat_key": "",
+          "slot_id": "횟수"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3c",
+          "repeat_key": "소주",
+          "slot_id": "양"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3c",
+          "repeat_key": "맥주",
+          "slot_id": "양"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3c",
+          "repeat_key": "막걸리",
+          "slot_id": "양"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3c",
+          "repeat_key": "와인",
+          "slot_id": "양"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      },
+      {
+        "slot": {
+          "question_id": "Q3c",
+          "repeat_key": "기타",
+          "slot_id": "양"
+        },
+        "current_value": "NONE",
+        "risk_mark": null,
+        "history": [],
+        "pending": null
+      }
+    ],
+    "skipped": [],
+    "confirm_stopped": [],
+    "session_status": "ENDED_LEFT",
+    "pause_history": []
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A4a",
+    "turn": 1,
+    "data_pointer": "/trace/dispatch_input",
+    "correctness_claim": false
+  }
+}

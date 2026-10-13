@@ -1,0 +1,12 @@
+{
+  "id": "shape-SessionLoadRequest",
+  "contract": "SessionLoadRequest",
+  "valid": true,
+  "input": {
+    "session_id": "S-TEST"
+  },
+  "origin": {
+    "correctness_claim": false,
+    "contract_status": "proposal"
+  }
+}

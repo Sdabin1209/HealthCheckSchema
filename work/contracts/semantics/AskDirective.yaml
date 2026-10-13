@@ -1,0 +1,60 @@
+definition: AskDirective
+nodes:
+  ? ''
+  : title: 기다리는 답
+    meaning: 다음 턴에 기다리는 답. 묻기 행동만.
+    why: 다음 턴의 LoRA-A·정규화·상태 판정이 짧은 답("네", "일주일에요")을 무엇에 대한 답으로 볼지 정한다(B5, C4). 다음에
+      무엇을 물을지 정하는 데는 쓰지 않는다(그건 매 턴 사실에서 다시 계산한다, 원칙 7).
+    case_refs:
+    - G1
+    - F1
+    - J7a
+    - R7
+    - B5
+    evidence_status: requirement_reference
+  /properties/action:
+    title: 행동
+    meaning: 묻기 행동.
+    why: 답의 해석이 행동마다 다르다(문항 질문의 "네"는 값, 확인 질문의 "네"는 승낙).
+    case_refs:
+    - G1
+    - F1
+    - J7a
+    - R7
+    evidence_status: requirement_reference
+  /properties/targets:
+    title: 대상 목록
+    meaning: 묻는 대상.
+    why: 다음 턴의 짧은 답("일주일에요", "네")을 이 대상에 넣어 해석한다.
+    case_refs:
+    - G1
+    - F1
+    - J7a
+    - R7
+    evidence_status: requirement_reference
+  /properties/target_pending_id:
+    title: 대상 확인 대기 ID
+    meaning: 확인 대기 확인일 때 그 ID.
+    why: '"네"가 받아들일 확인 대기를 정확히 가리킨다(C4).'
+    case_refs:
+    - R7
+    - X6
+    - H3e
+    evidence_status: requirement_reference
+  /properties/target_pending_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 확인 대기 확인이 아닌 묻기 행동이다(B1 다음 문항 묻기, B2 빠진 슬롯 되묻기). C3처럼 확인 대기 확인일 때만 ID가 차므로,
+      없음이 "이번에 확인을 묻지 않음"이다.
+    case_refs:
+    - B1
+    - B2
+    evidence_status: requirement_reference
+  /properties/say_values:
+    title: 말할 값
+    meaning: 물을 때 말한 값.
+    why: '"두 번" 뒤의 "일주일에요"처럼 앞서 말한 값과 합칠 수 있게(B5).'
+    case_refs:
+    - B5
+    - B10
+    evidence_status: requirement_reference

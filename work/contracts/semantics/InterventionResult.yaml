@@ -1,0 +1,53 @@
+definition: InterventionResult
+nodes:
+  ? ''
+  : title: 개입 결정 결과
+    meaning: 보낸 결정이 반영됐는지.
+    why: 반영 안 됐으면 직원이 다시 보내거나 직접 대처한다(J4).
+    case_refs:
+    - F4
+    - G6a
+    - J4a
+    - J4b
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 직원이 결정을 여러 자리에 보낼 수 있어, 반영됐다는 답이 어느 자리 것인지 알아야 다시 보낼 자리를 고른다(J4).
+    case_refs:
+    - J4a
+    - J4b
+    - F4
+    evidence_status: requirement_reference
+  /properties/result:
+    title: 결과
+    meaning: 반영 여부.
+    why: 직원이 결정이 반영됐는지 알아야 다시 보내거나 직접 대처한다(J4).
+    case_refs:
+    - F4
+    - J4a
+    - J4b
+    evidence_status: requirement_reference
+  /properties/result/oneOf/0:
+    title: 반영됨
+    meaning: 쓰기 확정
+    why: 보낸 결정이 세션에 반영됐으므로 직원이 더 할 일이 없다.
+    case_refs:
+    - F4
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /properties/result/oneOf/1:
+    title: 반영 안 됨(처리 안 함)
+    meaning: 세션 상태상 처리하지 않음
+    why: 세션 상태상 처리할 수 없는 결정(이미 끝난 세션에 종료 등)이었다는 것을 직원이 알아야 다시 보내지 않는다.
+    case_refs:
+    - J4b
+    evidence_status: requirement_reference
+  /properties/result/oneOf/2:
+    title: 반영 안 됨(실패)
+    meaning: 처리 중 실패
+    why: 처리 중 실패했으니 직원이 같은 결정을 다시 보내거나 직접 대처해야 한다.
+    case_refs:
+    - J4a
+    evidence_status: requirement_reference

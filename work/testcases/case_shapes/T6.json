@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "case": "T6",
+  "case_sha256": "f3b067e2a77c2893c523b0d35f5b0b1ca8fd7f18dae7981f57f8e6962c8ae2be",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "저장 결과 예시"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "SessionCommitResult",
+      "role": "representation",
+      "data": {
+        "session_id": "S-TEST",
+        "status": "OK",
+        "write_outcome": "APPLIED",
+        "revision": 13,
+        "detail": null
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "저장 결과 예시",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "저장 결과 예시",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/저장결과",
+      "source_value": {
+        "session_id": "S-TEST",
+        "status": "OK",
+        "write_outcome": "APPLIED",
+        "revision": 13,
+        "detail": null
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "SessionCommitResult",
+      "schema_pointer": "",
+      "encoded_value": {
+        "session_id": "S-TEST",
+        "status": "OK",
+        "write_outcome": "APPLIED",
+        "revision": 13,
+        "detail": null
+      },
+      "meaning": "저장 성공과 반환 revision 표현에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}

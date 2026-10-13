@@ -1,0 +1,39 @@
+definition: TurnWriteSet
+nodes:
+  ? ''
+  : title: ''
+    meaning: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: &id001
+    - T5
+    evidence_status: requirement_reference
+  /properties/store_result:
+    title: ''
+    meaning: Record Writer가 정한 답 기록 변경과 요약.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/progress_record_update:
+    title: ''
+    meaning: Dialogue Planner가 정한 진행 기록 갱신. null이면 이 쓰기 묶음에 갱신이 없다.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/progress_record_update/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/planner_record_update:
+    title: ''
+    meaning: Dialogue Planner가 정한 계획 기록 갱신. null이면 이 쓰기 묶음에 갱신이 없다.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/planner_record_update/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 답 기록·진행 기록·계획 기록을 한 저장 요청에 함께 전달한다. 로그·외부 전달은 별도이며 실제 원자성 구현은 저장 담당자의 책임이다.
+    case_refs: *id001
+    evidence_status: requirement_reference

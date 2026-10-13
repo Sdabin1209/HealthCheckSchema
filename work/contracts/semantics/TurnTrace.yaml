@@ -1,0 +1,455 @@
+definition: TurnTrace
+nodes:
+  ? ''
+  : title: 한 턴의 전체 경계 Trace
+    meaning: 실제로 사용한 입력과 생성한 출력 및 저장 상태를 담는 정형 기록. null은 그 경계에 payload가 확보되지 않았음을 뜻한다.
+    why: 문제가 발생한 턴의 입력·경계별 출력·저장 전후 상태를 같은 세션·턴·계약 버전으로 연결하여 원인을 추적할 수 있어야 한다. 기록 형식은 payload 수집이나 실행의 정확성을 보증하지
+      않는다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: session_id
+    meaning: 이 Trace가 속하는 세션 식별자.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/turn_id:
+    title: turn_id
+    meaning: 같은 세션 내 턴 식별자. 생성·유일성 검사는 수집 담당자 책임.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/contract_version:
+    title: contract_version
+    meaning: 해당 Trace payload에 적용한 계약 버전. 적용 버전은 manifest.yaml에서 확인한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/frontend_message:
+    title: frontend_message
+    meaning: FrontendMessage의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/frontend_message/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/intervention_decision:
+    title: intervention_decision
+    meaning: InterventionDecision의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/intervention_decision/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/orchestrator_input:
+    title: orchestrator_input
+    meaning: OrchestratorInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/orchestrator_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_input:
+    title: parser_input
+    meaning: UtteranceParserInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_output:
+    title: parser_output
+    meaning: ParserOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/normalizer_input:
+    title: normalizer_input
+    meaning: AnswerNormalizerInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/normalizer_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/normalizer_output:
+    title: normalizer_output
+    meaning: NormalizerOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/normalizer_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/judge_input:
+    title: judge_input
+    meaning: AnswerJudgeInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/judge_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/judge_output:
+    title: judge_output
+    meaning: JudgeOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/judge_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/record_writer_input:
+    title: record_writer_input
+    meaning: RecordWriterInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/record_writer_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/record_writer_output:
+    title: record_writer_output
+    meaning: StoreResult의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/record_writer_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/planner_input:
+    title: planner_input
+    meaning: DialoguePlannerInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/planner_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/planner_output:
+    title: planner_output
+    meaning: PlannerOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/planner_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/generator_input:
+    title: generator_input
+    meaning: ResponseGeneratorInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/generator_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/generator_output:
+    title: generator_output
+    meaning: GeneratorOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/generator_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/frontend_input:
+    title: frontend_input
+    meaning: FrontendInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/frontend_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/staff_console_input:
+    title: staff_console_input
+    meaning: StaffConsoleInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/staff_console_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/dispatch_input:
+    title: dispatch_input
+    meaning: DispatchInput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/dispatch_input/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/dispatch_output:
+    title: dispatch_output
+    meaning: DispatchOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/dispatch_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/orchestrator_output:
+    title: orchestrator_output
+    meaning: OrchestratorOutput의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/orchestrator_output/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/session_before:
+    title: session_before
+    meaning: SessionStore의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/session_before/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/session_after:
+    title: session_after
+    meaning: SessionStore의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/session_after/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/log_entry:
+    title: log_entry
+    meaning: LogEntry의 원본 payload 전체. null은 미확보이며 생략과 구분한다.
+    why: 어떤 입력·출력·상태를 기록한 것인지 같은 턴에서 확인할 수 있어야 한다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/log_entry/anyOf/1:
+    title: 미확보
+    meaning: 해당 경계 payload를 확보하지 못했다.
+    why: 세션 조회·중간 단계 실패 또는 실행되지 않은 경계를 기록한다. 실패 단계와 함께 해석하며 Schema는 실행 여부를 판단하지 않는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/turn_index:
+    title: ''
+    meaning: 세션 내 원문 발화의 턴 순번. Framework가 부여하며 0/1 시작 기준은 세션에서 일관되게 적용한다.
+    why: 전체 Trace의 턴 식별자와 근거의 턴 순번을 함께 추적할 수 있어야 한다.
+    case_refs:
+    - T2
+    evidence_status: requirement_reference
+  /properties/persistence_load_request:
+    title: ''
+    meaning: 저장 프로토콜 초안의 load_request payload. null은 이 자료가 수집되지 않았음을 뜻한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: &id001
+    - T5
+    - T6
+    - T7
+    - T8
+    - T10
+    evidence_status: requirement_reference
+  /properties/persistence_load_request/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/persistence_load_result:
+    title: ''
+    meaning: 저장 프로토콜 초안의 load_result payload. null은 이 자료가 수집되지 않았음을 뜻한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: &id002
+    - T5
+    - T6
+    - T7
+    - T8
+    - T10
+    evidence_status: requirement_reference
+  /properties/persistence_load_result/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: *id002
+    evidence_status: requirement_reference
+  /properties/persistence_commit_request:
+    title: ''
+    meaning: 저장 프로토콜 초안의 commit_request payload. null은 이 자료가 수집되지 않았음을 뜻한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: &id003
+    - T5
+    - T6
+    - T7
+    - T8
+    - T10
+    evidence_status: requirement_reference
+  /properties/persistence_commit_request/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: *id003
+    evidence_status: requirement_reference
+  /properties/persistence_commit_result:
+    title: ''
+    meaning: 저장 프로토콜 초안의 commit_result payload. null은 이 자료가 수집되지 않았음을 뜻한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: &id004
+    - T5
+    - T6
+    - T7
+    - T8
+    - T10
+    evidence_status: requirement_reference
+  /properties/persistence_commit_result/anyOf/1:
+    title: ''
+    meaning: 해당 payload 미확보 또는 이 결과에서 해당 없음. 생략과는 구별한다.
+    why: 저장 요청·반환 버전·반영 여부를 출력 로그와 구별하여 표현해야 한다.
+    case_refs: *id004
+    evidence_status: requirement_reference

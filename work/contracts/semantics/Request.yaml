@@ -1,0 +1,74 @@
+definition: Request
+nodes:
+  ? ''
+  : title: 요청
+    meaning: 의도가 진행 조작·안내 요청·사람 요청인 항목. 같은 것이 여럿이면 하나로 합친다.
+    why: 요청은 저장하지 않고 응답만 바꾼다. 같은 발화의 답은 따로 판정으로 나온다(E3).
+    case_refs:
+    - D1a
+    - E1a
+    - F1
+    evidence_status: requirement_reference
+  /properties/kind:
+    title: 종류
+    meaning: 요청 종류.
+    why: 요청 종류마다 Plan의 응답(되풀이, 대기 안내, 미룸, 중단 확인, 안내, 직원 호출)이 다르다.
+    case_refs:
+    - D1a
+    - D2
+    - D4
+    evidence_status: requirement_reference
+  /properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 종류가 안내일 때.
+    why: 같은 안내 요청이라도 어느 안내 항목인지에 따라 읽을 문장이 다르다.
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/0:
+    title: ''
+    meaning: 요청하는 안내 항목의 등록 식별자.
+    why: Plan이 안내 요청에 대응하는 등록 문장을 선택한다.
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 안내가 아닌 요청이다(D1a 반복, D2 대기, D3a 나중에, F1 사람 요청). 읽을 안내 문장을 고를 일이 없다.
+    case_refs:
+    - D1a
+    - D2
+    - D3a
+    - F1
+    evidence_status: requirement_reference
+  /properties/target_question_id:
+    title: 대상 문항 ID
+    meaning: 나중에·안내의 대상 문항. 항목에 대상이 없으면 기다리는 답의 대상 문항(하나일 때). 정의에 없는 대상이었으면 없음.
+    why: '"이건 이따 할게요"가 어느 문항인지(D3). 정의에 없는 문항을 미룬다는 말이 지금 문항을 미루지 않게.'
+    case_refs:
+    - D3a
+    - E1a
+    - N7a
+    evidence_status: requirement_reference
+  /properties/target_question_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 대상 문항이 없는 요청이다. 기다리는 답이 문항을 묻는 것이 아니면 안내 요청에도 대상이 없고(N12 마치기 확인 중의 목적 질문),
+      정의에 없는 문항을 미루면 대상을 지운다(K9c). 6절 7이 그 둘을 없음으로 정한다.
+    case_refs:
+    - N12
+    - D1a
+    - F1
+    - K9c
+    evidence_status: requirement_reference
+  /properties/source_text:
+    title: 원문 표현
+    meaning: 합친 항목들의 원문.
+    why: 사람 요청이면 직원이 무엇을 원하는지 알고 온다(F1, F2).
+    case_refs:
+    - F1
+    - X8
+    evidence_status: requirement_reference

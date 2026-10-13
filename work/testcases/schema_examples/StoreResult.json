@@ -1,0 +1,49 @@
+{
+  "id": "shape-StoreResult",
+  "contract": "StoreResult",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "store_decisions": [
+      {
+        "slot": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "action": "FIRST_WRITE",
+        "value": "안 피움",
+        "pending_id": null,
+        "risk_mark": null
+      }
+    ],
+    "store_summary": {
+      "changed_slots": [
+        {
+          "slot": {
+            "question_id": "Q1",
+            "repeat_key": "",
+            "slot_id": "상태"
+          },
+          "previous_value": null,
+          "new_value": "안 피움",
+          "kind": "FIRST_ANSWER"
+        }
+      ],
+      "unknown_refused_records": [],
+      "created_pendings": [],
+      "resolved_pendings": [],
+      "invalidated_questions": []
+    }
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/store_result",
+    "correctness_claim": false
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "const": "UNKNOWN_ACCEPTED"
+    },
+    {
+      "const": "REFUSAL_ACCEPTED"
+    },
+    {
+      "const": "ATTEMPTS_EXCEEDED"
+    }
+  ]
+}

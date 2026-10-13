@@ -1,0 +1,74 @@
+definition: ChangedSlot
+nodes:
+  ? ''
+  : title: 값이 바뀐 슬롯
+    meaning: 현재값이 답으로 바뀐 슬롯.
+    why: Plan이 "정정 받았음"을 알리고 방금 저장한 값을 말한다(C1).
+    case_refs:
+    - C1
+    - B2
+    - N13
+    evidence_status: requirement_reference
+  /properties/slot:
+    title: 슬롯
+    meaning: 바뀐 슬롯.
+    why: Plan이 "정정 받았음"을 알릴 때 어느 문항의 어느 칸이 바뀌었는지 말해야 한다.
+    case_refs:
+    - C1
+    - C2
+    - N15
+    evidence_status: requirement_reference
+  /properties/previous_value:
+    title: 이전 값
+    meaning: 바뀌기 전 답. 없었으면 없음.
+    why: '"열 개에서 스무 개로"처럼 알린다(C1).'
+    case_refs:
+    - C1
+    - C2
+    - N13
+    evidence_status: requirement_reference
+  /properties/previous_value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 고치기 전 답이 없던 슬롯이다(B1 첫 저장, N11b 정정 표지로 처음 답함). 8-2절 10의 정정 받았음이 "열 개에서 스무
+      개로"처럼 말하려면 이전 값이 있어야 하고, 없으면 그 말을 하지 않는다.
+    case_refs:
+    - B1
+    - N11b
+    evidence_status: requirement_reference
+  /properties/new_value:
+    title: 새 값
+    meaning: 바뀐 뒤 답.
+    why: Plan이 방금 저장한 값을 말하고 정정 받았음의 새 값으로 알린다(B2, C1).
+    case_refs:
+    - C1
+    - B2
+    - E3b
+    evidence_status: requirement_reference
+  /properties/kind:
+    title: 종류
+    meaning: 첫 답인지 고친 것인지.
+    why: 첫 답에는 "정정 받았음"을 알리지 않는다.
+    case_refs:
+    - C1
+    - B2
+    - B1
+    evidence_status: requirement_reference
+  /properties/kind/oneOf/0:
+    title: 첫 답
+    meaning: 빈 슬롯에 들어감
+    why: 빈 칸에 들어간 첫 답이다. 고친 것이 아니므로 "정정 받았음"을 알리지 않는다.
+    case_refs:
+    - B1
+    - B2
+    - A2
+    evidence_status: requirement_reference
+  /properties/kind/oneOf/1:
+    title: 정정
+    meaning: 있던 답이 바뀜
+    why: 있던 답이 바뀐 것이다. "이전 값에서 새 값으로 고쳤다"고 알려야 사용자가 확인한다.
+    case_refs:
+    - C1
+    - C4a
+    - N3b
+    evidence_status: requirement_reference

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "const": "NO_UNIT"
+    },
+    {
+      "const": "OUT_OF_RANGE"
+    },
+    {
+      "const": "AMBIGUOUS"
+    },
+    {
+      "const": "MISMATCH"
+    },
+    {
+      "const": "UNKNOWN_TARGET"
+    }
+  ]
+}

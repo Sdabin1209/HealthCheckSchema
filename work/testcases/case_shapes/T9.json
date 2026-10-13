@@ -1,0 +1,266 @@
+{
+  "version": 1,
+  "case": "T9",
+  "case_sha256": "7775235cbd0bb3564bbe0e623211f3547b77fac35160a9758da3dc1fd1ec9383",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "두 박스예요"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "NormalizerOutput",
+      "role": "representation",
+      "data": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": null,
+            "problems": [
+              "AMBIGUOUS"
+            ],
+            "mismatched_slots": [],
+            "vs_current": "NOT_APPLICABLE",
+            "vs_pending": "NOT_APPLICABLE",
+            "risk_rule": null,
+            "prerequisite_unmet": false,
+            "problem_details": [
+              {
+                "category": "AMBIGUOUS",
+                "code": "UNKNOWN_UNIT",
+                "refs": [
+                  {
+                    "question_id": "Q3b",
+                    "repeat_key": "",
+                    "slot_id": "1회양"
+                  }
+                ],
+                "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+              }
+            ]
+          }
+        ],
+        "missing_required_slots": []
+      }
+    },
+    {
+      "id": "out1",
+      "turn": 1,
+      "contract": "JudgeOutput",
+      "role": "representation",
+      "data": {
+        "judgments": [
+          {
+            "target": {
+              "question_id": "Q3b",
+              "repeat_key": "",
+              "slot_id": "1회양"
+            },
+            "status": "UNCLEAR",
+            "reasons": [
+              "AMBIGUOUS"
+            ],
+            "value_now": null,
+            "said_value": "두 박스",
+            "pending_handling": "NONE",
+            "target_pending_ids": [],
+            "mismatched_slots": [],
+            "risk_rule": null,
+            "problem_details": [
+              {
+                "category": "AMBIGUOUS",
+                "code": "UNKNOWN_UNIT",
+                "refs": [
+                  {
+                    "question_id": "Q3b",
+                    "repeat_key": "",
+                    "slot_id": "1회양"
+                  }
+                ],
+                "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+              }
+            ]
+          }
+        ],
+        "invalidated_questions": [],
+        "utterance_judgment": {
+          "result": "HAS_ANSWER",
+          "valueless_correction_requests": [],
+          "confirmation": "NONE",
+          "requests": [],
+          "risk_signal": null
+        }
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "두 박스예요",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "두 박스예요",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/정규화",
+      "source_value": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": null,
+            "problems": [
+              "AMBIGUOUS"
+            ],
+            "mismatched_slots": [],
+            "vs_current": "NOT_APPLICABLE",
+            "vs_pending": "NOT_APPLICABLE",
+            "risk_rule": null,
+            "prerequisite_unmet": false,
+            "problem_details": [
+              {
+                "category": "AMBIGUOUS",
+                "code": "UNKNOWN_UNIT",
+                "refs": [
+                  {
+                    "question_id": "Q3b",
+                    "repeat_key": "",
+                    "slot_id": "1회양"
+                  }
+                ],
+                "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+              }
+            ]
+          }
+        ],
+        "missing_required_slots": []
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "NormalizerOutput",
+      "schema_pointer": "",
+      "encoded_value": {
+        "item_checks": [
+          {
+            "item_no": 0,
+            "standard_value": null,
+            "problems": [
+              "AMBIGUOUS"
+            ],
+            "mismatched_slots": [],
+            "vs_current": "NOT_APPLICABLE",
+            "vs_pending": "NOT_APPLICABLE",
+            "risk_rule": null,
+            "prerequisite_unmet": false,
+            "problem_details": [
+              {
+                "category": "AMBIGUOUS",
+                "code": "UNKNOWN_UNIT",
+                "refs": [
+                  {
+                    "question_id": "Q3b",
+                    "repeat_key": "",
+                    "slot_id": "1회양"
+                  }
+                ],
+                "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+              }
+            ]
+          }
+        ],
+        "missing_required_slots": []
+      },
+      "meaning": "세부 문제 코드와 관련 칸 보존에 필요한 정보를 완전한 정적 자료에 보존한다."
+    },
+    {
+      "source_pointer": "/expect/판정",
+      "source_value": [
+        {
+          "target": {
+            "question_id": "Q3b",
+            "repeat_key": "",
+            "slot_id": "1회양"
+          },
+          "status": "UNCLEAR",
+          "reasons": [
+            "AMBIGUOUS"
+          ],
+          "value_now": null,
+          "said_value": "두 박스",
+          "pending_handling": "NONE",
+          "target_pending_ids": [],
+          "mismatched_slots": [],
+          "risk_rule": null,
+          "problem_details": [
+            {
+              "category": "AMBIGUOUS",
+              "code": "UNKNOWN_UNIT",
+              "refs": [
+                {
+                  "question_id": "Q3b",
+                  "repeat_key": "",
+                  "slot_id": "1회양"
+                }
+              ],
+              "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+            }
+          ]
+        }
+      ],
+      "kind": "literal",
+      "specimen": "out1",
+      "data_pointer": "/judgments",
+      "definition": "JudgeOutput",
+      "schema_pointer": "/properties/judgments",
+      "encoded_value": [
+        {
+          "target": {
+            "question_id": "Q3b",
+            "repeat_key": "",
+            "slot_id": "1회양"
+          },
+          "status": "UNCLEAR",
+          "reasons": [
+            "AMBIGUOUS"
+          ],
+          "value_now": null,
+          "said_value": "두 박스",
+          "pending_handling": "NONE",
+          "target_pending_ids": [],
+          "mismatched_slots": [],
+          "risk_rule": null,
+          "problem_details": [
+            {
+              "category": "AMBIGUOUS",
+              "code": "UNKNOWN_UNIT",
+              "refs": [
+                {
+                  "question_id": "Q3b",
+                  "repeat_key": "",
+                  "slot_id": "1회양"
+                }
+              ],
+              "message": "단위를 표준화할 근거가 미확보된 형태 예시"
+            }
+          ]
+        }
+      ],
+      "meaning": "세부 문제 코드와 관련 칸 보존에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+definition: ProgressRecordUpdate
+nodes:
+  ? ''
+  : title: 진행 기록 갱신
+    meaning: Plan이 진행 기록에 쓰는 것.
+    why: 진행 기록은 Plan만 쓴다. 쓰는 쪽이 하나여야 저장소가 판단 없이 반영할 수 있다.
+    case_refs:
+    - B10
+    - G1
+    - C8a
+    - R4
+    evidence_status: requirement_reference
+  /properties/last_directive:
+    title: 직전 응답 지시
+    meaning: 이번 응답 지시 전체.
+    why: 다음 턴의 발화 해석과 반복 요청(D1)에만 쓴다.
+    case_refs:
+    - R4
+    - H3d
+    - N8b
+    evidence_status: requirement_reference
+  /properties/open_requests:
+    title: 열린 요청
+    meaning: 열린 요청의 전체 새 값.
+    why: 통째로 교체해 부분 갱신의 어긋남이 없게.
+    case_refs:
+    - N7a
+    - N7b
+    - R5
+    - R4
+    evidence_status: requirement_reference
+  /properties/skipped_add:
+    title: 건너뜀 추가
+    meaning: 이번에 건너뛴 문항.
+    why: 건너뛴 문항은 이후 턴에 다시 묻지 않아야 하고 결과에 사유가 남아야 하므로, 이번에 건너뛴 것을 진행 기록에 남긴다.
+    case_refs:
+    - B10
+    - B8b
+    - S3a
+    evidence_status: requirement_reference
+  /properties/skipped_remove:
+    title: 건너뜀 해제
+    meaning: 건너뛴 문항에 이번에 기록이 바뀐 문항.
+    why: 건너뛴 문항에 사용자가 스스로 답하면 다시 살아난다.
+    case_refs:
+    - X7
+    - S3a
+    - N15
+    evidence_status: requirement_reference
+  /properties/confirm_stopped_add:
+    title: 확인 중단 추가
+    meaning: 확인 상한으로 확인을 그만둔 슬롯.
+    why: 확인 상한에 닿은 확인 대기를 더 묻지 않도록 기록한다.
+    case_refs:
+    - C8a
+    - N6
+    evidence_status: requirement_reference
+  /properties/confirm_stopped_remove:
+    title: 확인 중단 해제
+    meaning: 확인 대기가 이번 턴에 해소된 확인 중단 슬롯.
+    why: 확인 대기가 없어진 슬롯을 확인 중단에 남겨 두면 뜻 없는 기록이 남는다. 진행 기록은 Plan만 쓰므로 빼는 것도 Plan이 낸다(원칙
+      6).
+    case_refs:
+    - C10
+    evidence_status: requirement_reference
+  /properties/session_status:
+    title: 세션 상태
+    meaning: 바꿀 때만 값, 그대로면 없음.
+    why: 세션 상태도 Plan만 쓴다(H2, G1, G6, A4, F4, D5).
+    case_refs:
+    - G1
+    - A4a
+    - H2
+    - G6a
+    evidence_status: requirement_reference
+  /properties/session_status/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 세션 상태를 바꾸지 않는 턴이다(B1, C1). 9-2절 1이 "값이 오면 교체"라 없음이어야 그대로 둔다. 값이 오는 턴은 H2·G1·A4a·F4·D5a뿐이다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /properties/pause_history_add:
+    title: 중지 이력 추가
+    meaning: 이번 턴의 일시 중지·재개.
+    why: 멈춤·재개는 세션 상태만으로는 지나간 기록이 남지 않으므로 이력으로 따로 쌓아야 결과에 넘어간다.
+    case_refs:
+    - G1
+    - G3
+    - G6a
+    evidence_status: requirement_reference

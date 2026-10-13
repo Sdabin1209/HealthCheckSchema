@@ -1,0 +1,26 @@
+원본 Schema·필드 설명·요구 참조
+{
+  "definitions": 110,
+  "cases": 226,
+  "semantic_nodes": 969,
+  "requirement_references_only": true,
+  "component_correctness_checked": false,
+  "failures": []
+}
+전달용 Schema·문서 생성
+{"contract_version": 1, "source_sha256": "2dabc5889dfa04090b2dcc4984ce0239ad7375a4ae3934369e600a207a6a897e", "definitions": 110, "components": 12, "requirement_cases": 226, "standalone": 23, "proposed_boundaries": 4}
+원본과 생성물 대조
+{"standalone": 23, "proposals": 4, "failures": []}
+요구값·정형 예시 표현 가능 여부
+{"scope": "schema_representation_only", "component_execution": false, "correct_answer_selection_checked": false, "proposed_boundary_contracts": 4, "required_values": 50, "structural_examples": 39, "boundary_contracts": 27, "boundaries_with_valid_examples": 27, "failures": []}
+전체 케이스의 정보·완전한 예시·계약 연결
+{"scope": "case_by_case_static_schema_representation", "component_execution": false, "correct_answer_selection_checked": false, "cases": 226, "cases_with_witnesses": 226, "case_turns": 244, "required_information_leaves": 5513, "complete_specimens": 4553, "requirement_kinds": {"literal": 4068, "presence_constraint": 52, "fixture_context": 68, "content_constraint": 30, "collection_constraint": 6, "identity_constraint": 8, "routing_constraint": 22, "relation_constraint": 8}}
+failures 0
+입력 조립 명세·정적 전달 예시
+{"scope": "static_schema_handoffs", "component_execution": false, "binding_fields": 59, "output_destination_fields": 6, "complete_transfer_examples": 17, "failures": []}
+자료 무결성
+{"scope": "static_output_local_information_integrity", "component_execution": false, "specimens": 4584, "unique_payloads": 2655, "failures": []}
+Schema 회귀 검사
+.............................................................            [100%]
+61 passed in 6.29s
+정적 스키마 검증 통과. 실제 컴포넌트 동작을 실행하지 않았습니다.

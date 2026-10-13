@@ -1,0 +1,11 @@
+definition: QuestionId
+nodes:
+  ? ''
+  : title: 문항 ID
+    meaning: 문진 설계자가 문항 정의 저장소에 정한 문항 식별자.
+    why: 모든 컴포넌트가 같은 문항을 같은 이름으로 가리켜야 한다.
+    case_refs:
+    - A1
+    - A2
+    - D3a
+    evidence_status: requirement_reference

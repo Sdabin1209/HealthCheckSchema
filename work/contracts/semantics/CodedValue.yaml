@@ -1,0 +1,21 @@
+definition: CodedValue
+nodes:
+  ? ''
+  : title: ''
+    meaning: 선택지 코드를 값으로 전달하고 필요하면 등록된 표시 이름의 스냅샷을 함께 보존한다.
+    why: 선택지 코드를 값으로 전달하고 필요하면 등록된 표시 이름의 스냅샷을 함께 보존한다.
+    case_refs: &id001
+    - T4
+    evidence_status: requirement_reference
+  /properties/code:
+    title: ''
+    meaning: 저장·비교에 사용하는 안정적인 식별 코드. 표시 이름으로 임의 생성하지 않는다.
+    why: 표시 이름 변경·번역에도 저장 값의 정체성이 유지되어야 한다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/label:
+    title: ''
+    meaning: 사람에게 보여 줄 표시 이름. 코드와 같은 문자열일 필요가 없다.
+    why: 안정적인 코드를 사용자에게 그대로 읽는 대신 등록된 이름을 사용할 수 있어야 한다.
+    case_refs: *id001
+    evidence_status: requirement_reference

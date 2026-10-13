@@ -1,0 +1,11 @@
+definition: SourceText
+nodes:
+  ? ''
+  : title: 원문 표현
+    meaning: 사용자 발화에서 그대로 옮긴 부분.
+    why: 판정 근거를 사람이 확인하고, 애매한 값을 사용자 말 그대로 짚어 되묻기 위해(B3, G1).
+    case_refs:
+    - F1
+    - G1
+    - G8a
+    evidence_status: requirement_reference

@@ -1,0 +1,379 @@
+{
+  "version": 1,
+  "case": "T5",
+  "case_sha256": "9685ad651442d11a00959a12cc7090b20dde7b947f372b28c96091c1fc0fa69a",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "저장 요청 예시"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "SessionCommitRequest",
+      "role": "representation",
+      "data": {
+        "session_id": "S-TEST",
+        "expected_revision": 12,
+        "writes": {
+          "store_result": {
+            "store_decisions": [
+              {
+                "slot": {
+                  "question_id": "Q1",
+                  "repeat_key": "",
+                  "slot_id": "상태"
+                },
+                "action": "FIRST_WRITE",
+                "value": "안 피움",
+                "pending_id": null,
+                "risk_mark": null
+              }
+            ],
+            "store_summary": {
+              "changed_slots": [
+                {
+                  "slot": {
+                    "question_id": "Q1",
+                    "repeat_key": "",
+                    "slot_id": "상태"
+                  },
+                  "previous_value": null,
+                  "new_value": "안 피움",
+                  "kind": "FIRST_ANSWER"
+                }
+              ],
+              "unknown_refused_records": [],
+              "created_pendings": [],
+              "resolved_pendings": [],
+              "invalidated_questions": []
+            }
+          },
+          "progress_record_update": {
+            "last_directive": {
+              "action": "ASK_NEXT",
+              "targets": [
+                {
+                  "question_id": "Q1",
+                  "whole_question": true
+                }
+              ],
+              "target_pending_id": null,
+              "awaiting": {
+                "action": "ASK_NEXT",
+                "targets": [
+                  {
+                    "question_id": "Q1",
+                    "whole_question": true
+                  }
+                ],
+                "target_pending_id": null,
+                "say_values": []
+              },
+              "say_values": [],
+              "reask_reasons": [],
+              "notices": [],
+              "sentence_materials": {
+                "question_sentences": [
+                  {
+                    "question_id": "Q1",
+                    "sentence": "담배는 피우시나요?"
+                  }
+                ],
+                "refusal_explanations": [],
+                "reask_sentences": [],
+                "choices": [
+                  {
+                    "slot": {
+                      "question_id": "Q1",
+                      "repeat_key": "",
+                      "slot_id": "상태"
+                    },
+                    "choices": [
+                      "현재 피움",
+                      "끊음",
+                      "안 피움"
+                    ]
+                  }
+                ],
+                "guide_sentences": [],
+                "fixed_sentences": []
+              }
+            },
+            "open_requests": {
+              "correction_requests": [],
+              "stop_requested": false,
+              "deferred": []
+            },
+            "skipped_add": [],
+            "skipped_remove": [],
+            "confirm_stopped_add": [],
+            "confirm_stopped_remove": [],
+            "session_status": null,
+            "pause_history_add": []
+          },
+          "planner_record_update": {
+            "attempt_counts": [],
+            "confirm_counts": [],
+            "unknown_counts": [],
+            "refusal_counts": [],
+            "unrecognized_streak": 0,
+            "ask_counts": []
+          }
+        }
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "저장 요청 예시",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "저장 요청 예시",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/저장요청",
+      "source_value": {
+        "session_id": "S-TEST",
+        "expected_revision": 12,
+        "writes": {
+          "store_result": {
+            "store_decisions": [
+              {
+                "slot": {
+                  "question_id": "Q1",
+                  "repeat_key": "",
+                  "slot_id": "상태"
+                },
+                "action": "FIRST_WRITE",
+                "value": "안 피움",
+                "pending_id": null,
+                "risk_mark": null
+              }
+            ],
+            "store_summary": {
+              "changed_slots": [
+                {
+                  "slot": {
+                    "question_id": "Q1",
+                    "repeat_key": "",
+                    "slot_id": "상태"
+                  },
+                  "previous_value": null,
+                  "new_value": "안 피움",
+                  "kind": "FIRST_ANSWER"
+                }
+              ],
+              "unknown_refused_records": [],
+              "created_pendings": [],
+              "resolved_pendings": [],
+              "invalidated_questions": []
+            }
+          },
+          "progress_record_update": {
+            "last_directive": {
+              "action": "ASK_NEXT",
+              "targets": [
+                {
+                  "question_id": "Q1",
+                  "whole_question": true
+                }
+              ],
+              "target_pending_id": null,
+              "awaiting": {
+                "action": "ASK_NEXT",
+                "targets": [
+                  {
+                    "question_id": "Q1",
+                    "whole_question": true
+                  }
+                ],
+                "target_pending_id": null,
+                "say_values": []
+              },
+              "say_values": [],
+              "reask_reasons": [],
+              "notices": [],
+              "sentence_materials": {
+                "question_sentences": [
+                  {
+                    "question_id": "Q1",
+                    "sentence": "담배는 피우시나요?"
+                  }
+                ],
+                "refusal_explanations": [],
+                "reask_sentences": [],
+                "choices": [
+                  {
+                    "slot": {
+                      "question_id": "Q1",
+                      "repeat_key": "",
+                      "slot_id": "상태"
+                    },
+                    "choices": [
+                      "현재 피움",
+                      "끊음",
+                      "안 피움"
+                    ]
+                  }
+                ],
+                "guide_sentences": [],
+                "fixed_sentences": []
+              }
+            },
+            "open_requests": {
+              "correction_requests": [],
+              "stop_requested": false,
+              "deferred": []
+            },
+            "skipped_add": [],
+            "skipped_remove": [],
+            "confirm_stopped_add": [],
+            "confirm_stopped_remove": [],
+            "session_status": null,
+            "pause_history_add": []
+          },
+          "planner_record_update": {
+            "attempt_counts": [],
+            "confirm_counts": [],
+            "unknown_counts": [],
+            "refusal_counts": [],
+            "unrecognized_streak": 0,
+            "ask_counts": []
+          }
+        }
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "SessionCommitRequest",
+      "schema_pointer": "",
+      "encoded_value": {
+        "session_id": "S-TEST",
+        "expected_revision": 12,
+        "writes": {
+          "store_result": {
+            "store_decisions": [
+              {
+                "slot": {
+                  "question_id": "Q1",
+                  "repeat_key": "",
+                  "slot_id": "상태"
+                },
+                "action": "FIRST_WRITE",
+                "value": "안 피움",
+                "pending_id": null,
+                "risk_mark": null
+              }
+            ],
+            "store_summary": {
+              "changed_slots": [
+                {
+                  "slot": {
+                    "question_id": "Q1",
+                    "repeat_key": "",
+                    "slot_id": "상태"
+                  },
+                  "previous_value": null,
+                  "new_value": "안 피움",
+                  "kind": "FIRST_ANSWER"
+                }
+              ],
+              "unknown_refused_records": [],
+              "created_pendings": [],
+              "resolved_pendings": [],
+              "invalidated_questions": []
+            }
+          },
+          "progress_record_update": {
+            "last_directive": {
+              "action": "ASK_NEXT",
+              "targets": [
+                {
+                  "question_id": "Q1",
+                  "whole_question": true
+                }
+              ],
+              "target_pending_id": null,
+              "awaiting": {
+                "action": "ASK_NEXT",
+                "targets": [
+                  {
+                    "question_id": "Q1",
+                    "whole_question": true
+                  }
+                ],
+                "target_pending_id": null,
+                "say_values": []
+              },
+              "say_values": [],
+              "reask_reasons": [],
+              "notices": [],
+              "sentence_materials": {
+                "question_sentences": [
+                  {
+                    "question_id": "Q1",
+                    "sentence": "담배는 피우시나요?"
+                  }
+                ],
+                "refusal_explanations": [],
+                "reask_sentences": [],
+                "choices": [
+                  {
+                    "slot": {
+                      "question_id": "Q1",
+                      "repeat_key": "",
+                      "slot_id": "상태"
+                    },
+                    "choices": [
+                      "현재 피움",
+                      "끊음",
+                      "안 피움"
+                    ]
+                  }
+                ],
+                "guide_sentences": [],
+                "fixed_sentences": []
+              }
+            },
+            "open_requests": {
+              "correction_requests": [],
+              "stop_requested": false,
+              "deferred": []
+            },
+            "skipped_add": [],
+            "skipped_remove": [],
+            "confirm_stopped_add": [],
+            "confirm_stopped_remove": [],
+            "session_status": null,
+            "pause_history_add": []
+          },
+          "planner_record_update": {
+            "attempt_counts": [],
+            "confirm_counts": [],
+            "unknown_counts": [],
+            "refusal_counts": [],
+            "unrecognized_streak": 0,
+            "ask_counts": []
+          }
+        }
+      },
+      "meaning": "기준 revision과 원자적 쓰기 묶음의 표현에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slot": {
+      "$ref": "SlotRef.schema.json"
+    },
+    "action": {
+      "$ref": "StoreAction.schema.json"
+    },
+    "value": {
+      "anyOf": [
+        {
+          "$ref": "Value.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pending_id": {
+      "anyOf": [
+        {
+          "$ref": "PendingId.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "risk_mark": {
+      "anyOf": [
+        {
+          "$ref": "RiskResponse.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    }
+  },
+  "required": [
+    "slot",
+    "action",
+    "value",
+    "pending_id",
+    "risk_mark"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "value_metadata"
+        ],
+        "properties": {
+          "value_metadata": {
+            "properties": {
+              "precision": {
+                "enum": [
+                  "exact",
+                  "approximate"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "not": {
+              "type": "null"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

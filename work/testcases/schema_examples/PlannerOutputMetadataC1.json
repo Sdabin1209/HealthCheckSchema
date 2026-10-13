@@ -1,0 +1,161 @@
+{
+  "id": "planner-metadata-C1",
+  "contract": "PlannerOutput",
+  "valid": true,
+  "input": {
+    "directive": {
+      "action": "ASK_NEXT",
+      "targets": [
+        {
+          "question_id": "Q5",
+          "whole_question": true
+        }
+      ],
+      "target_pending_id": null,
+      "awaiting": {
+        "action": "ASK_NEXT",
+        "targets": [
+          {
+            "question_id": "Q5",
+            "whole_question": true
+          }
+        ],
+        "target_pending_id": null,
+        "say_values": []
+      },
+      "say_values": [],
+      "reask_reasons": [],
+      "notices": [
+        {
+          "kind": "CORRECTION_ACK",
+          "guide_id": null,
+          "question_id": "Q2",
+          "question_name": "흡연량",
+          "slot": {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          },
+          "previous_value": {
+            "amount": 10,
+            "unit": "개비"
+          },
+          "value": {
+            "amount": 20,
+            "unit": "개비"
+          },
+          "value_metadata": {
+            "precision": "unspecified",
+            "evidence": []
+          },
+          "previous_value_metadata": {
+            "precision": "unspecified",
+            "evidence": []
+          }
+        }
+      ],
+      "sentence_materials": {
+        "question_sentences": [
+          {
+            "question_id": "Q5",
+            "sentence": "하루에 몇 시간 주무세요?"
+          }
+        ],
+        "refusal_explanations": [],
+        "reask_sentences": [],
+        "choices": [],
+        "guide_sentences": [],
+        "fixed_sentences": []
+      }
+    },
+    "flow": "CONTINUE",
+    "staff_alert": null,
+    "progress_record_update": {
+      "last_directive": {
+        "action": "ASK_NEXT",
+        "targets": [
+          {
+            "question_id": "Q5",
+            "whole_question": true
+          }
+        ],
+        "target_pending_id": null,
+        "awaiting": {
+          "action": "ASK_NEXT",
+          "targets": [
+            {
+              "question_id": "Q5",
+              "whole_question": true
+            }
+          ],
+          "target_pending_id": null,
+          "say_values": []
+        },
+        "say_values": [],
+        "reask_reasons": [],
+        "notices": [
+          {
+            "kind": "CORRECTION_ACK",
+            "guide_id": null,
+            "question_id": "Q2",
+            "question_name": "흡연량",
+            "slot": {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            },
+            "previous_value": {
+              "amount": 10,
+              "unit": "개비"
+            },
+            "value": {
+              "amount": 20,
+              "unit": "개비"
+            }
+          }
+        ],
+        "sentence_materials": {
+          "question_sentences": [
+            {
+              "question_id": "Q5",
+              "sentence": "하루에 몇 시간 주무세요?"
+            }
+          ],
+          "refusal_explanations": [],
+          "reask_sentences": [],
+          "choices": [],
+          "guide_sentences": [],
+          "fixed_sentences": []
+        }
+      },
+      "open_requests": {
+        "correction_requests": [],
+        "stop_requested": false,
+        "deferred": []
+      },
+      "skipped_add": [],
+      "skipped_remove": [],
+      "confirm_stopped_add": [],
+      "confirm_stopped_remove": [],
+      "session_status": null,
+      "pause_history_add": []
+    },
+    "planner_record_update": {
+      "attempt_counts": [
+        {
+          "question_id": "Q5",
+          "count": 1
+        }
+      ],
+      "confirm_counts": [],
+      "unknown_counts": [],
+      "refusal_counts": [],
+      "unrecognized_streak": 0,
+      "ask_counts": []
+    }
+  },
+  "origin": {
+    "correctness_claim": false,
+    "description": "응답 재료의 메타데이터 전달 형태 예시. 미확보 메타데이터를 exact로 추정하지 않는다."
+  }
+}

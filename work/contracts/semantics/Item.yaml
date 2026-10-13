@@ -1,0 +1,162 @@
+definition: Item
+nodes:
+  ? ''
+  : title: 항목
+    meaning: 발화에서 뽑은 (대상, 값, 원문, 의도) 하나.
+    why: 한 발화에 답과 요청이 함께 포함되어도 각각 처리할 수 있도록, 추출한 사실과 의도를 항목 단위로 전달해야 한다.
+    case_refs:
+    - A2
+    - B1
+    - G8a
+    evidence_status: requirement_reference
+  /properties/item_no:
+    title: 항목 번호
+    meaning: 이번 턴 안에서 항목마다 붙이는 번호(0부터).
+    why: 정규화·검증과 상태 판정의 항목별 결과를 원래 항목과 잇는다. 턴을 넘어 쓰지 않는다.
+    case_refs:
+    - B1
+    - B4
+    - N13
+    evidence_status: requirement_reference
+  /properties/target:
+    title: 대상
+    meaning: 무엇에 대한 말인지. 정정 의도인데 무엇을 고칠지 모르면 없음. 확인-긍정·부정·위험 신호는 없어도 된다.
+    why: 값을 어느 슬롯에 넣을지 정한다. 대상 없이 온 확인 응답은 상태 판정이 직전 응답 지시로 잇는다(C4).
+    case_refs:
+    - A2
+    - B1
+    - C5
+    evidence_status: requirement_reference
+  /properties/target/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 무엇을 고칠지 모르는 정정(C5), 인식불가(I1a), 무관(K1), 위험 신호(G1)에는 값을 넣을 슬롯이 없다. 4절 1이 답함·모름·거절에만 대상을 요구하므로, 없음이 "저장할 곳이
+      없는 말"을 뜻한다.
+    case_refs:
+    - C5
+    - I1a
+    - K1
+    - G1
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 값
+    meaning: 원문에서 뽑은 값 문자열. 표준화하지 않는다.
+    why: 표준화(단위 환산·범위 검사)는 정규화·검증 한 곳에서만 한다. 애매하면 이 문자열 그대로 짚어 되묻는다(B3).
+    case_refs:
+    - A2
+    - B1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: '뽑을 값이 없는 항목이다: 값 없는 정정(C6a), 모름(B7a), 나중에(D3a), 사람 요청(F1). 값 없음과 빈 문자열이 같으면 "값을 말하지 않은 정정"을 가려낼 수 없어 C6a가
+      C1과 섞인다.'
+    case_refs:
+    - C6a
+    - B7a
+    - D3a
+    - F1
+    evidence_status: requirement_reference
+  /properties/source_text:
+    title: 원문 표현
+    meaning: 이 항목에 해당하는 발화 부분.
+    why: 애매한 값을 사용자 말 그대로 짚어 되묻고, 판정 근거를 사람이 확인한다(B3).
+    case_refs:
+    - G8a
+    - G8b
+    - R3
+    evidence_status: requirement_reference
+  /properties/intent:
+    title: 의도
+    meaning: 공유 어휘 의도 중 하나.
+    why: 하려는 일에 따라 처리 경로가 갈린다.
+    case_refs:
+    - A2
+    - B7a
+    - D1a
+    evidence_status: requirement_reference
+  /properties/progress_op:
+    title: 진행 조작
+    meaning: 의도가 진행 조작일 때만. 나중에는 대상(문항 전체)이 있을 수 있다.
+    why: 반복·대기·나중에·중단은 응답이 서로 다르다(D1~D4).
+    case_refs:
+    - D1a
+    - D2
+    - D3a
+    - D4
+    evidence_status: requirement_reference
+  /properties/progress_op/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 진행 조작 의도가 아닌 항목이다(B1 답함, B7a 모름). 4절 대체 출력이 "의도가 진행 조작인데 진행 조작이 없으면 인식불가로"를 적용하려면 없음이 값으로 있어야 한다.
+    case_refs:
+    - B1
+    - B7a
+    evidence_status: requirement_reference
+  /properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 의도가 안내 요청일 때만. 받은 안내 목록 안의 값.
+    why: 어느 안내 문장으로 답할지 정한다. 문항에 대한 안내("폭음이 뭐예요?")면 대상(문항 전체)도 채운다(E1).
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/0:
+    title: ''
+    meaning: 안내 목록에 등록된 안내 항목 식별자.
+    why: 안내 요청을 등록된 안내 문장과 연결한다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 고른 안내가 없는 항목이다(B1 답함, E4 안내 목록에 없는 물음). 4절 대체 출력이 "의도가 안내 요청인데 ID가 없으면 무관으로"를 판단하는 조건이 이 없음이다.
+    case_refs:
+    - B1
+    - E4
+    evidence_status: requirement_reference
+  /allOf/0/if/properties/intent:
+    title: 필드 간 조건
+    meaning: 답함 의도에는 대상과 값이 함께 존재해야 한다. Parser 보정 이후 출력과 외부 스키마 검증에서 같은 조건을 강제한다.
+    why: 잘못된 조합을 경계 스키마에서 거부하기 위해 필요하다. tests/test_schemas.py의 관계 거부 회귀 테스트로 확인한다.
+    case_refs:
+    - B1
+    evidence_status: requirement_reference
+    assertions:
+    - case: B1
+      turn: 1
+      expect_pointer: /Plan/행동
+  /allOf/0/then/properties/target:
+    title: 필드 간 조건
+    meaning: 답함 의도에는 대상과 값이 함께 존재해야 한다. Parser 보정 이후 출력과 외부 스키마 검증에서 같은 조건을 강제한다.
+    why: 잘못된 조합을 경계 스키마에서 거부하기 위해 필요하다. tests/test_schemas.py의 관계 거부 회귀 테스트로 확인한다.
+    case_refs:
+    - B1
+    evidence_status: requirement_reference
+    assertions:
+    - case: B1
+      turn: 1
+      expect_pointer: /Plan/행동
+  /allOf/0/then/properties/value:
+    title: 필드 간 조건
+    meaning: 답함 의도에는 대상과 값이 함께 존재해야 한다. Parser 보정 이후 출력과 외부 스키마 검증에서 같은 조건을 강제한다.
+    why: 잘못된 조합을 경계 스키마에서 거부하기 위해 필요하다. tests/test_schemas.py의 관계 거부 회귀 테스트로 확인한다.
+    case_refs:
+    - B1
+    evidence_status: requirement_reference
+    assertions:
+    - case: B1
+      turn: 1
+      expect_pointer: /Plan/행동
+  /properties/evidence:
+    title: ''
+    meaning: 현재 발화의 원문 구절과 위치 목록. 턴 번호는 모델이 아니라 Framework가 부여한다.
+    why: 같은 원문에서 여러 구절의 합산·정정 근거를 하나로 축약하지 않아야 한다.
+    case_refs:
+    - T2
+    evidence_status: requirement_reference

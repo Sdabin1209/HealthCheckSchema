@@ -1,0 +1,30 @@
+definition: Decision
+nodes:
+  ? ''
+  : title: 개입 결정 값
+    meaning: 직원의 재개 또는 종료.
+    why: 위험으로 멈춘 문진은 사람만 이어 가거나 끝낼 수 있다(G6, G7, F4).
+    case_refs:
+    - G6a
+    - F4
+    - J4a
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 재개
+    meaning: 이어 감
+    why: 위험이 지나갔다고 직원이 판단하면 멈춘 곳부터 이어 간다.
+    case_refs:
+    - G6a
+    - G6b
+    - H3d
+    - J4a
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 종료
+    meaning: 끝냄
+    why: 직원이 문진을 더 하지 않기로 하면 미완료로 마치고 결과를 넘긴다.
+    case_refs:
+    - F4
+    - G7
+    - J4b
+    evidence_status: requirement_reference

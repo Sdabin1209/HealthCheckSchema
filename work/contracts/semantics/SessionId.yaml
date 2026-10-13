@@ -1,0 +1,10 @@
+definition: SessionId
+nodes:
+  ? ''
+  : title: 세션 식별
+    meaning: 프론트가 정한 세션 식별자. 발급·인증은 API·인증 영역의 일.
+    why: 같은 키오스크의 다음 사람과 세션을 나누고, 재접속 때 이어 가기 위해(A3, A5).
+    case_refs:
+    - A3
+    - A5
+    evidence_status: requirement_reference

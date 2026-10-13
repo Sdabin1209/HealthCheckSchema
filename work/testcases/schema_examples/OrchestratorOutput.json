@@ -1,0 +1,161 @@
+{
+  "id": "shape-OrchestratorOutput",
+  "contract": "OrchestratorOutput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A1"
+  ],
+  "input": {
+    "turn_kind": "SESSION_START",
+    "session_info_created": {
+      "session_id": "S-TEST",
+      "question_bank_version": 1
+    },
+    "log_entry": {
+      "input": {
+        "kind": "SESSION_START",
+        "utterance": null,
+        "intervention_decision": null
+      },
+      "handling": {
+        "handled": "SESSION_START"
+      },
+      "question_bank_version": 1,
+      "turn_result": "COMMITTED",
+      "parser_output": null,
+      "normalizer_output": null,
+      "judge_output": null,
+      "record_writer_output": null,
+      "directive": {
+        "action": "ASK_NEXT",
+        "targets": [
+          {
+            "question_id": "Q1",
+            "whole_question": true
+          }
+        ],
+        "target_pending_id": null,
+        "awaiting": {
+          "action": "ASK_NEXT",
+          "targets": [
+            {
+              "question_id": "Q1",
+              "whole_question": true
+            }
+          ],
+          "target_pending_id": null,
+          "say_values": []
+        },
+        "say_values": [],
+        "reask_reasons": [],
+        "notices": [],
+        "sentence_materials": {
+          "question_sentences": [
+            {
+              "question_id": "Q1",
+              "sentence": "담배는 피우시나요?"
+            }
+          ],
+          "refusal_explanations": [],
+          "reask_sentences": [],
+          "choices": [
+            {
+              "slot": {
+                "question_id": "Q1",
+                "repeat_key": "",
+                "slot_id": "상태"
+              },
+              "choices": [
+                "현재 피움",
+                "끊음",
+                "안 피움"
+              ]
+            }
+          ],
+          "guide_sentences": [],
+          "fixed_sentences": []
+        }
+      },
+      "flow": "CONTINUE",
+      "progress_record_update": {
+        "last_directive": {
+          "action": "ASK_NEXT",
+          "targets": [
+            {
+              "question_id": "Q1",
+              "whole_question": true
+            }
+          ],
+          "target_pending_id": null,
+          "awaiting": {
+            "action": "ASK_NEXT",
+            "targets": [
+              {
+                "question_id": "Q1",
+                "whole_question": true
+              }
+            ],
+            "target_pending_id": null,
+            "say_values": []
+          },
+          "say_values": [],
+          "reask_reasons": [],
+          "notices": [],
+          "sentence_materials": {
+            "question_sentences": [
+              {
+                "question_id": "Q1",
+                "sentence": "담배는 피우시나요?"
+              }
+            ],
+            "refusal_explanations": [],
+            "reask_sentences": [],
+            "choices": [
+              {
+                "slot": {
+                  "question_id": "Q1",
+                  "repeat_key": "",
+                  "slot_id": "상태"
+                },
+                "choices": [
+                  "현재 피움",
+                  "끊음",
+                  "안 피움"
+                ]
+              }
+            ],
+            "guide_sentences": [],
+            "fixed_sentences": []
+          }
+        },
+        "open_requests": {
+          "correction_requests": [],
+          "stop_requested": false,
+          "deferred": []
+        },
+        "skipped_add": [],
+        "skipped_remove": [],
+        "confirm_stopped_add": [],
+        "confirm_stopped_remove": [],
+        "session_status": null,
+        "pause_history_add": []
+      },
+      "staff_alert": null,
+      "response_text": "담배는 피우시나요?",
+      "staff_alert_delivery": "NOT_APPLICABLE",
+      "turn_failure_signal": null,
+      "intervention_result": null
+    },
+    "turn_failure_signal": null,
+    "intervention_result": null,
+    "dispatch_called": false
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A1",
+    "turn": 1,
+    "data_pointer": "/orchestrator_output",
+    "correctness_claim": false
+  }
+}

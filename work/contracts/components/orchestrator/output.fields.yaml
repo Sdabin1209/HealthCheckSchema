@@ -1,0 +1,113 @@
+definition: OrchestratorOutput
+nodes:
+  ? ''
+  : title: LangGraph가 내는 값
+    meaning: 턴 종류, 세션 정보 생성, 대화 로그 항목, 턴 실패 신호, 개입 결정 결과, 결과 전달 호출 여부.
+    why: LangGraph가 직접 만드는 값만 따로 정해, 나머지는 판단 없이 전달만 한다는 것을 분명히 한다.
+    case_refs:
+    - A1
+    - A5
+    - J2
+    evidence_status: requirement_reference
+  /properties/turn_kind:
+    title: 턴 종류
+    meaning: 처리 표로 정한 턴 종류. 처리 안 함이면 없음.
+    why: Plan이 발화 없이도 이번 턴에 할 일(첫 질문, 재개, 종료)을 안다.
+    case_refs:
+    - A1
+    - A2
+    - A4a
+    - G6a
+    evidence_status: requirement_reference
+  /properties/turn_kind/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 처리 표가 "처리 안 함"으로 정한 턴이다(A5 끝난 세션의 말, G5 멈춘 동안의 말, J4b 끝난 세션에 종료). 턴 종류가 없으면
+      Plan을 부르지 않는다(9-1절 1).
+    case_refs:
+    - A5
+    - G5
+    - J4b
+    evidence_status: requirement_reference
+  /properties/session_info_created:
+    title: 세션 정보 생성
+    meaning: 세션이 없을 때 한 번. 아니면 없음.
+    why: 처음 들어온 세션에 기록을 붙이려면 세션 정보가 먼저 있어야 하고, 문항 정의 버전도 이때 고정해야 진행 중 버전이 바뀌지 않는다.
+    case_refs:
+    - A1
+    - A2
+    evidence_status: requirement_reference
+  /properties/session_info_created/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 이미 세션이 있는 턴이다(B1, C1). 9-2절 2의 세션 정보 생성은 세션이 없을 때 한 번뿐이라(A2), 없음이 "기록을 비우지
+      않음"을 뜻한다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /properties/log_entry:
+    title: 대화 로그 항목
+    meaning: 남기지 않는 경우(세션 없음 열의 처리 안 함, 세션 정보 생성에 실패한 턴, 종료 열의 처리 안 함)는 없음.
+    why: J6. 종료된 세션에 다음 사람의 말이 섞이지 않게(A5).
+    case_refs:
+    - A5
+    - A6
+    - G5
+    - J2
+    evidence_status: requirement_reference
+  /properties/log_entry/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: '로그를 남기지 않는 턴이다: 종료 열의 처리 안 함(A5, J4b)과 세션 정보 생성에 실패한 턴(J8a). 9-1절 3이 확정된
+      세션에 다음 사람의 말이 섞이지 않게 정한 것이고, 멈춘 동안의 말(G5)은 남기므로 둘이 구별된다.'
+    case_refs:
+    - A5
+    - J4b
+    - J8a
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal:
+    title: 턴 실패 신호
+    meaning: 실패했을 때.
+    why: 실패를 알리지 않으면 프론트는 응답을 기다리기만 하고 직원도 모른다. 실패를 알리는 것은 흐름을 아는 LangGraph만 할 수 있다.
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 실패 없이 끝난 턴이다(B1, A1). J2·J3처럼 실패한 턴에만 신호를 내므로, 없음이 프론트가 응답을 기다려도 되는 상태를 뜻한다.
+    case_refs:
+    - B1
+    - A1
+    evidence_status: requirement_reference
+  /properties/intervention_result:
+    title: 개입 결정 결과
+    meaning: 개입 결정이 들어온 턴마다.
+    why: 직원이 보낸 결정이 처리됐는지 모르면 같은 결정을 다시 보내야 할지 판단할 수 없다.
+    case_refs:
+    - J4a
+    - J4b
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /properties/intervention_result/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 개입 결정이 들어오지 않은 턴이다(A1, B1). 결정이 들어온 턴마다 결과를 내므로(F4, J4a, J4b), 없음이 "보낸 결정이
+      없었음"이다.
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/dispatch_called:
+    title: 결과 전달 호출
+    meaning: 흐름이 종료라 결과 전달을 불렀는지.
+    why: 종료된 세션은 다시 처리되지 않으므로 이때 부르지 않으면 결과를 넘길 기회가 없다(A4, H2).
+    case_refs:
+    - A4a
+    - G7
+    - H2
+    evidence_status: requirement_reference

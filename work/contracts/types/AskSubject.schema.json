@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "Target.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "untargeted": {
+          "oneOf": [
+            {
+              "const": "ASK_FINISH"
+            },
+            {
+              "const": "ASK_STOP"
+            },
+            {
+              "const": "ASK_CORRECTION_TARGET"
+            }
+          ]
+        }
+      },
+      "required": [
+        "untargeted"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

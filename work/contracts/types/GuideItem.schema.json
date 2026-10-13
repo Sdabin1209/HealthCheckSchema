@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "guide_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selection_criterion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "per_question": {
+      "type": "boolean"
+    },
+    "sentence": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "fill_value": {
+      "anyOf": [
+        {
+          "$ref": "FillValue.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "guide_id",
+    "selection_criterion",
+    "per_question",
+    "sentence",
+    "fill_value"
+  ],
+  "additionalProperties": false
+}

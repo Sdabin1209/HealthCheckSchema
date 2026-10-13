@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "const": "ANSWERED"
+    },
+    {
+      "const": "MISSING"
+    },
+    {
+      "const": "UNCLEAR"
+    },
+    {
+      "const": "CONFLICT"
+    },
+    {
+      "const": "CORRECTION"
+    },
+    {
+      "const": "UNKNOWN"
+    },
+    {
+      "const": "REJECTED"
+    },
+    {
+      "const": "PREREQUISITE_UNMET"
+    }
+  ]
+}

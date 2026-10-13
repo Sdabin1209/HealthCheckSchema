@@ -1,0 +1,38 @@
+definition: Policy
+nodes:
+  ? ''
+  : title: 문항 정책
+    meaning: 문항마다 몇 번까지 묻는지.
+    why: 문항별 질문·모름·거절·확인 횟수 기준을 데이터로 전달해야 한다. 횟수 기준을 공통 스키마에 고정하면 문항이나 서비스의 기준이 바뀔 때 계약까지 변경해야 한다.
+    case_refs:
+    - B7a
+    - B8a
+    - B10
+    evidence_status: requirement_reference
+  /properties/question_limit:
+    title: 질문 상한
+    meaning: 쓸 수 있는 답 없이 이 문항을 물을 수 있는 최대 횟수.
+    why: 쓸 수 있는 답이 계속 오지 않을 때 이 횟수에 닿으면 건너뛰어 문진이 끝나게 한다.
+    case_refs:
+    - B10
+    - R1
+    - R18
+    - S8e
+    evidence_status: requirement_reference
+  /properties/unknown_accept_after:
+    title: 모름 수용 시점
+    meaning: 몇 번째 모름에서 받아들이고 넘어가는지(1이면 첫 모름에 넘어감).
+    why: 모름에 한 번 더 기회를 줄 문항과 바로 넘어갈 문항이 다르다.
+    case_refs:
+    - B7a
+    - B7b
+    - S8d
+    evidence_status: requirement_reference
+  /properties/refusal_accept_after:
+    title: 거절 수용 시점
+    meaning: 몇 번째 거절에서 받아들이고 넘어가는지.
+    why: 거절에 설명하고 다시 물을 문항(자해 질문 등)과 바로 넘어갈 문항이 다르다.
+    case_refs:
+    - B8a
+    - B8b
+    evidence_status: requirement_reference

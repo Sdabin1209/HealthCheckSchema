@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "utterance": {
+      "type": "string"
+    },
+    "last_directive": {
+      "anyOf": [
+        {
+          "$ref": "../../types/Directive.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "awaiting_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/QuestionDef.schema.json"
+      }
+    },
+    "question_names": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "../../types/QuestionId.schema.json"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "slots": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "question_id",
+          "name",
+          "slots"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "answered_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "../../types/SlotRef.schema.json"
+          },
+          "value": {
+            "$ref": "../../types/Value.schema.json"
+          },
+          "value_metadata": {
+            "$ref": "../../types/ValueMetadata.schema.json"
+          }
+        },
+        "required": [
+          "slot",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "guide_list": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "guide_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "selection_criterion": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "guide_id",
+          "selection_criterion"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "utterance",
+    "last_directive",
+    "awaiting_questions",
+    "question_names",
+    "answered_slots",
+    "guide_list"
+  ],
+  "additionalProperties": false
+}

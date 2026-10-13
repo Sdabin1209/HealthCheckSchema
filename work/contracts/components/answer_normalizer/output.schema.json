@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "item_checks": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/ItemCheck.schema.json"
+      }
+    },
+    "missing_required_slots": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRef.schema.json"
+      }
+    }
+  },
+  "required": [
+    "item_checks",
+    "missing_required_slots"
+  ],
+  "additionalProperties": false
+}

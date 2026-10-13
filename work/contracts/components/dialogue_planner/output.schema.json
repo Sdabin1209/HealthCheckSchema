@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "directive": {
+      "$ref": "../../types/Directive.schema.json"
+    },
+    "flow": {
+      "$ref": "../../types/Flow.schema.json"
+    },
+    "staff_alert": {
+      "anyOf": [
+        {
+          "$ref": "../../types/StaffAlert.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "progress_record_update": {
+      "$ref": "../../types/ProgressRecordUpdate.schema.json"
+    },
+    "planner_record_update": {
+      "$ref": "../../types/PlannerRecord.schema.json"
+    }
+  },
+  "required": [
+    "directive",
+    "flow",
+    "staff_alert",
+    "progress_record_update",
+    "planner_record_update"
+  ],
+  "additionalProperties": false
+}

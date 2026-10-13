@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "$ref": "PauseKind.schema.json"
+    },
+    "reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "PauseReason.schema.json"
+      }
+    }
+  },
+  "required": [
+    "kind",
+    "reasons"
+  ],
+  "additionalProperties": false
+}

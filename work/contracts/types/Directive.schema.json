@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "action": {
+      "$ref": "Action.schema.json"
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "$ref": "Target.schema.json"
+      }
+    },
+    "target_pending_id": {
+      "anyOf": [
+        {
+          "$ref": "PendingId.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "awaiting": {
+      "anyOf": [
+        {
+          "$ref": "AskDirective.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "say_values": {
+      "type": "array",
+      "items": {
+        "$ref": "SayValue.schema.json"
+      }
+    },
+    "reask_reasons": {
+      "type": "array",
+      "items": {
+        "$ref": "Reason.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "notices": {
+      "type": "array",
+      "items": {
+        "$ref": "Notice.schema.json"
+      }
+    },
+    "sentence_materials": {
+      "$ref": "SentenceMaterials.schema.json"
+    }
+  },
+  "required": [
+    "action",
+    "targets",
+    "target_pending_id",
+    "awaiting",
+    "say_values",
+    "reask_reasons",
+    "notices",
+    "sentence_materials"
+  ],
+  "additionalProperties": false
+}

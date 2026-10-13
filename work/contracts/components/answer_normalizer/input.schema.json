@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/Item.schema.json"
+      }
+    },
+    "related_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/QuestionDef.schema.json"
+      }
+    },
+    "current_values": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "../../types/SlotRef.schema.json"
+          },
+          "current_value": {
+            "$ref": "../../types/CurrentValue.schema.json"
+          },
+          "value_metadata": {
+            "$ref": "../../types/ValueMetadata.schema.json"
+          }
+        },
+        "required": [
+          "slot",
+          "current_value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "pendings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pending_id": {
+            "$ref": "../../types/PendingId.schema.json"
+          },
+          "slot": {
+            "$ref": "../../types/SlotRef.schema.json"
+          },
+          "value": {
+            "$ref": "../../types/Value.schema.json"
+          },
+          "value_metadata": {
+            "$ref": "../../types/ValueMetadata.schema.json"
+          }
+        },
+        "required": [
+          "pending_id",
+          "slot",
+          "value"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "awaiting": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "action": {
+              "$ref": "../../types/AskAction.schema.json"
+            },
+            "targets": {
+              "type": "array",
+              "items": {
+                "$ref": "../../types/Target.schema.json"
+              }
+            },
+            "target_pending_id": {
+              "anyOf": [
+                {
+                  "$ref": "../../types/PendingId.schema.json"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "action",
+            "targets",
+            "target_pending_id"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "turn_index": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "items",
+    "related_questions",
+    "current_values",
+    "pendings",
+    "awaiting"
+  ],
+  "additionalProperties": false
+}

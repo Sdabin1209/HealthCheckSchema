@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "directive": {
+      "$ref": "../../types/Directive.schema.json"
+    },
+    "utterance": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "directive",
+    "utterance"
+  ],
+  "additionalProperties": false
+}

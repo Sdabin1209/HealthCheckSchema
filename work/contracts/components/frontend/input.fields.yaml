@@ -1,0 +1,47 @@
+definition: FrontendInput
+nodes:
+  ? ''
+  : title: 프론트가 받는 값
+    meaning: 응답 문장과 턴 실패 신호.
+    why: 프론트가 읽어 줄 말과, 실패했을 때 대처할 신호를 받는다.
+    case_refs:
+    - J2
+    - J3
+    - A5
+    evidence_status: requirement_reference
+  /properties/response_text:
+    title: 응답 문장
+    meaning: LoRA-B의 응답 문장. 실패했으면 없음.
+    why: 프론트가 TTS로 읽을 말. 실패한 턴에는 없고 턴 실패 신호가 온다.
+    case_refs:
+    - J3
+    - A5
+    - G5
+    evidence_status: requirement_reference
+  /properties/response_text/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 턴이 실패해 응답 문장이 만들어지지 않았다(J2 Plan 결정에서 실패, J8b LoRA-A에서 실패). 이때 턴 실패 신호가 대신
+      간다.
+    case_refs:
+    - J2
+    - J8b
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal:
+    title: 턴 실패 신호
+    meaning: 실패했을 때.
+    why: 응답이 오지 않은 까닭과 직원 알림 전달 여부를 알아야 프론트가 사용자에게 대처한다.
+    case_refs:
+    - J2
+    - J3
+    - J4a
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 실패 없이 끝난 턴이다(B1, C1). 응답 문장과 턴 실패 신호 중 하나만 차므로, 없음이 "정상으로 끝나 응답을 읽으면 된다"를
+      뜻한다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference

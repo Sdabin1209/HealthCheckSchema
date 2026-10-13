@@ -1,0 +1,31 @@
+definition: NormalizerOutput
+nodes:
+  ? ''
+  : title: 정규화·검증 출력
+    meaning: 항목별 검사와 빠진 필수 슬롯.
+    why: 값 규칙 쪽 사실을 한 번에 넘겨, 상태 판정이 문항 정의의 규칙을 직접 보지 않게 한다.
+    case_refs:
+    - B2
+    - B3a
+    - X7
+    evidence_status: requirement_reference
+  /properties/item_checks:
+    title: 항목별 검사
+    meaning: 항목마다 하나.
+    why: 상태 판정이 항목 번호로 원래 항목과 이어 판정한다.
+    case_refs:
+    - B3a
+    - S1a
+    - X7
+    evidence_status: requirement_reference
+  /properties/missing_required_slots:
+    title: 빠진 필수 슬롯
+    meaning: 이번에 답한 문항에서 이번 값도, 모름·거절도 없고 현재값도 없음인 필수 슬롯. 선행 답이 정해지지 않았거나 선행 조건과 맞지
+      않는 문항(선행 불충족·다른 답과 맞지 않음인 항목의 문항)은 따지지 않는다.
+    why: 일부만 답하면 빠진 것만 되묻는다(B2). 물을 수 없는 후속 문항의 빈칸을 되물으면 모순된 질문이 된다(S2d, S6a).
+    case_refs:
+    - B2
+    - S8b
+    - S7a
+    - X1
+    evidence_status: requirement_reference

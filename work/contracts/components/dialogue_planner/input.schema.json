@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "turn_kind": {
+      "$ref": "../../types/TurnKind.schema.json"
+    },
+    "utterance_judgment": {
+      "anyOf": [
+        {
+          "$ref": "../../types/UtteranceJudgment.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "judgments": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/Judgment.schema.json"
+      }
+    },
+    "store_summary": {
+      "anyOf": [
+        {
+          "$ref": "../../types/StoreSummary.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "answer_records": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRecord.schema.json"
+      }
+    },
+    "last_directive": {
+      "anyOf": [
+        {
+          "$ref": "../../types/Directive.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "skipped": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SkipEntry.schema.json"
+      }
+    },
+    "confirm_stopped": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRef.schema.json"
+      }
+    },
+    "open_requests": {
+      "$ref": "../../types/OpenRequests.schema.json"
+    },
+    "planner_record": {
+      "$ref": "../../types/PlannerRecord.schema.json"
+    },
+    "question_bank": {
+      "$ref": "../question_bank/state.schema.json"
+    }
+  },
+  "required": [
+    "turn_kind",
+    "utterance_judgment",
+    "judgments",
+    "store_summary",
+    "answer_records",
+    "last_directive",
+    "skipped",
+    "confirm_stopped",
+    "open_requests",
+    "planner_record",
+    "question_bank"
+  ],
+  "additionalProperties": false
+}

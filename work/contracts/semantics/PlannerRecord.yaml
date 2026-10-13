@@ -1,0 +1,205 @@
+definition: PlannerRecord
+nodes:
+  ? ''
+  : title: Plan 기록
+    meaning: 사실로 다시 계산할 수 없는 횟수만.
+    why: 질문 상한·확인 상한·수용 시점·알아듣지 못한 연속 상한·물음 상한을 적용하려면 지난 턴까지 센 수가 필요하다. 다음에 물을 것은
+      저장하지 않는다(원칙 7).
+    case_refs:
+    - B10
+    - C8a
+    - F3
+    - S8e
+    evidence_status: requirement_reference
+  /properties/attempt_counts:
+    title: 시도 횟수
+    meaning: 문항마다 쓸 수 있는 답 없이 지나간 턴 수(8-2절).
+    why: 질문 상한에 닿으면 건너뛰어 같은 문항을 끝없이 묻지 않는다(B10, R1, R18, R19).
+    case_refs:
+    - B10
+    - R1
+    - S8e
+    - R19
+    evidence_status: requirement_reference
+  /properties/attempt_counts/items:
+    title: 시도 횟수 항목
+    meaning: 문항과 횟수.
+    why: 질문 상한은 문항 정책마다 달라 문항별로 센다.
+    case_refs:
+    - B10
+    - R19
+    - S8e
+    evidence_status: requirement_reference
+  /properties/attempt_counts/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 어느 문항의 시도인지 알아야 그 문항의 질문 상한과 비교한다.
+    case_refs:
+    - B10
+    - R19
+    - S8e
+    evidence_status: requirement_reference
+  /properties/attempt_counts/items/properties/count:
+    title: 횟수
+    meaning: 센 수.
+    why: 질문 상한과 비교해 건너뛸지 정한다.
+    case_refs:
+    - B10
+    - R19
+    - S8e
+    evidence_status: requirement_reference
+  /properties/confirm_counts:
+    title: 확인 횟수
+    meaning: 슬롯마다 확인 대기 확인을 낸 횟수(반복 요청으로 다시 낸 것 제외, 대체돼도 이어 셈).
+    why: 확인에 계속 다른 값을 대도 확인 상한에서 그만두어 문진이 끝나게 한다(C8, N6).
+    case_refs:
+    - C8a
+    - N6
+    - R8
+    - S8e
+    evidence_status: requirement_reference
+  /properties/confirm_counts/items:
+    title: 확인 횟수 항목
+    meaning: 슬롯과 횟수.
+    why: 확인은 슬롯 단위로 묻고 센다.
+    case_refs:
+    - C8a
+    - R8
+    - S8e
+    evidence_status: requirement_reference
+  /properties/confirm_counts/items/properties/slot:
+    title: 슬롯
+    meaning: 확인한 슬롯.
+    why: 어느 칸의 확인인지 알아야 그 칸만 확인을 그만둔다.
+    case_refs:
+    - C8a
+    - R8
+    - S8e
+    evidence_status: requirement_reference
+  /properties/confirm_counts/items/properties/count:
+    title: 횟수
+    meaning: 센 수.
+    why: 확인 상한과 비교해 확인을 그만둘지 정한다.
+    case_refs:
+    - C8a
+    - R8
+    - S8e
+    evidence_status: requirement_reference
+  /properties/unknown_counts:
+    title: 모름 횟수
+    meaning: 문항마다 모름 판정이 나온 턴 수.
+    why: 모름 수용 시점과 비교해 다시 물을지 넘어갈지 정한다(B7).
+    case_refs:
+    - B7b
+    - R18
+    - S3b
+    - S8i
+    - S8d
+    evidence_status: requirement_reference
+  /properties/unknown_counts/items:
+    title: 모름 횟수 항목
+    meaning: 문항과 횟수.
+    why: 모름 수용 시점은 문항 정책마다 달라 문항별로 센다.
+    case_refs:
+    - B7b
+    - S3b
+    - S8d
+    evidence_status: requirement_reference
+  /properties/unknown_counts/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 모름 수용 시점은 문항 정책마다 달라 문항별로 센다.
+    case_refs:
+    - B7b
+    - S3b
+    - S8d
+    evidence_status: requirement_reference
+  /properties/unknown_counts/items/properties/count:
+    title: 횟수
+    meaning: 센 수.
+    why: 모름 수용 시점과 비교해 다시 물을지 받아들일지 정한다.
+    case_refs:
+    - B7b
+    - S3b
+    - S8d
+    evidence_status: requirement_reference
+  /properties/refusal_counts:
+    title: 거절 횟수
+    meaning: 문항마다 거절 판정이 나온 턴 수.
+    why: 거절 수용 시점과 비교해 설명 후 다시 물을지 넘어갈지 정한다(B8).
+    case_refs:
+    - B8b
+    - N8a
+    - S8d
+    evidence_status: requirement_reference
+  /properties/refusal_counts/items:
+    title: 거절 횟수 항목
+    meaning: 문항과 횟수.
+    why: 거절 수용 시점은 문항 정책마다 달라 문항별로 센다.
+    case_refs:
+    - B8b
+    - N8a
+    - S8d
+    evidence_status: requirement_reference
+  /properties/refusal_counts/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 거절 수용 시점은 문항 정책마다 달라 문항별로 센다.
+    case_refs:
+    - B8b
+    - N8a
+    - S8d
+    evidence_status: requirement_reference
+  /properties/refusal_counts/items/properties/count:
+    title: 횟수
+    meaning: 센 수.
+    why: 거절 수용 시점과 비교해 설명 후 다시 물을지 받아들일지 정한다.
+    case_refs:
+    - B8b
+    - N8a
+    - S8d
+    evidence_status: requirement_reference
+  /properties/unrecognized_streak:
+    title: 알아듣지 못한 연속
+    meaning: 결과가 알아듣지 못함인 턴이 이어진 수. 응답 있음·무관만이면 0, 요청만이면 그대로.
+    why: 연속 상한에 닿으면 직원을 한 번 부른다(F3, R12).
+    case_refs:
+    - F3
+    - R12
+    evidence_status: requirement_reference
+  /properties/ask_counts:
+    title: 물은 횟수
+    meaning: 정정 요청·미룸·종료 확인·중단 확인을 풀리지 않은 채 물은 횟수.
+    why: 문항 정책이 없는 물음도 물음 상한까지만 물어 문진이 끝나게 한다(8-4절 7).
+    case_refs:
+    - H1
+    - C5
+    - D4
+    evidence_status: requirement_reference
+  /properties/ask_counts/items:
+    title: 물은 횟수 항목
+    meaning: 대상과 횟수.
+    why: 대상마다 따로 세야 한 대상의 반복이 다른 대상의 상한에 섞이지 않는다.
+    case_refs:
+    - H1
+    - C5
+    - D4
+    evidence_status: requirement_reference
+  /properties/ask_counts/items/properties/subject:
+    title: 대상
+    meaning: 물은 대상.
+    why: 정정 요청·미룸은 대상으로, 종료 확인·중단 확인·대상 없는 정정 구체화는 그 행동으로 센다.
+    case_refs:
+    - H1
+    - C5
+    - D4
+    evidence_status: requirement_reference
+  /properties/ask_counts/items/properties/count:
+    title: 횟수
+    meaning: 센 수.
+    why: 물음 상한과 비교해 그만 물을지 정한다.
+    case_refs:
+    - H1
+    - C5
+    - D4
+    evidence_status: requirement_reference

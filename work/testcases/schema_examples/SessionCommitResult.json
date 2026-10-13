@@ -1,0 +1,16 @@
+{
+  "id": "shape-SessionCommitResult",
+  "contract": "SessionCommitResult",
+  "valid": true,
+  "input": {
+    "session_id": "S-TEST",
+    "status": "OK",
+    "write_outcome": "APPLIED",
+    "revision": 13,
+    "detail": null
+  },
+  "origin": {
+    "correctness_claim": false,
+    "contract_status": "proposal"
+  }
+}

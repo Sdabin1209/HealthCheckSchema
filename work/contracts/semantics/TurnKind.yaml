@@ -1,0 +1,52 @@
+definition: TurnKind
+nodes:
+  ? ''
+  : title: 턴 종류
+    meaning: LangGraph가 처리 표로 정한 이번 턴의 종류.
+    why: Plan이 발화 없이도 무엇을 해야 하는지(첫 질문, 재개, 종료) 알게 한다.
+    case_refs:
+    - A1
+    - A2
+    - A4a
+    - F4
+    - G6a
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 세션 시작
+    meaning: 첫 접속·재접속
+    why: 말 없이 시작·재접속한 턴이다. Plan이 지금 물을 것을 묻는다.
+    case_refs:
+    - A1
+    - A3
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 발화
+    meaning: 사용자 말
+    why: 사용자 말이 온 턴이다. LoRA-A부터 전체 흐름을 돈다.
+    case_refs:
+    - A2
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 재개
+    meaning: 위험 일시 중지 뒤 직원이 재개
+    why: 위험으로 멈춘 세션을 직원이 이어 가게 한 턴이다. 재개를 알리고 이어서 묻는다.
+    case_refs:
+    - G6a
+    - G6b
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 개입 종료
+    meaning: 직원이 끝냄
+    why: 직원이 끝낸 턴이다. 확인 없이 미완료로 마친다.
+    case_refs:
+    - F4
+    - G7
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 이탈 종료
+    meaning: 프론트가 떠났다고 알림
+    why: 사용자가 떠났다고 프론트가 알린 턴이다. 확인할 사람이 없으므로 바로 미완료로 마친다.
+    case_refs:
+    - A4a
+    - A4b
+    evidence_status: requirement_reference

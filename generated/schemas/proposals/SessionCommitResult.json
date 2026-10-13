@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "proposals/SessionCommitResult.json",
+  "$ref": "#/$defs/SessionCommitResult",
+  "$defs": {
+    "RevisionToken": {
+      "oneOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "string",
+          "minLength": 1
+        }
+      ]
+    },
+    "SessionCommitResult": {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "$ref": "#/$defs/SessionId"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "OK",
+            "REVISION_CONFLICT",
+            "DB_ERROR"
+          ]
+        },
+        "write_outcome": {
+          "type": "string",
+          "enum": [
+            "APPLIED",
+            "NOT_APPLIED",
+            "UNKNOWN"
+          ]
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/RevisionToken"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "detail": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "session_id",
+        "status",
+        "write_outcome",
+        "revision",
+        "detail"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "OK"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "write_outcome": {
+                "const": "APPLIED"
+              },
+              "revision": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "REVISION_CONFLICT"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "write_outcome": {
+                "const": "NOT_APPLIED"
+              },
+              "revision": {
+                "not": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "DB_ERROR"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "write_outcome": {
+                "enum": [
+                  "NOT_APPLIED",
+                  "UNKNOWN"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "SessionId": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}

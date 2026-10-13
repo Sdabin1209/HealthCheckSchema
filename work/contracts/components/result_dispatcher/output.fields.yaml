@@ -1,0 +1,16 @@
+definition: DispatchOutput
+nodes:
+  ? ''
+  : title: 결과 전달이 내는 값
+    meaning: 전달 기록 한 건. 밖으로 넘기는 문진 결과의 형식은 받는 곳이 정해지면 정한다(이 스키마 밖).
+    why: 전달 실패를 남겨 다시 보낼 수 있게(J5).
+    case_refs:
+    - J5
+    evidence_status: requirement_reference
+  /properties/dispatch_record:
+    title: 전달 기록
+    meaning: 한 건.
+    why: 넘기기가 성공했는지를 남겨야 실패한 전달을 다시 보낼 수 있다(J5). 시각은 어느 케이스도 쓰지 않아 두지 않는다(원칙 5).
+    case_refs:
+    - J5
+    evidence_status: requirement_reference

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "store_result": {
+      "$ref": "../components/record_writer/output.schema.json"
+    },
+    "progress_record_update": {
+      "anyOf": [
+        {
+          "$ref": "ProgressRecordUpdate.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "planner_record_update": {
+      "anyOf": [
+        {
+          "$ref": "PlannerRecord.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "store_result",
+    "progress_record_update",
+    "planner_record_update"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,67 @@
+definition: Reason
+nodes:
+  ? ''
+  : title: 사유
+    meaning: 되물을 때 사용자에게 짚어 줄 이유.
+    why: LoRA-B가 왜 다시 묻는지 말해야 사용자가 무엇을 고쳐 말할지 안다(B2, B3, I1).
+    case_refs:
+    - B2
+    - B3a
+    - I1a
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 단위 없음
+    meaning: 단위를 말해 달라
+    why: 단위를 말해 달라고 해야 사용자가 무엇을 덧붙일지 안다("두 번" → "일주일에 두 번").
+    case_refs:
+    - B3b
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 범위 밖
+    meaning: 값이 가능한 범위를 벗어났다
+    why: 가능한 범위를 벗어났다고 알려야 사용자가 잘못 말했는지 다시 본다("서른 시간").
+    case_refs:
+    - B3a
+    - S3d
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 모호함
+    meaning: 하나로 말해 달라
+    why: 하나로 말해 달라고 해야 범위 값을 하나의 값으로 고쳐 말한다("두세 병").
+    case_refs:
+    - B10
+    - C8a
+    - N10
+    - S7b
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 다른 답과 맞지 않음
+    meaning: 앞 답과 맞지 않는다
+    why: 앞 답과 맞지 않는다고 알려야 사용자가 둘 중 어느 쪽을 고칠지 안다(B4).
+    case_refs:
+    - B4
+    - S2b
+    - S6a
+    - S7c
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 인식불가
+    meaning: 알아듣지 못했다
+    why: 알아듣지 못했다고 해야 사용자가 같은 말을 다시 한다(구체화와 하는 말이 다르다, I1).
+    case_refs:
+    - I1a
+    - I1b
+    - J7a
+    - N14
+    - R12
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 필수 슬롯 누락
+    meaning: 빠진 부분이 있다
+    why: 빠진 부분이 있다고 해야 이미 말한 것을 다시 말하지 않고 빠진 것만 답한다(B2).
+    case_refs:
+    - B2
+    - E3b
+    - R1
+    - S8b
+    evidence_status: requirement_reference

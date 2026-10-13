@@ -1,0 +1,1831 @@
+{
+  "scope": "case_by_case_static_schema_representation",
+  "component_execution": false,
+  "correct_answer_selection_checked": false,
+  "cases": 226,
+  "cases_with_witnesses": 226,
+  "case_turns": 244,
+  "required_information_leaves": 5513,
+  "complete_specimens": 4553,
+  "requirement_kinds": {
+    "literal": 4068,
+    "presence_constraint": 52,
+    "fixture_context": 68,
+    "content_constraint": 30,
+    "collection_constraint": 6,
+    "identity_constraint": 8,
+    "routing_constraint": 22,
+    "relation_constraint": 8
+  },
+  "rows": [
+    {
+      "case": "A1",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 12,
+      "failures": 0
+    },
+    {
+      "case": "A2",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "A3",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 12,
+      "failures": 0
+    },
+    {
+      "case": "A4a",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 14,
+      "failures": 0
+    },
+    {
+      "case": "A4b",
+      "turns": 1,
+      "required_information_leaves": 10,
+      "mapped_leaves": 10,
+      "complete_specimens": 14,
+      "failures": 0
+    },
+    {
+      "case": "A5",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 6,
+      "failures": 0
+    },
+    {
+      "case": "A6",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 6,
+      "failures": 0
+    },
+    {
+      "case": "B1",
+      "turns": 1,
+      "required_information_leaves": 52,
+      "mapped_leaves": 52,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B2",
+      "turns": 1,
+      "required_information_leaves": 38,
+      "mapped_leaves": 38,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B3a",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B3b",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B4",
+      "turns": 1,
+      "required_information_leaves": 44,
+      "mapped_leaves": 44,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B5",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B6",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B7a",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B7b",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B8a",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B8b",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B9",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "B10",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C1",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C2",
+      "turns": 1,
+      "required_information_leaves": 38,
+      "mapped_leaves": 38,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C3",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C4a",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C4b",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C5",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C6a",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C6b",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C6c",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C7a",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C7b",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C8a",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C8b",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C8c",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C8d",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C9a",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C9b",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C9c",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C9d",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C10",
+      "turns": 1,
+      "required_information_leaves": 39,
+      "mapped_leaves": 39,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "C11",
+      "turns": 1,
+      "required_information_leaves": 38,
+      "mapped_leaves": 38,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D1a",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D1b",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D1c",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D2",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D3a",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D3b",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D3c",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D4",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "D5a",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 22,
+      "failures": 0
+    },
+    {
+      "case": "D5b",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E1a",
+      "turns": 1,
+      "required_information_leaves": 31,
+      "mapped_leaves": 31,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E1b",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E1c",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E2",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E3a",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E3b",
+      "turns": 1,
+      "required_information_leaves": 38,
+      "mapped_leaves": 38,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E4",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "E5a",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "F1",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "F2",
+      "turns": 1,
+      "required_information_leaves": 10,
+      "mapped_leaves": 10,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "F3",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "F4",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 15,
+      "failures": 0
+    },
+    {
+      "case": "G1",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G2",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G3",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G4",
+      "turns": 1,
+      "required_information_leaves": 29,
+      "mapped_leaves": 29,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "G5",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 6,
+      "failures": 0
+    },
+    {
+      "case": "G6a",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 13,
+      "failures": 0
+    },
+    {
+      "case": "G6b",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 13,
+      "failures": 0
+    },
+    {
+      "case": "G7",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 15,
+      "failures": 0
+    },
+    {
+      "case": "G8a",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G8b",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G9",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "G10",
+      "turns": 2,
+      "required_information_leaves": 57,
+      "mapped_leaves": 57,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "H1",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "H2",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 22,
+      "failures": 0
+    },
+    {
+      "case": "H3a",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "H3b",
+      "turns": 1,
+      "required_information_leaves": 27,
+      "mapped_leaves": 27,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "H3c",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "H3d",
+      "turns": 3,
+      "required_information_leaves": 34,
+      "mapped_leaves": 34,
+      "complete_specimens": 56,
+      "failures": 0
+    },
+    {
+      "case": "H3e",
+      "turns": 2,
+      "required_information_leaves": 41,
+      "mapped_leaves": 41,
+      "complete_specimens": 34,
+      "failures": 0
+    },
+    {
+      "case": "H4",
+      "turns": 2,
+      "required_information_leaves": 58,
+      "mapped_leaves": 58,
+      "complete_specimens": 42,
+      "failures": 0
+    },
+    {
+      "case": "H5a",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "H5b",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "I1a",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "I1b",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K1",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K2",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K3",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K4",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K5",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K6",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K7",
+      "turns": 1,
+      "required_information_leaves": 6,
+      "mapped_leaves": 6,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K8",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K9a",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K9b",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K9c",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "K9d",
+      "turns": 1,
+      "required_information_leaves": 5,
+      "mapped_leaves": 5,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J1",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J2",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 16,
+      "failures": 0
+    },
+    {
+      "case": "J3",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "J4a",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 8,
+      "failures": 0
+    },
+    {
+      "case": "J4b",
+      "turns": 1,
+      "required_information_leaves": 6,
+      "mapped_leaves": 6,
+      "complete_specimens": 6,
+      "failures": 0
+    },
+    {
+      "case": "J5",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 22,
+      "failures": 0
+    },
+    {
+      "case": "J6",
+      "turns": 0,
+      "required_information_leaves": 1,
+      "mapped_leaves": 1,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "J7a",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J7b",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J7c",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J8a",
+      "turns": 1,
+      "required_information_leaves": 10,
+      "mapped_leaves": 10,
+      "complete_specimens": 7,
+      "failures": 0
+    },
+    {
+      "case": "J8b",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 9,
+      "failures": 0
+    },
+    {
+      "case": "J8c",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 10,
+      "failures": 0
+    },
+    {
+      "case": "J8d",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 12,
+      "failures": 0
+    },
+    {
+      "case": "J8e",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 14,
+      "failures": 0
+    },
+    {
+      "case": "J8f",
+      "turns": 1,
+      "required_information_leaves": 31,
+      "mapped_leaves": 31,
+      "complete_specimens": 19,
+      "failures": 0
+    },
+    {
+      "case": "J8g",
+      "turns": 1,
+      "required_information_leaves": 27,
+      "mapped_leaves": 27,
+      "complete_specimens": 19,
+      "failures": 0
+    },
+    {
+      "case": "J8h",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "J7d",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J7e",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "J9",
+      "turns": 0,
+      "required_information_leaves": 1,
+      "mapped_leaves": 1,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "X1",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X2",
+      "turns": 1,
+      "required_information_leaves": 44,
+      "mapped_leaves": 44,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X3",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X4",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X5",
+      "turns": 2,
+      "required_information_leaves": 34,
+      "mapped_leaves": 34,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "X6",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X7",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "X8",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "X9",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "N1a",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N1b",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N1c",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N2a",
+      "turns": 1,
+      "required_information_leaves": 29,
+      "mapped_leaves": 29,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N2b",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N3a",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N3b",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N4",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N5a",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N5b",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N6",
+      "turns": 1,
+      "required_information_leaves": 26,
+      "mapped_leaves": 26,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N7a",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N7b",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N7c",
+      "turns": 1,
+      "required_information_leaves": 27,
+      "mapped_leaves": 27,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N8a",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N8b",
+      "turns": 2,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "N9",
+      "turns": 1,
+      "required_information_leaves": 31,
+      "mapped_leaves": 31,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "N10",
+      "turns": 3,
+      "required_information_leaves": 40,
+      "mapped_leaves": 40,
+      "complete_specimens": 60,
+      "failures": 0
+    },
+    {
+      "case": "N11a",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N11b",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N11c",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N12",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N13",
+      "turns": 2,
+      "required_information_leaves": 45,
+      "mapped_leaves": 45,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "N14",
+      "turns": 1,
+      "required_information_leaves": 9,
+      "mapped_leaves": 9,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N15",
+      "turns": 2,
+      "required_information_leaves": 52,
+      "mapped_leaves": 52,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "N16",
+      "turns": 1,
+      "required_information_leaves": 33,
+      "mapped_leaves": 33,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "N17",
+      "turns": 1,
+      "required_information_leaves": 47,
+      "mapped_leaves": 47,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S1a",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S1b",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S1c",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S1d",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S1e",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S2a",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S2b",
+      "turns": 1,
+      "required_information_leaves": 22,
+      "mapped_leaves": 22,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S2c",
+      "turns": 1,
+      "required_information_leaves": 27,
+      "mapped_leaves": 27,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S2d",
+      "turns": 1,
+      "required_information_leaves": 20,
+      "mapped_leaves": 20,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S2e",
+      "turns": 2,
+      "required_information_leaves": 43,
+      "mapped_leaves": 43,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "S3d",
+      "turns": 1,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S3a",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S3b",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S3c",
+      "turns": 1,
+      "required_information_leaves": 21,
+      "mapped_leaves": 21,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "S4a",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S4b",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S4c",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S4d",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S4e",
+      "turns": 1,
+      "required_information_leaves": 16,
+      "mapped_leaves": 16,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S4f",
+      "turns": 1,
+      "required_information_leaves": 10,
+      "mapped_leaves": 10,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S5a",
+      "turns": 3,
+      "required_information_leaves": 28,
+      "mapped_leaves": 28,
+      "complete_specimens": 61,
+      "failures": 0
+    },
+    {
+      "case": "S6a",
+      "turns": 1,
+      "required_information_leaves": 43,
+      "mapped_leaves": 43,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S6b",
+      "turns": 1,
+      "required_information_leaves": 29,
+      "mapped_leaves": 29,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S6c",
+      "turns": 1,
+      "required_information_leaves": 40,
+      "mapped_leaves": 40,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S7a",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S7b",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S7c",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8a",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8b",
+      "turns": 1,
+      "required_information_leaves": 45,
+      "mapped_leaves": 45,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8c",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8d",
+      "turns": 3,
+      "required_information_leaves": 47,
+      "mapped_leaves": 47,
+      "complete_specimens": 60,
+      "failures": 0
+    },
+    {
+      "case": "S8e",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8f",
+      "turns": 1,
+      "required_information_leaves": 32,
+      "mapped_leaves": 32,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8g",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "S8h",
+      "turns": 3,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 60,
+      "failures": 0
+    },
+    {
+      "case": "S8i",
+      "turns": 1,
+      "required_information_leaves": 26,
+      "mapped_leaves": 26,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "R1",
+      "turns": 1,
+      "required_information_leaves": 26,
+      "mapped_leaves": 26,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R2",
+      "turns": 2,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "R3",
+      "turns": 1,
+      "required_information_leaves": 19,
+      "mapped_leaves": 19,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "R4",
+      "turns": 2,
+      "required_information_leaves": 27,
+      "mapped_leaves": 27,
+      "complete_specimens": 40,
+      "failures": 0
+    },
+    {
+      "case": "R5",
+      "turns": 1,
+      "required_information_leaves": 24,
+      "mapped_leaves": 24,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R6",
+      "turns": 1,
+      "required_information_leaves": 13,
+      "mapped_leaves": 13,
+      "complete_specimens": 21,
+      "failures": 0
+    },
+    {
+      "case": "R7",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R8",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R9",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R10",
+      "turns": 1,
+      "required_information_leaves": 30,
+      "mapped_leaves": 30,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R11",
+      "turns": 1,
+      "required_information_leaves": 17,
+      "mapped_leaves": 17,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R12",
+      "turns": 1,
+      "required_information_leaves": 10,
+      "mapped_leaves": 10,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R13",
+      "turns": 1,
+      "required_information_leaves": 32,
+      "mapped_leaves": 32,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R14",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R15",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R16",
+      "turns": 1,
+      "required_information_leaves": 7,
+      "mapped_leaves": 7,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R17",
+      "turns": 1,
+      "required_information_leaves": 8,
+      "mapped_leaves": 8,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R18",
+      "turns": 1,
+      "required_information_leaves": 23,
+      "mapped_leaves": 23,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R19",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R20",
+      "turns": 1,
+      "required_information_leaves": 15,
+      "mapped_leaves": 15,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "R21",
+      "turns": 1,
+      "required_information_leaves": 14,
+      "mapped_leaves": 14,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "V1",
+      "turns": 1,
+      "required_information_leaves": 25,
+      "mapped_leaves": 25,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "V2",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "V3",
+      "turns": 1,
+      "required_information_leaves": 12,
+      "mapped_leaves": 12,
+      "complete_specimens": 20,
+      "failures": 0
+    },
+    {
+      "case": "T1",
+      "turns": 1,
+      "required_information_leaves": 18,
+      "mapped_leaves": 18,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T2",
+      "turns": 1,
+      "required_information_leaves": 507,
+      "mapped_leaves": 507,
+      "complete_specimens": 5,
+      "failures": 0
+    },
+    {
+      "case": "T3",
+      "turns": 1,
+      "required_information_leaves": 414,
+      "mapped_leaves": 414,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T4",
+      "turns": 1,
+      "required_information_leaves": 11,
+      "mapped_leaves": 11,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T5",
+      "turns": 1,
+      "required_information_leaves": 59,
+      "mapped_leaves": 59,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T6",
+      "turns": 1,
+      "required_information_leaves": 6,
+      "mapped_leaves": 6,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T7",
+      "turns": 1,
+      "required_information_leaves": 6,
+      "mapped_leaves": 6,
+      "complete_specimens": 2,
+      "failures": 0
+    },
+    {
+      "case": "T8",
+      "turns": 1,
+      "required_information_leaves": 238,
+      "mapped_leaves": 238,
+      "complete_specimens": 3,
+      "failures": 0
+    },
+    {
+      "case": "T9",
+      "turns": 1,
+      "required_information_leaves": 33,
+      "mapped_leaves": 33,
+      "complete_specimens": 3,
+      "failures": 0
+    },
+    {
+      "case": "T10",
+      "turns": 1,
+      "required_information_leaves": 6,
+      "mapped_leaves": 6,
+      "complete_specimens": 2,
+      "failures": 0
+    }
+  ],
+  "failures": []
+}

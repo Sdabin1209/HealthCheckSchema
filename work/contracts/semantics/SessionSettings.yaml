@@ -1,0 +1,62 @@
+definition: SessionSettings
+nodes:
+  ? ''
+  : title: 세션 설정
+    meaning: 문항과 상관없는 설정.
+    why: 기관마다 다르게 정할 값을 코드 밖에 둔다.
+    case_refs:
+    - G2
+    - C8a
+    - F3
+    evidence_status: requirement_reference
+  /properties/risk_phrases:
+    title: 위험 표현 목록
+    meaning: 원문에 들어 있으면 위험 신호로 보는 표현.
+    why: 모델이 놓친 위급한 말을 잡는다(G2). 의료진이 관리한다.
+    case_refs:
+    - G2
+    - G9
+    - S3c
+    evidence_status: requirement_reference
+  /properties/confirm_limit:
+    title: 확인 상한
+    meaning: 같은 확인 대기를 물을 수 있는 최대 횟수.
+    why: 확인 질문에 계속 다른 값을 대도 이 횟수에서 확인을 그만두어 문진이 끝나게 한다.
+    case_refs:
+    - C8a
+    - C8b
+    - N6
+    - S8e
+    evidence_status: requirement_reference
+  /properties/unrecognized_streak_limit:
+    title: 알아듣지 못한 연속 상한
+    meaning: 이만큼 이어지면 도움 요청.
+    why: 알아듣지 못한 턴이 이만큼 이어지면 직원을 부른다. 기관마다 정할 값이다.
+    case_refs:
+    - F3
+    - R12
+    evidence_status: requirement_reference
+  /properties/ask_limit:
+    title: 물음 상한
+    meaning: 같은 대상을 풀리지 않은 채 물을 수 있는 최대 횟수.
+    why: 정정 요청·미룸·종료 확인·중단 확인처럼 문항 정책이 없는 물음도 같은 것을 끝없이 묻지 않게 하는 상한이다(8-4절 7).
+    case_refs:
+    - H1
+    - C8d
+    evidence_status: requirement_reference
+  /properties/fixed_sentences:
+    title: 고정 문장
+    meaning: 행동·알릴 것 종류마다 하나. 의료진이 검토해 등록한다.
+    why: 행동·알릴 것마다 쓰는 검토된 문장을 코드 밖에 두어, 문장을 바꿔도 코드가 바뀌지 않게 한다.
+    case_refs:
+    - G1
+    evidence_status: requirement_reference
+  /properties/guide_list:
+    title: 안내 목록
+    meaning: 안내 항목들.
+    why: 사용자가 물을 수 있는 것과 답을 등록해 두어야 정해진 안내만 하고 나머지는 무관으로 다룬다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference

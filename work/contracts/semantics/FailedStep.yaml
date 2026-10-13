@@ -1,0 +1,106 @@
+definition: FailedStep
+nodes:
+  ? ''
+  : title: 실패한 단계
+    meaning: 턴 결과가 실패일 때 실패한 곳 하나.
+    why: 어느 컴포넌트에서 틀렸는지 경계 값으로 가린다(J6).
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/phase:
+    title: 시점
+    meaning: 쓰기 확정 전인지 뒤인지.
+    why: 확정 전 실패면 기록이 하나도 반영되지 않았고, 확정 뒤 실패면 기록은 반영됐다. 다시 처리할지가 이것으로 갈린다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/phase/oneOf/0:
+    title: 확정 전
+    meaning: 쓰기 전
+    why: 확정 전 실패면 다시 같은 입력을 처리해도 안전하다는 것을 운영자가 알아야 한다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/phase/oneOf/1:
+    title: 확정 뒤
+    meaning: 쓰기 뒤
+    why: 확정 뒤 실패면 기록은 이미 반영돼 같은 입력을 다시 처리하면 안 되고, 응답만 다시 들려주면 된다는 것을 운영자가 알아야 한다.
+    case_refs:
+    - J3
+    - J8g
+    - J8h
+    evidence_status: requirement_reference
+  /properties/step:
+    title: 단계
+    meaning: 실패한 컴포넌트 또는 일.
+    why: 어느 단계에서 실패했는지 가려야 담당이 고친다(J6).
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/step/oneOf/0:
+    title: ''
+    meaning: Utterance Parser
+    why: LoRA-A에서 멈추면 뽑힌 항목이 하나도 없어 뒤 단계가 전부 비고, 고칠 담당은 모델 쪽이다. 깨진 출력(J7a)과 달리 대체
+      출력으로 이어 가지 못한 경우다(J8b).
+    case_refs:
+    - J8b
+    evidence_status: requirement_reference
+  /properties/step/oneOf/1:
+    title: 정규화·검증
+    meaning: Answer Normalizer
+    why: 정규화·검증에서 멈추면 항목은 있는데 표준 값이 없다. 로그의 LoRA-A 출력만 차 있는 모양으로 값 규칙 쪽 결함임을 가린다(J8c).
+    case_refs:
+    - J8c
+    evidence_status: requirement_reference
+  /properties/step/oneOf/2:
+    title: 상태 판정
+    meaning: Answer Judge
+    why: 상태 판정에서 멈추면 검사 결과까지는 있고 판정이 없다. 해석 규칙(6절)과 값 규칙 중 어디가 틀렸는지를 이 경계로 가른다(J8d).
+    case_refs:
+    - J8d
+    evidence_status: requirement_reference
+  /properties/step/oneOf/3:
+    title: 저장 판단
+    meaning: Record Writer
+    why: 저장 판단에서 멈추면 판정은 났는데 쓸 것이 정해지지 않았다. 판정이 맞는데 기록이 안 됐다는 신고를 이 단계로 좁힌다(J8e).
+    case_refs:
+    - J8e
+    evidence_status: requirement_reference
+  /properties/step/oneOf/4:
+    title: Plan 결정
+    meaning: Dialogue Planner
+    why: Plan 결정에서 멈추면 쓰기 전체가 반영되지 않고 응답 지시도 없다. 저장까지 다 맞는데 아무 말도 안 나온 경우가 이것이다(J2).
+    case_refs:
+    - J2
+    - J4a
+    evidence_status: requirement_reference
+  /properties/step/oneOf/5:
+    title: 쓰기 확정
+    meaning: 기록 저장소 반영
+    why: 쓰기 확정에서 멈추면 Plan까지 다 끝났는데도 0-1절 2에 따라 저장·진행 기록·Plan 기록이 하나도 반영되지 않는다. 앞 단계가
+      모두 정상인데 기록만 비는 유일한 모양이다(J8f).
+    case_refs:
+    - J8f
+    evidence_status: requirement_reference
+  /properties/step/oneOf/6:
+    title: 직원 알림 전달
+    meaning: 사람 개입 전달
+    why: 직원 알림 전달에서 멈추면 기록은 반영됐고 응답도 나가지만 직원이 오지 않는다. 0-1절 3에 따라 응답 단계는 그대로 하므로 사용자는
+      눈치채지 못한다(J3).
+    case_refs:
+    - J3
+    evidence_status: requirement_reference
+  /properties/step/oneOf/7:
+    title: ''
+    meaning: Response Generator
+    why: LoRA-B에서 멈추면 쓰기도 직원 알림도 끝난 뒤라 사용자만 답을 못 듣는다. 다시 물을 필요 없이 응답만 다시 만들면 되는 단계다(J8g).
+    case_refs:
+    - J8g
+    evidence_status: requirement_reference
+  /properties/step/oneOf/8:
+    title: 프론트 전달
+    meaning: 프론트 전달
+    why: 프론트 전달에서 멈추면 응답 문장까지 만들어졌고 전달만 실패했다. 로그에 응답 문장이 남아 있어 같은 문장을 다시 보낼 수 있다(J8h).
+    case_refs:
+    - J8h
+    evidence_status: requirement_reference

@@ -1,0 +1,38 @@
+definition: ResponseGeneratorInput
+nodes:
+  ? ''
+  : title: LoRA-B가 받는 값
+    meaning: 응답 지시와 발화.
+    why: 행동과 허용된 값·문장 재료는 응답 지시에서 받고, 사용자 발화는 공감·수용 표현의 문맥으로만 사용한다. 발화의 값을 저장된 답으로 오인하거나 응답 지시에 없는 값을 생성하지 않도록 입력의
+      역할을 구분한다.
+    case_refs:
+    - G1
+    - J7c
+    - K2
+    evidence_status: requirement_reference
+  /properties/directive:
+    title: 응답 지시
+    meaning: Plan 결정 · 응답 지시.
+    why: 무엇을 어떤 값과 문장 재료로 말할지가 모두 여기 있어 LoRA-B는 이것만 보고 말한다.
+    case_refs:
+    - G1
+    - J7c
+    - E4
+    evidence_status: requirement_reference
+  /properties/utterance:
+    title: 발화
+    meaning: 프론트 · 발화. 발화 턴에만.
+    why: 사용자 말을 받아 주고 잇는다(K2, K4). 그 안의 값을 기록된 값처럼 말하지 않는다.
+    case_refs:
+    - K2
+    - K4
+    - K5
+    evidence_status: requirement_reference
+  /properties/utterance/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 발화가 없는 턴이다(A1 첫 질문, G6a 재개). 9절 1이 발화를 받아 주는 말에만 쓰므로, 없으면 받아 줄 말 없이 응답 지시대로만 말한다.
+    case_refs:
+    - A1
+    - G6a
+    evidence_status: requirement_reference

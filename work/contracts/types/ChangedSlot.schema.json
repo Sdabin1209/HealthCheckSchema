@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slot": {
+      "$ref": "SlotRef.schema.json"
+    },
+    "previous_value": {
+      "anyOf": [
+        {
+          "$ref": "Value.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "new_value": {
+      "$ref": "Value.schema.json"
+    },
+    "kind": {
+      "oneOf": [
+        {
+          "const": "FIRST_ANSWER"
+        },
+        {
+          "const": "CORRECTION"
+        }
+      ]
+    }
+  },
+  "required": [
+    "slot",
+    "previous_value",
+    "new_value",
+    "kind"
+  ],
+  "additionalProperties": false
+}

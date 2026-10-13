@@ -1,0 +1,69 @@
+definition: PlannerOutput
+nodes:
+  ? ''
+  : title: Plan 출력
+    meaning: 응답 지시, 흐름, 직원 알림, 진행 기록 갱신, Plan 기록 갱신.
+    why: 응답 지시, 진행 상태 갱신, 계획 기록 갱신, 실행 흐름과 직원 알림을 소비 책임에 따라 구분하여 전달해야 한다.
+    case_refs:
+    - A1
+    - B10
+    - G1
+    - S8e
+    evidence_status: requirement_reference
+  /properties/directive:
+    title: 응답 지시
+    meaning: LoRA-B로.
+    why: LoRA-B가 이번에 말할 것 전부이고, 다음 턴의 해석 근거로 진행 기록에도 남는다.
+    case_refs:
+    - A1
+    - B2
+    - G1
+    evidence_status: requirement_reference
+  /properties/flow:
+    title: 흐름
+    meaning: 이번 턴 뒤 세션을 닫을지.
+    why: LangGraph가 이 값으로 결과 전달을 부르고 세션을 닫을지 정한다. Plan만 끝낼지를 판단한다.
+    case_refs:
+    - A4a
+    - H2
+    - D5a
+    - F4
+    - J5
+    evidence_status: requirement_reference
+  /properties/staff_alert:
+    title: 직원 알림
+    meaning: 위험·도움 요청·사람 요청일 때. 아니면 없음.
+    why: 위험·도움 요청·사람 요청에는 사람이 와야 하므로 사람 개입으로 보낸다.
+    case_refs:
+    - F1
+    - F3
+    - G1
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 위험·도움 요청·사람 요청이 아닌 턴이라 보낼 알림이 없다(B1, C1). J2의 턴 실패 신호가 직원 알림을 "없음"으로 적는 근거가 이것이다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /properties/progress_record_update:
+    title: 진행 기록 갱신
+    meaning: 기록 저장소로.
+    why: 진행 기록은 Plan만 쓴다. 다음 턴의 판단 근거가 된다.
+    case_refs:
+    - B10
+    - C8a
+    - G1
+    - X7
+    evidence_status: requirement_reference
+  /properties/planner_record_update:
+    title: Plan 기록 갱신
+    meaning: Plan 기록 전체의 새 값.
+    why: 횟수를 통째로 새 값으로 보내 저장소가 더하기 같은 판단 없이 교체만 하게 한다.
+    case_refs:
+    - S8e
+    - R19
+    - R8
+    - S8d
+    evidence_status: requirement_reference

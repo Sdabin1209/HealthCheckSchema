@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "response_text": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "turn_failure_signal": {
+      "anyOf": [
+        {
+          "$ref": "../../types/TurnFailureSignal.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "response_text",
+    "turn_failure_signal"
+  ],
+  "additionalProperties": false
+}

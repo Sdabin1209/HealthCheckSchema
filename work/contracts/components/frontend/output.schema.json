@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "$ref": "../../types/SessionId.schema.json"
+        },
+        "kind": {
+          "const": "SESSION_START"
+        }
+      },
+      "required": [
+        "session_id",
+        "kind"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "$ref": "../../types/SessionId.schema.json"
+        },
+        "kind": {
+          "const": "UTTERANCE"
+        },
+        "utterance": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "session_id",
+        "kind",
+        "utterance"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "session_id": {
+          "$ref": "../../types/SessionId.schema.json"
+        },
+        "kind": {
+          "const": "SESSION_END"
+        }
+      },
+      "required": [
+        "session_id",
+        "kind"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

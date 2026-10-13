@@ -1,0 +1,84 @@
+definition: StoreAction
+nodes:
+  ? ''
+  : title: 저장 동작
+    meaning: 저장 판단이 슬롯마다 기록 저장소에 시키는 일.
+    why: 기록 저장소가 판단 없이 정해진 효과대로만 반영하게 하려면, 무엇을 할지가 동작 하나로 정해져 있어야 한다.
+    case_refs:
+    - A2
+    - C3
+    - B7a
+    - C2
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 첫 저장
+    meaning: 빈 슬롯에 값을 넣음
+    why: 빈 칸에 처음 들어온 답은 이력 없이 현재값만 정한다.
+    case_refs:
+    - A2
+    - B1
+    - B2
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 새 revision
+    meaning: 있던 답을 고침(이전 답은 이력으로)
+    why: 고친 답을 저장하되 이전 답을 버리지 않고 이력으로 남겨 결과에 수정 이력이 넘어가게 한다(C1).
+    case_refs:
+    - C1
+    - C2
+    - H3a
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 모름 기록
+    meaning: 모름으로 기록
+    why: 모름을 현재값으로 기록해 빈 칸과 구분하고, 그 전 답이 있었으면 이력으로 남긴다.
+    case_refs:
+    - B7a
+    - R11
+    - S3d
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 거절 기록
+    meaning: 거절로 기록
+    why: 거절을 현재값으로 기록해 모름·빈 칸과 구분하고, 그 전 답이 있었으면 이력으로 남긴다.
+    case_refs:
+    - B8a
+    - S3a
+    - S3b
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 확인 대기 둠
+    meaning: 기존 값은 두고 새 값을 확인 대기에 둠
+    why: 표지 없이 다른 값을 말하면 잘못 들었을 수도 있으므로 기존 값을 지키고 새 값은 확인을 받을 때까지 따로 둔다(C3).
+    case_refs:
+    - C3
+    - N6
+    - N13
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 확인 대기 받아들임
+    meaning: 확인 대기 값을 현재값으로
+    why: 사용자가 새 값이 맞다고 확인했으므로 확인 대기 값을 현재값으로 올리고 옛 답은 이력으로 남긴다.
+    case_refs:
+    - C4a
+    - N3b
+    - S2e
+    evidence_status: requirement_reference
+  /oneOf/6:
+    title: 확인 대기 버림
+    meaning: 확인 대기를 지움
+    why: 확인 대기가 더 필요 없어졌을 때(기존 답이 맞다는 응답, 또는 정정·모름·거절로 그 칸이 따로 정해짐) 확인 대기만 지운다. 현재값은 이 동작으로 바뀌지 않는다.
+    case_refs:
+    - C4b
+    - N3a
+    - R9
+    evidence_status: requirement_reference
+  /oneOf/7:
+    title: 무효화
+    meaning: 선행 답이 바뀌어 후속 답을 지움
+    why: 선행 답이 바뀌어 맞지 않게 된 후속 답을 지우되 이력으로 남긴다. 지우지 않으면 술을 안 마신다는 사람에게 음주량이 남는다.
+    case_refs:
+    - C2
+    - N15
+    - R5
+    evidence_status: requirement_reference

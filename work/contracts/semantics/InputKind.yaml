@@ -1,0 +1,46 @@
+definition: InputKind
+nodes:
+  ? ''
+  : title: 입력 종류
+    meaning: 턴을 시작한 입력.
+    why: 로그의 Trace가 무엇으로 시작했는지 알아야 신고된 턴을 다시 따라갈 수 있다(J6).
+    case_refs:
+    - A1
+    - A2
+    - A4a
+    - F4
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 세션 시작 신호
+    meaning: 첫 접속·재접속
+    why: 말 없는 시작·재접속은 해석할 발화가 없어 Plan부터 부르는 등 처리가 달라서 다른 입력과 구분해야 한다.
+    case_refs:
+    - A1
+    - A3
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 발화
+    meaning: 사용자 말
+    why: 발화만 LoRA-A부터 전체 흐름을 돌기 때문에 다른 입력과 구분해야 한다.
+    case_refs:
+    - A2
+    - A5
+    - B1
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 개입 결정
+    meaning: 직원의 재개·종료
+    why: 직원의 결정은 사람 개입에서 오고 일시 중지 상태에서도 처리하므로 사용자 입력과 구분해야 한다.
+    case_refs:
+    - F4
+    - G6a
+    - J4b
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 세션 종료 신호
+    meaning: 사용자가 떠남
+    why: 떠났다는 신호는 확인 없이 미완료로 끝내야 하므로 다른 입력과 구분해야 한다.
+    case_refs:
+    - A4a
+    - A4b
+    evidence_status: requirement_reference

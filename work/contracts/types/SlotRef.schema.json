@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "question_id": {
+      "$ref": "QuestionId.schema.json"
+    },
+    "repeat_key": {
+      "type": "string"
+    },
+    "slot_id": {
+      "type": "string",
+      "minLength": 1
+    }
+  },
+  "required": [
+    "question_id",
+    "repeat_key",
+    "slot_id"
+  ],
+  "additionalProperties": false
+}

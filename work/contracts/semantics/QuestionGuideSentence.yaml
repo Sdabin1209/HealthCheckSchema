@@ -1,0 +1,26 @@
+definition: QuestionGuideSentence
+nodes:
+  ? ''
+  : title: 문항별 안내 문장
+    meaning: 문항별 안내 항목의 이 문항 문장.
+    why: '"폭음이 뭐예요?"의 답은 문항마다 다르다(E1).'
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 안내 목록의 문항별 항목.
+    why: 문항별 안내 항목이 여럿일 수 있어(뜻, 목적) 문장마다 어느 항목 것인지 있어야 한다.
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/sentence:
+    title: 문장
+    meaning: 등록 문장.
+    why: '"폭음이 뭐예요?"에 이 문항에 맞게 검토된 문장으로 답한다.'
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference

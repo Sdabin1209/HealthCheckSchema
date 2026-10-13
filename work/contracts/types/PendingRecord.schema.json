@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "pending_id": {
+      "$ref": "PendingId.schema.json"
+    },
+    "value": {
+      "$ref": "Value.schema.json"
+    },
+    "risk_mark": {
+      "anyOf": [
+        {
+          "$ref": "RiskResponse.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    }
+  },
+  "required": [
+    "pending_id",
+    "value",
+    "risk_mark"
+  ],
+  "additionalProperties": false
+}

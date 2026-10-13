@@ -1,0 +1,33 @@
+{
+  "name": "healthcheck-schema-presentation",
+  "version": "1.0.0",
+  "description": "Human-facing explorer generated from schema contracts",
+  "scripts": {
+    "data": "python3 scripts/export_data.py",
+    "dev": "npm run data && vite",
+    "check": "svelte-check --tsconfig ./jsconfig.json",
+    "prebuild": "npm run data",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test tests/data.test.js",
+    "test:browser": "node tests/browser.mjs",
+    "test:dom": "node --test tests/dom.test.js"
+  },
+  "type": "module",
+  "dependencies": {
+    "svelte": "5.57.2"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "happy-dom": "21.0.1",
+    "playwright": "1.64.0",
+    "svelte-check": "4.7.6",
+    "typescript": "6.0.3",
+    "vite": "8.3.4",
+    "vite-plugin-singlefile": "2.3.3"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.12"
+  }
+}

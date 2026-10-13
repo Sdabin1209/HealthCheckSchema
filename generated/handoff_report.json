@@ -1,0 +1,8 @@
+{
+  "scope": "static_schema_handoffs",
+  "component_execution": false,
+  "binding_fields": 59,
+  "output_destination_fields": 6,
+  "complete_transfer_examples": 17,
+  "failures": []
+}

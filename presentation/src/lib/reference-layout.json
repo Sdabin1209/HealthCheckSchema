@@ -1,0 +1,722 @@
+{
+  "boxes": {
+    "frontend": [
+      30,
+      520,
+      150,
+      70
+    ],
+    "staff_console": [
+      30,
+      140,
+      150,
+      70
+    ],
+    "orchestrator": [
+      230,
+      110,
+      130,
+      530
+    ],
+    "utterance_parser": [
+      410,
+      150,
+      160,
+      80
+    ],
+    "answer_normalizer": [
+      630,
+      150,
+      160,
+      80
+    ],
+    "answer_judge": [
+      850,
+      150,
+      160,
+      80
+    ],
+    "record_writer": [
+      1070,
+      150,
+      160,
+      80
+    ],
+    "dialogue_planner": [
+      1290,
+      430,
+      190,
+      80
+    ],
+    "response_generator": [
+      955,
+      430,
+      140,
+      80
+    ],
+    "result_dispatcher": [
+      735,
+      430,
+      160,
+      80
+    ],
+    "question_bank": [
+      230,
+      20,
+      1260,
+      40
+    ],
+    "session_store": [
+      230,
+      770,
+      1260,
+      44
+    ]
+  },
+  "routes": {
+    "P1": [
+      [
+        180,
+        545
+      ],
+      [
+        230,
+        545
+      ]
+    ],
+    "P2": [
+      [
+        180,
+        160
+      ],
+      [
+        230,
+        160
+      ]
+    ],
+    "P3": [
+      [
+        360,
+        372
+      ],
+      [
+        1315,
+        372
+      ],
+      [
+        1315,
+        430
+      ]
+    ],
+    "P4": [
+      [
+        180,
+        525
+      ],
+      [
+        205,
+        525
+      ],
+      [
+        205,
+        125
+      ],
+      [
+        450,
+        125
+      ],
+      [
+        450,
+        150
+      ]
+    ],
+    "P5": [
+      [
+        570,
+        175
+      ],
+      [
+        630,
+        175
+      ]
+    ],
+    "P6": [
+      [
+        530,
+        150
+      ],
+      [
+        530,
+        108
+      ],
+      [
+        890,
+        108
+      ],
+      [
+        890,
+        150
+      ]
+    ],
+    "P7": [
+      [
+        790,
+        175
+      ],
+      [
+        850,
+        175
+      ]
+    ],
+    "P8": [
+      [
+        1010,
+        170
+      ],
+      [
+        1070,
+        170
+      ]
+    ],
+    "P9": [
+      [
+        1010,
+        205
+      ],
+      [
+        1040,
+        205
+      ],
+      [
+        1040,
+        300
+      ],
+      [
+        1345,
+        300
+      ],
+      [
+        1345,
+        430
+      ]
+    ],
+    "P10": [
+      [
+        1230,
+        190
+      ],
+      [
+        1375,
+        190
+      ],
+      [
+        1375,
+        430
+      ]
+    ],
+    "P11": [
+      [
+        1290,
+        470
+      ],
+      [
+        1100,
+        470
+      ]
+    ],
+    "P12": [
+      [
+        1480,
+        470
+      ],
+      [
+        1505,
+        470
+      ],
+      [
+        1505,
+        90
+      ],
+      [
+        105,
+        90
+      ],
+      [
+        105,
+        140
+      ]
+    ],
+    "P13": [
+      [
+        1027,
+        510
+      ],
+      [
+        1027,
+        668
+      ],
+      [
+        105,
+        668
+      ],
+      [
+        105,
+        590
+      ]
+    ],
+    "P14": [
+      [
+        230,
+        575
+      ],
+      [
+        180,
+        575
+      ]
+    ],
+    "P15": [
+      [
+        230,
+        190
+      ],
+      [
+        180,
+        190
+      ]
+    ],
+    "P16": [
+      [
+        360,
+        470
+      ],
+      [
+        735,
+        470
+      ]
+    ],
+    "P17": [
+      [
+        1445,
+        430
+      ],
+      [
+        1445,
+        392
+      ],
+      [
+        360,
+        392
+      ]
+    ],
+    "W1": [
+      [
+        330,
+        640
+      ],
+      [
+        330,
+        770
+      ]
+    ],
+    "W2": [
+      [
+        1190,
+        230
+      ],
+      [
+        1190,
+        770
+      ]
+    ],
+    "W3": [
+      [
+        1410,
+        510
+      ],
+      [
+        1410,
+        770
+      ]
+    ],
+    "W4": [
+      [
+        840,
+        510
+      ],
+      [
+        840,
+        770
+      ]
+    ],
+    "Q1": [
+      [
+        270,
+        60
+      ],
+      [
+        270,
+        110
+      ]
+    ],
+    "Q2": [
+      [
+        490,
+        60
+      ],
+      [
+        490,
+        150
+      ]
+    ],
+    "Q3": [
+      [
+        710,
+        60
+      ],
+      [
+        710,
+        150
+      ]
+    ],
+    "Q4": [
+      [
+        930,
+        60
+      ],
+      [
+        930,
+        150
+      ]
+    ],
+    "Q5": [
+      [
+        1125,
+        60
+      ],
+      [
+        1125,
+        150
+      ]
+    ],
+    "Q6": [
+      [
+        1405,
+        60
+      ],
+      [
+        1405,
+        430
+      ]
+    ],
+    "R1": [
+      [
+        300,
+        770
+      ],
+      [
+        300,
+        640
+      ]
+    ],
+    "R2": [
+      [
+        470,
+        770
+      ],
+      [
+        470,
+        230
+      ]
+    ],
+    "R3": [
+      [
+        690,
+        770
+      ],
+      [
+        690,
+        230
+      ]
+    ],
+    "R4": [
+      [
+        910,
+        770
+      ],
+      [
+        910,
+        230
+      ]
+    ],
+    "R5": [
+      [
+        1118,
+        770
+      ],
+      [
+        1118,
+        230
+      ]
+    ],
+    "R6": [
+      [
+        1370,
+        770
+      ],
+      [
+        1370,
+        510
+      ]
+    ],
+    "R7": [
+      [
+        790,
+        770
+      ],
+      [
+        790,
+        510
+      ]
+    ]
+  },
+  "connections": [
+    {
+      "id": "P1",
+      "from": "frontend",
+      "to": "orchestrator",
+      "kind": "data",
+      "label": "프론트 입력"
+    },
+    {
+      "id": "P2",
+      "from": "staff_console",
+      "to": "orchestrator",
+      "kind": "data",
+      "label": "개입 결정"
+    },
+    {
+      "id": "P3",
+      "from": "orchestrator",
+      "to": "dialogue_planner",
+      "kind": "data",
+      "label": "턴 종류"
+    },
+    {
+      "id": "P4",
+      "from": "frontend",
+      "to": "utterance_parser",
+      "kind": "data",
+      "label": "발화 원문"
+    },
+    {
+      "id": "P5",
+      "from": "utterance_parser",
+      "to": "answer_normalizer",
+      "kind": "data",
+      "label": "항목 목록"
+    },
+    {
+      "id": "P6",
+      "from": "utterance_parser",
+      "to": "answer_judge",
+      "kind": "data",
+      "label": "항목 목록"
+    },
+    {
+      "id": "P7",
+      "from": "answer_normalizer",
+      "to": "answer_judge",
+      "kind": "data",
+      "label": "항목별 검사"
+    },
+    {
+      "id": "P8",
+      "from": "answer_judge",
+      "to": "record_writer",
+      "kind": "data",
+      "label": "판정"
+    },
+    {
+      "id": "P9",
+      "from": "answer_judge",
+      "to": "dialogue_planner",
+      "kind": "data",
+      "label": "판정·발화 판정"
+    },
+    {
+      "id": "P10",
+      "from": "record_writer",
+      "to": "dialogue_planner",
+      "kind": "data",
+      "label": "저장 결과 요약"
+    },
+    {
+      "id": "P11",
+      "from": "dialogue_planner",
+      "to": "response_generator",
+      "kind": "data",
+      "label": "응답 지시"
+    },
+    {
+      "id": "P12",
+      "from": "dialogue_planner",
+      "to": "staff_console",
+      "kind": "data",
+      "label": "직원 알림"
+    },
+    {
+      "id": "P13",
+      "from": "response_generator",
+      "to": "frontend",
+      "kind": "data",
+      "label": "응답 문장"
+    },
+    {
+      "id": "P14",
+      "from": "orchestrator",
+      "to": "frontend",
+      "kind": "data",
+      "label": "턴 실패 신호"
+    },
+    {
+      "id": "P15",
+      "from": "orchestrator",
+      "to": "staff_console",
+      "kind": "data",
+      "label": "실패 신호·개입 결과"
+    },
+    {
+      "id": "P16",
+      "from": "orchestrator",
+      "to": "result_dispatcher",
+      "kind": "control",
+      "label": "결과 전달 호출"
+    },
+    {
+      "id": "P17",
+      "from": "dialogue_planner",
+      "to": "orchestrator",
+      "kind": "control",
+      "label": "흐름(CONTINUE/END)"
+    },
+    {
+      "id": "W1",
+      "from": "orchestrator",
+      "to": "session_store",
+      "kind": "write",
+      "label": "세션 생성·대화 로그"
+    },
+    {
+      "id": "W2",
+      "from": "record_writer",
+      "to": "session_store",
+      "kind": "write",
+      "label": "저장 결정"
+    },
+    {
+      "id": "W3",
+      "from": "dialogue_planner",
+      "to": "session_store",
+      "kind": "write",
+      "label": "진행·Plan 기록 갱신"
+    },
+    {
+      "id": "W4",
+      "from": "result_dispatcher",
+      "to": "session_store",
+      "kind": "write",
+      "label": "전달 기록"
+    },
+    {
+      "id": "Q1",
+      "from": "question_bank",
+      "to": "orchestrator",
+      "kind": "read",
+      "label": "최신 문항 버전"
+    },
+    {
+      "id": "Q2",
+      "from": "question_bank",
+      "to": "utterance_parser",
+      "kind": "read",
+      "label": "문항·안내 목록"
+    },
+    {
+      "id": "Q3",
+      "from": "question_bank",
+      "to": "answer_normalizer",
+      "kind": "read",
+      "label": "관련 문항 정의"
+    },
+    {
+      "id": "Q4",
+      "from": "question_bank",
+      "to": "answer_judge",
+      "kind": "read",
+      "label": "위험 표현·후속 문항"
+    },
+    {
+      "id": "Q5",
+      "from": "question_bank",
+      "to": "record_writer",
+      "kind": "read",
+      "label": "문항 슬롯 목록"
+    },
+    {
+      "id": "Q6",
+      "from": "question_bank",
+      "to": "dialogue_planner",
+      "kind": "read",
+      "label": "문항 정의 전체"
+    },
+    {
+      "id": "R1",
+      "from": "session_store",
+      "to": "orchestrator",
+      "kind": "read",
+      "label": "세션 있음·상태·버전"
+    },
+    {
+      "id": "R2",
+      "from": "session_store",
+      "to": "utterance_parser",
+      "kind": "read",
+      "label": "직전 지시·답한 슬롯"
+    },
+    {
+      "id": "R3",
+      "from": "session_store",
+      "to": "answer_normalizer",
+      "kind": "read",
+      "label": "현재값·확인 대기"
+    },
+    {
+      "id": "R4",
+      "from": "session_store",
+      "to": "answer_judge",
+      "kind": "read",
+      "label": "직전 지시·확인 대기"
+    },
+    {
+      "id": "R5",
+      "from": "session_store",
+      "to": "record_writer",
+      "kind": "read",
+      "label": "기록 대상 슬롯"
+    },
+    {
+      "id": "R6",
+      "from": "session_store",
+      "to": "dialogue_planner",
+      "kind": "read",
+      "label": "응답·진행·Plan 기록"
+    },
+    {
+      "id": "R7",
+      "from": "session_store",
+      "to": "result_dispatcher",
+      "kind": "read",
+      "label": "확정된 최종 기록"
+    }
+  ]
+}

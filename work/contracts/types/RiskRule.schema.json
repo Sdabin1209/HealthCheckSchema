@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "operator": {
+      "oneOf": [
+        {
+          "const": "="
+        },
+        {
+          "const": ">="
+        }
+      ]
+    },
+    "value": {
+      "$ref": "Value.schema.json"
+    },
+    "response": {
+      "$ref": "RiskResponse.schema.json"
+    }
+  },
+  "required": [
+    "operator",
+    "value",
+    "response"
+  ],
+  "additionalProperties": false
+}

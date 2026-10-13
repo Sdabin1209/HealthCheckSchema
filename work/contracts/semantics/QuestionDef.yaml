@@ -1,0 +1,120 @@
+definition: QuestionDef
+nodes:
+  ? ''
+  : title: 문항 정의
+    meaning: 문항 하나.
+    why: 문항에 대해 컴포넌트들이 알아야 하는 것(이름, 순서, 선행 조건, 문장, 정책, 칸)을 한곳에서 정한다. 문진 설계자만 써서 코드를 바꾸지 않고 문항을 바꾼다.
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/question_id:
+    title: 문항 ID
+    meaning: 식별자.
+    why: 모든 컴포넌트가 이 문항을 같은 이름으로 가리킨다.
+    case_refs:
+    - A1
+    - B1
+    - E1a
+    evidence_status: requirement_reference
+  /properties/name:
+    title: 이름
+    meaning: 말할 때 쓰는 이름.
+    why: LoRA-A가 "담배 답"이 어느 문항인지 알고, LoRA-B가 이름으로 말한다.
+    case_refs:
+    - G3
+    - C6a
+    - C7a
+    evidence_status: requirement_reference
+  /properties/order:
+    title: 순서
+    meaning: 묻는 순서.
+    why: 열린 문항을 이 순서로 묻는다.
+    case_refs:
+    - B1
+    - A2
+    - B6
+    evidence_status: requirement_reference
+  /properties/prerequisite:
+    title: 선행 조건
+    meaning: 없으면 항상 묻는다.
+    why: 앞 답에 따라 물을 필요가 없는 문항이 있다(안 마시는 사람에게 음주량). 조건이 정의에 있어야 묻지 않는다.
+    case_refs:
+    - A2
+    - S1a
+    - S2d
+    evidence_status: requirement_reference
+  /properties/prerequisite/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 선행 조건 없이 항상 묻는 문항이다(Q1, Q5, Q6, Q7, Q8). 8-1 규칙 17의 열린 문항 계산에서 조건을 따지지 않으므로, A1의 첫 질문이 Q1이 되는 근거가 이 없음이다.
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/question_sentence:
+    title: 문항 문장
+    meaning: 물을 때의 문장.
+    why: 다음 문항 묻기에서 LoRA-B가 바탕으로 쓰고, 실패하면 그대로 읽는 문장이다.
+    case_refs:
+    - J7c
+    - E4
+    - K1
+    evidence_status: requirement_reference
+  /properties/refusal_explanation:
+    title: 거절 시 설명
+    meaning: 왜 묻는지 설명하는 문장.
+    why: 거절한 사람에게 왜 묻는지 검토된 문장으로 설명해야 한다.
+    case_refs:
+    - B8a
+    evidence_status: requirement_reference
+  /properties/guide_sentences:
+    title: 안내 문장
+    meaning: '문항별 안내 항목마다 하나(등록 규칙: 모든 문항에 있어야 등록).'
+    why: '"이게 뭐예요?"의 답은 문항마다 달라 문항마다 문장이 있어야 한다.'
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/affected_followups:
+    title: 영향받는 후속 문항
+    meaning: 이 문항 답이 바뀌면 무효가 되는 후속 문항.
+    why: 이 문항 답이 바뀌면 지워야 할 후속 문항을 알아야 모순된 답이 남지 않는다.
+    case_refs:
+    - C2
+    - S6a
+    - S6c
+    evidence_status: requirement_reference
+  /properties/policy:
+    title: 정책
+    meaning: 문항 정책.
+    why: 몇 번까지 묻고 언제 넘어갈지가 문항마다 달라야 한다.
+    case_refs:
+    - B7a
+    - B8a
+    - B10
+    evidence_status: requirement_reference
+  /properties/repeat_keys:
+    title: 반복 키
+    meaning: 이 문항이 줄마다 반복되면 쓸 수 있는 반복 키들. 반복하지 않으면 빈 목록.
+    why: 줄이 몇 개까지 생길 수 있는지는 문진 설계자가 정한다. 목록에 없는 키는 정규화가 받지 않는다(V2).
+    case_refs:
+    - V3
+    - V1
+    evidence_status: requirement_reference
+  /properties/repeat_keys/items:
+    title: ''
+    meaning: 이 문항에서 허용되는 반복 행 식별자 하나.
+    why: 같은 문항의 서로 다른 행에 대한 답을 분리한다.
+    case_refs:
+    - V3
+    - V1
+    evidence_status: requirement_reference
+  /properties/slots:
+    title: 슬롯
+    meaning: 답 칸들. 동일 문항 안의 slot_id는 유일하다. 다른 문항은 같은 slot_id를 사용할 수 있다.
+    why: 답을 칸 단위로 받으므로 문항마다 적어도 한 칸이 있어야 한다. 문항 ID와 슬롯 ID로 답 칸을 모호함 없이 식별해야 한다.
+    case_refs:
+    - B1
+    - B2
+    evidence_status: requirement_reference

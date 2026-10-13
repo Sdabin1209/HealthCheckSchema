@@ -1,0 +1,122 @@
+definition: StaffAlertReason
+nodes:
+  ? ''
+  : title: 직원 알림 이유
+    meaning: 직원 알림의 이유 하나.
+    why: 직원이 무엇 때문에 와야 하는지 알고 온다. 사람 개입은 문항 정의를 받지 않으므로 이름과 값을 담는다.
+    case_refs:
+    - G1
+    - G3
+    - F1
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 위험 신호 이유
+    meaning: 위험한 말.
+    why: 위험한 말 때문에 부른 경우 원문을 함께 보내야 직원이 상황을 알고 온다.
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - J3
+    evidence_status: requirement_reference
+  /oneOf/0/properties/kind:
+    title: 종류
+    meaning: 위험 신호.
+    why: 직원이 보는 알림에서 위급한 말로 불린 것인지를 가린다. 이 갈래만 사용자가 한 말 그대로를 근거로 담으므로, 직원이 상황을 말로
+      먼저 안다(G1, G2).
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - J3
+    evidence_status: requirement_reference
+  /oneOf/0/properties/evidence:
+    title: 근거
+    meaning: 원문 표현.
+    why: 직원이 사용자가 한 위급한 말을 원문으로 보고 대처한다.
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - J3
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 위험 기준 이유
+    meaning: 위험한 답.
+    why: 'G3. 직원이 "죽고 싶은 생각: 예"처럼 무슨 답인지 안다.'
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/kind:
+    title: 위험 기준
+    meaning: 위험 기준.
+    why: '답 자체가 위험 기준에 걸려 불린 것인지를 가린다. 이 갈래만 슬롯·문항 이름·값을 담아 직원이 "죽고 싶은 생각: 예"처럼 무슨
+      답인지 읽는다(G3).'
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/target:
+    title: 대상
+    meaning: 해당 답들.
+    why: 직원이 어떤 답 때문에 불렸는지 보고 대처한다.
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/target/items:
+    title: 위험 답
+    meaning: 슬롯·이름·값.
+    why: '직원이 "죽고 싶은 생각: 예"처럼 무슨 답인지 읽는다(G3).'
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/target/items/properties/slot:
+    title: 슬롯
+    meaning: 위험 기준을 충족한 값이 저장된 문항·반복 행·슬롯의 식별자.
+    why: 어느 문항의 어느 칸 답인지 직원 기록과 맞출 수 있게 ID를 함께 둔다.
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/target/items/properties/question_name:
+    title: 문항 이름
+    meaning: 이름.
+    why: 사람 개입은 문항 정의를 받지 않으므로 직원이 읽을 문항 이름을 담아 보낸다.
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/1/properties/target/items/properties/value:
+    title: 값
+    meaning: 판정의 이번 값.
+    why: '직원이 "죽고 싶은 생각: 예"처럼 무슨 답인지 바로 읽는다.'
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 사람 요청 이유
+    meaning: 직원 요청.
+    why: F1, F2. 직원이 무엇을 원하는지 알고 온다("처음부터 다시 할래요").
+    case_refs:
+    - F1
+    - F2
+    - R3
+    - X8
+    evidence_status: requirement_reference
+  /oneOf/2/properties/kind:
+    title: 종류
+    meaning: 사람 요청.
+    why: 사용자가 직원을 찾아 불린 것인지를 가린다. 위험으로 불린 알림과 달라야 직원이 급한 정도를 판단하고 문진이 멈췄는지 아닌지를 안다(F1,
+      F2).
+    case_refs:
+    - F1
+    - F2
+    - R3
+    - X8
+    evidence_status: requirement_reference
+  /oneOf/2/properties/evidence:
+    title: 근거
+    meaning: 요청의 원문 표현.
+    why: 직원이 사용자가 무엇을 원하는지("처음부터 다시 할래요") 알고 온다.
+    case_refs:
+    - F1
+    - F2
+    - R3
+    evidence_status: requirement_reference

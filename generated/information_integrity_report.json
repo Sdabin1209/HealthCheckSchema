@@ -1,0 +1,7 @@
+{
+  "scope": "static_output_local_information_integrity",
+  "component_execution": false,
+  "specimens": 4584,
+  "unique_payloads": 2655,
+  "failures": []
+}

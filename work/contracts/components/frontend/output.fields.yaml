@@ -1,0 +1,97 @@
+definition: FrontendMessage
+nodes:
+  ? ''
+  : title: 프론트 입력
+    meaning: 프론트가 LangGraph로 보내는 것 하나.
+    why: 프론트에서 오는 턴은 이 셋 중 하나로 시작한다(개입 결정은 사람 개입에서 온다). 사용자가 떠났는지는 프론트가 판단한다.
+    case_refs:
+    - A1
+    - A2
+    - A4a
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 세션 시작 신호
+    meaning: 첫 접속·재접속.
+    why: 말 없이 세션을 시작하거나 다시 접속하는 신호다. 첫 질문이나 하던 질문을 듣게 된다.
+    case_refs:
+    - A1
+    - A3
+    evidence_status: requirement_reference
+  /oneOf/0/properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 키오스크가 여럿이라 어느 자리에서 온 시작 신호인지 있어야 세션을 찾거나 새로 만든다(9-1절 처리 표의 세션 있음, A1, A3).
+    case_refs:
+    - A1
+    - A3
+    evidence_status: requirement_reference
+  /oneOf/0/properties/kind:
+    title: 종류
+    meaning: 세션 시작 신호.
+    why: 발화가 없는 신호라 LoRA-A를 부르지 않고 Plan부터 돈다. 이 값이 없으면 빈 발화(I1b)와 구분되지 않아 시작 신호가 "알아듣지
+      못함"이 된다(A1, A3).
+    case_refs:
+    - A1
+    - A3
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 발화
+    meaning: 사용자 말(STT 결과). 빈 문자열 가능.
+    why: B1 등. 빈 발화는 알아듣지 못함이 된다(I1).
+    case_refs:
+    - A2
+    - A5
+    - G5
+    - B1
+    - G2
+    evidence_status: requirement_reference
+  /oneOf/1/properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 같은 말이라도 어느 세션의 답인지에 따라 들어갈 기록이 다르다. 끝난 세션 앞에서 다음 사람이 말해도 앞사람 결과에 섞이지 않게 한다(A5).
+    case_refs:
+    - A2
+    - A5
+    - G5
+    evidence_status: requirement_reference
+  /oneOf/1/properties/kind:
+    title: 종류
+    meaning: 발화.
+    why: 발화 갈래만 발화 칸을 담는다. 9-1절 처리 표가 입력 종류로 행을 고르므로, 이 값이 전체 흐름을 돌릴지 Plan만 돌릴지를 정한다(A2).
+    case_refs:
+    - A2
+    - B1
+    evidence_status: requirement_reference
+  /oneOf/1/properties/utterance:
+    title: 발화
+    meaning: STT가 옮긴 글자.
+    why: LoRA-A가 항목을 뽑고, 상태 판정이 위험 표현을 대조하고, LoRA-B가 받아 주는 말을 하는 원문이다.
+    case_refs:
+    - A2
+    - B1
+    - G2
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 세션 종료 신호
+    meaning: 프론트가 세션을 끝냄(떠남).
+    why: 사용자가 떠난 것을 프론트만 알 수 있으므로 신호로 받아 미완료로 마치고 결과를 넘긴다.
+    case_refs:
+    - A4a
+    - A4b
+    evidence_status: requirement_reference
+  /oneOf/2/properties/session_id:
+    title: 세션 식별
+    meaning: 어느 세션의 값인지.
+    why: 떠난 사람의 세션만 미완료로 닫아야 한다. 식별이 없으면 옆 자리의 진행 중인 문진까지 끝난다(A4).
+    case_refs:
+    - A4a
+    - A4b
+    evidence_status: requirement_reference
+  /oneOf/2/properties/kind:
+    title: 종류
+    meaning: 세션 종료 신호.
+    why: 사용자가 떠났다는 신호라 확인하지 않고 바로 미완료로 끝낸다(8-3절 4). 발화와 같은 모양으로 오면 떠남이 답으로 해석된다(A4).
+    case_refs:
+    - A4a
+    - A4b
+    evidence_status: requirement_reference

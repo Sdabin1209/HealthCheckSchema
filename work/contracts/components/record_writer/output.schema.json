@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "store_decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/StoreDecision.schema.json"
+      }
+    },
+    "store_summary": {
+      "$ref": "../../types/StoreSummary.schema.json"
+    }
+  },
+  "required": [
+    "store_decisions",
+    "store_summary"
+  ],
+  "additionalProperties": false
+}

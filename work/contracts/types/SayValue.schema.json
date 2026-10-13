@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slot": {
+      "$ref": "SlotRef.schema.json"
+    },
+    "question_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "$ref": "Value.schema.json"
+    },
+    "role": {
+      "oneOf": [
+        {
+          "const": "CURRENT"
+        },
+        {
+          "const": "PENDING"
+        },
+        {
+          "const": "JUST_SAVED"
+        },
+        {
+          "const": "SAID"
+        }
+      ]
+    },
+    "value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    }
+  },
+  "required": [
+    "slot",
+    "question_name",
+    "value",
+    "role"
+  ],
+  "additionalProperties": false
+}

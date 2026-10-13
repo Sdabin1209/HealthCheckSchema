@@ -1,0 +1,30 @@
+definition: ValuelessCorrection
+nodes:
+  ? ''
+  : title: 값 없는 정정 요청
+    meaning: 고치겠다는데 값이 없는 항목 하나.
+    why: 저장할 값이 없어 판정으로 나오지 않는다. 버리면 고치려는 뜻이 사라지므로 따로 낸다(C5, C6).
+    case_refs:
+    - C5
+    - C6a
+    - C7b
+    evidence_status: requirement_reference
+  /properties/target:
+    title: 대상
+    meaning: 고칠 대상. 모르면 없음.
+    why: 대상이 있으면 값을 묻고, 없으면 무엇을 고칠지 묻는다(C5, C6).
+    case_refs:
+    - C6a
+    - C6b
+    - C5
+    evidence_status: requirement_reference
+  /properties/target/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 무엇을 고칠지 말하지 않은 정정이다(C5). 8-1 규칙 7이 대상이 있으면 그 값을, 없으면 무엇을 고칠지 묻게 가르므로 이 없음이
+      두 물음을 나눈다(R17에서 둘이 함께 온다).
+    case_refs:
+    - C5
+    - C9b
+    - R17
+    evidence_status: requirement_reference

@@ -1,0 +1,29 @@
+definition: StoreResult
+nodes:
+  ? ''
+  : title: 저장 판단 출력
+    meaning: 저장 결정과 저장 결과 요약.
+    why: 저장 결정은 기록 저장소가, 요약은 Plan이 받아서 각자 필요한 것만 본다.
+    case_refs:
+    - A2
+    - C1
+    - C2
+    evidence_status: requirement_reference
+  /properties/store_decisions:
+    title: 저장 결정
+    meaning: 슬롯별 쓰기.
+    why: 기록 저장소가 판단 없이 반영하도록 슬롯별 할 일을 다 정해 보낸다.
+    case_refs:
+    - A2
+    - C2
+    - C3
+    evidence_status: requirement_reference
+  /properties/store_summary:
+    title: 저장 결과 요약
+    meaning: 바뀐 것.
+    why: Plan이 저장 동작을 해석하지 않고도 무엇이 바뀌었는지 알도록 결과만 요약해 넘긴다.
+    case_refs:
+    - C1
+    - C4b
+    - N15
+    evidence_status: requirement_reference

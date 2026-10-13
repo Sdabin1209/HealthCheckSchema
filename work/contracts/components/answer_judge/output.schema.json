@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "judgments": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/Judgment.schema.json"
+      }
+    },
+    "invalidated_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/QuestionId.schema.json"
+      },
+      "uniqueItems": true
+    },
+    "utterance_judgment": {
+      "$ref": "../../types/UtteranceJudgment.schema.json"
+    }
+  },
+  "required": [
+    "judgments",
+    "invalidated_questions",
+    "utterance_judgment"
+  ],
+  "additionalProperties": false
+}

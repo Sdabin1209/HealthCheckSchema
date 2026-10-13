@@ -1,0 +1,57 @@
+definition: Problem
+nodes:
+  ? ''
+  : title: 문제
+    meaning: 정규화·검증이 항목 값에서 찾은 문제.
+    why: 값을 저장할 수 없는 이유를 상태 판정에 사실로 넘겨, 판정이 값 규칙을 다시 알 필요가 없게 한다.
+    case_refs:
+    - B3a
+    - B3b
+    - B4
+    - R16
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 단위 없음
+    meaning: 단위가 둘 이상인 슬롯에 단위 없이 숫자만 말함
+    why: 어느 단위인지 정할 수 없어 되묻는다(B3 "두 번이요")
+    case_refs:
+    - B3b
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 범위 밖
+    meaning: 그 단위의 범위(단위 정의의 범위)를 벗어난 값
+    why: 잘못 듣거나 잘못 말한 값을 저장하지 않는다(B3 "서른 시간")
+    case_refs:
+    - B3a
+    - S3d
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 모호함
+    meaning: 범위 값이나 여러 값
+    why: '"두세 병"처럼 값이 하나로 정해지지 않으면 저장할 수 없어 되물어야 한다(B3).'
+    case_refs:
+    - B10
+    - C8a
+    - R10
+    - S7b
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 다른 답과 맞지 않음
+    meaning: 선행 조건으로 이어진 다른 답과 모순
+    why: 선행 조건으로 이어진 두 답이 모순이면("안 마셔요" + "소주 두 병") 어느 쪽도 저장할 수 없어 둘 다 짚어 되묻는다(B4).
+    case_refs:
+    - B4
+    - S2b
+    - S6a
+    - S7c
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 정의에 없는 대상
+    meaning: 문항 정의에 없는 문항·슬롯을 가리킴
+    why: 답 계열 항목은 저장할 곳이 없어 무관으로 다루고, 요청·위험 신호는 대상만 없는 것으로 보고 그 의도대로 다룬다(K9, 6절 규칙
+      8).
+    case_refs:
+    - R16
+    - X8
+    - X9
+    evidence_status: requirement_reference

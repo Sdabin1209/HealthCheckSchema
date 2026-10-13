@@ -1,0 +1,242 @@
+{
+  "id": "planner-metadata-C3",
+  "contract": "PlannerOutput",
+  "valid": true,
+  "input": {
+    "directive": {
+      "action": "ASK_CONFIRM",
+      "targets": [
+        {
+          "question_id": "Q2",
+          "repeat_key": "",
+          "slot_id": "개비"
+        }
+      ],
+      "target_pending_id": "X",
+      "awaiting": {
+        "action": "ASK_CONFIRM",
+        "targets": [
+          {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          }
+        ],
+        "target_pending_id": "N1",
+        "say_values": [
+          {
+            "slot": {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            },
+            "question_name": "흡연량",
+            "value": {
+              "amount": 10,
+              "unit": "개비"
+            },
+            "role": "CURRENT"
+          },
+          {
+            "slot": {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            },
+            "question_name": "흡연량",
+            "value": {
+              "amount": 20,
+              "unit": "개비"
+            },
+            "role": "PENDING"
+          }
+        ]
+      },
+      "say_values": [
+        {
+          "slot": {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          },
+          "question_name": "흡연량",
+          "value": {
+            "amount": 10,
+            "unit": "개비"
+          },
+          "role": "CURRENT",
+          "value_metadata": {
+            "precision": "unspecified",
+            "evidence": []
+          }
+        },
+        {
+          "slot": {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          },
+          "question_name": "흡연량",
+          "value": {
+            "amount": 20,
+            "unit": "개비"
+          },
+          "role": "PENDING",
+          "value_metadata": {
+            "precision": "unspecified",
+            "evidence": []
+          }
+        }
+      ],
+      "reask_reasons": [],
+      "notices": [],
+      "sentence_materials": {
+        "question_sentences": [],
+        "refusal_explanations": [],
+        "reask_sentences": [],
+        "choices": [],
+        "guide_sentences": [],
+        "fixed_sentences": [
+          {
+            "key": "ASK_CONFIRM",
+            "sentence": "어느 쪽이 맞는지 말씀해 주세요."
+          }
+        ]
+      }
+    },
+    "flow": "CONTINUE",
+    "staff_alert": null,
+    "progress_record_update": {
+      "last_directive": {
+        "action": "ASK_CONFIRM",
+        "targets": [
+          {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          }
+        ],
+        "target_pending_id": "N1",
+        "awaiting": {
+          "action": "ASK_CONFIRM",
+          "targets": [
+            {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            }
+          ],
+          "target_pending_id": "N1",
+          "say_values": [
+            {
+              "slot": {
+                "question_id": "Q2",
+                "repeat_key": "",
+                "slot_id": "개비"
+              },
+              "question_name": "흡연량",
+              "value": {
+                "amount": 10,
+                "unit": "개비"
+              },
+              "role": "CURRENT"
+            },
+            {
+              "slot": {
+                "question_id": "Q2",
+                "repeat_key": "",
+                "slot_id": "개비"
+              },
+              "question_name": "흡연량",
+              "value": {
+                "amount": 20,
+                "unit": "개비"
+              },
+              "role": "PENDING"
+            }
+          ]
+        },
+        "say_values": [
+          {
+            "slot": {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            },
+            "question_name": "흡연량",
+            "value": {
+              "amount": 10,
+              "unit": "개비"
+            },
+            "role": "CURRENT"
+          },
+          {
+            "slot": {
+              "question_id": "Q2",
+              "repeat_key": "",
+              "slot_id": "개비"
+            },
+            "question_name": "흡연량",
+            "value": {
+              "amount": 20,
+              "unit": "개비"
+            },
+            "role": "PENDING"
+          }
+        ],
+        "reask_reasons": [],
+        "notices": [],
+        "sentence_materials": {
+          "question_sentences": [],
+          "refusal_explanations": [],
+          "reask_sentences": [],
+          "choices": [],
+          "guide_sentences": [],
+          "fixed_sentences": [
+            {
+              "key": "ASK_CONFIRM",
+              "sentence": "어느 쪽이 맞는지 말씀해 주세요."
+            }
+          ]
+        }
+      },
+      "open_requests": {
+        "correction_requests": [],
+        "stop_requested": false,
+        "deferred": []
+      },
+      "skipped_add": [],
+      "skipped_remove": [],
+      "confirm_stopped_add": [],
+      "confirm_stopped_remove": [],
+      "session_status": null,
+      "pause_history_add": []
+    },
+    "planner_record_update": {
+      "attempt_counts": [
+        {
+          "question_id": "Q5",
+          "count": 1
+        }
+      ],
+      "confirm_counts": [
+        {
+          "slot": {
+            "question_id": "Q2",
+            "repeat_key": "",
+            "slot_id": "개비"
+          },
+          "count": 1
+        }
+      ],
+      "unknown_counts": [],
+      "refusal_counts": [],
+      "unrecognized_streak": 0,
+      "ask_counts": []
+    }
+  },
+  "origin": {
+    "correctness_claim": false,
+    "description": "응답 재료의 메타데이터 전달 형태 예시. 미확보 메타데이터를 exact로 추정하지 않는다."
+  }
+}

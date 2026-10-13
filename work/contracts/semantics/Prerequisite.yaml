@@ -1,0 +1,30 @@
+definition: Prerequisite
+nodes:
+  ? ''
+  : title: 선행 조건
+    meaning: '이 문항을 묻는 조건: 다른 슬롯의 답이 이 선택지일 때만.'
+    why: '"술 안 마셔요"라고 한 사람에게 술 종류를 묻지 않는다. 선행 답이 모름·거절·없음이면 묻지 않는다(선행 답이 정해진 뒤에 묻는다,
+      엄격 원칙).'
+    case_refs:
+    - A2
+    - S2d
+    - B4
+    evidence_status: requirement_reference
+  /properties/slot:
+    title: 슬롯
+    meaning: 선행 슬롯.
+    why: 어느 칸의 답에 따라 이 문항을 물을지 정해지는지 알아야 한다.
+    case_refs:
+    - A2
+    - S1a
+    - S2d
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 값
+    meaning: 이 선택지일 때만 묻는다.
+    why: 선행 답이 이 선택지일 때만 묻는다. 예를 들어 음주 상세는 음주 여부가 마심일 때만 묻는다.
+    case_refs:
+    - A2
+    - S1a
+    - B4
+    evidence_status: requirement_reference

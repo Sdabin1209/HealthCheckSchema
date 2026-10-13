@@ -1,0 +1,599 @@
+{
+ "version": 1,
+ "case": "J4b",
+ "case_sha256": "1038490cd15bba117ece11e7260a4820017b555582f49a51ec80bb345fe0aba8",
+ "scope": "static_schema_representation",
+ "component_execution": false,
+ "specimens": [
+  {
+   "id": "t1-InterventionDecision-input",
+   "turn": 1,
+   "contract": "InterventionDecision",
+   "role": "input",
+   "data": {
+    "session_id": "S-TEST",
+    "decision": "END"
+   }
+  },
+  {
+   "id": "t1-OrchestratorInput-input",
+   "turn": 1,
+   "contract": "OrchestratorInput",
+   "role": "input",
+   "data": {
+    "frontend_input": null,
+    "intervention_decision": {
+     "session_id": "S-TEST",
+     "decision": "END"
+    },
+    "session_found": true,
+    "session_question_bank_version": 1,
+    "session_status": "ENDED_COMPLETE",
+    "latest_question_bank_version": 1
+   }
+  },
+  {
+   "id": "t1-StaffConsoleInput-output",
+   "turn": 1,
+   "contract": "StaffConsoleInput",
+   "role": "output",
+   "data": {
+    "staff_alert": null,
+    "turn_failure_signal": null,
+    "intervention_result": {
+     "session_id": "S-TEST",
+     "result": "IGNORED"
+    }
+   }
+  },
+  {
+   "id": "t1-SessionStore-initial_state",
+   "turn": 1,
+   "contract": "SessionStore",
+   "role": "initial_state",
+   "data": {
+    "session_info": {
+     "session_id": "S-TEST",
+     "question_bank_version": 1
+    },
+    "answer_records": [
+     {
+      "slot": {
+       "question_id": "Q1",
+       "repeat_key": "",
+       "slot_id": "상태"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q2",
+       "repeat_key": "",
+       "slot_id": "개비"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3a",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "빈도"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "종류"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "1회양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q4",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q5",
+       "repeat_key": "",
+       "slot_id": "시간"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q6",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "수축기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "이완기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q8",
+       "repeat_key": "",
+       "slot_id": "횟수"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "소주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "맥주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "막걸리",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "와인",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "기타",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     }
+    ],
+    "progress_record": {
+     "last_directive": null,
+     "open_requests": {
+      "correction_requests": [],
+      "stop_requested": false,
+      "deferred": []
+     },
+     "skipped": [],
+     "confirm_stopped": [],
+     "session_status": "ENDED_COMPLETE",
+     "pause_history": []
+    },
+    "planner_record": {
+     "attempt_counts": [],
+     "confirm_counts": [],
+     "unknown_counts": [],
+     "refusal_counts": [],
+     "unrecognized_streak": 0,
+     "ask_counts": []
+    },
+    "dialogue_log": [],
+    "dispatch_log": []
+   }
+  },
+  {
+   "id": "t1-SessionStore-final_state",
+   "turn": 1,
+   "contract": "SessionStore",
+   "role": "final_state",
+   "data": {
+    "session_info": {
+     "session_id": "S-TEST",
+     "question_bank_version": 1
+    },
+    "answer_records": [
+     {
+      "slot": {
+       "question_id": "Q1",
+       "repeat_key": "",
+       "slot_id": "상태"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q2",
+       "repeat_key": "",
+       "slot_id": "개비"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3a",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "빈도"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "종류"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "1회양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q4",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q5",
+       "repeat_key": "",
+       "slot_id": "시간"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q6",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "수축기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "이완기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q8",
+       "repeat_key": "",
+       "slot_id": "횟수"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "소주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "맥주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "막걸리",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "와인",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "기타",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     }
+    ],
+    "progress_record": {
+     "last_directive": null,
+     "open_requests": {
+      "correction_requests": [],
+      "stop_requested": false,
+      "deferred": []
+     },
+     "skipped": [],
+     "confirm_stopped": [],
+     "session_status": "ENDED_COMPLETE",
+     "pause_history": []
+    },
+    "planner_record": {
+     "attempt_counts": [],
+     "confirm_counts": [],
+     "unknown_counts": [],
+     "refusal_counts": [],
+     "unrecognized_streak": 0,
+     "ask_counts": []
+    },
+    "dialogue_log": [],
+    "dispatch_log": []
+   }
+  },
+  {
+   "id": "t1-OrchestratorOutput-output",
+   "turn": 1,
+   "contract": "OrchestratorOutput",
+   "role": "output",
+   "data": {
+    "turn_kind": null,
+    "session_info_created": null,
+    "log_entry": null,
+    "turn_failure_signal": null,
+    "intervention_result": {
+     "session_id": "S-TEST",
+     "result": "IGNORED"
+    },
+    "dispatch_called": false
+   }
+  }
+ ],
+ "requirements": [
+  {
+   "source_pointer": "/input/개입",
+   "source_value": "종료",
+   "kind": "literal",
+   "specimen": "t1-InterventionDecision-input",
+   "data_pointer": "/decision",
+   "definition": "InterventionDecision",
+   "schema_pointer": "/properties/decision",
+   "encoded_value": "END",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/given/세션",
+   "source_value": "종료(완료)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorInput-input",
+   "data_pointer": "/session_found",
+   "definition": "OrchestratorInput",
+   "schema_pointer": "/properties/session_found",
+   "encoded_value": true,
+   "meaning": "초기 세션 존재 여부의 축약을 조회 메타데이터의 boolean으로 표현한다."
+  },
+  {
+   "source_pointer": "/given/세션",
+   "source_value": "종료(완료)",
+   "kind": "literal",
+   "specimen": "t1-SessionStore-initial_state",
+   "data_pointer": "/progress_record/session_status",
+   "definition": "ProgressRecord",
+   "schema_pointer": "/properties/session_status",
+   "encoded_value": "ENDED_COMPLETE",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/처리",
+   "source_value": "처리 안 함",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_kind",
+   "definition": "OrchestratorOutput",
+   "schema_pointer": "/properties/turn_kind",
+   "encoded_value": null,
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과",
+   "source_value": "반영 안 됨(처리 안 함)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/result",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/result",
+   "encoded_value": "IGNORED",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과값/세션식별",
+   "source_value": "이 세션",
+   "kind": "identity_constraint",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/session_id",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/session_id",
+   "meaning": "세션 식별자를 전달할 필드이며 이 문자열은 실제 ID가 아닌 동일 세션 관계 요구다.",
+   "supporting_fields": [
+    {
+     "specimen": "t1-OrchestratorInput-input",
+     "data_pointer": "/intervention_decision/session_id",
+     "equals_payload": true
+    }
+   ]
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과값/결과",
+   "source_value": "반영 안 됨(처리 안 함)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/result",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/result",
+   "encoded_value": "IGNORED",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  }
+ ],
+ "fixture_provenance": "Static authored examples adapted from existing snapshots and schema examples; not live execution results. No runtime component is required."
+}

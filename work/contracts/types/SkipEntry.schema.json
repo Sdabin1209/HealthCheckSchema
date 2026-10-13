@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "question_id": {
+      "$ref": "QuestionId.schema.json"
+    },
+    "reason": {
+      "$ref": "SkipReason.schema.json"
+    }
+  },
+  "required": [
+    "question_id",
+    "reason"
+  ],
+  "additionalProperties": false
+}

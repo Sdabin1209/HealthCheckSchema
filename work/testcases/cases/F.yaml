@@ -1,0 +1,124 @@
+cases:
+- id: F1
+  상황:
+  - F1
+  설명: F1 직원을 찾음
+  given:
+    직전:
+      행동: ASK_NEXT
+      대상:
+      - Q5
+  input:
+    발화: 직원 좀 불러 주세요
+  expect:
+    LoRA-A:
+    - 의도: USER_CALLED_STAFF
+    발화판정:
+      결과: REQUEST_ONLY
+      요청:
+      - 종류: STAFF_REQUEST
+        원문표현:
+        - 직원 좀 불러 주세요
+    Plan:
+      행동: STAFF_NOTICE
+      기다리는답:
+        행동: ASK_NEXT
+        대상:
+        - Q5
+      직원알림:
+        종류: 사람 요청
+        이유:
+        - 사람 요청: null
+          근거:
+          - 직원 좀 불러 주세요
+    사람개입입력:
+      직원알림:
+        세션식별: 이 세션
+      턴실패신호: 없음
+      개입결정결과: 없음
+  왜: 'F1 직원을 찾음: 기대값이 행동 STAFF_NOTICE이 되는지 확인한다. 이 상황을 다루는 이유: 직원을 찾는 사람에게 직원이 와야 한다. 기대값을 정하는 규칙: 8-1 규칙 2.'
+- id: F2
+  상황:
+  - F2
+  설명: F2 시스템이 할 수 없는 요청
+  given:
+    직전:
+      행동: ASK_NEXT
+      대상:
+      - Q5
+  input:
+    발화: 처음부터 다시 할래요
+  expect:
+    LoRA-A:
+    - 의도: USER_CALLED_STAFF
+    Plan:
+      행동: STAFF_NOTICE
+      기다리는답:
+        행동: ASK_NEXT
+        대상:
+        - Q5
+      직원알림:
+        종류: 사람 요청
+        이유:
+        - 사람 요청: null
+          근거:
+          - 처음부터 다시 할래요
+  왜: 'F2 시스템이 할 수 없는 요청: 기대값이 행동 STAFF_NOTICE이 되는지 확인한다. 이 상황을 다루는 이유: 처음부터 다시 하기, 보호자 대리 답변처럼 시스템이 할 수 없는 일은 사람에게
+    넘겨야 한다. 기대값을 정하는 규칙: 4절 7; 8-1 규칙 2.'
+- id: F3
+  상황:
+  - F3
+  설명: F3 계속 못 알아들음
+  given:
+    직전:
+      행동: ASK_REPEAT
+    기다리는답:
+      행동: ASK_NEXT
+      대상:
+      - Q5
+    Plan기록:
+      알아듣지못한연속: 1
+  input:
+    발화: 어브브 그 저
+  expect:
+    LoRA-A:
+    - 의도: UNRECOGNIZED
+    발화판정:
+      결과: UNRECOGNIZED_TURN
+    Plan:
+      행동: CALL_STAFF
+      기다리는답:
+        행동: ASK_NEXT
+        대상:
+        - Q5
+      직원알림:
+        종류: 도움 요청
+        이유: []
+  왜: 'F3 계속 못 알아들음: 기대값이 행동 CALL_STAFF이 되는지 확인한다. 이 상황을 다루는 이유: 계속 못 알아들으면 시스템이 더 할 수 있는 일이 없어 사람이 와야 한다. 기대값을 정하는
+    규칙: 8-1 규칙 14; 8-2 5.'
+- id: F4
+  상황:
+  - F4
+  설명: F4 직원이 문진을 끝냄
+  given:
+    직전:
+      행동: ASK_NEXT
+      대상:
+      - Q5
+  input:
+    개입: 종료
+  expect:
+    LangGraph:
+      턴종류: INTERVENTION_END
+      결과전달호출: true
+      개입결정결과: 반영됨
+    Plan:
+      행동: FAREWELL
+      알릴것:
+      - SURVEY_STOPPED: null
+      세션상태: ENDED_STAFF
+      흐름: END
+    결과전달입력:
+      세션상태: ENDED_STAFF
+  왜: 'F4 직원이 문진을 끝냄: 기대값이 행동 FAREWELL; 세션 상태 ENDED_STAFF이 되는지 확인한다. 이 상황을 다루는 이유: 직원이 문진을 끝낼 수 있어야 한다. 기대값을 정하는
+    규칙: 9-1절 처리 표; 8-3절 3.'

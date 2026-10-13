@@ -1,0 +1,166 @@
+definition: StoreSummary
+nodes:
+  ? ''
+  : title: 저장 결과 요약
+    meaning: 이번 저장 결정으로 무엇이 바뀌었는지.
+    why: Plan은 저장 결정을 해석하지 않고 결과만 보고 알릴 것을 정한다. 저장 동작이 바뀌어도 Plan은 바뀌지 않는다.
+    case_refs:
+    - C1
+    - C4b
+    - N15
+    evidence_status: requirement_reference
+  /properties/changed_slots:
+    title: 값이 바뀐 슬롯
+    meaning: 현재값이 답으로 바뀐 슬롯들.
+    why: 답이 새로 들어오거나 바뀐 칸을 알아야 Plan이 "정정 받았음"을 알리고 방금 받은 값을 말한다.
+    case_refs:
+    - C1
+    - B2
+    - N13
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records:
+    title: 모름·거절 기록
+    meaning: 모름·거절로 기록된 슬롯들.
+    why: Plan이 모름·거절 횟수를 세고 정책대로 묻는다(B7, B8).
+    case_refs:
+    - S3a
+    - S3b
+    - S3d
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records/items:
+    title: 모름·거절 기록 항목
+    meaning: 슬롯과 기록.
+    why: 어느 슬롯이 모름·거절이 됐는지 Plan이 횟수를 센다(B7, B8).
+    case_refs:
+    - S3a
+    - S3d
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records/items/properties/slot:
+    title: 슬롯
+    meaning: 기록된 슬롯.
+    why: 모름·거절 횟수는 문항마다 세므로 어느 칸이 모름·거절이 됐는지 알아야 한다.
+    case_refs:
+    - S3a
+    - S3d
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records/items/properties/record:
+    title: 기록
+    meaning: 모름 또는 거절.
+    why: 모름과 거절은 수용 시점과 다시 묻는 말(재질문, 설명 후 재질문)이 달라 구분해야 한다.
+    case_refs:
+    - S3a
+    - S3d
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records/items/properties/record/oneOf/0:
+    title: 모름
+    meaning: 모름
+    why: 모름 수용 시점과 비교할 모름 횟수를 센다.
+    case_refs:
+    - S3d
+    evidence_status: requirement_reference
+  /properties/unknown_refused_records/items/properties/record/oneOf/1:
+    title: 거절
+    meaning: 거절
+    why: 거절 수용 시점과 비교할 거절 횟수를 센다.
+    case_refs:
+    - S3a
+    - S3b
+    evidence_status: requirement_reference
+  /properties/created_pendings:
+    title: 생긴 확인 대기
+    meaning: 이번에 생긴 확인 대기들.
+    why: Plan이 확인 대기 확인을 묻는다(C3).
+    case_refs:
+    - C3
+    - N13
+    - H3e
+    evidence_status: requirement_reference
+  /properties/created_pendings/items:
+    title: 생긴 확인 대기 항목
+    meaning: 새 확인 대기.
+    why: 이번 턴에 생긴 확인 대기를 먼저 묻는다(C3).
+    case_refs:
+    - C3
+    - N13
+    - H3e
+    evidence_status: requirement_reference
+  /properties/created_pendings/items/properties/slot:
+    title: 슬롯
+    meaning: 확인 대기가 생긴 슬롯.
+    why: 확인 질문에서 어느 답에 대한 확인인지 말해야 한다.
+    case_refs:
+    - C3
+    - N13
+    - H3e
+    evidence_status: requirement_reference
+  /properties/resolved_pendings:
+    title: 해소된 확인 대기
+    meaning: 이번에 없어지거나 바뀐 확인 대기들.
+    why: Plan이 "기존 답 유지"를 알리고, 확인 횟수를 이어 셀지 정한다(C4, C8).
+    case_refs:
+    - C4b
+    - N6
+    - C4a
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items:
+    title: 해소된 확인 대기 항목
+    meaning: 해소된 확인 대기.
+    why: 어떻게 풀렸는지에 따라 알릴 것이 다르다(C4).
+    case_refs:
+    - C4b
+    - R9
+    - N17
+    - C4a
+    - N6
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items/properties/slot:
+    title: 슬롯
+    meaning: 그 슬롯.
+    why: '"기존 답 유지"를 알릴 때 어느 칸의 답인지 말해야 한다.'
+    case_refs:
+    - C4b
+    - R9
+    - N17
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items/properties/handling:
+    title: 처리
+    meaning: 어떻게 해소됐는지.
+    why: 받아들임은 정정 받았음, 버림은 기존 답 유지를 알리고, 대체는 확인을 이어 묻는다.
+    case_refs:
+    - C4a
+    - C4b
+    - N6
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items/properties/handling/oneOf/0:
+    title: 받아들임
+    meaning: 확인 대기 값이 현재값이 됨
+    why: 새 값이 현재값이 됐으므로 "정정 받았음"을 알린다.
+    case_refs:
+    - C4a
+    - N3b
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items/properties/handling/oneOf/1:
+    title: 버림
+    meaning: 확인 대기가 지워짐
+    why: 확인 대기가 지워졌다는 사실을 넘긴다. Plan은 현재값이 이번 턴에 바뀌지 않았을 때만 "기존 답 유지"를 알리고, 정정·모름·거절로
+      버려진 경우는 그 판정대로 알린다.
+    case_refs:
+    - C4b
+    - R9
+    - C8c
+    evidence_status: requirement_reference
+  /properties/resolved_pendings/items/properties/handling/oneOf/2:
+    title: 대체
+    meaning: 같은 슬롯의 새 충돌 값으로 바뀜
+    why: 확인 횟수를 이어 센다. 매번 다른 값을 대도 끝없이 묻지 않게(C8)
+    case_refs:
+    - N6
+    evidence_status: requirement_reference
+  /properties/invalidated_questions:
+    title: 무효화된 문항
+    meaning: 이번에 실제로 무효화한 슬롯이 있는 문항.
+    why: Plan이 다시 열린 문항을 다룬다(C2).
+    case_refs:
+    - N15
+    - R5
+    evidence_status: requirement_reference

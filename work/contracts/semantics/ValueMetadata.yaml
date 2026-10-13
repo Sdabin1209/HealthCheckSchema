@@ -1,0 +1,22 @@
+definition: ValueMetadata
+nodes:
+  ? ''
+  : title: ''
+    meaning: 정밀도와 복수 근거를 값과 분리하여 여러 경계와 저장 상태에서 보존한다.
+    why: 정밀도와 복수 근거를 값과 분리하여 여러 경계와 저장 상태에서 보존한다.
+    case_refs: &id001
+    - T1
+    - T2
+    evidence_status: requirement_reference
+  /properties/precision:
+    title: ''
+    meaning: 값이 exact(단일 확정 표현), approximate(근사 표현), unspecified(정밀도 미확보)인지 전달한다. 범위 중간값의 저장 허용 여부는 결정하지 않는다.
+    why: 같은 숫자라도 단일 확정 표현과 근사 표현을 구별하여 저장·재질문·응답 재료에서 정보가 사라지지 않아야 한다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/evidence:
+    title: ''
+    meaning: 원문 근거 목록. 빈 목록은 근거가 확보되지 않았음을 뜻하며 근거가 없다는 업무 판정을 뜻하지 않는다.
+    why: 복수 구절의 합산·정정·비교는 근거 하나로 축약하면 정보가 사라진다.
+    case_refs: *id001
+    evidence_status: requirement_reference

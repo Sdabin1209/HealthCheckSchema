@@ -1,0 +1,13 @@
+version: 1
+proposals:
+- id: storage_ports
+  status: proposal
+  title: 세션 조회·저장 요청과 결과
+  contracts:
+  - SessionLoadRequest
+  - SessionLoadResult
+  - SessionCommitRequest
+  - SessionCommitResult
+  purpose: 상태와 버전 토큰의 조회, 변경 묶음의 저장 요청, 반영 여부와 오류 결과를 경계별 JSON으로 표현한다.
+  scope: 추가 데이터 계약 제안이다. 현행 계약의 사용을 막는 미완성 항목이 아니다. 전송 방식·재시도·복구 등 구현 정책은 이 목록의 대상이
+    아니다.

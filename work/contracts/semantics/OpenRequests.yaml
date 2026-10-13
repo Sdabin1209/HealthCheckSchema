@@ -1,0 +1,128 @@
+definition: OpenRequests
+nodes:
+  ? ''
+  : title: 열린 요청
+    meaning: 사용자가 요구했고 아직 풀리지 않은 것. 다음에 물을 것이 아니라 사실이다.
+    why: 사용자의 고칠 요청·중단 요청·미룸은 한 턴에 다 처리되지 않을 수 있다(사이에 다른 말이 끼면). 지난 턴에 정한 "다음에 물을
+      것"을 저장하면 기록이 바뀌어도 따라오지 않아 이미 답한 것을 다시 묻는 결함이 반복됐다. 그래서 요구 자체를 사실로 저장하고, 물을 것은
+      매 턴 계산한다(원칙 7).
+    case_refs:
+    - C9a
+    - D5a
+    - D3b
+    - N7a
+    - R5
+    evidence_status: requirement_reference
+  /properties/correction_requests:
+    title: 정정 요청
+    meaning: 값을 아직 받지 못한 고칠 요청.
+    why: C5, C6에서 다른 말이 끼어도 고치려는 뜻이 남는다.
+    case_refs:
+    - C9a
+    - C5
+    - N2a
+    - R20
+    evidence_status: requirement_reference
+  /properties/correction_requests/items:
+    title: 정정 요청 항목
+    meaning: 미해결 정정 요청 하나. target이 null이면 무엇을 고칠지 아직 특정하지 못한 요청이다.
+    why: 고칠 요청이 여럿이면 하나씩 묻는다. 목록 순서가 들어온 순서다.
+    case_refs:
+    - C9a
+    - C9b
+    - N5a
+    - C6c
+    evidence_status: requirement_reference
+  /properties/correction_requests/items/properties/target:
+    title: 대상
+    meaning: 고칠 대상. 모르면 없음.
+    why: 대상이 있으면 "흡연량을 몇으로 고칠까요?", 없으면 "무엇을 고칠까요?"로 물을 말이 달라진다.
+    case_refs:
+    - C9a
+    - C9b
+    - N5a
+    - C6c
+    evidence_status: requirement_reference
+  /properties/correction_requests/items/properties/target/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 무엇을 고칠지 모르는 채 남아 있는 요청이다(C5, C9b). 8-1 규칙 7이 대상 있는 요청을 먼저 고르므로, 없음이 고르는 순서를
+      가른다(R17).
+    case_refs:
+    - C5
+    - C9b
+    evidence_status: requirement_reference
+  /properties/stop_requested:
+    title: 중단 요청
+    meaning: 그만하겠다고 했고 아직 확인하지 않음.
+    why: D4 뒤 다른 말이 끼어도 그만두려는 뜻이 남는다.
+    case_refs:
+    - D5a
+    - D5b
+    - G8b
+    - N9
+    - R4
+    evidence_status: requirement_reference
+  /properties/deferred:
+    title: 미룸
+    meaning: 나중에 묻기로 한 것.
+    why: D3. 미룬 문항·확인·정정을 맨 뒤에 묻는다.
+    case_refs:
+    - D3b
+    - N7a
+    - N7b
+    - N7c
+    - R5
+    evidence_status: requirement_reference
+  /properties/deferred/items:
+    title: 미룸 항목
+    meaning: 종류·대상.
+    why: 미룬 것이 여럿이면 목록 순서(미룬 순서)대로, 종류에 맞는 행동으로 묻는다(D3).
+    case_refs:
+    - D3b
+    - N7a
+    - N7b
+    - R5
+    evidence_status: requirement_reference
+  /properties/deferred/items/properties/kind:
+    title: 종류
+    meaning: 미룬 것의 종류.
+    why: 미룬 것이 문항이면 다시 묻고, 확인 대기면 확인을, 정정 요청이면 정정 구체화를 해야 한다.
+    case_refs:
+    - D3b
+    - N7a
+    - N7b
+    evidence_status: requirement_reference
+  /properties/deferred/items/properties/kind/oneOf/0:
+    title: 문항
+    meaning: 문항
+    why: 미룬 문항은 다른 열린 문항을 다 물은 뒤 다음 문항 묻기로 다시 묻는다.
+    case_refs:
+    - D3b
+    evidence_status: requirement_reference
+  /properties/deferred/items/properties/kind/oneOf/1:
+    title: 확인 대기
+    meaning: 확인 대기 확인
+    why: 확인 중에 미뤘으면 나중에 같은 확인 대기 확인으로 다시 묻는다.
+    case_refs:
+    - N7a
+    - N7c
+    evidence_status: requirement_reference
+  /properties/deferred/items/properties/kind/oneOf/2:
+    title: 정정 요청
+    meaning: 정정 구체화
+    why: 고칠 값을 묻는 중에 미뤘으면 나중에 정정 구체화로 다시 묻는다.
+    case_refs:
+    - N7b
+    - R5
+    evidence_status: requirement_reference
+  /properties/deferred/items/properties/target:
+    title: 대상
+    meaning: 미룬 대상.
+    why: 나중에 무엇을 다시 물을지 알아야 한다.
+    case_refs:
+    - D3b
+    - N7a
+    - N7b
+    - R5
+    evidence_status: requirement_reference

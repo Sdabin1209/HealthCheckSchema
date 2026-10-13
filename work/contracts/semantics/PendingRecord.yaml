@@ -1,0 +1,52 @@
+definition: PendingRecord
+nodes:
+  ? ''
+  : title: 확인 대기
+    meaning: 확인을 기다리는 새 값.
+    why: 충돌 값을 바로 저장하지 않고 확인을 받는다(C3).
+    case_refs:
+    - C4a
+    - C3
+    evidence_status: requirement_reference
+  /properties/pending_id:
+    title: 확인 대기 ID
+    meaning: 이 슬롯의 현재 확인 대기를 식별하는 ID. 확인 응답을 특정 대기 값과 연결한다.
+    why: 다음 턴의 "네"가 이 확인 대기에 대한 것인지 맞춰 본다.
+    case_refs:
+    - C4a
+    - X6
+    - C3
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 값
+    meaning: 새 값.
+    why: 받아들이면 이 값이 현재값이 되고, 끝까지 안 풀리면 결과에 "풀리지 않은 답"으로 넘어간다.
+    case_refs:
+    - C4a
+    - C3
+    - S8b
+    evidence_status: requirement_reference
+  /properties/risk_mark:
+    title: 위험 표시
+    meaning: 그 값의 위험 기준.
+    why: 받아들일 때 이 위험 표시가 현재값의 위험 표시로 그대로 옮겨진다.
+    case_refs:
+    - G10
+    evidence_status: requirement_reference
+  /properties/risk_mark/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 위험 기준이 없는 슬롯의 확인 대기다(C3·C4a의 Q2.개비). 9-2절 표가 받아들일 때 이 표시를 현재값의 위험 표시로 옮기므로, 없음이 "받아들여도 위험 표시가 생기지 않음"이다(G10과
+      대비).
+    case_refs:
+    - C3
+    - C4a
+    evidence_status: requirement_reference
+  /properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 정규화·판정·저장·확인 후보·응답 재료에서 정밀도와 근거가 사라지지 않아야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference

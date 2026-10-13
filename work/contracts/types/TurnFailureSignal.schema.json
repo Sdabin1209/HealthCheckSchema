@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "write_committed": {
+      "oneOf": [
+        {
+          "const": "COMMITTED"
+        },
+        {
+          "const": "NOT_COMMITTED"
+        }
+      ]
+    },
+    "staff_alert": {
+      "oneOf": [
+        {
+          "const": "NONE"
+        },
+        {
+          "const": "DELIVERED"
+        },
+        {
+          "const": "DELIVERY_FAILED"
+        }
+      ]
+    }
+  },
+  "required": [
+    "session_id",
+    "write_committed",
+    "staff_alert"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "action": {
+      "$ref": "AskAction.schema.json"
+    },
+    "targets": {
+      "type": "array",
+      "items": {
+        "$ref": "Target.schema.json"
+      }
+    },
+    "target_pending_id": {
+      "anyOf": [
+        {
+          "$ref": "PendingId.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "say_values": {
+      "type": "array",
+      "items": {
+        "$ref": "SayValue.schema.json"
+      }
+    }
+  },
+  "required": [
+    "action",
+    "targets",
+    "target_pending_id",
+    "say_values"
+  ],
+  "additionalProperties": false
+}

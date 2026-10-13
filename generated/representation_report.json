@@ -1,0 +1,536 @@
+{
+  "scope": "schema_representation_only",
+  "component_execution": false,
+  "correct_answer_selection_checked": false,
+  "proposed_boundary_contracts": 4,
+  "required_values": 50,
+  "structural_examples": 39,
+  "boundary_contracts": 27,
+  "boundaries_with_valid_examples": 27,
+  "rows": [
+    {
+      "id": "value-Action-ASK_NEXT",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-ANSWERED_INTENT",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-ANSWERED",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-FIRST_WRITE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-FAREWELL",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Flow-END",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-MISSING",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_MISSING",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-UNCLEAR",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_CLARIFY",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-SAYS_UNKNOWN",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-UNKNOWN",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-RECORD_UNKNOWN",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_AFTER_UNKNOWN",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-SAYS_REFUSAL",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-REJECTED",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-RECORD_REFUSAL",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_AFTER_REFUSAL",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-CORRECTION_MARKED",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-CORRECTION",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-NEW_REVISION",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-INVALIDATE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-CONFLICT",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-SET_PENDING",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_CONFIRM",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-CONFIRM_YES",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-null",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-ACCEPT_PENDING",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-CONFIRM_NO",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-StoreAction-DROP_PENDING",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-UtteranceResult-HAS_ANSWER",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_CORRECTION_TARGET",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_FINISH",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-PROGRESS_OP",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-UtteranceResult-REQUEST_ONLY",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-WAIT_NOTICE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_STOP",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-GUIDE_REQUEST",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-OUT_OF_SCOPE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-UtteranceResult-OUT_OF_SCOPE_ONLY",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-REDIRECT",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-USER_CALLED_STAFF",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-STAFF_NOTICE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-UNRECOGNIZED",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-UtteranceResult-UNRECOGNIZED_TURN",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-CALL_STAFF",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Intent-RISK_SIGNAL",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-RISK_NOTICE",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-Action-ASK_REPEAT",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "value-JudgmentStatus-PREREQUISITE_UNMET",
+      "kind": "declared_value",
+      "representable": true
+    },
+    {
+      "id": "shape-AnswerJudgeInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-AnswerNormalizerInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-DialoguePlannerInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-DispatchInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-DispatchOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-FrontendInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-FrontendMessage",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-GeneratorOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-InterventionDecision",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-JudgeOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "normalizer-input-metadata",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-NormalizerOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-OrchestratorInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-OrchestratorOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-ParserOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-PlannerOutput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "planner-metadata-C1",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "planner-metadata-C3",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-QuestionBank",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-RecordWriterInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-ResponseGeneratorInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-SessionCommitRequest",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-SessionCommitResult",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-SessionLoadRequest",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-SessionLoadResult",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-SessionStore",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "state-metadata",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-StaffConsoleInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-StoreResult",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "trace_complete",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "shape-UtteranceParserInput",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-1",
+      "kind": "structural_example",
+      "accepted": false,
+      "expected_valid": false,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-2",
+      "kind": "structural_example",
+      "accepted": false,
+      "expected_valid": false,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-3",
+      "kind": "structural_example",
+      "accepted": false,
+      "expected_valid": false,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-4",
+      "kind": "structural_example",
+      "accepted": false,
+      "expected_valid": false,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-5",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-6",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-7",
+      "kind": "structural_example",
+      "accepted": true,
+      "expected_valid": true,
+      "matches": true
+    },
+    {
+      "id": "contract-relation-8",
+      "kind": "structural_example",
+      "accepted": false,
+      "expected_valid": false,
+      "matches": true
+    }
+  ],
+  "failures": []
+}

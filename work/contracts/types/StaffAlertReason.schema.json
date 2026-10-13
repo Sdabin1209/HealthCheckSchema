@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "RISK_SIGNAL"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "SourceText.schema.json"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "kind",
+        "evidence"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "RISK_RULE"
+        },
+        "target": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "slot": {
+                "$ref": "SlotRef.schema.json"
+              },
+              "question_name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "value": {
+                "$ref": "Value.schema.json"
+              }
+            },
+            "required": [
+              "slot",
+              "question_name",
+              "value"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "kind",
+        "target"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "const": "USER_CALLED_STAFF"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "SourceText.schema.json"
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "kind",
+        "evidence"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

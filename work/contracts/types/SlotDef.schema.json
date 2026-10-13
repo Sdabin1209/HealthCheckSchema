@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "slot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "units": {
+      "type": "array",
+      "items": {
+        "$ref": "UnitDef.schema.json"
+      }
+    },
+    "choices": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "yes_no_map": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "yes": {
+              "type": "string",
+              "minLength": 1
+            },
+            "no": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "yes",
+            "no"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "required": {
+      "type": "boolean"
+    },
+    "reask_sentence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk_rule": {
+      "anyOf": [
+        {
+          "$ref": "RiskRule.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "choice_catalog": {
+      "type": "array",
+      "items": {
+        "$ref": "ChoiceDef.schema.json"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "slot_id",
+    "units",
+    "choices",
+    "yes_no_map",
+    "required",
+    "reask_sentence",
+    "risk_rule"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "required": [
+          "choice_catalog"
+        ]
+      },
+      "then": {
+        "properties": {
+          "choices": {
+            "maxItems": 0
+          }
+        }
+      }
+    }
+  ]
+}

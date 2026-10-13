@@ -1,0 +1,29 @@
+definition: PauseEntry
+nodes:
+  ? ''
+  : title: 중지 이력 항목
+    meaning: 일시 중지 또는 재개 한 건.
+    why: 결과에 멈춘 적과 이유를 남긴다(G7).
+    case_refs:
+    - G1
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /properties/kind:
+    title: 종류
+    meaning: 중지 이력 종류.
+    why: 결과에 멈춘 시점과 다시 이어 간 시점이 둘 다 남아야 문진 경과를 안다.
+    case_refs:
+    - G1
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /properties/reasons:
+    title: 이유
+    meaning: 일시 중지의 이유. 재개는 빈 목록.
+    why: 결과를 받는 의료진이 왜 멈췄는지 확인한다.
+    case_refs:
+    - G1
+    - G3
+    - G7
+    evidence_status: requirement_reference

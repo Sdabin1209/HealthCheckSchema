@@ -1,0 +1,133 @@
+definition: FixedSentenceKey
+nodes:
+  ? ''
+  : title: 고정 문장 종류
+    meaning: 세션 설정에 등록하는 고정 문장의 종류. 실제 문장 선택·생성은 담당 컴포넌트의 책임이다.
+    why: 모델이 지어내면 안 되는 문장(위험 안내 등)과 모델이 실패할 때 그대로 읽을 문장이 필요하다(G1, J7).
+    case_refs:
+    - G1
+    - J3
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 다시 말씀 요청
+    meaning: 다시 말씀 요청 때 쓰는 문장
+    why: 알아듣지 못했을 때 할 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - I1a
+    - J7a
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 무관 안내
+    meaning: 문진 밖 발화에 대응하기 위한 등록 문장의 종류. 적절한 수용·지원 불가 표현의 선택은 응답 담당 컴포넌트의 책임이다.
+    why: 문진과 상관없는 말을 받을 때의 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수
+      있다.
+    case_refs:
+    - J9
+    - E4
+    - K1
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 도움 요청
+    meaning: 도움 요청 때 쓰는 문장
+    why: 직원을 부른다고 알리는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - F3
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 종료 인사
+    meaning: 종료 인사 때 쓰는 문장
+    why: 마칠 때의 인사을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - H2
+    - F4
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 확인 대기 확인
+    meaning: 확인 대기 확인 때 쓰는 문장
+    why: 어느 답이 맞는지 확인하는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - C3
+    - J7d
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 정정 구체화
+    meaning: 정정 구체화 때 쓰는 문장
+    why: 무엇을, 어떤 값으로 고칠지 묻는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수
+      있다.
+    case_refs:
+    - J9
+    - C5
+    - C6a
+    evidence_status: requirement_reference
+  /oneOf/6:
+    title: 종료 확인
+    meaning: 종료 확인 때 쓰는 문장
+    why: 마칠지 묻는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - H1
+    evidence_status: requirement_reference
+  /oneOf/7:
+    title: 위험 안내
+    meaning: 위험 안내 때 쓰는 문장
+    why: G1, 의료진 검토 문장만 쓴다
+    case_refs:
+    - G1
+    - J3
+    - J9
+    - J8g
+    evidence_status: requirement_reference
+  /oneOf/8:
+    title: 재개
+    meaning: 재개 때 쓰는 문장
+    why: 다시 이어 간다는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - G6a
+    evidence_status: requirement_reference
+  /oneOf/9:
+    title: 문진 중단
+    meaning: 문진 중단 때 쓰는 문장
+    why: 여기서 그만둔다는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - D5a
+    - F4
+    evidence_status: requirement_reference
+  /oneOf/10:
+    title: 대기 안내
+    meaning: 대기 안내 때 쓰는 문장
+    why: 기다리겠다는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - D2
+    evidence_status: requirement_reference
+  /oneOf/11:
+    title: 중단 확인
+    meaning: 중단 확인 때 쓰는 문장
+    why: 정말 그만둘지 묻는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - D4
+    evidence_status: requirement_reference
+  /oneOf/12:
+    title: 사람 연결 안내
+    meaning: 사람 연결 안내 때 쓰는 문장
+    why: 직원을 불렀다는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - F1
+    evidence_status: requirement_reference
+  /oneOf/13:
+    title: 미룸
+    meaning: 미룸 때 쓰는 문장
+    why: 나중에 묻겠다는 말을 검토된 문장으로 등록해 두어야, LoRA-B가 이를 바탕으로 말하고 실패하면 그대로 읽을 수 있다.
+    case_refs:
+    - J9
+    - D3a
+    - J7e
+    evidence_status: requirement_reference

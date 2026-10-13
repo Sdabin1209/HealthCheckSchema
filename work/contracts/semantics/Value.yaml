@@ -1,0 +1,58 @@
+definition: Value
+nodes:
+  ? ''
+  : title: 값
+    meaning: 선택지 문자열, 수와 표시 단위·선택적 단위 코드, 또는 선택지 코드 객체. 값의 정밀도·근거는 해당 경계의 value_metadata로
+      전달한다.
+    why: 값 비교(같음·다름, 범위, 위험 기준)는 정규화·검증만 하지만, 단위가 서로 환산되지 않는 슬롯(주 n회와 월 n회)은 수만으로
+      값을 나타낼 수 없다. 문자열 "주 2회"로 두면 받는 쪽마다 다시 풀어야 하므로 수와 단위를 나눠 둔다.
+    case_refs:
+    - A2
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 선택지 값
+    meaning: 코드 목록이 없는 문항의 선택지 문자열. 코드 목록을 사용하는 문항의 정규화 값은 CodedValue로 표현한다.
+    why: 선택지 슬롯의 답은 정해진 말 중 하나여야 결과를 받는 쪽이 집계할 수 있다.
+    case_refs:
+    - A2
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 단위 값
+    meaning: 수와 그 단위.
+    why: 단위 슬롯은 같은 수라도 단위가 다르면 다른 답이므로 수와 단위를 함께 둔다.
+    case_refs:
+    - B1
+    - C1
+    - G4
+    - B3b
+    evidence_status: requirement_reference
+  /oneOf/1/properties/amount:
+    title: 수
+    meaning: 단위로 센 수.
+    why: 범위 밖인지, 위험 기준을 넘는지, 기존 답과 같은지를 수로 비교해야 한다.
+    case_refs:
+    - B1
+    - C1
+    - G4
+    evidence_status: requirement_reference
+  /oneOf/1/properties/unit:
+    title: 단위
+    meaning: 사용자에게 보여 줄 단위 이름. 안정적인 코드가 확보되어 있으면 unit_code를 함께 전달한다.
+    why: 같은 수라도 단위가 다르면 다른 값이다.
+    case_refs:
+    - B1
+    - B3b
+    - C1
+    evidence_status: requirement_reference
+  /oneOf/1/properties/unit_code:
+    title: ''
+    meaning: 정규화된 단위의 등록 코드. unit은 표시 이름이며 코드가 없는 자료는 이 필드를 생략한다.
+    why: 저장·비교에 쓰는 단위 코드와 사용자에게 보여 줄 이름을 분리해야 한다.
+    case_refs:
+    - T1
+    - T3
+    evidence_status: requirement_reference

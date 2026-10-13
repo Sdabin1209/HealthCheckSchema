@@ -1,0 +1,21 @@
+definition: HistoryEntry
+nodes:
+  ? ''
+  : title: ''
+    meaning: 이전 값만 있는 이력과 이전 값의 정밀도·근거까지 있는 이력을 구별한다. 정보가 있는 경우에만 메타데이터를 함께 기록한다.
+    why: 이전 값만 있는 이력과 이전 값의 정밀도·근거까지 있는 이력을 구별한다. 정보가 있는 경우에만 메타데이터를 함께 기록한다.
+    case_refs: &id001
+    - T2
+    evidence_status: requirement_reference
+  /oneOf/1/properties/value:
+    title: ''
+    meaning: 이 항목의 값. 정밀도와 근거는 value_metadata에 별도로 기록한다.
+    why: 이전 값만 있는 이력과 이전 값의 정밀도·근거까지 있는 이력을 구별한다. 정보가 있는 경우에만 메타데이터를 함께 기록한다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /oneOf/1/properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 이전 값만 있는 이력과 이전 값의 정밀도·근거까지 있는 이력을 구별한다. 정보가 있는 경우에만 메타데이터를 함께 기록한다.
+    case_refs: *id001
+    evidence_status: requirement_reference

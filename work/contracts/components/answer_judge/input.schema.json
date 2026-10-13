@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/Item.schema.json"
+      }
+    },
+    "item_checks": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/ItemCheck.schema.json"
+      }
+    },
+    "missing_required_slots": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/SlotRef.schema.json"
+      }
+    },
+    "utterance": {
+      "type": "string"
+    },
+    "risk_phrases": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "last_directive": {
+      "anyOf": [
+        {
+          "$ref": "../../types/Directive.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "pendings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pending_id": {
+            "$ref": "../../types/PendingId.schema.json"
+          },
+          "slot": {
+            "$ref": "../../types/SlotRef.schema.json"
+          }
+        },
+        "required": [
+          "pending_id",
+          "slot"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "affected_followups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "../../types/QuestionId.schema.json"
+          },
+          "followups": {
+            "type": "array",
+            "items": {
+              "$ref": "../../types/QuestionId.schema.json"
+            }
+          }
+        },
+        "required": [
+          "question_id",
+          "followups"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "question_slots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "../../types/QuestionId.schema.json"
+          },
+          "slot_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "question_id",
+          "slot_ids"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "items",
+    "item_checks",
+    "missing_required_slots",
+    "utterance",
+    "risk_phrases",
+    "last_directive",
+    "pendings",
+    "affected_followups",
+    "question_slots"
+  ],
+  "additionalProperties": false
+}

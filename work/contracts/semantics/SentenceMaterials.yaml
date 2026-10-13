@@ -1,0 +1,215 @@
+definition: SentenceMaterials
+nodes:
+  ? ''
+  : title: 문장 재료
+    meaning: 이번 응답에 필요한 등록 문장 전부. 이번 행동·알릴 것·대상에 해당하는 것만 담고 나머지는 빈 목록.
+    why: LoRA-B가 대체 출력(재료를 그대로 읽는 문장)을 낼 수 있어야 하고, 위험 안내는 검토된 문장대로만 말해야 한다(J7, G1).
+      LoRA-B는 문항 정의를 받지 않으므로 Plan이 골라 담는다.
+    case_refs:
+    - G1
+    - J7c
+    evidence_status: requirement_reference
+  /properties/question_sentences:
+    title: 문항 문장
+    meaning: 대상 문항의 문항 문장.
+    why: 다음 문항 묻기·재질문에서 검토된 문항 문장을 바탕으로 묻고, 실패하면 그대로 읽는다.
+    case_refs:
+    - J7c
+    evidence_status: requirement_reference
+  /properties/question_sentences/items:
+    title: 문항 문장 항목
+    meaning: 문항과 문장.
+    why: 대상이 여럿일 수 있어 문장마다 어느 문항 것인지 붙인다.
+    case_refs:
+    - J7c
+    evidence_status: requirement_reference
+  /properties/question_sentences/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 대상 문항이 여럿일 수 있어 문장이 어느 문항 것인지 붙인다.
+    case_refs:
+    - J7c
+    evidence_status: requirement_reference
+  /properties/question_sentences/items/properties/sentence:
+    title: 문장
+    meaning: 문항 정의의 문항 문장.
+    why: LoRA-B가 이 문장을 바탕으로 묻고, 실패하면 그대로 읽는다(대체 출력).
+    case_refs:
+    - J7c
+    evidence_status: requirement_reference
+  /properties/refusal_explanations:
+    title: 거절 시 설명
+    meaning: 거절 시 설명 후 재질문의 대상 문항 설명.
+    why: 거절한 사람에게 왜 묻는지 검토된 문장으로 설명해야 한다(B8).
+    case_refs:
+    - B8a
+    evidence_status: requirement_reference
+  /properties/refusal_explanations/items:
+    title: 거절 시 설명 항목
+    meaning: 문항과 문장.
+    why: 거절한 문항의 설명을 고르려면 문장마다 어느 문항 것인지 붙어 있어야 한다.
+    case_refs:
+    - B8a
+    evidence_status: requirement_reference
+  /properties/refusal_explanations/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 어느 문항의 설명인지 붙여 거절한 문항의 설명을 고른다.
+    case_refs:
+    - B8a
+    evidence_status: requirement_reference
+  /properties/refusal_explanations/items/properties/sentence:
+    title: 문장
+    meaning: 문항 정의의 거절 시 설명.
+    why: 거절한 사용자에게 왜 묻는지 설명하는 검토된 문장. 실패하면 그대로 읽는다.
+    case_refs:
+    - B8a
+    evidence_status: requirement_reference
+  /properties/reask_sentences:
+    title: 되묻기 문장
+    meaning: 대상 슬롯의 되묻기 문장.
+    why: 빠진 칸이나 애매한 칸을 다시 물을 때 검토된 문장을 쓰고, 실패하면 그대로 읽는다.
+    case_refs:
+    - B2
+    evidence_status: requirement_reference
+  /properties/reask_sentences/items:
+    title: 되묻기 문장 항목
+    meaning: 슬롯과 문장.
+    why: 빠진 슬롯이 여럿일 수 있어 슬롯마다 붙인다(B2).
+    case_refs:
+    - B2
+    evidence_status: requirement_reference
+  /properties/reask_sentences/items/properties/slot:
+    title: 슬롯
+    meaning: 이 되묻기 문장이 적용되는 문항·반복 행·슬롯의 식별자.
+    why: 빠진 칸이 여럿일 수 있어 문장이 어느 칸 것인지 붙인다.
+    case_refs:
+    - B2
+    evidence_status: requirement_reference
+  /properties/reask_sentences/items/properties/sentence:
+    title: 문장
+    meaning: 슬롯 정의의 되묻기 문장.
+    why: 그 칸만 다시 묻는 문장. 실패하면 그대로 읽는다.
+    case_refs:
+    - B2
+    evidence_status: requirement_reference
+  /properties/choices:
+    title: 선택지
+    meaning: 대상 슬롯의 선택지.
+    why: 선택지를 읽어 주어야 사용자가 그중에서 답한다(B1, B9).
+    case_refs:
+    - B8a
+    - E1a
+    evidence_status: requirement_reference
+  /properties/choices/items:
+    title: 선택지 항목
+    meaning: 슬롯과 선택지.
+    why: 칸마다 선택지가 달라 어느 칸의 선택지인지 묶어 둔다.
+    case_refs:
+    - B8a
+    - E1a
+    evidence_status: requirement_reference
+  /properties/choices/items/properties/slot:
+    title: 슬롯
+    meaning: 이 선택지 목록이 정의된 문항·반복 행·슬롯의 식별자.
+    why: 칸마다 선택지가 달라 어느 칸의 선택지인지 있어야 맞게 읽어 준다.
+    case_refs:
+    - B8a
+    - E1a
+    evidence_status: requirement_reference
+  /properties/choices/items/properties/choices:
+    title: 선택지
+    meaning: 슬롯 정의의 선택지.
+    why: 선택지를 읽어 주어야 사용자가 그중 하나로 답하고, 답이 표준 값으로 바로 정해진다.
+    case_refs:
+    - B8a
+    - E1a
+    evidence_status: requirement_reference
+  /properties/guide_sentences:
+    title: 안내 문장
+    meaning: 알릴 것 안내의 문장(문항별이면 그 문항의 안내 문장, 아니면 안내 목록의 문장).
+    why: 정해진 안내로만 답한다(E1~E3, 의료 판단 안내는 검토 문장).
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_sentences/items:
+    title: 안내 문장 항목
+    meaning: 안내 항목과 문장.
+    why: 한 턴에 안내 요청이 여럿일 수 있다(E1, E2).
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/guide_sentences/items/properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 안내 항목.
+    why: 한 턴에 안내가 여럿일 수 있어 문장마다 어느 안내 요청에 대한 것인지 있어야 한다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_sentences/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항별 안내면 그 문항.
+    why: 뜻·목적 안내는 문항마다 문장이 다르므로 어느 문항 것인지 붙인다.
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/guide_sentences/items/properties/question_id/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 문항별이 아닌 안내 문장이다(E2 진행, E3a 개인정보). 문항별 안내는 문항마다 문장이 달라 ID가 붙는다(E1a, E1b).
+    case_refs:
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_sentences/items/properties/sentence:
+    title: 문장
+    meaning: 등록 문장. 채울 값이 있으면 그 자리를 문장 안에 표시한다.
+    why: 안내는 등록된 문장으로만 한다(의료 판단 안내는 검토된 문장). 실패하면 그대로 읽는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/fixed_sentences:
+    title: 고정 문장
+    meaning: 이번 행동·알릴 것에 해당하는 세션 설정의 고정 문장.
+    why: 검토된 문장으로 말하고, 실패하면 그대로 읽는다(G1, J7).
+    case_refs:
+    - G1
+    - J3
+    - J7d
+    - J7e
+    - J9
+    evidence_status: requirement_reference
+  /properties/fixed_sentences/items:
+    title: 고정 문장 항목
+    meaning: 종류와 문장.
+    why: 행동 문장과 알릴 것 문장(재개·문진 중단·미룸)이 함께 필요할 수 있다.
+    case_refs:
+    - G1
+    - J3
+    evidence_status: requirement_reference
+  /properties/fixed_sentences/items/properties/key:
+    title: 종류
+    meaning: 고정 문장 종류.
+    why: 행동과 알릴 것마다 쓰는 고정 문장이 달라 어느 것인지 붙인다.
+    case_refs:
+    - G1
+    - J3
+    evidence_status: requirement_reference
+  /properties/fixed_sentences/items/properties/sentence:
+    title: 문장
+    meaning: 세션 설정의 문장.
+    why: 위험 안내처럼 지어내면 안 되는 말은 이 문장대로 말하고, 실패하면 그대로 읽는다.
+    case_refs:
+    - G1
+    - J3
+    evidence_status: requirement_reference

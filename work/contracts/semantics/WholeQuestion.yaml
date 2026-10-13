@@ -1,0 +1,30 @@
+definition: WholeQuestion
+nodes:
+  ? ''
+  : title: 문항 전체
+    meaning: 문항의 모든 슬롯을 한꺼번에 가리킴.
+    why: '"술은 잘 모르겠어요"처럼 문항 전체에 대한 모름·거절과, 문항에 대한 안내·나중에가 있다(B7, D3, E1). 저장은 항상 슬롯
+      단위라 저장 판단이 펼친다.'
+    case_refs:
+    - R11
+    - S3b
+    - N17
+    evidence_status: requirement_reference
+  /properties/question_id:
+    title: 문항 ID
+    meaning: 가리키는 문항.
+    why: 문항 전체에 대한 말("술은 잘 모르겠어요")은 그 문항의 모든 칸에 펼쳐 기록해야 하므로 어느 문항인지 있어야 한다.
+    case_refs:
+    - R11
+    - S3b
+    - N17
+    evidence_status: requirement_reference
+  /properties/whole_question:
+    title: 문항 전체 표시
+    meaning: 항상 true.
+    why: 슬롯 대상과 모양으로 구분하기 위해.
+    case_refs:
+    - R11
+    - S3b
+    - N17
+    evidence_status: requirement_reference

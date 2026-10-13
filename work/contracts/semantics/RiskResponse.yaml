@@ -1,0 +1,26 @@
+definition: RiskResponse
+nodes:
+  ? ''
+  : title: 위험 대응
+    meaning: 위험 기준에 해당하는 답에 할 일.
+    why: 바로 멈춰야 하는 답과 결과에만 표시할 답을 나눈다(G3, G4).
+    case_refs:
+    - G3
+    - G4
+    - G6b
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 즉시
+    meaning: 바로 멈추고 직원을 부름
+    why: 그 답 자체가 위급하면(죽고 싶은 생각 = 예) 바로 멈추고 직원을 불러야 한다.
+    case_refs:
+    - G3
+    - G6b
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 결과 표시
+    meaning: 계속하고 결과에 표시
+    why: 위험하지만 지금 멈출 정도는 아닌 답(높은 혈압)은 문진을 이어 가고 결과에 표시해 의료진이 본다.
+    case_refs:
+    - G4
+    evidence_status: requirement_reference

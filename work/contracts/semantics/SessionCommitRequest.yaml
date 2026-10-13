@@ -1,0 +1,27 @@
+definition: SessionCommitRequest
+nodes:
+  ? ''
+  : title: ''
+    meaning: 기준 상태 버전과 한 턴의 쓰기를 전달하는 저장 요청 초안이다. 어떤 변경을 저장할지는 여기 계산하지 않는다.
+    why: 기준 상태 버전과 한 턴의 쓰기를 전달하는 저장 요청 초안이다. 어떤 변경을 저장할지는 여기 계산하지 않는다.
+    case_refs: &id001
+    - T5
+    evidence_status: requirement_reference
+  /properties/session_id:
+    title: ''
+    meaning: 조회 또는 저장 대상 세션 식별자.
+    why: 기준 상태 버전과 한 턴의 쓰기를 전달하는 저장 요청 초안이다. 어떤 변경을 저장할지는 여기 계산하지 않는다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/expected_revision:
+    title: ''
+    meaning: 호출자가 기준으로 삼은 저장 상태의 revision 토큰. 동시 수정 충돌 검출을 요청하는 값이다.
+    why: 사용자가 말한 값의 충돌과 저장 상태의 동시 수정 충돌을 별도 정보로 표현해야 한다.
+    case_refs: *id001
+    evidence_status: requirement_reference
+  /properties/writes:
+    title: ''
+    meaning: 한 턴에서 함께 반영하도록 요청하는 저장 판단·진행 갱신·계획 기록의 묶음.
+    why: 기준 상태 버전과 한 턴의 쓰기를 전달하는 저장 요청 초안이다. 어떤 변경을 저장할지는 여기 계산하지 않는다.
+    case_refs: *id001
+    evidence_status: requirement_reference

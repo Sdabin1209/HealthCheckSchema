@@ -1,0 +1,9 @@
+{
+  "contract_version": 1,
+  "source_sha256": "2dabc5889dfa04090b2dcc4984ce0239ad7375a4ae3934369e600a207a6a897e",
+  "definitions": 110,
+  "components": 12,
+  "requirement_cases": 226,
+  "standalone": 23,
+  "proposed_boundaries": 4
+}

@@ -1,0 +1,1062 @@
+{
+ "version": 1,
+ "case": "J4a",
+ "case_sha256": "d736241876e0be56f50bc2d3fd0048e8ddff3643228fdbcf00c09990e964ae83",
+ "scope": "static_schema_representation",
+ "component_execution": false,
+ "specimens": [
+  {
+   "id": "t1-InterventionDecision-input",
+   "turn": 1,
+   "contract": "InterventionDecision",
+   "role": "input",
+   "data": {
+    "session_id": "S-TEST",
+    "decision": "RESUME"
+   }
+  },
+  {
+   "id": "t1-OrchestratorInput-input",
+   "turn": 1,
+   "contract": "OrchestratorInput",
+   "role": "input",
+   "data": {
+    "frontend_input": null,
+    "intervention_decision": {
+     "session_id": "S-TEST",
+     "decision": "RESUME"
+    },
+    "session_found": true,
+    "session_question_bank_version": 1,
+    "session_status": "PAUSED_RISK",
+    "latest_question_bank_version": 1
+   }
+  },
+  {
+   "id": "t1-StaffConsoleInput-output",
+   "turn": 1,
+   "contract": "StaffConsoleInput",
+   "role": "output",
+   "data": {
+    "staff_alert": null,
+    "turn_failure_signal": {
+     "session_id": "S-TEST",
+     "write_committed": "NOT_COMMITTED",
+     "staff_alert": "NONE"
+    },
+    "intervention_result": {
+     "session_id": "S-TEST",
+     "result": "FAILED"
+    }
+   }
+  },
+  {
+   "id": "t1-FrontendInput-output",
+   "turn": 1,
+   "contract": "FrontendInput",
+   "role": "output",
+   "data": {
+    "response_text": null,
+    "turn_failure_signal": {
+     "session_id": "S-TEST",
+     "write_committed": "NOT_COMMITTED",
+     "staff_alert": "NONE"
+    }
+   }
+  },
+  {
+   "id": "t1-SessionStore-initial_state",
+   "turn": 1,
+   "contract": "SessionStore",
+   "role": "initial_state",
+   "data": {
+    "session_info": {
+     "session_id": "S-TEST",
+     "question_bank_version": 1
+    },
+    "answer_records": [
+     {
+      "slot": {
+       "question_id": "Q1",
+       "repeat_key": "",
+       "slot_id": "상태"
+      },
+      "current_value": {
+       "answer": "현재 피움"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q2",
+       "repeat_key": "",
+       "slot_id": "개비"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 10,
+        "unit": "개비"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3a",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "마심"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "빈도"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 2,
+        "unit": "주 n회"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "종류"
+      },
+      "current_value": {
+       "answer": "소주"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "1회양"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 1,
+        "unit": "병"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q4",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "예"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q5",
+       "repeat_key": "",
+       "slot_id": "시간"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q6",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "수축기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "이완기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q8",
+       "repeat_key": "",
+       "slot_id": "횟수"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "소주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "맥주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "막걸리",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "와인",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "기타",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     }
+    ],
+    "progress_record": {
+     "last_directive": null,
+     "open_requests": {
+      "correction_requests": [],
+      "stop_requested": false,
+      "deferred": []
+     },
+     "skipped": [],
+     "confirm_stopped": [],
+     "session_status": "PAUSED_RISK",
+     "pause_history": []
+    },
+    "planner_record": {
+     "attempt_counts": [],
+     "confirm_counts": [],
+     "unknown_counts": [],
+     "refusal_counts": [],
+     "unrecognized_streak": 0,
+     "ask_counts": []
+    },
+    "dialogue_log": [],
+    "dispatch_log": []
+   }
+  },
+  {
+   "id": "t1-SessionStore-processing_state",
+   "turn": 1,
+   "contract": "SessionStore",
+   "role": "processing_state",
+   "data": {
+    "session_info": {
+     "session_id": "S-TEST",
+     "question_bank_version": 1
+    },
+    "answer_records": [
+     {
+      "slot": {
+       "question_id": "Q1",
+       "repeat_key": "",
+       "slot_id": "상태"
+      },
+      "current_value": {
+       "answer": "현재 피움"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q2",
+       "repeat_key": "",
+       "slot_id": "개비"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 10,
+        "unit": "개비"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3a",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "마심"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "빈도"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 2,
+        "unit": "주 n회"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "종류"
+      },
+      "current_value": {
+       "answer": "소주"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "1회양"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 1,
+        "unit": "병"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q4",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "예"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q5",
+       "repeat_key": "",
+       "slot_id": "시간"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q6",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "수축기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "이완기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q8",
+       "repeat_key": "",
+       "slot_id": "횟수"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "소주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "맥주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "막걸리",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "와인",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "기타",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     }
+    ],
+    "progress_record": {
+     "last_directive": null,
+     "open_requests": {
+      "correction_requests": [],
+      "stop_requested": false,
+      "deferred": []
+     },
+     "skipped": [],
+     "confirm_stopped": [],
+     "session_status": "PAUSED_RISK",
+     "pause_history": []
+    },
+    "planner_record": {
+     "attempt_counts": [],
+     "confirm_counts": [],
+     "unknown_counts": [],
+     "refusal_counts": [],
+     "unrecognized_streak": 0,
+     "ask_counts": []
+    },
+    "dialogue_log": [],
+    "dispatch_log": []
+   }
+  },
+  {
+   "id": "t1-SessionStore-final_state",
+   "turn": 1,
+   "contract": "SessionStore",
+   "role": "final_state",
+   "data": {
+    "session_info": {
+     "session_id": "S-TEST",
+     "question_bank_version": 1
+    },
+    "answer_records": [
+     {
+      "slot": {
+       "question_id": "Q1",
+       "repeat_key": "",
+       "slot_id": "상태"
+      },
+      "current_value": {
+       "answer": "현재 피움"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q2",
+       "repeat_key": "",
+       "slot_id": "개비"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 10,
+        "unit": "개비"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3a",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "마심"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "빈도"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 2,
+        "unit": "주 n회"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "종류"
+      },
+      "current_value": {
+       "answer": "소주"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3b",
+       "repeat_key": "",
+       "slot_id": "1회양"
+      },
+      "current_value": {
+       "answer": {
+        "amount": 1,
+        "unit": "병"
+       }
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q4",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": {
+       "answer": "예"
+      },
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q5",
+       "repeat_key": "",
+       "slot_id": "시간"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q6",
+       "repeat_key": "",
+       "slot_id": "여부"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "수축기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q7",
+       "repeat_key": "",
+       "slot_id": "이완기"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q8",
+       "repeat_key": "",
+       "slot_id": "횟수"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "소주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "맥주",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "막걸리",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "와인",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     },
+     {
+      "slot": {
+       "question_id": "Q3c",
+       "repeat_key": "기타",
+       "slot_id": "양"
+      },
+      "current_value": "NONE",
+      "risk_mark": null,
+      "history": [],
+      "pending": null
+     }
+    ],
+    "progress_record": {
+     "last_directive": null,
+     "open_requests": {
+      "correction_requests": [],
+      "stop_requested": false,
+      "deferred": []
+     },
+     "skipped": [],
+     "confirm_stopped": [],
+     "session_status": "PAUSED_RISK",
+     "pause_history": []
+    },
+    "planner_record": {
+     "attempt_counts": [],
+     "confirm_counts": [],
+     "unknown_counts": [],
+     "refusal_counts": [],
+     "unrecognized_streak": 0,
+     "ask_counts": []
+    },
+    "dialogue_log": [
+     {
+      "input": {
+       "kind": "INTERVENTION",
+       "utterance": null,
+       "intervention_decision": "RESUME"
+      },
+      "handling": {
+       "handled": "RESUME"
+      },
+      "question_bank_version": 1,
+      "turn_result": {
+       "failed_steps": [
+        {
+         "phase": "BEFORE_COMMIT",
+         "step": "PLAN"
+        }
+       ]
+      },
+      "parser_output": null,
+      "normalizer_output": null,
+      "judge_output": null,
+      "record_writer_output": null,
+      "directive": null,
+      "flow": null,
+      "progress_record_update": null,
+      "staff_alert": null,
+      "response_text": null,
+      "staff_alert_delivery": "NOT_APPLICABLE",
+      "turn_failure_signal": {
+       "session_id": "S-TEST",
+       "write_committed": "NOT_COMMITTED",
+       "staff_alert": "NONE"
+      },
+      "intervention_result": {
+       "session_id": "S-TEST",
+       "result": "FAILED"
+      }
+     }
+    ],
+    "dispatch_log": []
+   }
+  },
+  {
+   "id": "t1-OrchestratorOutput-output",
+   "turn": 1,
+   "contract": "OrchestratorOutput",
+   "role": "output",
+   "data": {
+    "turn_kind": "RESUME",
+    "session_info_created": null,
+    "log_entry": {
+     "input": {
+      "kind": "INTERVENTION",
+      "utterance": null,
+      "intervention_decision": "RESUME"
+     },
+     "handling": {
+      "handled": "RESUME"
+     },
+     "question_bank_version": 1,
+     "turn_result": {
+      "failed_steps": [
+       {
+        "phase": "BEFORE_COMMIT",
+        "step": "PLAN"
+       }
+      ]
+     },
+     "parser_output": null,
+     "normalizer_output": null,
+     "judge_output": null,
+     "record_writer_output": null,
+     "directive": null,
+     "flow": null,
+     "progress_record_update": null,
+     "staff_alert": null,
+     "response_text": null,
+     "staff_alert_delivery": "NOT_APPLICABLE",
+     "turn_failure_signal": {
+      "session_id": "S-TEST",
+      "write_committed": "NOT_COMMITTED",
+      "staff_alert": "NONE"
+     },
+     "intervention_result": {
+      "session_id": "S-TEST",
+      "result": "FAILED"
+     }
+    },
+    "turn_failure_signal": {
+     "session_id": "S-TEST",
+     "write_committed": "NOT_COMMITTED",
+     "staff_alert": "NONE"
+    },
+    "intervention_result": {
+     "session_id": "S-TEST",
+     "result": "FAILED"
+    },
+    "dispatch_called": false
+   }
+  }
+ ],
+ "requirements": [
+  {
+   "source_pointer": "/input/개입",
+   "source_value": "재개",
+   "kind": "literal",
+   "specimen": "t1-InterventionDecision-input",
+   "data_pointer": "/decision",
+   "definition": "InterventionDecision",
+   "schema_pointer": "/properties/decision",
+   "encoded_value": "RESUME",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/given/세션",
+   "source_value": "일시 중지(위험)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorInput-input",
+   "data_pointer": "/session_found",
+   "definition": "OrchestratorInput",
+   "schema_pointer": "/properties/session_found",
+   "encoded_value": true,
+   "meaning": "초기 세션 존재 여부의 축약을 조회 메타데이터의 boolean으로 표현한다."
+  },
+  {
+   "source_pointer": "/given/세션",
+   "source_value": "일시 중지(위험)",
+   "kind": "literal",
+   "specimen": "t1-SessionStore-initial_state",
+   "data_pointer": "/progress_record/session_status",
+   "definition": "ProgressRecord",
+   "schema_pointer": "/properties/session_status",
+   "encoded_value": "PAUSED_RISK",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과",
+   "source_value": "반영 안 됨(실패)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/result",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/result",
+   "encoded_value": "FAILED",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/턴실패신호/쓰기확정",
+   "source_value": "안 됨",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_failure_signal/write_committed",
+   "definition": "TurnFailureSignal",
+   "schema_pointer": "/properties/write_committed",
+   "encoded_value": "NOT_COMMITTED",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/턴실패신호/직원알림",
+   "source_value": "없음",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_failure_signal/staff_alert",
+   "definition": "TurnFailureSignal",
+   "schema_pointer": "/properties/staff_alert",
+   "encoded_value": "NONE",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/LangGraph/턴실패신호/받는쪽/0",
+   "source_value": "프론트",
+   "kind": "routing_constraint",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_failure_signal",
+   "definition": "OrchestratorOutput",
+   "schema_pointer": "/properties/turn_failure_signal",
+   "meaning": "전달 대상은 컴포넌트 접점의 요구이며 payload 내부 값이 아니다. 동일 실패 신호를 FrontendInput과 StaffConsoleInput에 담을 수 있는지 별도 정형 예시로 확인한다.",
+   "supporting_fields": [
+    {
+     "specimen": "t1-FrontendInput-output",
+     "data_pointer": "/turn_failure_signal",
+     "equals_payload": true
+    }
+   ]
+  },
+  {
+   "source_pointer": "/expect/LangGraph/턴실패신호/받는쪽/1",
+   "source_value": "사람 개입",
+   "kind": "routing_constraint",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_failure_signal",
+   "definition": "OrchestratorOutput",
+   "schema_pointer": "/properties/turn_failure_signal",
+   "meaning": "전달 대상은 컴포넌트 접점의 요구이며 payload 내부 값이 아니다. 동일 실패 신호를 FrontendInput과 StaffConsoleInput에 담을 수 있는지 별도 정형 예시로 확인한다.",
+   "supporting_fields": [
+    {
+     "specimen": "t1-StaffConsoleInput-output",
+     "data_pointer": "/turn_failure_signal",
+     "equals_payload": true
+    }
+   ]
+  },
+  {
+   "source_pointer": "/expect/LangGraph/턴실패신호/세션식별",
+   "source_value": "이 세션",
+   "kind": "identity_constraint",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/turn_failure_signal/session_id",
+   "definition": "TurnFailureSignal",
+   "schema_pointer": "/properties/session_id",
+   "meaning": "세션 식별자를 전달할 필드이며 이 문자열은 실제 ID가 아닌 동일 세션 관계 요구다.",
+   "supporting_fields": [
+    {
+     "specimen": "t1-OrchestratorInput-input",
+     "data_pointer": "/intervention_decision/session_id",
+     "equals_payload": true
+    }
+   ]
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과값/세션식별",
+   "source_value": "이 세션",
+   "kind": "identity_constraint",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/session_id",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/session_id",
+   "meaning": "세션 식별자를 전달할 필드이며 이 문자열은 실제 ID가 아닌 동일 세션 관계 요구다.",
+   "supporting_fields": [
+    {
+     "specimen": "t1-OrchestratorInput-input",
+     "data_pointer": "/intervention_decision/session_id",
+     "equals_payload": true
+    }
+   ]
+  },
+  {
+   "source_pointer": "/expect/LangGraph/개입결정결과값/결과",
+   "source_value": "반영 안 됨(실패)",
+   "kind": "literal",
+   "specimen": "t1-OrchestratorOutput-output",
+   "data_pointer": "/intervention_result/result",
+   "definition": "InterventionResult",
+   "schema_pointer": "/properties/result",
+   "encoded_value": "FAILED",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  },
+  {
+   "source_pointer": "/expect/뒤/세션상태",
+   "source_value": "PAUSED_RISK",
+   "kind": "literal",
+   "specimen": "t1-SessionStore-final_state",
+   "data_pointer": "/progress_record/session_status",
+   "definition": "ProgressRecord",
+   "schema_pointer": "/properties/session_status",
+   "encoded_value": "PAUSED_RISK",
+   "meaning": "선언한 요구값을 이 필드에 담는 정형 표현이다. 업무 정답 선택은 하지 않는다."
+  }
+ ],
+ "fixture_provenance": "Static authored examples adapted from existing snapshots and schema examples; not live execution results. No runtime component is required."
+}

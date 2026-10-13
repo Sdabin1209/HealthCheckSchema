@@ -1,0 +1,39 @@
+definition: SkipReason
+nodes:
+  ? ''
+  : title: 건너뜀 사유
+    meaning: 문항을 더 묻지 않기로 한 까닭.
+    why: 답이 없는 문항에서 모름 수용·거절 수용·질문 횟수 초과 등의 건너뜀 이유를 구분하여 결과 수신처가 미응답 상태를 해석할 수 있어야 한다(B10).
+    case_refs:
+    - B7b
+    - B8b
+    - B10
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 모름 수용
+    meaning: 모름을 받아들임
+    why: 모름을 받아들여 더 묻지 않았다는 것을 결과에 남겨, 받는 쪽이 빈 답의 까닭을 안다.
+    case_refs:
+    - B7b
+    - C8c
+    - R11
+    - X7
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 거절 수용
+    meaning: 거절을 받아들임
+    why: 거절을 받아들여 더 묻지 않았다는 것을 결과에 남겨, 받는 쪽이 빈 답의 까닭을 안다.
+    case_refs:
+    - B8b
+    - S3b
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 시도 초과
+    meaning: 질문 상한만큼 물어도 쓸 수 있는 답이 없음
+    why: 질문 상한까지 물어도 쓸 수 있는 답이 없어 넘어갔다는 것을 남긴다. 사용자가 모른다고 한 것과는 다르다.
+    case_refs:
+    - B10
+    - R1
+    - R18
+    - S3d
+    evidence_status: requirement_reference

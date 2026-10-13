@@ -1,0 +1,50 @@
+definition: RiskRule
+nodes:
+  ? ''
+  : title: 위험 기준
+    meaning: 답이 위험한 조건과 대응.
+    why: 죽고 싶은 생각 "예"는 바로 멈추고, 혈압 190은 결과에 표시한다(G3, G4). 조건을 문장으로 두면 정규화가 기계적으로 판단할
+      수 없어 비교 연산과 값으로 둔다.
+    case_refs:
+    - G3
+    - G4
+    evidence_status: requirement_reference
+  /properties/operator:
+    title: 연산
+    meaning: 비교 방법.
+    why: 선택지는 같음, 수치는 크기 비교로 위험을 판단한다(G3 "예", G4 혈압 이상).
+    case_refs:
+    - G3
+    - G4
+    evidence_status: requirement_reference
+  /properties/operator/oneOf/0:
+    title: ''
+    meaning: 같음
+    why: '선택지 슬롯은 특정 선택지(예: 죽고 싶은 생각 = 예)일 때만 위험하다.'
+    case_refs:
+    - G3
+    evidence_status: requirement_reference
+  /properties/operator/oneOf/1:
+    title: ''
+    meaning: 이상
+    why: '수치 슬롯은 기준 이상(예: 수축기 180 이상)일 때 위험하다.'
+    case_refs:
+    - G4
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 기준 값
+    meaning: 비교할 값(선택지 또는 단위 값).
+    why: 답과 같은 모양이어야 바로 비교한다.
+    case_refs:
+    - G3
+    - G4
+    evidence_status: requirement_reference
+  /properties/response:
+    title: 대응
+    meaning: 해당하면 할 일.
+    why: 같은 위험이라도 바로 멈출지 결과에만 표시할지는 문항마다 의료진이 정해야 한다.
+    case_refs:
+    - G3
+    - G4
+    - G6b
+    evidence_status: requirement_reference

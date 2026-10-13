@@ -1,0 +1,38 @@
+definition: JudgeOutput
+nodes:
+  ? ''
+  : title: 상태 판정 출력
+    meaning: 판정, 무효화 대상 문항, 발화 판정.
+    why: 해석 결과를 저장 판단(무엇을 기록할지)과 Plan(무엇을 말할지)이 같은 값으로 쓰게 한다.
+    case_refs:
+    - A2
+    - C2
+    - D1a
+    evidence_status: requirement_reference
+  /properties/judgments:
+    title: 판정
+    meaning: 대상마다.
+    why: 저장 판단은 이것으로 기록을 정하고 Plan은 이것으로 되물을 것과 위험을 정한다.
+    case_refs:
+    - A2
+    - B1
+    - C3
+    evidence_status: requirement_reference
+  /properties/invalidated_questions:
+    title: 무효화 대상 문항
+    meaning: 판정이 정정·모름·거절·받아들임인 슬롯의 문항의 영향받는 후속 문항 전부(첫 답인지 따지지 않는다).
+    why: 선행 답이 바뀌면 그에 딸린 후속 답은 더 맞지 않는다(C2 "사실 술 안 마셔요").
+    case_refs:
+    - C2
+    - N9
+    - R5
+    evidence_status: requirement_reference
+  /properties/utterance_judgment:
+    title: 발화 판정
+    meaning: 발화 전체에 대한 판정.
+    why: Plan이 요청·확인 응답·위험·알아듣지 못함을 안다.
+    case_refs:
+    - D1a
+    - C5
+    - G1
+    evidence_status: requirement_reference

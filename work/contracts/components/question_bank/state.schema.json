@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "$ref": "../../types/QuestionDef.schema.json"
+      },
+      "minItems": 1
+    },
+    "session_settings": {
+      "$ref": "../../types/SessionSettings.schema.json"
+    }
+  },
+  "required": [
+    "version",
+    "questions",
+    "session_settings"
+  ],
+  "additionalProperties": false
+}

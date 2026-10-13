@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "staff_alert": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "session_id": {
+              "$ref": "../../types/SessionId.schema.json"
+            },
+            "staff_alert": {
+              "$ref": "../../types/StaffAlert.schema.json"
+            }
+          },
+          "required": [
+            "session_id",
+            "staff_alert"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "turn_failure_signal": {
+      "anyOf": [
+        {
+          "$ref": "../../types/TurnFailureSignal.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intervention_result": {
+      "anyOf": [
+        {
+          "$ref": "../../types/InterventionResult.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "staff_alert",
+    "turn_failure_signal",
+    "intervention_result"
+  ],
+  "additionalProperties": false
+}

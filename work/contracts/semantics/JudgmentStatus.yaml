@@ -1,0 +1,86 @@
+definition: JudgmentStatus
+nodes:
+  ? ''
+  : title: 상태
+    meaning: 상태 판정이 대상마다 내린 판정.
+    why: 저장 판단과 다음 행동 결정이 대상 슬롯의 상태를 같은 코드로 해석해야 한다. 발화 전체의 무관 여부는 UtteranceJudgment, 세션 완료 여부는 SessionStatus로 구분하여
+      슬롯 판정과 혼동하지 않는다.
+    case_refs:
+    - A2
+    - B2
+    - B3a
+    - C1
+    - C3
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 정상
+    meaning: 쓸 수 있는 값(첫 답이거나 기존과 같음)
+    why: 쓸 수 있는 값이라 첫 답이면 저장하고, 기존과 같으면 바꿀 것이 없다(남은 확인 대기만 버린다).
+    case_refs:
+    - A2
+    - B1
+    - C4b
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 누락
+    meaning: 같은 문항의 필수 슬롯이 빠짐
+    why: 같은 문항에서 받은 값은 저장하고 빠진 칸만 다시 묻기 위해 빠진 칸을 따로 판정한다(B2).
+    case_refs:
+    - B2
+    - E3b
+    - R1
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 애매
+    meaning: 값에 문제가 있음
+    why: 저장하지 않고 구체화를 묻는다(UNCLEAR, B3, B4)
+    case_refs:
+    - B3a
+    - B4
+    - B10
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 충돌
+    meaning: 표지 없이 기존 답과 다른 값
+    why: 기존 값을 지키고 확인을 묻는다(CONFLICT, C3)
+    case_refs:
+    - C3
+    - N6
+    - N13
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 정정
+    meaning: 고친 값이 확정됨
+    why: 새 revision으로 저장한다(CORRECTION, C1)
+    case_refs:
+    - C1
+    - C2
+    - N3b
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 모름
+    meaning: 모름
+    why: 모름도 하나의 응답이라 기록해야 정책대로 다시 묻거나 넘어간다(B7).
+    case_refs:
+    - B7a
+    - R11
+    - X1
+    evidence_status: requirement_reference
+  /oneOf/6:
+    title: 거절
+    meaning: 거절
+    why: 거절도 하나의 응답이라 기록해야 정책대로 설명하거나 넘어간다(B8).
+    case_refs:
+    - B8a
+    - S3a
+    - S3b
+    evidence_status: requirement_reference
+  /oneOf/7:
+    title: 선행 불충족
+    meaning: 선행 조건이 정해지지 않았거나 맞지 않는 후속 문항에 대한 말
+    why: 후속 답은 선행 답이 정해진 뒤에만 기록한다. 버리지 않고 판정으로 내는 이유는, 버리면 사용자가 맞게 답해도 응답이 없는 것으로 보여 같은 질문이 끝없이 반복되기 때문이다(B4, C2)
+    case_refs:
+    - S1a
+    - S2a
+    - S8a
+    evidence_status: requirement_reference

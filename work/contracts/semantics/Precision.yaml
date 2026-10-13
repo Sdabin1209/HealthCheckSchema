@@ -1,0 +1,9 @@
+definition: Precision
+nodes:
+  ? ''
+  : title: ''
+    meaning: 단일 값과 근사 표현의 정밀도를 보존하는 값이다.
+    why: 단일 값과 근사 표현의 정밀도를 보존하는 값이다.
+    case_refs:
+    - T1
+    evidence_status: requirement_reference

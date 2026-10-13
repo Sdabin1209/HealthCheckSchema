@@ -1,0 +1,27 @@
+{
+  "id": "shape-OrchestratorInput",
+  "contract": "OrchestratorInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A1"
+  ],
+  "input": {
+    "frontend_input": {
+      "session_id": "S-TEST",
+      "kind": "SESSION_START"
+    },
+    "intervention_decision": null,
+    "session_found": false,
+    "session_question_bank_version": null,
+    "session_status": null,
+    "latest_question_bank_version": 1
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A1",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/orchestrator",
+    "correctness_claim": false
+  }
+}

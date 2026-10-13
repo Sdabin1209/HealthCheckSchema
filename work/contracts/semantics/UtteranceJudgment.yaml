@@ -1,0 +1,111 @@
+definition: UtteranceJudgment
+nodes:
+  ? ''
+  : title: 발화 판정
+    meaning: 발화 전체에 대한 판정.
+    why: 문항 슬롯에 묶이지 않는 무관 발화·요청·위험 신호·확인 응답을 슬롯별 판정과 분리하여 다음 행동 결정에 전달해야 한다.
+    case_refs:
+    - D1a
+    - C5
+    - G1
+    evidence_status: requirement_reference
+  /properties/result:
+    title: 결과
+    meaning: 공유 어휘 발화 판정 결과.
+    why: Plan이 판정·요청 목록을 다시 훑지 않고도 이번 턴이 응답 있음·요청만·무관만·알아듣지 못함 중 무엇인지 알아 반복 요청과 연속 횟수를 처리한다.
+    case_refs:
+    - D1a
+    - E4
+    - I1a
+    evidence_status: requirement_reference
+  /properties/valueless_correction_requests:
+    title: 값 없는 정정 요청
+    meaning: 정정 의도인데 값이 없는 항목마다.
+    why: 값 없이 고치겠다는 말은 저장할 값이 없어 판정에 나오지 않는다. 따로 내지 않으면 고치려는 뜻이 사라진다.
+    case_refs:
+    - C5
+    - C6a
+    - R14
+    evidence_status: requirement_reference
+  /properties/confirmation:
+    title: 확인 응답
+    meaning: 기다리는 답이 종료 확인·중단 확인·정정 구체화일 때의 승낙·거부.
+    why: 이 세 확인은 슬롯 값이 아니라 진행에 대한 답이다. 무엇에 대한 것인지는 받는 쪽도 직전 응답 지시로 안다(H2, D5, C9).
+    case_refs:
+    - C9a
+    - D5a
+    - H2
+    evidence_status: requirement_reference
+  /properties/confirmation/oneOf/0:
+    title: 승낙
+    meaning: '"네"'
+    why: 종료 확인이면 마치고, 중단 확인이면 그만두고, 정정 구체화면 고칠 값을 계속 묻는다.
+    case_refs:
+    - D5a
+    - H2
+    - C9d
+    evidence_status: requirement_reference
+  /properties/confirmation/oneOf/1:
+    title: 거부
+    meaning: '"아니요"'
+    why: 종료 확인·중단 확인이면 하던 것을 계속하고, 정정 구체화면 고치지 않겠다는 뜻이라 정정 요청을 푼다(C9).
+    case_refs:
+    - C9a
+    - D5b
+    - X3
+    evidence_status: requirement_reference
+  /properties/confirmation/oneOf/2:
+    title: 없음
+    meaning: 확인 응답이 아님
+    why: 확인을 기다리지 않았거나 확인 응답이 없는 턴을 승낙·거부와 구분해 Plan이 아무것도 확정하지 않게 한다.
+    case_refs:
+    - H3a
+    - A2
+    evidence_status: requirement_reference
+  /properties/requests:
+    title: 요청
+    meaning: 요청 목록.
+    why: 진행 조작·안내·사람 요청은 저장하지 않고 응답만 바꾸므로 판정과 따로 Plan에 넘긴다.
+    case_refs:
+    - D1a
+    - D3a
+    - F1
+    evidence_status: requirement_reference
+  /properties/risk_signal:
+    title: 위험 신호
+    meaning: 의도가 위험 신호인 항목이 있거나 원문이 위험 표현 목록에 걸리면 있음.
+    why: LoRA-A가 놓쳐도 원문 대조로 한 번 더 잡는다(G2).
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - K5
+    evidence_status: requirement_reference
+  /properties/risk_signal/anyOf/0:
+    title: 위험 신호 내용
+    meaning: 근거.
+    why: 직원이 어떤 말 때문인지 안다.
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - X9
+    evidence_status: requirement_reference
+  /properties/risk_signal/anyOf/0/properties/evidence:
+    title: 근거
+    meaning: 위험 신호 항목의 원문 표현과 목록에 걸린 표현(목록 표현이 원문 안에 있으면 원문 하나만).
+    why: 직원이 무슨 말을 했는지 바로 본다(G1).
+    case_refs:
+    - G1
+    - G2
+    - G9
+    - X9
+    evidence_status: requirement_reference
+  /properties/risk_signal/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 위험 신호 항목도 없고 원문이 위험 표현 목록에도 걸리지 않은 발화다(B1, K5 감정 표현). 8-1 규칙 1이 이 값이 있을 때만 문진을 멈춘다.
+    case_refs:
+    - B1
+    - K5
+    evidence_status: requirement_reference

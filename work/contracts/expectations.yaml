@@ -1,0 +1,68 @@
+version: 1
+expectations:
+  LoRA-A:
+    contract: ParserOutput
+    field_path: items
+  정규화:
+    contract: NormalizerOutput
+    field_path: ''
+  발화판정:
+    contract: JudgeOutput
+    field_path: utterance_judgment
+  판정:
+    contract: JudgeOutput
+    field_path: judgments
+  저장:
+    contract: StoreResult
+    field_path: store_decisions
+  무효화대상문항:
+    contract: JudgeOutput
+    field_path: invalidated_questions
+  Plan:
+    contract: PlannerOutput
+    field_path: ''
+  Plan기록:
+    contract: PlannerOutput
+    field_path: planner_record_update
+  문장재료:
+    contract: Directive
+    field_path: sentence_materials
+  LangGraph:
+    contract: OrchestratorOutput
+    field_path: ''
+  뒤:
+    contract: SessionStore
+    field_path: ''
+  결과전달입력:
+    contract: DispatchInput
+    field_path: ''
+  전달기록:
+    contract: DispatchRecord
+    field_path: ''
+  사람개입입력:
+    contract: StaffConsoleInput
+    field_path: ''
+  응답:
+    contract: FrontendInput
+    field_path: response_text
+  LoRA-B:
+    contract: GeneratorOutput
+    field_path: ''
+  LoRA-B조건:
+    contract: GeneratorOutput
+    field_path: response_text
+  문항정의:
+    contract: QuestionBank
+    field_path: ''
+  저장요청:
+    contract: SessionCommitRequest
+    field_path: ''
+  저장결과:
+    contract: SessionCommitResult
+    field_path: ''
+  조회결과:
+    contract: SessionLoadResult
+    field_path: ''
+  조회요청:
+    contract: SessionLoadRequest
+    field_path: ''

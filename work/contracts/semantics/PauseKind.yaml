@@ -1,0 +1,29 @@
+definition: PauseKind
+nodes:
+  ? ''
+  : title: 중지 이력 종류
+    meaning: 중지 이력 항목의 종류.
+    why: 결과에 문진 중 멈춘 적이 있는지와 언제 다시 이어졌는지 남긴다(G7).
+    case_refs:
+    - G1
+    - G6a
+    - G7
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 일시 중지
+    meaning: 위험으로 멈춤
+    why: 언제 무엇 때문에 멈췄는지 결과에 남긴다.
+    case_refs:
+    - G1
+    - G3
+    - G7
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 재개
+    meaning: 직원이 이어 가게 함
+    why: 멈춘 뒤 다시 이어 갔다는 것을 남겨, 그 뒤의 답이 재개 후의 답임을 안다.
+    case_refs:
+    - G6a
+    - G6b
+    - H3d
+    evidence_status: requirement_reference

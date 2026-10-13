@@ -1,0 +1,40 @@
+definition: SlotRef
+nodes:
+  ? ''
+  : title: 슬롯
+    meaning: 답 칸 하나. 문항 ID·반복 키·슬롯 ID 셋으로 가리킨다.
+    why: 한 문항에 답 칸이 여럿일 수 있고(음주 상세의 빈도·양), 한 문항이 줄마다 반복될 수 있다(주종별 음주량). 셋이어야 같은 칸의
+      다른 줄을 가리킬 수 있다.
+    case_refs:
+    - A2
+    - B2
+    - C3
+    evidence_status: requirement_reference
+  /properties/question_id:
+    title: 문항 ID
+    meaning: 그 슬롯이 속한 문항.
+    why: 슬롯 ID만으로는 어느 문항의 칸인지 모른다.
+    case_refs:
+    - A2
+    - B1
+    - B2
+    evidence_status: requirement_reference
+  /properties/repeat_key:
+    title: 반복 키
+    meaning: 반복 문항에서 그 줄의 식별자. 반복하지 않는 문항은 빈 문자열.
+    why: 문항·슬롯 쌍만으로는 같은 칸의 두 줄을 가리킬 수 없다. "소주는 2병인데 맥주는 모르겠어요"는 같은 칸에 줄이 둘이고 줄마다 판정이
+      다르다(V1, V2, V3). 빈 문자열로 두면 반복하지 않는 문항도 같은 모양으로 가리킨다.
+    case_refs:
+    - V1
+    - V2
+    - V3
+    evidence_status: requirement_reference
+  /properties/slot_id:
+    title: 슬롯 ID
+    meaning: 문항 안의 칸 식별자.
+    why: 한 문항에 칸이 여럿일 수 있어(음주 빈도·양) 문항 ID만으로는 어느 칸인지 모른다.
+    case_refs:
+    - A2
+    - B1
+    - B2
+    evidence_status: requirement_reference

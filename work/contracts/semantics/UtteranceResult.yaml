@@ -1,0 +1,51 @@
+definition: UtteranceResult
+nodes:
+  ? ''
+  : title: 발화 판정 결과
+    meaning: 발화 전체가 무엇이었는지. 겹치지 않고 모든 경우를 덮는다.
+    why: Plan이 "답이 있었나, 요청만 있었나, 못 알아들었나"를 하나의 값으로 알아야 알아듣지 못한 턴을 세고 반복 요청을 처리할 수 있다(D1, I1, F3).
+    case_refs:
+    - D1a
+    - E4
+    - I1a
+    - C5
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 응답 있음
+    meaning: 판정·확인 응답·값 없는 정정 요청·위험 신호 중 하나라도 있음
+    why: 답·확인 응답·고칠 요청·위험 중 하나라도 있으면 기록이나 진행이 바뀌었으므로 직전 응답을 되풀이하지 않고 새 응답 지시를 만들어야 한다.
+    case_refs:
+    - C5
+    - C6a
+    - D1c
+    - K4
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 요청만
+    meaning: 위의 것은 없고 요청이 있음
+    why: 요청만 있는 턴은 기록이 바뀌지 않았으므로 반복 요청이면 직전 응답을 그대로 다시 낼 수 있고, 알아듣지 못한 턴으로 세지도 않는다(D1).
+    case_refs:
+    - D1a
+    - D2
+    - E1a
+    - F1
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 무관만
+    meaning: 위의 것도 요청도 없고 무관 항목이 있음
+    why: 문진·안내 요청과 관계없는 말을 받아 준 뒤 하던 질문을 이어 가야 한다(E4, K1~K9).
+    case_refs:
+    - E4
+    - K1
+    - K5
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 알아듣지 못함
+    meaning: 그 밖(빈 발화, 인식불가뿐)
+    why: 아무것도 알아듣지 못한 턴을 세어야 다시 말해 달라고 하다가 이어지면 직원을 부른다(I1, F3).
+    case_refs:
+    - I1a
+    - I1b
+    - F3
+    - J7a
+    evidence_status: requirement_reference

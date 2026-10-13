@@ -1,0 +1,33 @@
+{
+  "id": "shape-ParserOutput",
+  "contract": "ParserOutput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "items": [
+      {
+        "item_no": 0,
+        "target": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "value": "안 피워요",
+        "source_text": "안 피워요",
+        "intent": "ANSWERED_INTENT",
+        "progress_op": null,
+        "guide_id": null
+      }
+    ]
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/parser_output",
+    "correctness_claim": false
+  }
+}

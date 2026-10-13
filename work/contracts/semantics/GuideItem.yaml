@@ -1,0 +1,72 @@
+definition: GuideItem
+nodes:
+  ? ''
+  : title: 안내 항목
+    meaning: 사용자가 물을 수 있는 것과 그 답.
+    why: 목록에 있는 물음만 안내하고 나머지는 무관이다(E1~E4). 항목을 더해도 컴포넌트 입출력은 바뀌지 않는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 식별자.
+    why: LoRA-A가 이 ID를 골라 내고, Plan이 이 ID로 문장을 찾는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    - E3b
+    evidence_status: requirement_reference
+  /properties/selection_criterion:
+    title: 고르는 기준
+    meaning: LoRA-A가 볼 설명.
+    why: LoRA-A가 사용자 물음이 이 항목인지 판단할 기준. 목록에 없으면 무관이다.
+    case_refs:
+    - E1a
+    - E3a
+    - E3b
+    evidence_status: requirement_reference
+  /properties/per_question:
+    title: 문항별
+    meaning: 참이면 문장은 각 문항의 안내 문장에 있다.
+    why: 뜻·목적 안내는 문항마다 다르다.
+    case_refs:
+    - N12
+    - E1b
+    - E2
+    evidence_status: requirement_reference
+  /properties/sentence:
+    title: 문장
+    meaning: 문항별이 아니면 문장. 문항별이면 없음.
+    why: 문항과 상관없는 안내(개인정보 등)는 문장이 하나라 여기에 둔다.
+    case_refs:
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/sentence/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 문항별 안내라 문장이 문항 정의 쪽(QuestionDef.guide_sentences)에 있다(E1a 설명, E1b 목적). 여기에도
+      문장을 두면 같은 안내의 문장이 두 곳에 생긴다.
+    case_refs:
+    - E1a
+    - E1b
+    evidence_status: requirement_reference
+  /properties/fill_value:
+    title: 채울 값
+    meaning: 문장에 넣을 계산 값. 없으면 없음.
+    why: 남은 문항 수처럼 세션마다 다른 값을 문장에 넣어야 하는 안내가 있다.
+    case_refs:
+    - E2
+    - R11
+    evidence_status: requirement_reference
+  /properties/fill_value/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 세션마다 달라지는 값을 넣지 않는 안내다(E3a 개인정보, E1a 설명). 채울 값이 있는 것은 E2의 "진행"(남은 문항 수)뿐이다.
+    case_refs:
+    - E3a
+    - E1a
+    evidence_status: requirement_reference

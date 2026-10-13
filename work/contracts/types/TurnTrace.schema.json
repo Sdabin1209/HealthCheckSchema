@@ -1,0 +1,324 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "turn_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "contract_version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "frontend_message": {
+      "anyOf": [
+        {
+          "$ref": "../components/frontend/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intervention_decision": {
+      "anyOf": [
+        {
+          "$ref": "../components/staff_console/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "orchestrator_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/orchestrator/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "parser_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/utterance_parser/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "parser_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/utterance_parser/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "normalizer_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_normalizer/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "normalizer_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_normalizer/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "judge_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_judge/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "judge_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/answer_judge/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_writer_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/record_writer/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "record_writer_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/record_writer/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "planner_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/dialogue_planner/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "planner_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/dialogue_planner/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "generator_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/response_generator/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "generator_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/response_generator/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "frontend_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/frontend/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "staff_console_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/staff_console/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dispatch_input": {
+      "anyOf": [
+        {
+          "$ref": "../components/result_dispatcher/input.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dispatch_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/result_dispatcher/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "orchestrator_output": {
+      "anyOf": [
+        {
+          "$ref": "../components/orchestrator/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_before": {
+      "anyOf": [
+        {
+          "$ref": "../components/session_store/state.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_after": {
+      "anyOf": [
+        {
+          "$ref": "../components/session_store/state.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "log_entry": {
+      "anyOf": [
+        {
+          "$ref": "../types/LogEntry.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "turn_index": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "persistence_load_request": {
+      "anyOf": [
+        {
+          "$ref": "SessionLoadRequest.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "persistence_load_result": {
+      "anyOf": [
+        {
+          "$ref": "SessionLoadResult.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "persistence_commit_request": {
+      "anyOf": [
+        {
+          "$ref": "SessionCommitRequest.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "persistence_commit_result": {
+      "anyOf": [
+        {
+          "$ref": "SessionCommitResult.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "session_id",
+    "turn_id",
+    "contract_version",
+    "frontend_message",
+    "intervention_decision",
+    "orchestrator_input",
+    "parser_input",
+    "parser_output",
+    "normalizer_input",
+    "normalizer_output",
+    "judge_input",
+    "judge_output",
+    "record_writer_input",
+    "record_writer_output",
+    "planner_input",
+    "planner_output",
+    "generator_input",
+    "generator_output",
+    "frontend_input",
+    "staff_console_input",
+    "dispatch_input",
+    "dispatch_output",
+    "orchestrator_output",
+    "session_before",
+    "session_after",
+    "log_entry",
+    "persistence_load_request",
+    "persistence_load_result",
+    "persistence_commit_request",
+    "persistence_commit_result"
+  ],
+  "additionalProperties": false
+}

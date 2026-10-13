@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "const": "REPEAT"
+    },
+    {
+      "const": "WAIT"
+    },
+    {
+      "const": "LATER"
+    },
+    {
+      "const": "STOP"
+    },
+    {
+      "const": "GUIDE"
+    },
+    {
+      "const": "STAFF_REQUEST"
+    }
+  ]
+}

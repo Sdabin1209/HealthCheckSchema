@@ -1,0 +1,23 @@
+definition: FixedSentence
+nodes:
+  ? ''
+  : title: 고정 문장
+    meaning: 종류와 문장.
+    why: 의료진·설계자가 검토한 문장을 행동·알릴 것 종류마다 하나씩 코드 밖에 등록해, 문장을 바꿔도 코드가 바뀌지 않게 한다.
+    case_refs:
+    - G1
+    evidence_status: requirement_reference
+  /properties/key:
+    title: 종류
+    meaning: 고정 문장 종류.
+    why: Plan이 이번 행동·알릴 것에 맞는 문장을 이 종류로 찾아 문장 재료에 담는다.
+    case_refs:
+    - G1
+    evidence_status: requirement_reference
+  /properties/sentence:
+    title: 문장
+    meaning: 검토된 문장.
+    why: 위험 안내처럼 지어내면 안 되는 말을 검토된 문장으로 고정한다.
+    case_refs:
+    - G1
+    evidence_status: requirement_reference

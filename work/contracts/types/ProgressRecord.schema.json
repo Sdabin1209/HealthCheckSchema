@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "last_directive": {
+      "anyOf": [
+        {
+          "$ref": "Directive.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "open_requests": {
+      "$ref": "OpenRequests.schema.json"
+    },
+    "skipped": {
+      "type": "array",
+      "items": {
+        "$ref": "SkipEntry.schema.json"
+      }
+    },
+    "confirm_stopped": {
+      "type": "array",
+      "items": {
+        "$ref": "SlotRef.schema.json"
+      }
+    },
+    "session_status": {
+      "$ref": "SessionStatus.schema.json"
+    },
+    "pause_history": {
+      "type": "array",
+      "items": {
+        "$ref": "PauseEntry.schema.json"
+      }
+    }
+  },
+  "required": [
+    "last_directive",
+    "open_requests",
+    "skipped",
+    "confirm_stopped",
+    "session_status",
+    "pause_history"
+  ],
+  "additionalProperties": false
+}

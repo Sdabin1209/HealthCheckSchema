@@ -1,0 +1,346 @@
+definition: LogEntry
+nodes:
+  ? ''
+  : title: 대화 로그 항목
+    meaning: 턴마다 한 건. 이번 턴에 오간 경계 값을 판단 없이 모은 것.
+    why: 업무 결과가 기대와 다를 때 원문 입력과 확보된 경계 출력을 대조하여 문제 단계와 실패 결과를 추적할 수 있어야 한다. 전체 원본 입출력과 저장 전후 상태는 별도 TurnTrace 계약으로
+      기록한다.
+    case_refs:
+    - J2
+    - G5
+    - J6
+    evidence_status: requirement_reference
+  /properties/input:
+    title: 입력
+    meaning: 이번 턴 입력.
+    why: Trace는 입력에서 시작한다. 같은 입력을 다시 넣어 재현할 수 있다.
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/input/properties/kind:
+    title: 종류
+    meaning: 입력 종류.
+    why: 같은 입력을 다시 넣어 문제를 재현하려면 입력의 종류를 알아야 한다.
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/input/properties/utterance:
+    title: 발화
+    meaning: 발화면 원문.
+    why: 모델 판단을 원문과 대조한다(J6).
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/input/properties/utterance/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 발화가 아닌 턴이다(A1 세션 시작 신호, F4 개입 결정). 발화와 개입 결정 중 하나만 차므로, 없음이 로그만 보고도 턴 종류를 확인하게 한다.
+    case_refs:
+    - A1
+    - F4
+    evidence_status: requirement_reference
+  /properties/input/properties/intervention_decision:
+    title: 개입 결정
+    meaning: 개입 결정이면 그 결정.
+    why: 직원이 무엇을 보냈는지 남긴다(J4).
+    case_refs:
+    - F4
+    - J4a
+    evidence_status: requirement_reference
+  /properties/input/properties/intervention_decision/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 직원이 보낸 결정이 아닌 턴이다(A1 시작 신호, B1 발화). F4·J4a처럼 개입 결정 턴에만 찬다.
+    case_refs:
+    - A1
+    - B1
+    evidence_status: requirement_reference
+  /properties/handling:
+    title: 처리
+    meaning: 처리 표의 결과.
+    why: 왜 처리하지 않았는지 남긴다(G5).
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/handling/oneOf/0:
+    title: 처리함
+    meaning: 턴 종류.
+    why: 처리한 턴은 어떤 종류로 처리했는지 남긴다.
+    case_refs:
+    - A1
+    - B1
+    - F4
+    evidence_status: requirement_reference
+  /properties/handling/oneOf/0/properties/handled:
+    title: 턴 종류
+    meaning: 턴 종류.
+    why: 어떤 턴 종류로 처리했는지 남겨 처리 표가 맞게 적용됐는지 확인한다.
+    case_refs:
+    - A1
+    - B1
+    - F4
+    evidence_status: requirement_reference
+  /properties/handling/oneOf/1:
+    title: 처리 안 함
+    meaning: 처리하지 않음.
+    why: 처리하지 않은 입력(멈춘 동안의 말 등)도 남겨, 직원이 그동안 사용자가 한 말을 확인할 수 있게 한다.
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/question_bank_version:
+    title: 문항 정의 버전
+    meaning: 이 턴에 쓴 버전.
+    why: 같은 입력이라도 문항 정의 버전에 따라 결과가 다르므로, 재현하려면 그 턴의 버전을 알아야 한다.
+    case_refs:
+    - J1
+    evidence_status: requirement_reference
+  /properties/turn_result:
+    title: 턴 결과
+    meaning: 확정 / 실패(단계들) / 해당 없음(처리 안 함).
+    why: 턴이 확정됐는지, 실패했다면 어디서인지 남겨 장애를 진단한다.
+    case_refs:
+    - J2
+    - G5
+    evidence_status: requirement_reference
+  /properties/turn_result/oneOf/0:
+    title: 확정
+    meaning: 정상.
+    why: 정상으로 끝난 턴을 실패한 턴과 구분해 진단 대상에서 뺀다.
+    case_refs:
+    - A1
+    - B1
+    - F1
+    evidence_status: requirement_reference
+  /properties/turn_result/oneOf/1:
+    title: 해당 없음
+    meaning: 처리 안 함.
+    why: 처리하지 않은 턴은 성공도 실패도 아니다.
+    case_refs:
+    - G5
+    evidence_status: requirement_reference
+  /properties/turn_result/oneOf/2:
+    title: 실패
+    meaning: 실패.
+    why: 실패한 턴도 남겨야 원인을 찾는다.
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/turn_result/oneOf/2/properties/failed_steps:
+    title: 실패한 단계
+    meaning: 단계들.
+    why: 확정 뒤 단계가 여럿 실패할 수 있다(직원 알림과 LoRA-B).
+    case_refs:
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_output:
+    title: LoRA-A 출력
+    meaning: 이번 턴에 만들어진 것만. 없으면 없음.
+    why: 사용자가 한 말과 LoRA-A가 뽑은 항목을 맞대 보아, 틀린 곳이 모델의 해석인지 그 뒤의 코드인지 가린다(J6, J7a).
+    case_refs:
+    - J6
+    - J2
+    evidence_status: requirement_reference
+  /properties/parser_output/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: LoRA-A가 돌지 않은 턴이다(A1 세션 시작, F4 개입 종료, G5 처리 안 함). 9-1절 1의 "Plan(…)"이 LoRA-A~저장 판단을 건너뛰므로 이 칸이 빈다.
+    case_refs:
+    - A1
+    - F4
+    - G5
+    evidence_status: requirement_reference
+  /properties/normalizer_output:
+    title: 정규화·검증 출력
+    meaning: 이번 턴 정규화·검증 컴포넌트의 검증된 출력. 출력 생성 전 실패하거나 수행하지 않았으면 null.
+    why: 항목의 원문 값과 표준 값을 맞대 보아, 단위 환산·범위 검사·선행 조건 판단이 틀렸는지 가린다(B3, B4, J6).
+    case_refs:
+    - J6
+    - J2
+    evidence_status: requirement_reference
+  /properties/normalizer_output/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 정규화·검증이 돌지 않은 턴이다(A1·F4 Plan만 도는 턴, J8b 앞 단계인 LoRA-A에서 실패). 앞 칸은 차 있고 이 칸부터 비면 어디까지 돌았는지가 로그만으로 보인다(J6).
+    case_refs:
+    - A1
+    - F4
+    - J8b
+    evidence_status: requirement_reference
+  /properties/judge_output:
+    title: 상태 판정 출력
+    meaning: 이번 턴 상태 판정 컴포넌트의 검증된 출력. 출력 생성 전 실패하거나 수행하지 않았으면 null.
+    why: 같은 검사 결과에서 정상·정정·충돌·애매 중 무엇이 나왔는지 남겨, 해석 규칙(6절)이 틀렸는지 가린다(C1, C3, J6).
+    case_refs:
+    - J6
+    - J2
+    evidence_status: requirement_reference
+  /properties/judge_output/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 상태 판정이 돌지 않은 턴이다(A1·F4 Plan만 도는 턴, J8c 정규화·검증에서 실패). J2는 Plan 결정에서 실패해 이 칸이 차 있으므로, 둘을 견주면 실패 지점이 좁혀진다.
+    case_refs:
+    - A1
+    - F4
+    - J8c
+    evidence_status: requirement_reference
+  /properties/record_writer_output:
+    title: 저장 판단 출력
+    meaning: 이번 턴 저장 판단 컴포넌트의 검증된 출력. 결정이 실제 확정됐는지는 턴 결과·실패 시점으로 구분한다.
+    why: 판정과 실제 쓰기를 맞대 보아, "답을 말했는데 저장이 안 됐다"는 신고에서 판정이 틀렸는지 쓰기가 틀렸는지 가린다(B1, J6).
+    case_refs:
+    - J6
+    - J2
+    evidence_status: requirement_reference
+  /properties/record_writer_output/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 저장 판단이 돌지 않은 턴이다(A1·F4 Plan만 도는 턴, J8d 상태 판정에서 실패). Plan만 도는 턴에는 펼칠 판정이 없다(9-1절 1).
+    case_refs:
+    - A1
+    - F4
+    - J8d
+    evidence_status: requirement_reference
+  /properties/directive:
+    title: 응답 지시
+    meaning: 이번 턴 Plan이 만든 응답 지시. 생성되지 않았으면 null. 응답 생성·전달의 성공을 뜻하지 않는다.
+    why: 사용자가 들은 말과 Plan이 시킨 말을 맞대 보아, 틀린 곳이 대화 정책인지 LoRA-B인지 가린다(J6, J7c).
+    case_refs:
+    - J6
+    evidence_status: requirement_reference
+  /properties/directive/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: Plan 결정까지 가지 못한 턴이다(J2 Plan 결정에서 실패, J8b LoRA-A에서 실패). 응답 지시가 없으면 LoRA-B도 돌지 않아 응답 문장도 함께 비므로, 두 칸으로 실패
+      지점을 가린다(J6).
+    case_refs:
+    - J2
+    - J8b
+    evidence_status: requirement_reference
+  /properties/flow:
+    title: 흐름
+    meaning: 이번 턴 Plan이 낸 CONTINUE 또는 END. Plan 출력이 없으면 null. 후속 전달 성공과는 별개다.
+    why: 세션을 닫은 턴이 어느 턴인지 남겨, 결과가 넘어가지 않았다는 신고에서 Plan이 끝내지 않은 것인지 결과 전달이 실패한 것인지 가린다(H2, J5).
+    case_refs:
+    - J6
+    evidence_status: requirement_reference
+  /properties/flow/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: Plan이 흐름을 내지 못했거나 Plan을 부르지 않은 턴이다(J2 Plan 결정에서 실패, G5 처리 안 함). 흐름이 없으면 LangGraph가 결과 전달을 부르지 않으므로, 실패한
+      턴에 결과가 넘어가지 않는다.
+    case_refs:
+    - J2
+    - G5
+    evidence_status: requirement_reference
+  /properties/progress_record_update:
+    title: 진행 기록 갱신
+    meaning: 이번 턴 Plan이 만든 진행 기록 갱신안. 실제 반영 여부는 쓰기 확정 결과와 함께 확인한다.
+    why: 다음 턴이 엉뚱한 것을 물었다는 신고에서, 진행 기록이 어떻게 바뀌었는지 있어야 그 계산의 입력을 되살릴 수 있다(원칙 7, J6).
+    case_refs:
+    - J6
+    evidence_status: requirement_reference
+  /properties/progress_record_update/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 진행 기록 갱신이 만들어지지 않은 턴이다(J2, G5). 0-1절 2대로 한 턴의 쓰기가 통째로 반영되지 않았음을 로그로 확인한다.
+    case_refs:
+    - J2
+    - G5
+    evidence_status: requirement_reference
+  /properties/staff_alert:
+    title: 직원 알림
+    meaning: 이번 턴 Plan이 만든 직원 알림. 알림이 없거나 Plan을 만들지 못했으면 null. 전달 성패는 staff_alert_delivery로 확인한다.
+    why: 직원이 오지 않았다는 신고에서 알림을 만들기는 했는지 가린다. 만든 뒤의 전달 성패는 직원 알림 전달 칸에 따로 있다(F1, J3).
+    case_refs:
+    - J6
+    evidence_status: requirement_reference
+  /properties/staff_alert/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 직원 알림이 없는 턴이다(B1 정상, J2 확정 전 실패). F1·G1처럼 위험·도움 요청·사람 요청 턴에만 차므로, 없음이 "사람을 부르지 않았음"을 남긴다.
+    case_refs:
+    - B1
+    - J2
+    evidence_status: requirement_reference
+  /properties/response_text:
+    title: 응답 문장
+    meaning: 생성해 프론트에 전달하려고 한 응답 문장. 전달 실패 시 실제 청취는 보장되지 않는다.
+    why: 응답 생성 오류와 프론트 전달 실패를 구분해 조사한다. 생성한 문장과 전달 성공은 다른 사실이다(J6, J8h).
+    case_refs:
+    - J6
+    - J8h
+    evidence_status: requirement_reference
+  /properties/response_text/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 응답 문장이 나가지 않은 턴이다(J2 Plan 결정에서 실패, G5 처리 안 함, J8g LoRA-B에서 실패). 로그에 빈 칸으로 남아야 "아무 말도 안 나왔다"는 신고를 가린다.
+    case_refs:
+    - J2
+    - G5
+    - J8g
+    evidence_status: requirement_reference
+  /properties/staff_alert_delivery:
+    title: 직원 알림 전달
+    meaning: LangGraph가 알림을 전달한 결과.
+    why: 직원 알림이 실제로 갔는지 남겨, 직원이 오지 않았다는 신고를 가린다.
+    case_refs:
+    - F1
+    - J3
+    - B1
+    evidence_status: requirement_reference
+  /properties/staff_alert_delivery/oneOf/0:
+    title: 성공
+    meaning: 직원 알림을 전달함
+    why: 직원 알림이 실제로 갔음을 남겨, 직원이 오지 않았다는 신고를 가릴 수 있게 한다.
+    case_refs:
+    - F1
+    - J8g
+    evidence_status: requirement_reference
+  /properties/staff_alert_delivery/oneOf/1:
+    title: 실패
+    meaning: 전달하지 못함
+    why: 직원 알림이 가지 않았다는 것을 남겨, 직원이 오지 않은 까닭을 나중에 가린다.
+    case_refs:
+    - J3
+    evidence_status: requirement_reference
+  /properties/staff_alert_delivery/oneOf/2:
+    title: 해당 없음
+    meaning: 보낼 알림이 없었음
+    why: 알림이 없던 턴을 전달 실패와 구분한다.
+    case_refs:
+    - B1
+    - A1
+    - J8f
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal:
+    title: 턴 실패 신호
+    meaning: 낸 것. 없으면 없음.
+    why: 사용자·직원이 실패를 어떻게 전달받았는지 남겨야 "아무 말도 안 나왔다"는 신고를 가린다.
+    case_refs:
+    - J2
+    - B1
+    evidence_status: requirement_reference
+  /properties/turn_failure_signal/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 실패하지 않은 턴이다(B1, A1). J2·J3의 로그와 견주어 어느 턴이 실패했는지 가린다.
+    case_refs:
+    - B1
+    - A1
+    evidence_status: requirement_reference
+  /properties/intervention_result:
+    title: 개입 결정 결과
+    meaning: 낸 것. 없으면 없음.
+    why: 직원이 "재개를 눌렀는데 안 됐다"고 할 때 반영 여부를 확인한다.
+    case_refs:
+    - F4
+    - J4a
+    evidence_status: requirement_reference
+  /properties/intervention_result/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 개입 결정이 들어오지 않은 턴이다(B1 발화, A1 세션 시작). F4·J4a처럼 결정이 들어온 턴에만 찬다.
+    case_refs:
+    - B1
+    - A1
+    evidence_status: requirement_reference

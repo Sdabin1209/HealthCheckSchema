@@ -1,0 +1,119 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "attempt_counts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "QuestionId.schema.json"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "question_id",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "confirm_counts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "SlotRef.schema.json"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "slot",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "unknown_counts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "QuestionId.schema.json"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "question_id",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "refusal_counts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_id": {
+            "$ref": "QuestionId.schema.json"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "question_id",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "unrecognized_streak": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "ask_counts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "subject": {
+            "$ref": "AskSubject.schema.json"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "required": [
+          "subject",
+          "count"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "attempt_counts",
+    "confirm_counts",
+    "unknown_counts",
+    "refusal_counts",
+    "unrecognized_streak",
+    "ask_counts"
+  ],
+  "additionalProperties": false
+}

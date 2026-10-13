@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "frontend_input": {
+      "anyOf": [
+        {
+          "$ref": "../frontend/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intervention_decision": {
+      "anyOf": [
+        {
+          "$ref": "../staff_console/output.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_found": {
+      "type": "boolean"
+    },
+    "session_question_bank_version": {
+      "anyOf": [
+        {
+          "type": "integer",
+          "minimum": 0
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_status": {
+      "anyOf": [
+        {
+          "$ref": "../../types/SessionStatus.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "latest_question_bank_version": {
+      "type": "integer",
+      "minimum": 0
+    }
+  },
+  "required": [
+    "frontend_input",
+    "intervention_decision",
+    "session_found",
+    "session_question_bank_version",
+    "session_status",
+    "latest_question_bank_version"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "oneOf": [
+        {
+          "properties": {
+            "frontend_input": {
+              "not": {
+                "enum": [
+                  null
+                ]
+              }
+            },
+            "intervention_decision": {
+              "enum": [
+                null
+              ]
+            }
+          }
+        },
+        {
+          "properties": {
+            "frontend_input": {
+              "enum": [
+                null
+              ]
+            },
+            "intervention_decision": {
+              "not": {
+                "enum": [
+                  null
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "if": {
+        "properties": {
+          "session_found": {
+            "enum": [
+              false
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "session_status": {
+            "enum": [
+              null
+            ]
+          },
+          "session_question_bank_version": {
+            "enum": [
+              null
+            ]
+          }
+        }
+      },
+      "else": {
+        "properties": {
+          "session_status": {
+            "not": {
+              "enum": [
+                null
+              ]
+            }
+          },
+          "session_question_bank_version": {
+            "not": {
+              "enum": [
+                null
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

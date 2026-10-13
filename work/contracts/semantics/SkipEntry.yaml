@@ -1,0 +1,29 @@
+definition: SkipEntry
+nodes:
+  ? ''
+  : title: 건너뜀 항목
+    meaning: 더 묻지 않기로 한 문항과 사유.
+    why: 결과에 왜 답이 없는지 남기고, 다시 묻지 않는다(B7, B8, B10).
+    case_refs:
+    - B10
+    - B8b
+    - X7
+    evidence_status: requirement_reference
+  /properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: 어느 문항을 더 묻지 않는지 알아야 열린 문항에서 빼고 결과에 남긴다.
+    case_refs:
+    - B10
+    - B8b
+    - X7
+    evidence_status: requirement_reference
+  /properties/reason:
+    title: 사유
+    meaning: 건너뜀 사유.
+    why: 결과를 받는 의료진이 답이 없는 까닭(모름·거절·시도 초과)을 구분해 본다.
+    case_refs:
+    - B10
+    - B8b
+    - X7
+    evidence_status: requirement_reference

@@ -1,0 +1,11 @@
+definition: Target
+nodes:
+  ? ''
+  : title: 대상
+    meaning: 슬롯 하나 또는 문항 전체.
+    why: 항목·판정·응답 지시가 슬롯과 문항 전체를 같은 자리에서 가리켜야 한다.
+    case_refs:
+    - A2
+    - R11
+    - S3b
+    evidence_status: requirement_reference

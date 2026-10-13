@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "$ref": "NoticeKind.schema.json"
+    },
+    "guide_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "question_id": {
+      "anyOf": [
+        {
+          "$ref": "QuestionId.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "question_name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "slot": {
+      "anyOf": [
+        {
+          "$ref": "SlotRef.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "previous_value": {
+      "anyOf": [
+        {
+          "$ref": "Value.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value": {
+      "anyOf": [
+        {
+          "$ref": "Value.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    },
+    "previous_value_metadata": {
+      "$ref": "ValueMetadata.schema.json"
+    }
+  },
+  "required": [
+    "kind",
+    "guide_id",
+    "question_id",
+    "question_name",
+    "slot",
+    "previous_value",
+    "value"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,11 @@
+definition: RevisionToken
+nodes:
+  ? ''
+  : title: ''
+    meaning: 저장 상태 버전의 불투명 토큰. 정수 카운터와 문자열 토큰을 표현하며 정확한 DB 프로토콜은 채택 합의가 필요하다.
+    why: 저장 상태 버전의 불투명 토큰. 정수 카운터와 문자열 토큰을 표현하며 정확한 DB 프로토콜은 채택 합의가 필요하다.
+    case_refs:
+    - T5
+    - T6
+    - T7
+    evidence_status: requirement_reference

@@ -1,0 +1,91 @@
+definition: SayValue
+nodes:
+  ? ''
+  : title: 말할 값
+    meaning: 응답에서 말할 값 하나와 그 이름.
+    why: 응답 생성기가 허용된 값만 말하고 그 값을 올바른 이름으로 표현하도록, 값과 표시 이름을 함께 전달해야 한다.
+    case_refs:
+    - B2
+    - C3
+    - B3a
+    evidence_status: requirement_reference
+  /properties/slot:
+    title: 슬롯
+    meaning: 값의 슬롯.
+    why: 같은 문항에 칸이 여럿이면 어느 칸의 값인지 있어야 LoRA-B가 맞는 이름과 함께 말한다.
+    case_refs:
+    - B2
+    - C3
+    - R8
+    evidence_status: requirement_reference
+  /properties/question_name:
+    title: 문항 이름
+    meaning: 문항 정의의 문항 이름.
+    why: LoRA-B가 "흡연량을 …"처럼 말하려면 이름이 필요하다. LoRA-B는 문항 정의를 받지 않는다.
+    case_refs:
+    - J7d
+    evidence_status: requirement_reference
+  /properties/value:
+    title: 값
+    meaning: 말할 값. 역할이 이번에 말한 값이면 원문 문자열을 선택지 값 자리에 넣는다.
+    why: LoRA-B는 값을 지어내지 않고 이 값만 말한다. 애매한 말은 사용자 원문 그대로 짚어야 하므로 원문 문자열을 넣는다.
+    case_refs:
+    - B2
+    - B3a
+    - C3
+    evidence_status: requirement_reference
+  /properties/role:
+    title: 역할
+    meaning: 이 값이 무엇인지.
+    why: LoRA-B가 "기존 답은 열 개, 이번에 스무 개"처럼 값의 성격을 말해야 한다.
+    case_refs:
+    - B2
+    - C3
+    - B3a
+    evidence_status: requirement_reference
+  /properties/role/oneOf/0:
+    title: 현재값
+    meaning: 응답 기록.현재값
+    why: '기존 답을 말해야 하는 경우: 확인 대기 확인의 기존 답, 정정 구체화에서 지금 답, 구체화 요청에서 맞지 않는 상대 슬롯의 답.'
+    case_refs:
+    - C3
+    - C6a
+    - R20
+    - S8f
+    evidence_status: requirement_reference
+  /properties/role/oneOf/1:
+    title: 확인 대기 값
+    meaning: 응답 기록.확인 대기 값
+    why: 확인 대기 확인에서 "새로 말씀하신 값"으로 말해 기존 답과 구분한다.
+    case_refs:
+    - C3
+    - C8b
+    - R8
+    evidence_status: requirement_reference
+  /properties/role/oneOf/2:
+    title: 방금 저장
+    meaning: 저장 결과 요약.값이 바뀐 슬롯의 새 값
+    why: 빠진 칸을 물을 때 이미 받은 값을 말해 무엇이 남았는지 알게 한다.
+    case_refs:
+    - B2
+    - E3b
+    - S8b
+    evidence_status: requirement_reference
+  /properties/role/oneOf/3:
+    title: 이번에 말한 값
+    meaning: 판정.이번에 말한 값
+    why: 구체화 요청에서 사용자가 한 말을 그대로 짚어야 무엇이 애매했는지 안다.
+    case_refs:
+    - B3a
+    - B4
+    - B5
+    - B10
+    evidence_status: requirement_reference
+  /properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 정규화·판정·저장·확인 후보·응답 재료에서 정밀도와 근거가 사라지지 않아야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference

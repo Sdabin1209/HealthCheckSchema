@@ -1,0 +1,32 @@
+definition: Flow
+nodes:
+  ? ''
+  : title: 흐름
+    meaning: 이번 턴 뒤 세션을 닫을지.
+    why: LangGraph가 결과 전달을 부르고 세션을 닫는다(H2, D5, F4, A4).
+    case_refs:
+    - A4a
+    - H2
+    - G8b
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 계속
+    meaning: 이어 감
+    why: 대부분의 턴은 세션을 닫지 않고 다음 입력을 기다려야 한다.
+    case_refs:
+    - G8b
+    - H3b
+    - H3c
+    - R21
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 종료
+    meaning: 닫음
+    why: 끝내는 턴(종료 확인·중단 확인 승낙, 개입 종료, 이탈 종료)에는 결과를 넘기고 세션을 닫아야 한다. 닫힌 세션은 다시 처리되지
+      않으므로 결과를 넘길 기회는 이때뿐이다.
+    case_refs:
+    - A4a
+    - D5a
+    - F4
+    - H2
+    evidence_status: requirement_reference

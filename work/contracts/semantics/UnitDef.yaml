@@ -1,0 +1,93 @@
+definition: UnitDef
+nodes:
+  ? ''
+  : title: 단위 정의
+    meaning: 슬롯이 받는 단위 하나.
+    why: 정규화가 "한 갑" → 20개비, "두 번"(단위 하나) → 주 2회처럼 표준화하려면 단위와 다른 이름·환산이 정의에 있어야 한다(B3, 정규화 규칙 1).
+    case_refs:
+    - C1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/name:
+    title: 이름
+    meaning: 단위 이름. 표준 값의 단위로 쓴다.
+    why: 표준 값과 범위가 이 이름의 단위로 정해진다.
+    case_refs:
+    - C1
+    - B3b
+    - B1
+    evidence_status: requirement_reference
+  /properties/synonyms:
+    title: 다른 이름
+    meaning: 같은 단위를 가리키는 말(개 = 개비).
+    why: 다른 이름은 다른 단위가 아니므로 "단위 없음"을 만들지 않는다.
+    case_refs:
+    - C1
+    - C3
+    - C4b
+    evidence_status: requirement_reference
+  /properties/range:
+    title: 범위
+    meaning: 이 단위로 센 값의 가능한 범위 [최소, 최대]. 환산이 있는 단위면 없음(환산한 단위의 범위를 쓴다).
+    why: 잘못 들었거나 잘못 말한 값을 저장하지 않는다(B3 "서른 시간"). 서로 환산되지 않는 단위는 범위가 달라 단위마다 둔다.
+    case_refs:
+    - B3a
+    evidence_status: requirement_reference
+  /properties/range/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 환산이 있는 단위다(문항 정의의 Q2 "갑" → 개비 20배). 5절 1이 환산한 단위의 값으로 표준화하므로 범위도 그 단위 쪽에만 둔다. 여기 범위를 두면 같은 제약이 두 곳에 생긴다.
+    case_refs:
+    - C3
+    - C1
+    evidence_status: requirement_reference
+  /properties/convert_to:
+    title: 환산
+    meaning: 다른 단위로 바꿀 수 있으면 그 단위와 배수(갑 → 개비 20). 없으면 없음.
+    why: 환산되는 값은 한 단위로 저장해야 같음·다름과 범위를 비교할 수 있다.
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/convert_to/anyOf/0:
+    title: 환산 내용
+    meaning: 단위와 배수.
+    why: 환산은 바꿀 단위와 배수 두 값이 있어야 계산된다.
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/convert_to/anyOf/0/properties/unit:
+    title: 단위
+    meaning: 바꿀 단위 이름.
+    why: 환산한 값이 어느 단위가 되는지 있어야 저장 값의 단위가 정해진다(갑 → 개비).
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/convert_to/anyOf/0/properties/factor:
+    title: 배수
+    meaning: 이 단위 1이 그 단위 몇인지.
+    why: 이 단위 하나가 바꿀 단위로 얼마인지 있어야 수를 바꾼다(한 갑 = 20개비).
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/convert_to/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 다른 단위로 바꿀 수 없는 단위다(Q5 "시간", Q3b "주 n회"·"월 n회"). 서로 환산되지 않는 단위가 있어서 없음이 필요하다.
+    case_refs:
+    - B1
+    - B3a
+    evidence_status: requirement_reference
+  /properties/code:
+    title: ''
+    meaning: 저장·비교에 사용하는 안정적인 식별 코드. 표시 이름으로 임의 생성하지 않는다.
+    why: 표시 단위 이름을 변경해도 단위의 식별 코드가 유지되어야 한다.
+    case_refs:
+    - T3
+    evidence_status: requirement_reference
+  /properties/convert_to/anyOf/0/properties/unit_code:
+    title: ''
+    meaning: 환산 대상 단위의 등록 코드. unit은 표시 이름이다.
+    why: 환산 대상의 표시 이름과 식별 코드를 따로 전달해야 한다.
+    case_refs:
+    - T3
+    evidence_status: requirement_reference

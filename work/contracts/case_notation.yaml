@@ -1,0 +1,299 @@
+version: 2
+vocabularies:
+  Intent:
+    답함: ANSWERED_INTENT
+    정정: CORRECTION_MARKED
+    확인-긍정: CONFIRM_YES
+    확인-부정: CONFIRM_NO
+    모름: SAYS_UNKNOWN
+    거절: SAYS_REFUSAL
+    진행 조작: PROGRESS_OP
+    안내 요청: GUIDE_REQUEST
+    사람 요청: USER_CALLED_STAFF
+    무관: OUT_OF_SCOPE
+    인식불가: UNRECOGNIZED
+    위험 신호: RISK_SIGNAL
+  Problem:
+    단위 없음: NO_UNIT
+    범위 밖: OUT_OF_RANGE
+    모호함: AMBIGUOUS
+    다른 답과 맞지 않음: MISMATCH
+    정의에 없는 대상: UNKNOWN_TARGET
+  Reason:
+    단위 없음: NO_UNIT
+    범위 밖: OUT_OF_RANGE
+    모호함: AMBIGUOUS
+    다른 답과 맞지 않음: MISMATCH
+    인식불가: UNRECOGNIZED
+    필수 슬롯 누락: MISSING_SLOT
+  JudgmentStatus:
+    정상: ANSWERED
+    누락: MISSING
+    애매: UNCLEAR
+    충돌: CONFLICT
+    정정: CORRECTION
+    모름: UNKNOWN
+    거절: REJECTED
+    선행 불충족: PREREQUISITE_UNMET
+  UtteranceResult:
+    응답 있음: HAS_ANSWER
+    요청만: REQUEST_ONLY
+    무관만: OUT_OF_SCOPE_ONLY
+    알아듣지 못함: UNRECOGNIZED_TURN
+  AskAction:
+    다음 문항 묻기: ASK_NEXT
+    빠진 슬롯 되묻기: ASK_MISSING
+    구체화 요청: ASK_CLARIFY
+    확인 대기 확인: ASK_CONFIRM
+    모름 뒤 재질문: ASK_AFTER_UNKNOWN
+    거절 시 설명 후 재질문: ASK_AFTER_REFUSAL
+    정정 구체화: ASK_CORRECTION_TARGET
+    종료 확인: ASK_FINISH
+    중단 확인: ASK_STOP
+  Action:
+    다음 문항 묻기: ASK_NEXT
+    빠진 슬롯 되묻기: ASK_MISSING
+    구체화 요청: ASK_CLARIFY
+    확인 대기 확인: ASK_CONFIRM
+    모름 뒤 재질문: ASK_AFTER_UNKNOWN
+    거절 시 설명 후 재질문: ASK_AFTER_REFUSAL
+    정정 구체화: ASK_CORRECTION_TARGET
+    종료 확인: ASK_FINISH
+    중단 확인: ASK_STOP
+    다시 말씀 요청: ASK_REPEAT
+    도움 요청: CALL_STAFF
+    무관 안내 후 다시 묻기: REDIRECT
+    위험 안내: RISK_NOTICE
+    대기 안내: WAIT_NOTICE
+    사람 연결 안내: STAFF_NOTICE
+    종료 인사: FAREWELL
+  StoreAction:
+    첫 저장: FIRST_WRITE
+    새 revision: NEW_REVISION
+    모름 기록: RECORD_UNKNOWN
+    거절 기록: RECORD_REFUSAL
+    확인 대기 둠: SET_PENDING
+    확인 대기 받아들임: ACCEPT_PENDING
+    확인 대기 버림: DROP_PENDING
+    무효화: INVALIDATE
+  SkipReason:
+    모름 수용: UNKNOWN_ACCEPTED
+    거절 수용: REFUSAL_ACCEPTED
+    시도 초과: ATTEMPTS_EXCEEDED
+  SessionStatus:
+    진행 중: IN_PROGRESS
+    일시 중지(위험): PAUSED_RISK
+    종료(완료): ENDED_COMPLETE
+    '종료(미완료: 개입 종료)': ENDED_STAFF
+    '종료(미완료: 이탈)': ENDED_LEFT
+    '종료(미완료: 사용자 중단)': ENDED_USER_STOP
+  TurnKind:
+    세션 시작: SESSION_START
+    발화: UTTERANCE
+    재개: RESUME
+    개입 종료: INTERVENTION_END
+    이탈 종료: END_LEFT
+  RiskResponse:
+    즉시: IMMEDIATE
+    결과 표시: ON_RESULT
+  AlertKind:
+    위험: RISK
+    도움 요청: CALL_STAFF
+    사람 요청: USER_CALLED_STAFF
+  PauseKind:
+    일시 중지: PAUSE
+    재개: RESUME
+  ProgressOp:
+    반복: REPEAT
+    대기: WAIT
+    나중에: LATER
+    중단: STOP
+  RequestKind:
+    반복: REPEAT
+    대기: WAIT
+    나중에: LATER
+    중단: STOP
+    안내: GUIDE
+    사람: STAFF_REQUEST
+  FillValue:
+    남은 문항 수: REMAINING_COUNT
+  Flow:
+    계속: CONTINUE
+    종료: END
+  Decision:
+    재개: RESUME
+    종료: END
+  InputKind:
+    세션 시작 신호: SESSION_START
+    발화: UTTERANCE
+    개입 결정: INTERVENTION
+    세션 종료 신호: SESSION_END
+  ItemCheck/properties/vs_current:
+    같음: EQUAL
+    다름: DIFFERENT
+    현재 값 없음: NO_CURRENT
+    해당 없음: NOT_APPLICABLE
+  ItemCheck/properties/vs_pending:
+    같음: EQUAL
+    다름: DIFFERENT
+    확인 대기 없음: NO_PENDING
+    해당 없음: NOT_APPLICABLE
+  Judgment/properties/pending_handling:
+    새로 둠: CREATE
+    받아들임: ACCEPT
+    버림: DROP
+    없음: NONE
+  UtteranceJudgment/properties/confirmation:
+    승낙: 'YES'
+    거부: 'NO'
+    없음: NONE
+  ChangedSlot/properties/kind:
+    첫 답: FIRST_ANSWER
+    정정: CORRECTION
+  StoreSummary/properties/unknown_refused_records/items/properties/record:
+    모름: UNKNOWN_RECORD
+    거절: REFUSAL_RECORD
+  StoreSummary/properties/resolved_pendings/items/properties/handling:
+    받아들임: ACCEPT
+    버림: DROP
+    대체: REPLACE
+  SayValue/properties/role:
+    현재값: CURRENT
+    확인 대기 값: PENDING
+    방금 저장: JUST_SAVED
+    이번에 말한 값: SAID
+  NoticeKind:
+    정정 받았음: CORRECTION_ACK
+    기존 답 유지: KEPT_PREVIOUS
+    재개: RESUME
+    문진 중단: SURVEY_STOPPED
+    안내: GUIDE
+    미룸: DEFERRED
+  FixedSentenceKey:
+    다시 말씀 요청: ASK_REPEAT
+    무관 안내: OOS_NOTICE
+    도움 요청: CALL_STAFF
+    종료 인사: FAREWELL
+    확인 대기 확인: ASK_CONFIRM
+    정정 구체화: ASK_CORRECTION_TARGET
+    종료 확인: ASK_FINISH
+    위험 안내: RISK_NOTICE
+    재개: RESUME
+    문진 중단: SURVEY_STOPPED
+    대기 안내: WAIT_NOTICE
+    중단 확인: ASK_STOP
+    사람 연결 안내: STAFF_NOTICE
+    미룸: DEFERRED
+  PauseReason:
+    종류: RISK_SIGNAL
+    위험 기준: RISK_RULE
+  StaffAlertReason:
+    종류: USER_CALLED_STAFF
+    위험 기준: RISK_RULE
+  AskSubject/oneOf/1/properties/untargeted:
+    종료 확인: ASK_FINISH
+    중단 확인: ASK_STOP
+    정정 구체화: ASK_CORRECTION_TARGET
+  OpenRequests/properties/deferred/items/properties/kind:
+    문항: QUESTION
+    확인 대기: PENDING
+    정정 요청: CORRECTION_REQUEST
+  FrontendMessage:
+    종류: SESSION_END
+  TurnFailureSignal/properties/write_committed:
+    됨: COMMITTED
+    안 됨: NOT_COMMITTED
+  TurnFailureSignal/properties/staff_alert:
+    없음: NONE
+    전달됨: DELIVERED
+    전달 실패: DELIVERY_FAILED
+  InterventionResult/properties/result:
+    반영됨: APPLIED
+    반영 안 됨(처리 안 함): IGNORED
+    반영 안 됨(실패): FAILED
+  RiskRule/properties/operator:
+    ? ''
+    : '>='
+  CurrentValue:
+    모름: UNKNOWN_RECORD
+    거절: REFUSAL_RECORD
+    없음: NONE
+  FailedStep/properties/phase:
+    확정 전: BEFORE_COMMIT
+    확정 뒤: AFTER_COMMIT
+  FailedStep/properties/step:
+    ? ''
+    : LoRA-B
+    정규화·검증: NORMALIZE
+    상태 판정: JUDGE
+    저장 판단: RECORD_WRITE
+    Plan 결정: PLAN
+    쓰기 확정: COMMIT
+    직원 알림 전달: DELIVER_STAFF
+    프론트 전달: DELIVER_FRONT
+  LogEntry/properties/handling:
+    처리 안 함: IGNORED
+  LogEntry/properties/turn_result:
+    확정: COMMITTED
+    해당 없음: NOT_APPLICABLE
+  LogEntry/properties/staff_alert_delivery:
+    성공: SUCCESS
+    실패: FAILURE
+    해당 없음: NOT_APPLICABLE
+  FaultInjectionStep:
+    세션 정보 생성: CREATE_SESSION
+    ? ''
+    : LoRA-B
+    정규화·검증: NORMALIZE
+    상태 판정: JUDGE
+    저장 판단: RECORD_WRITE
+    Plan 결정: PLAN
+    쓰기 확정: COMMIT
+    직원 알림 전달: DELIVER_STAFF
+    프론트 전달: DELIVER_FRONT
+field_encodings:
+  JudgeOutput:
+    judgments[].status:
+      없음: null
+representation_conventions:
+  field_values:
+    FrontendMessage/properties/kind: &id001
+      세션 시작: SESSION_START
+      세션 종료: SESSION_END
+    OrchestratorInput/properties/session_found:
+      없음: false
+      진행 중: true
+      일시 중지(위험): true
+      종료(완료): true
+      '종료(미완료: 개입 종료)': true
+      '종료(미완료: 이탈)': true
+      '종료(미완료: 사용자 중단)': true
+    OpenRequests/properties/stop_requested:
+      예: true
+      아니요: false
+    DispatchRecord/properties/succeeded:
+      SUCCESS: true
+      FAILURE: false
+      성공: true
+      실패: false
+    FrontendMessage/oneOf/0/properties/kind: *id001
+    FrontendMessage/oneOf/1/properties/kind: *id001
+    FrontendMessage/oneOf/2/properties/kind: *id001
+    OrchestratorOutput/properties/turn_kind:
+      처리 안 함: null
+  discriminator_keys:
+    CORRECTION_ACK: CORRECTION_ACK
+    KEPT_PREVIOUS: KEPT_PREVIOUS
+    RESUME: RESUME
+    SURVEY_STOPPED: SURVEY_STOPPED
+    GUIDE: GUIDE
+    DEFERRED: DEFERRED
+    RISK_SIGNAL: RISK_SIGNAL
+    USER_CALLED_STAFF: USER_CALLED_STAFF
+    위험 신호: RISK_SIGNAL
+    사람 요청: USER_CALLED_STAFF
+    위험 기준: RISK_RULE
+  nullable_tokens:
+  - 없음
+  - 그대로
+  purpose: 요구자료의 선언값을 wire 표현으로 읽는 표기 규칙이다. 입력에 대한 정답이나 업무 동작을 계산하지 않는다.

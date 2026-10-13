@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "kind": {
+      "$ref": "RequestKind.schema.json"
+    },
+    "guide_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "target_question_id": {
+      "anyOf": [
+        {
+          "$ref": "QuestionId.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_text": {
+      "type": "array",
+      "items": {
+        "$ref": "SourceText.schema.json"
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "kind",
+    "guide_id",
+    "target_question_id",
+    "source_text"
+  ],
+  "additionalProperties": false
+}

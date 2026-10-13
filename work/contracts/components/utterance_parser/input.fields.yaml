@@ -1,0 +1,169 @@
+definition: UtteranceParserInput
+nodes:
+  ? ''
+  : title: LoRA-A가 받는 값
+    meaning: 현재 발화, 직전 응답 지시, 대상 문항 정의, 문항 이름, 기존 답 후보와 안내 선택 기준을 전달하는 사실 추출 입력이다.
+    why: 세션 식별은 받지 않는다(모델이 쓸 데가 없다). 현재 문항은 기다리는 답과 그 대상 문항 정의로 받는다(재질문 답변·부분 응답에서 "지금 묻는 것"이 문항 하나가 아닐 수 있기 때문,
+      B2, C3).
+    case_refs:
+    - B9
+    - B5
+    - B6
+    evidence_status: requirement_reference
+  /properties/utterance:
+    title: 발화
+    meaning: 프론트 · 발화.
+    why: 항목을 뽑아낼 사용자 말 그 자체다.
+    case_refs:
+    - B1
+    - B9
+    evidence_status: requirement_reference
+  /properties/last_directive:
+    title: 직전 응답 지시
+    meaning: 기록 저장소 · 진행 기록.직전 응답 지시(턴 시작).
+    why: '"네", "두 병이요", "일주일에요" 같은 짧은 말이 무엇에 대한 답인지, 앞서 말한 값과 합칠지(B9).'
+    case_refs:
+    - B9
+    - C4a
+    - B5
+    evidence_status: requirement_reference
+  /properties/last_directive/anyOf/1:
+    title: ''
+    meaning: 없음
+    why: 아직 아무것도 묻지 않은 세션의 첫 발화다(A2, N1a 첫 입력이 인사). 이을 직전 지시가 없어 LoRA-A가 발화만으로 판단한다.
+    case_refs:
+    - A2
+    - N1a
+    evidence_status: requirement_reference
+  /properties/awaiting_questions:
+    title: 기다리는 답의 대상 문항 정의
+    meaning: 문항 정의 저장소 · 직전 응답 지시의 기다리는 답 대상 문항과 그 슬롯 전부. 없으면 빈 목록.
+    why: 답을 어느 슬롯에 넣을지, "네"가 그 슬롯의 값인지(B9).
+    case_refs:
+    - B9
+    - S4d
+    - B5
+    evidence_status: requirement_reference
+  /properties/question_names:
+    title: 전체 문항 이름 목록
+    meaning: 문항 정의 저장소 · 모든 문항의 ID·이름과 슬롯 ID.
+    why: 지금 묻지 않은 문항을 답하거나 고칠 수 있다(C1).
+    case_refs:
+    - B6
+    - C6a
+    - C7a
+    evidence_status: requirement_reference
+  /properties/question_names/items:
+    title: 문항 이름 항목
+    meaning: 문항 ID·이름과 슬롯 ID.
+    why: LoRA-A가 지금 묻지 않은 문항을 답하거나 고치는 말("아까 담배 답")을 알아본다(B6, C1).
+    case_refs:
+    - B6
+    - C7a
+    - C6a
+    evidence_status: requirement_reference
+  /properties/question_names/items/properties/question_id:
+    title: 문항 ID
+    meaning: 문항.
+    why: LoRA-A가 알아본 문항을 ID로 내야 뒤의 컴포넌트가 정의를 찾는다.
+    case_refs:
+    - B6
+    - C7a
+    evidence_status: requirement_reference
+  /properties/question_names/items/properties/name:
+    title: 이름
+    meaning: 문항 이름.
+    why: 사용자가 말한 "담배 답" 같은 표현을 문항 이름과 맞춰 어느 문항인지 알아본다.
+    case_refs:
+    - C7a
+    - C6a
+    evidence_status: requirement_reference
+  /properties/question_names/items/properties/slots:
+    title: 슬롯
+    meaning: 슬롯 ID들. 슬롯 ID가 곧 말로 부르는 이름이다(개비, 수축기).
+    why: '"혈압 위 숫자"처럼 슬롯을 가리키는 말을 알아본다(B6, C1).'
+    case_refs:
+    - B6
+    - C6a
+    evidence_status: requirement_reference
+  /properties/question_names/items/properties/slots/items:
+    title: ''
+    meaning: 해당 문항에 등록된 슬롯 식별자 하나.
+    why: 발화 해석기가 존재하는 답 칸을 대상으로 지정한다.
+    case_refs:
+    - B6
+    - C6a
+    evidence_status: requirement_reference
+  /properties/answered_slots:
+    title: 답한 슬롯 목록
+    meaning: 턴 시작의 확정 답에서 선택한 슬롯·값 후보 목록. current_value.answer만 포함하며 모름·거절은 포함하지 않는다. 후보 선정은 Orchestrator의 입력 조립
+      책임이며 전달된 후보의 구조는 이 계약을 따른다.
+    why: '"아까 두 병이라고 했는데" 같은 정정을 알아보려면 기존 답을 알아야 한다(C3).'
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/answered_slots/items:
+    title: 답한 슬롯 항목
+    meaning: 슬롯과 값.
+    why: 값마다 어느 슬롯 것인지 붙여야 "아까 그거"가 어느 답인지 맞춰 본다.
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/answered_slots/items/properties/slot:
+    title: 슬롯
+    meaning: 현재 확정된 답을 함께 제공하는 문항·반복 행·슬롯의 식별자.
+    why: 기존 답이 어느 칸 것인지 알아야 "아까 두 병"이 어느 답을 고치는 말인지 정한다.
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/answered_slots/items/properties/value:
+    title: 값
+    meaning: 현재값.
+    why: 말한 값이 기존 답과 다른지 보고 정정을 알아본다(C1).
+    case_refs:
+    - C1
+    evidence_status: requirement_reference
+  /properties/guide_list:
+    title: 안내 목록
+    meaning: 문항 정의 저장소 · 세션 설정.안내 목록의 ID와 고르는 기준. 문장은 넣지 않는다(고르기만 한다).
+    why: 물음이 어느 안내인지 고르고, 목록에 없으면 무관으로 낸다(E1~E4).
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_list/items:
+    title: 안내 항목 요약
+    meaning: ID와 기준.
+    why: 고르는 기준을 보고 고른 안내를 ID로 내려면 기준과 ID가 짝지어 있어야 한다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    - E3b
+    evidence_status: requirement_reference
+  /properties/guide_list/items/properties/guide_id:
+    title: 안내 항목 ID
+    meaning: 안내 선택 기준에 대응하는 등록 안내 항목의 ID. 모델이 guide_id로 선택할 수 있는 값이다.
+    why: LoRA-A는 안내를 ID로 내야 Plan이 그 문장을 찾는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    evidence_status: requirement_reference
+  /properties/guide_list/items/properties/selection_criterion:
+    title: 고르는 기준
+    meaning: 설명.
+    why: 사용자 물음이 이 안내에 해당하는지 판단할 기준이다.
+    case_refs:
+    - E3a
+    - E3b
+    evidence_status: requirement_reference
+  /properties/answered_slots/items/properties/value_metadata:
+    title: ''
+    meaning: 해당 값의 정밀도와 근거. 생략은 미수집이며 exact로 간주하지 않는다.
+    why: 기존 답을 해석 문맥에 넣을 때 확정·근사 여부와 근거를 잃지 않아야 한다.
+    case_refs:
+    - T1
+    - T2
+    evidence_status: requirement_reference

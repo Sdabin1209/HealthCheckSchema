@@ -1,0 +1,105 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "item_no": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "target": {
+      "anyOf": [
+        {
+          "$ref": "Target.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "value": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "source_text": {
+      "$ref": "SourceText.schema.json"
+    },
+    "intent": {
+      "$ref": "Intent.schema.json"
+    },
+    "progress_op": {
+      "anyOf": [
+        {
+          "$ref": "ProgressOp.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "guide_id": {
+      "anyOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "$ref": "TextSpan.schema.json"
+      }
+    }
+  },
+  "required": [
+    "item_no",
+    "target",
+    "value",
+    "source_text",
+    "intent",
+    "progress_op",
+    "guide_id"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "intent": {
+            "enum": [
+              "ANSWERED_INTENT"
+            ]
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "target": {
+            "not": {
+              "enum": [
+                null
+              ]
+            }
+          },
+          "value": {
+            "not": {
+              "enum": [
+                null
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}

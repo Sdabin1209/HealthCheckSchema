@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "changed_slots": {
+      "type": "array",
+      "items": {
+        "$ref": "ChangedSlot.schema.json"
+      }
+    },
+    "unknown_refused_records": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "SlotRef.schema.json"
+          },
+          "record": {
+            "oneOf": [
+              {
+                "const": "UNKNOWN_RECORD"
+              },
+              {
+                "const": "REFUSAL_RECORD"
+              }
+            ]
+          }
+        },
+        "required": [
+          "slot",
+          "record"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "created_pendings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "SlotRef.schema.json"
+          }
+        },
+        "required": [
+          "slot"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "resolved_pendings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "slot": {
+            "$ref": "SlotRef.schema.json"
+          },
+          "handling": {
+            "oneOf": [
+              {
+                "const": "ACCEPT"
+              },
+              {
+                "const": "DROP"
+              },
+              {
+                "const": "REPLACE"
+              }
+            ]
+          }
+        },
+        "required": [
+          "slot",
+          "handling"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "invalidated_questions": {
+      "type": "array",
+      "items": {
+        "$ref": "QuestionId.schema.json"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "changed_slots",
+    "unknown_refused_records",
+    "created_pendings",
+    "resolved_pendings",
+    "invalidated_questions"
+  ],
+  "additionalProperties": false
+}

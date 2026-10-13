@@ -1,0 +1,74 @@
+definition: NoticeKind
+nodes:
+  ? ''
+  : title: 알릴 것 종류
+    meaning: 행동과 함께 알리는 것의 종류.
+    why: 답을 고쳤다는 알림과 다음 질문을 한 턴에 함께 전달할 수 있어야 한다. 주된 행동은 하나로 유지하고 함께 전달할 알림은 별도 목록으로 표현한다.
+    case_refs:
+    - C1
+    - C4b
+    - E1a
+    - D3a
+    - G6a
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 정정 받았음
+    meaning: 값을 고쳤다
+    why: 답을 고쳤다고 알려야 사용자가 제대로 고쳐졌는지 확인한다.
+    case_refs:
+    - C1
+    - C2
+    - C4a
+    - H3a
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 기존 답 유지
+    meaning: 기존 답을 그대로 둔다
+    why: 고치지 않았다고 알려야 사용자가 기존 답이 남았다는 것을 안다.
+    case_refs:
+    - C4b
+    - C8a
+    - C9a
+    - C9c
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 재개
+    meaning: 다시 이어 간다
+    why: 멈췄던 문진을 다시 이어 간다고 알려야 사용자가 상황을 안다.
+    case_refs:
+    - G6a
+    - G6b
+    - H3d
+    - H3e
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 문진 중단
+    meaning: 여기서 그만둔다
+    why: 미완료로 끝날 때 다 받지 못했다는 것을 알리지 않으면 사용자는 문진이 정상으로 끝난 줄 안다.
+    case_refs:
+    - A4a
+    - A4b
+    - D5a
+    - F4
+    - G7
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 안내
+    meaning: 안내 문장
+    why: 안내 요청에 답하면서도 하던 질문을 이어 가야 하므로, 안내는 행동이 아니라 알릴 것으로 따로 담는다.
+    case_refs:
+    - E1a
+    - E2
+    - E3a
+    - N1b
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 미룸
+    meaning: 이 문항은 나중에 묻는다
+    why: 이 문항은 나중에 묻겠다고 알려야 사용자가 요청이 받아들여졌다는 것을 안다.
+    case_refs:
+    - D3a
+    - D3c
+    - N7a
+    - N7b
+    evidence_status: requirement_reference

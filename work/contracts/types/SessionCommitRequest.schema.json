@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "session_id": {
+      "$ref": "SessionId.schema.json"
+    },
+    "expected_revision": {
+      "$ref": "RevisionToken.schema.json"
+    },
+    "writes": {
+      "$ref": "TurnWriteSet.schema.json"
+    }
+  },
+  "required": [
+    "session_id",
+    "expected_revision",
+    "writes"
+  ],
+  "additionalProperties": false
+}

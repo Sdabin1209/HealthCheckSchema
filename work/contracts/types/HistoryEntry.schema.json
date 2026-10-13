@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "$ref": "Value.schema.json"
+    },
+    {
+      "type": "object",
+      "properties": {
+        "value": {
+          "$ref": "Value.schema.json"
+        },
+        "value_metadata": {
+          "$ref": "ValueMetadata.schema.json"
+        }
+      },
+      "required": [
+        "value",
+        "value_metadata"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

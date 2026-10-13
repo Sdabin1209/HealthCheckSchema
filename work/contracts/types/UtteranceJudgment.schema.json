@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "result": {
+      "$ref": "UtteranceResult.schema.json"
+    },
+    "valueless_correction_requests": {
+      "type": "array",
+      "items": {
+        "$ref": "ValuelessCorrection.schema.json"
+      }
+    },
+    "confirmation": {
+      "oneOf": [
+        {
+          "const": "YES"
+        },
+        {
+          "const": "NO"
+        },
+        {
+          "const": "NONE"
+        }
+      ]
+    },
+    "requests": {
+      "type": "array",
+      "items": {
+        "$ref": "Request.schema.json"
+      }
+    },
+    "risk_signal": {
+      "anyOf": [
+        {
+          "type": "object",
+          "properties": {
+            "evidence": {
+              "type": "array",
+              "items": {
+                "$ref": "SourceText.schema.json"
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "evidence"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "null"
+        }
+      ]
+    }
+  },
+  "required": [
+    "result",
+    "valueless_correction_requests",
+    "confirmation",
+    "requests",
+    "risk_signal"
+  ],
+  "additionalProperties": false
+}

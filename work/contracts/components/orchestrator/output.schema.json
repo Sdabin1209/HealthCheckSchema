@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "turn_kind": {
+      "anyOf": [
+        {
+          "$ref": "../../types/TurnKind.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "session_info_created": {
+      "anyOf": [
+        {
+          "$ref": "../../types/SessionInfo.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "log_entry": {
+      "anyOf": [
+        {
+          "$ref": "../../types/LogEntry.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "turn_failure_signal": {
+      "anyOf": [
+        {
+          "$ref": "../../types/TurnFailureSignal.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "intervention_result": {
+      "anyOf": [
+        {
+          "$ref": "../../types/InterventionResult.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "dispatch_called": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "turn_kind",
+    "session_info_created",
+    "log_entry",
+    "turn_failure_signal",
+    "intervention_result",
+    "dispatch_called"
+  ],
+  "additionalProperties": false
+}

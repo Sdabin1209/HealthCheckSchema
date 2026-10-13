@@ -1,0 +1,53 @@
+definition: CurrentValue
+nodes:
+  ? ''
+  : title: 현재값
+    meaning: '슬롯의 지금 기록: 답(값) / 모름 / 거절 / 없음.'
+    why: 모름·거절은 빈 칸과 다르다(다시 묻지 않거나 정책대로 묻는다, B7, B8).
+    case_refs:
+    - B1
+    - B7b
+    - C2
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 답
+    meaning: 확정한 답을 answer 필드로 감싼 기록. 모름·거절 표지와 구별되는 값 분기다.
+    why: 답을 받은 칸이다. 이 값이 결과로 넘어가고 같음·다름 비교의 기준이 된다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /oneOf/0/properties/answer:
+    title: 답
+    meaning: 이 슬롯에 확정된 답. 선택지 문자열 또는 수·단위 객체이며 상세 제약은 해당 문항 정의로 검사한다.
+    why: 답 값을 모름·거절·없음과 모양으로 구분한다.
+    case_refs:
+    - B1
+    - C1
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 모름
+    meaning: 모름.
+    why: 모른다고 한 칸이다. 빈 칸과 달리 정책대로만 다시 묻는다.
+    case_refs:
+    - B7b
+    - C8c
+    - X7
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 거절
+    meaning: 거절.
+    why: 답하지 않겠다고 한 칸이다. 빈 칸과 달리 정책대로만 다시 묻는다.
+    case_refs:
+    - B8b
+    - N8a
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 없음
+    meaning: 아직 없음.
+    why: 아직 답이 없는 칸은 열린 문항 계산에서 물을 대상이 된다.
+    case_refs:
+    - C2
+    - S1c
+    - S6a
+    evidence_status: requirement_reference

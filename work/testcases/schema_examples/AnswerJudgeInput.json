@@ -1,0 +1,103 @@
+{
+  "id": "shape-AnswerJudgeInput",
+  "contract": "AnswerJudgeInput",
+  "valid": true,
+  "why": "해당 경계의 중첩 필드와 값 모양을 정형 예시로 표현할 수 있는지 확인한다. 입력에 대한 업무 정답은 판단하지 않는다.",
+  "case_refs": [
+    "A2"
+  ],
+  "input": {
+    "items": [
+      {
+        "item_no": 0,
+        "target": {
+          "question_id": "Q1",
+          "repeat_key": "",
+          "slot_id": "상태"
+        },
+        "value": "안 피워요",
+        "source_text": "안 피워요",
+        "intent": "ANSWERED_INTENT",
+        "progress_op": null,
+        "guide_id": null
+      }
+    ],
+    "item_checks": [
+      {
+        "item_no": 0,
+        "standard_value": "안 피움",
+        "problems": [],
+        "mismatched_slots": [],
+        "vs_current": "NO_CURRENT",
+        "vs_pending": "NO_PENDING",
+        "risk_rule": null,
+        "prerequisite_unmet": false
+      }
+    ],
+    "missing_required_slots": [],
+    "utterance": "담배 안 피워요",
+    "risk_phrases": [
+      "숨이 안",
+      "가슴이 너무 아파",
+      "쓰러질 것 같",
+      "죽고 싶"
+    ],
+    "last_directive": null,
+    "pendings": [],
+    "affected_followups": [
+      {
+        "question_id": "Q1",
+        "followups": [
+          "Q2"
+        ]
+      },
+      {
+        "question_id": "Q2",
+        "followups": []
+      },
+      {
+        "question_id": "Q3a",
+        "followups": [
+          "Q3b",
+          "Q4"
+        ]
+      },
+      {
+        "question_id": "Q3b",
+        "followups": []
+      },
+      {
+        "question_id": "Q4",
+        "followups": []
+      },
+      {
+        "question_id": "Q5",
+        "followups": []
+      },
+      {
+        "question_id": "Q6",
+        "followups": []
+      },
+      {
+        "question_id": "Q7",
+        "followups": []
+      },
+      {
+        "question_id": "Q8",
+        "followups": []
+      },
+      {
+        "question_id": "Q3c",
+        "followups": []
+      }
+    ],
+    "question_slots": []
+  },
+  "origin": {
+    "kind": "illustrative_snapshot",
+    "case": "A2",
+    "turn": 1,
+    "data_pointer": "/trace/inputs/judge",
+    "correctness_claim": false
+  }
+}

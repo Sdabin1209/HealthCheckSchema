@@ -1,0 +1,19 @@
+definition: FillValue
+nodes:
+  ? ''
+  : title: 채울 값
+    meaning: 안내 문장에 넣을 계산 값의 종류.
+    why: '"얼마나 남았어요?"의 답은 고정 문장이 아니라 세션마다 계산해야 한다(E2).'
+    case_refs:
+    - E2
+    - R11
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 남은 문항 수
+    meaning: 이번 턴 반영 뒤에 열려 있는 문항의 수. 미룬 문항은 세고, 건너뛴 문항(모름 수용·거절 수용·시도 초과)과 선행 조건이
+      맞지 않는 문항은 세지 않는다
+    why: '"얼마나 남았어요?"의 답은 세션마다 다른 수라 문장에 고정할 수 없고 Plan이 계산해 넣어야 한다.'
+    case_refs:
+    - E2
+    - R11
+    evidence_status: requirement_reference

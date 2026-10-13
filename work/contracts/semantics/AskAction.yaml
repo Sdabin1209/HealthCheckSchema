@@ -1,0 +1,93 @@
+definition: AskAction
+nodes:
+  ? ''
+  : title: 묻기 행동
+    meaning: 사용자에게 답을 기다리는 행동.
+    why: 기다리는 답에는 이 행동만 들어갈 수 있다. 다음 턴의 짧은 답("네", "두 병이요")이 무엇에 대한 답인지 알려면 묻는 행동이어야 하기 때문이다(B5).
+    case_refs:
+    - D2
+    - G1
+    - H3e
+    - R6
+    evidence_status: requirement_reference
+  /oneOf/0:
+    title: 다음 문항 묻기
+    meaning: 열린 문항을 묻는다
+    why: 열린 문항을 차례로 물어 문진을 진행한다.
+    case_refs:
+    - A1
+    - D2
+    - G1
+    evidence_status: requirement_reference
+  /oneOf/1:
+    title: 빠진 슬롯 되묻기
+    meaning: 같은 문항의 빠진 필수 슬롯만 묻는다
+    why: 같은 문항에서 받은 값은 다시 묻지 않고 빠진 칸만 묻는다.
+    case_refs:
+    - B2
+    - B3b
+    - E1c
+    evidence_status: requirement_reference
+  /oneOf/2:
+    title: 구체화 요청
+    meaning: 애매한 값을 짚어 다시 묻는다
+    why: 애매한 값을 사용자가 한 말 그대로 짚어 하나로 다시 말하게 한다.
+    case_refs:
+    - B5
+    - B3a
+    - B10
+    evidence_status: requirement_reference
+  /oneOf/3:
+    title: 확인 대기 확인
+    meaning: 기존 답과 새 답 중 어느 것이 맞는지 묻는다
+    why: 표지 없이 다른 값을 말했을 때 잘못 들었을 수 있으므로 기존 답과 새 답 중 어느 것이 맞는지 확인한다.
+    case_refs:
+    - H3e
+    - R7
+    - C4a
+    evidence_status: requirement_reference
+  /oneOf/4:
+    title: 모름 뒤 재질문
+    meaning: 모름에 한 번 더 묻는다
+    why: 모름에 한 번 더 기회를 주는 문항이 있다(정책).
+    case_refs:
+    - B7a
+    - B7b
+    - S8i
+    evidence_status: requirement_reference
+  /oneOf/5:
+    title: 거절 시 설명 후 재질문
+    meaning: 왜 묻는지 설명하고 다시 묻는다
+    why: 거절한 사람에게 왜 묻는지 설명하면 답할 수 있다(정책).
+    case_refs:
+    - S3c
+    - B8a
+    - B8b
+    evidence_status: requirement_reference
+  /oneOf/6:
+    title: 정정 구체화
+    meaning: 무엇을, 어떤 값으로 고칠지 묻는다
+    why: 값 없이 고치겠다는 말을 버리면 사용자의 정정 의사가 사라진다(C5, C6)
+    case_refs:
+    - R6
+    - X5
+    - X3
+    evidence_status: requirement_reference
+  /oneOf/7:
+    title: 종료 확인
+    meaning: 마칠지 묻는다
+    why: 마친 뒤에는 고칠 수 없으므로 한 번 묻는다(H1, A6)
+    case_refs:
+    - H3d
+    - N12
+    - H1
+    evidence_status: requirement_reference
+  /oneOf/8:
+    title: 중단 확인
+    meaning: 정말 그만둘지 묻는다
+    why: 잘못 알아들은 "그만"으로 문진이 끝나지 않게(D4)
+    case_refs:
+    - G8b
+    - N9
+    - S5a
+    evidence_status: requirement_reference

@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "case": "T10",
+  "case_sha256": "48147e180ae667c36fd58b73cb69357c27cfaf68ed00d847cbd96d2d5d45d862",
+  "scope": "static_schema_representation",
+  "component_execution": false,
+  "fixture_provenance": "Authored static information-preservation fixture, not an execution result.",
+  "specimens": [
+    {
+      "id": "input",
+      "turn": 1,
+      "contract": "FrontendMessage",
+      "role": "input",
+      "data": {
+        "session_id": "S-TEST",
+        "kind": "UTTERANCE",
+        "utterance": "결과 미확인 예시"
+      }
+    },
+    {
+      "id": "out0",
+      "turn": 1,
+      "contract": "SessionCommitResult",
+      "role": "representation",
+      "data": {
+        "session_id": "S-TEST",
+        "status": "DB_ERROR",
+        "write_outcome": "UNKNOWN",
+        "revision": null,
+        "detail": "저장 반영 여부를 확인하지 못한 형태 예시"
+      }
+    }
+  ],
+  "requirements": [
+    {
+      "source_pointer": "/input/발화",
+      "source_value": "결과 미확인 예시",
+      "kind": "literal",
+      "specimen": "input",
+      "data_pointer": "/utterance",
+      "definition": "FrontendMessage",
+      "schema_pointer": "/oneOf/1/properties/utterance",
+      "encoded_value": "결과 미확인 예시",
+      "meaning": "선언한 원문의 고정 예시다. 실제 모델을 실행하지 않는다."
+    },
+    {
+      "source_pointer": "/expect/저장결과",
+      "source_value": {
+        "session_id": "S-TEST",
+        "status": "DB_ERROR",
+        "write_outcome": "UNKNOWN",
+        "revision": null,
+        "detail": "저장 반영 여부를 확인하지 못한 형태 예시"
+      },
+      "kind": "literal",
+      "specimen": "out0",
+      "data_pointer": "",
+      "definition": "SessionCommitResult",
+      "schema_pointer": "",
+      "encoded_value": {
+        "session_id": "S-TEST",
+        "status": "DB_ERROR",
+        "write_outcome": "UNKNOWN",
+        "revision": null,
+        "detail": "저장 반영 여부를 확인하지 못한 형태 예시"
+      },
+      "meaning": "저장 오류와 반영 여부 미확인의 구분에 필요한 정보를 완전한 정적 자료에 보존한다."
+    }
+  ]
+}
